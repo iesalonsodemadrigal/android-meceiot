@@ -89,7 +89,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:textSize="16sp"
                 android:text="Login"
-                android:enabled="false"
                 android:textStyle="bold"
                 />
 

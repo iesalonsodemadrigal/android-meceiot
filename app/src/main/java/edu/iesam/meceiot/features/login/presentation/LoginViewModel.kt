@@ -16,9 +16,16 @@ class LoginViewModel(
     private val _uiState = MutableLiveData<LoginUiState>()
     val uiState: LiveData<LoginUiState> = _uiState
 
-    fun postLoginCredentials() {
+    fun postLoginCredentials(login: LoginCredentials) {
         viewModelScope.launch {
-            //TODO()
+            _uiState.value = LoginUiState(isLoading = true)
+            try {
+                postLoginCredentialsUseCase.invoke(login)
+                _uiState.value = LoginUiState(isLoading = false, loginCredentials = login)
+            } catch (e: Exception) {
+                //El tipo de error es un placeholder
+                _uiState.value = LoginUiState(isLoading = false, errorApp = ErrorApp.UnknownErrorApp)
+            }
         }
     }
 

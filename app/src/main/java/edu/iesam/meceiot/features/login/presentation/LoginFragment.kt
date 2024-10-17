@@ -68,6 +68,7 @@ class LoginFragment : Fragment() {
             val loginCredentials = LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
             viewModel.postLoginCredentials(loginCredentials)
 
+            //DEBUG: muestra el los credenciales por pantalla
             Toast.makeText(
                 requireContext(),
                 "$loginCredentials",

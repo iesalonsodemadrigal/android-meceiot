@@ -20,12 +20,15 @@ class LoginViewModel(
 
     fun postLoginCredentials(login: LoginCredentials) {
         viewModelScope.launch {
-            _uiState.value = LoginUiState(isLoading = true)
             try {
                 val response: Response<LoginResponse> = postLoginCredentialsUseCase.invoke(login)
-                _uiState.value = LoginUiState(isLoading = false, loginCredentials = login, loginResponse = response.body())
+                if (response.isSuccessful) {
+                    _uiState.value = LoginUiState(isLoading = false, loginCredentials = login, loginResponse = response.body())
+                } else {
+                    //El error que devuelve es un placeholder
+                    _uiState.value = LoginUiState(isLoading = false, errorApp = ErrorApp.UnknownErrorApp)
+                }
             } catch (e: Exception) {
-                //El tipo de error es un placeholder
                 _uiState.value = LoginUiState(isLoading = false, errorApp = ErrorApp.UnknownErrorApp)
             }
         }

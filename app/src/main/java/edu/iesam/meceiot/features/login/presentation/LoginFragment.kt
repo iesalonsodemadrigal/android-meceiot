@@ -11,13 +11,7 @@ import com.example.android_meceiot.R
 class LoginFragment : Fragment() {
 
     private lateinit var viewModel: LoginViewModel
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    private lateinit var loginFactory: LoginFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,4 +19,6 @@ class LoginFragment : Fragment() {
     ): View {
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
+
+
 }

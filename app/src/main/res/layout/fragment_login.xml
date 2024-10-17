@@ -23,17 +23,17 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+
             android:layout_width="300dp"
             android:layout_margin="16dp"
             android:layout_height="wrap_content">
 
             <!-- Login Form -->
             <TextView
-                app:constraintTop_toTopOf="@+id/loginCard"
+                app:layout_constraintTop_toTopOf="parent"
                 android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="Login"
                 android:textSize="24sp"

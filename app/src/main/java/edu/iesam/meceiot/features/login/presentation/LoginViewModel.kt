@@ -22,11 +22,13 @@ class LoginViewModel(
         }
     }
 
+    data class LoginUiState (
+        val isLoading: Boolean = false,
+        val errorApp: ErrorApp? = null,
+        val loginCredentials: LoginCredentials? = null
+
+    )
+
 }
 
-data class LoginUiState (
-    val isLoading: Boolean = false,
-    val errorApp: ErrorApp? = null,
-    val loginCredentials: LoginCredentials? = null
 
-)

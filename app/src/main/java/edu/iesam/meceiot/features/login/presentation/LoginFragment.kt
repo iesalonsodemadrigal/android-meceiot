@@ -53,7 +53,11 @@ class LoginFragment : Fragment() {
             }
 
             uiState.loginResponse?.let { loginResponse ->
-                Log.d("@dev", "Login response: $loginResponse")
+                Toast.makeText(
+                    requireContext(),
+                    "$loginResponse",
+                    Toast.LENGTH_LONG,
+                ).show()
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, loginObserver)
@@ -72,7 +76,7 @@ class LoginFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 "$loginCredentials",
-                Toast.LENGTH_LONG,
+                Toast.LENGTH_LONG
             ).show()
         }
     }

@@ -23,7 +23,7 @@ class LoginViewModel(
             try {
                 val response: Response<LoginResponse> = postLoginCredentialsUseCase.invoke(login)
                 if (response.isSuccessful) {
-                    _uiState.value = LoginUiState(isLoading = false, loginCredentials = login, loginResponse = response.body())
+                    _uiState.value = LoginUiState(isLoading = false, loginCredentials = login, loginResponse = response)
                 } else {
                     //El error que devuelve es un placeholder
                     _uiState.value = LoginUiState(isLoading = false, errorApp = ErrorApp.UnknownErrorApp)

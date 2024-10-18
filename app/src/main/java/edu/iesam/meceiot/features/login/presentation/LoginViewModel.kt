@@ -27,7 +27,7 @@ class LoginViewModel(
                 _uiState.postValue(
                     LoginUiState(
                         isLoading = false,
-                        loginCredentials = login,
+                        loginCredentials = login, //Solo para pruebas
                         loginResponse = response
                     )
                 )

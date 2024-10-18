@@ -43,6 +43,7 @@ class LoginFragment : Fragment() {
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
             uiState.loginCredentials?.let { loginCredentials ->
+                //DEBUG: muestra el los credenciales por pantalla
                 Log.d("@dev", "Login credentials: $loginCredentials")
                 Toast.makeText(
                     requireContext(),
@@ -63,10 +64,11 @@ class LoginFragment : Fragment() {
             }
 
             uiState.loginResponse?.let { loginResponse ->
+                //DEBUG: muestra el response por pantalla
                 Log.d("@dev", "Login response: $loginResponse")
                 Toast.makeText(
                     requireContext(),
-                    "$loginResponse",
+                    "${loginResponse.code()}_${loginResponse.message()}",
                     Toast.LENGTH_LONG,
                 ).show()
             }
@@ -83,13 +85,6 @@ class LoginFragment : Fragment() {
             val loginCredentials =
                 LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
             viewModel.postLoginCredentials(loginCredentials)
-
-            //DEBUG: muestra el los credenciales por pantalla
-            /*Toast.makeText(
-                requireContext(),
-                "$loginCredentials",
-                Toast.LENGTH_LONG
-            ).show()*/
         }
     }
 

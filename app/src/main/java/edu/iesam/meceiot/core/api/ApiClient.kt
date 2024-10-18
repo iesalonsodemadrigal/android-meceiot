@@ -4,9 +4,11 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+private const val BASE_URL_API = "https://meceiot.usal.es/"
+
 class ApiClient {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://meceiot.usal.es/")
+        .baseUrl(BASE_URL_API)
         .client(
             OkHttpClient.Builder()
                 .addInterceptor(AuthInterceptor("placeHolder", "placeHolder"))

@@ -28,7 +28,7 @@ class LoginViewModel(
                     LoginUiState(
                         isLoading = false,
                         loginCredentials = login,
-                        loginResponse = response.body()
+                        loginResponse = response
                     )
                 )
             } else {
@@ -37,19 +37,19 @@ class LoginViewModel(
                     LoginUiState(
                         isLoading = false,
                         errorApp = ErrorApp.UnknownErrorApp,
-                        loginResponse = response.body()
+                        loginResponse = response,
+                        loginCredentials = login
                     )
                 )
             }
-
         }
     }
 
     data class LoginUiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val loginCredentials: LoginCredentials? = null,
-        val loginResponse: LoginResponse? = null
+        val loginCredentials: LoginCredentials? = null, //Solo para pruebas
+        val loginResponse: Response<LoginResponse>? = null
 
     )
 

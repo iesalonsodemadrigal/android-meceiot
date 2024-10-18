@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import edu.iesam.meceiot.features.login.domain.LoginResponse
-import edu.iesam.meceiot.features.login.domain.PostLoginCredentialsUseCase
+import edu.iesam.meceiot.features.login.domain.PostLoginUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class LoginViewModel(
-    private val postLoginCredentialsUseCase: PostLoginCredentialsUseCase
+    private val postLoginCredentialsUseCase: PostLoginUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<LoginUiState>()

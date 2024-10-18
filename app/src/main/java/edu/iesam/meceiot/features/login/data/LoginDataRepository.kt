@@ -11,6 +11,5 @@ class LoginDataRepository(
 ) : LoginRepository {
     override suspend fun login(login: LoginCredentials): Response<LoginResponse> {
         return remote.login(login)
-
     }
 }

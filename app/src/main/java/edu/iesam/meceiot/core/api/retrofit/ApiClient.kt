@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.core.api
+package edu.iesam.meceiot.core.api.retrofit
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -21,5 +21,3 @@ class ApiClient {
 
 
 }
-
-

@@ -1,6 +1,6 @@
 package edu.iesam.meceiot.features.login.data.remote
 
-import edu.iesam.meceiot.core.api.ApiClient
+import edu.iesam.meceiot.core.api.retrofit.ApiClient
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import edu.iesam.meceiot.features.login.domain.LoginResponse
 import retrofit2.Response

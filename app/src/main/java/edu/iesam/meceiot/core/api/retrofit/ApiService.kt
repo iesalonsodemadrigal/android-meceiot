@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.core.api
+package edu.iesam.meceiot.core.api.retrofit
 
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import edu.iesam.meceiot.features.login.domain.LoginResponse

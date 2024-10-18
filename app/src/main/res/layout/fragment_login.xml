@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@color/gray"
+    android:background="@drawable/shape"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="edu.iesam.meceiot.MainActivity">
 
     <!-- Login card -->
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/loginCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Login"
+                android:text="@string/login"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -48,22 +48,13 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:hint="Username"
+                android:hint="@string/username"
                 android:inputType="text" />
 
-            <TextView
-                app:layout_constraintTop_toBottomOf="@+id/username"
-                android:id="@+id/passwordText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Password"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+
 
             <EditText
-                app:layout_constraintTop_toBottomOf="@+id/passwordText"
+                app:layout_constraintTop_toBottomOf="@+id/username"
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,7 +62,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword" />
 
             <!-- Login button with states: deactivated(default) or activated-->
@@ -88,19 +79,17 @@
                 android:layout_marginBottom="12dp"
                 android:layout_marginHorizontal="16dp"
                 android:textSize="16sp"
-                android:text="Login"
+                android:text="@string/login"
                 android:textStyle="bold"
+
                 />
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 

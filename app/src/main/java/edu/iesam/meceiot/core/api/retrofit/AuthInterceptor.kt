@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.core.api
+package edu.iesam.meceiot.core.api.retrofit
 
 import okhttp3.Credentials
 import okhttp3.Interceptor

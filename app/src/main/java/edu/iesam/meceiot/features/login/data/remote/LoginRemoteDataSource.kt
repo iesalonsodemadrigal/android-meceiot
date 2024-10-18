@@ -8,7 +8,7 @@ import retrofit2.Response
 class LoginRemoteDataSource {
     private val apiClient = ApiClient()
 
-    suspend fun postLogin(login: LoginCredentials): Response<LoginResponse> {
-        return apiClient.apiService.postLogin(login)
+    suspend fun login(login: LoginCredentials): Response<LoginResponse> {
+        return apiClient.apiService.login(login)
     }
 }

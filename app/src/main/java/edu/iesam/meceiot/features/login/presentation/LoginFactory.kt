@@ -5,7 +5,7 @@ import edu.iesam.meceiot.features.login.data.LoginDataRepository
 import edu.iesam.meceiot.features.login.data.remote.LoginRemoteDataSource
 import edu.iesam.meceiot.features.login.domain.PostLoginCredentialsUseCase
 
-class LoginFactory(context: Context){
+class LoginFactory(context: Context) {
     private val loginRemoteDataSource = LoginRemoteDataSource()
     private val loginDataRepository = LoginDataRepository(loginRemoteDataSource)
     private val getLoginCredentialsUseCase = PostLoginCredentialsUseCase(loginDataRepository)

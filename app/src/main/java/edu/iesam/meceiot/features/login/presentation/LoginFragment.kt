@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.android_meceiot.R
+import com.example.android_meceiot.databinding.FragmentLoginBinding
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 
 class LoginFragment : Fragment() {
@@ -18,11 +19,15 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
     private lateinit var loginFactory: LoginFactory
 
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,14 +36,19 @@ class LoginFragment : Fragment() {
         viewModel = loginFactory.buildViewModel()
 
         setupObservers()
-        gatherLoginCredentials()
+        setLoginForm()
 
     }
 
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
-            uiState.loginCredentials?.let { login ->
-                //Permitir usar el boton de login
+            uiState.loginCredentials?.let { loginCredentials ->
+                Log.d("@dev", "Login credentials: $loginCredentials")
+                Toast.makeText(
+                    requireContext(),
+                    "$loginCredentials",
+                    Toast.LENGTH_LONG,
+                ).show()
             }
             uiState.errorApp?.let {
                 //Pintar el error
@@ -53,6 +63,7 @@ class LoginFragment : Fragment() {
             }
 
             uiState.loginResponse?.let { loginResponse ->
+                Log.d("@dev", "Login response: $loginResponse")
                 Toast.makeText(
                     requireContext(),
                     "$loginResponse",
@@ -63,21 +74,22 @@ class LoginFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, loginObserver)
     }
 
-    private fun gatherLoginCredentials() {
+    private fun setLoginForm() {
         val usernameEditText: EditText = requireView().findViewById(R.id.username)
         val passwordEditText: EditText = requireView().findViewById(R.id.password)
         val loginButton: Button = requireView().findViewById(R.id.loginButton)
 
         loginButton.setOnClickListener {
-            val loginCredentials = LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
+            val loginCredentials =
+                LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
             viewModel.postLoginCredentials(loginCredentials)
 
             //DEBUG: muestra el los credenciales por pantalla
-            Toast.makeText(
+            /*Toast.makeText(
                 requireContext(),
                 "$loginCredentials",
                 Toast.LENGTH_LONG
-            ).show()
+            ).show()*/
         }
     }
 

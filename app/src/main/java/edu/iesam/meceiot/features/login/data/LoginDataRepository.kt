@@ -8,9 +8,9 @@ import retrofit2.Response
 
 class LoginDataRepository(
     private val remote: LoginRemoteDataSource
-): LoginRepository {
-    override suspend fun postLogin(login: LoginCredentials):Response<LoginResponse> {
-        return remote.postLogin(login)
+) : LoginRepository {
+    override suspend fun login(login: LoginCredentials): Response<LoginResponse> {
+        return remote.login(login)
 
     }
 }

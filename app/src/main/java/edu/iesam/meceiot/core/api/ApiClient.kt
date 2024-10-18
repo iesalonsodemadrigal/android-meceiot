@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://miceiot.iesalonsodemadrigal.es/api/v1/")
+        .baseUrl("https://meceiot.usal.es/")
         .client(
             OkHttpClient.Builder()
                 .addInterceptor(AuthInterceptor("placeHolder", "placeHolder"))
@@ -16,7 +16,6 @@ class ApiClient {
         .build()
 
     val apiService: ApiService = retrofit.create(ApiService::class.java)
-
 
 
 }

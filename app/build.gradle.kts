@@ -49,14 +49,20 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    testImplementation(libs.junit)
+
+    //Testing
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
 
     //Retrofit
-    implementation (libs.retrofit)
+    implementation(libs.retrofit)
     //Gson Converter
-    implementation (libs.converter.gson.v2110)
+    implementation(libs.converter.gson.v2110)
     // Navigation
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
@@ -64,6 +70,4 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.fragment.ktx)
-    //Testing
-    testImplementation (libs.mockito.core)
 }

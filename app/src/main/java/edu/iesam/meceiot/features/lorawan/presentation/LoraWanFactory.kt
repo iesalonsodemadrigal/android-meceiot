@@ -11,7 +11,7 @@ class LoraWanFactory(private val context: Context) {
     private val loraWanDataRepository = LoraWanDataRepository(loraWanMockRemoteDataSource)
     private val getInfoLoraWanUseCase = GetInfoLoraWanUseCase(loraWanDataRepository)
 
-    fun provideGetInfoLoraWan(): GetInfoLoraWanUseCase {
-        return getInfoLoraWanUseCase
+    fun provideGetInfoLoraWan(): LoraWanViewModel {
+        return LoraWanViewModel(getInfoLoraWanUseCase)
     }
 }

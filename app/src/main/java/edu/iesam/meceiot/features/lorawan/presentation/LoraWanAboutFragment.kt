@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.example.android_meceiot.databinding.FragmentAboutLorawanBinding
 
 class LoraWanAboutFragment: Fragment() {
     private lateinit var loraWanFactory: LoraWanFactory
     private lateinit var loraWanViewModel: LoraWanViewModel
 
-    private var _binding: FragmentLoraWanBinding? = null
+    private var _binding: FragmentAboutLorawanBinding? = null
     private val binding get() = _binding!!
 
 
@@ -20,7 +21,7 @@ class LoraWanAboutFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoraWanBinding.inflate(inflater, container, false)
+        _binding = FragmentAboutLorawanBinding.inflate(inflater, container, false)
         //setupView()
         return binding.root
     }
@@ -31,7 +32,7 @@ class LoraWanAboutFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loraWanFactory = LoraWanFactory(requireContext())
         loraWanViewModel = loraWanFactory.provideGetInfoLoraWan()
-
+        //setupObserver()
         loraWanViewModel.viewCreated()
     }
 }

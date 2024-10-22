@@ -14,6 +14,7 @@ gson = "2.11.0"
 viewModelScope = "2.8.6"
 glide = "4.16.0"
 navigationComponent = "2.8.3"
+mockk = "1.13.13"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,7 @@ gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref =
 viewmodel-scope = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModelScope" }
 nav-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationComponent" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

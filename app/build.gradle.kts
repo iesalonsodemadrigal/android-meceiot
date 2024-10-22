@@ -46,12 +46,18 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    testImplementation(libs.mockk)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     implementation(libs.coil.compose)
+    
     api(libs.nav.fragment.ktx)
+
     implementation(libs.glide)
+
     implementation(libs.gson.serializer)
     implementation(libs.viewmodel.scope)
 }

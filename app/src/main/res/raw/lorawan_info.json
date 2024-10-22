@@ -1,17 +1,27 @@
 [
   {
-    "id": "1",
-    "title": "titulo1",
-    "description": "description1"
+    "id": 1,
+    "title": "¿Qué es LoRaWAN?",
+    "description": "LoRaWAN (Long Range Wide Area Network) es un protocolo de red diseñado para conectar dispositivos de bajo consumo a largas distancias, muy utilizado en aplicaciones de Internet de las Cosas (IoT)."
   },
   {
-    "id": "2",
-    "title": "titulo2",
-    "description": "descripcion2"
+    "id": 2,
+    "title": "Características",
+    "description": "LoRaWAN se caracteriza por su bajo consumo energético, su capacidad de transmisión a larga distancia (hasta 15 km en áreas rurales) y su operación en bandas de frecuencia no licenciadas."
   },
   {
-    "id": "3",
-    "title": "titulo3",
-    "description": "description3"
+    "id": 3,
+    "title": "Frecuencia",
+    "description": "LoRaWAN utiliza frecuencias sin licencia: 169 MHz, 433 MHz (Asia), 868 MHz (Europa) y 915 MHz (Norteamérica) para la comunicación entre nodos y puertas de enlace."
+  },
+  {
+    "id": 4,
+    "title": "Bajo consumo",
+    "description": "Los dispositivos LoRaWAN solo se activan para transmitir datos, permaneciendo en un estado de reposo profundo, lo que optimiza el rendimiento de las baterías, permitiendo una duración de 2 a 5 años."
+  },
+  {
+    "id": 5,
+    "title": "Topología",
+    "description": "La red LoRaWAN opera con una topología de 'estrella de estrellas', donde los nodos finales se comunican con puertas de enlace, que a su vez se conectan a un servidor central a través de redes IP."
   }
 ]

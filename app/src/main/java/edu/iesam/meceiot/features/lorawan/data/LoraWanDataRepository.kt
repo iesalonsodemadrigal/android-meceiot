@@ -9,6 +9,6 @@ class LoraWanDataRepository(private val loraWanMockRemoteDataSource: LoraWanMock
 
 
     override suspend fun getInfoLoraWan(): List<LoraWanInfo> {
-        TODO("Not yet implemented")
+        return loraWanMockRemoteDataSource.getInfoLoraWan()
     }
 }

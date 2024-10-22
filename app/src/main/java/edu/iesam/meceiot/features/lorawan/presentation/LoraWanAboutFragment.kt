@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import coil3.load
 import com.example.android_meceiot.databinding.FragmentAboutLorawanBinding
+import edu.iesam.meceiot.core.extensions.loadUrl
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 
 class LoraWanAboutFragment : Fragment() {
@@ -56,22 +56,26 @@ class LoraWanAboutFragment : Fragment() {
     }
 
     private fun bindData(loraWanInfo: List<LoraWanInfo>) {
-        val url = "https://n9.cl/nb8pg"
+        val url = "https://alfaiot.com/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png"
+        //una foto de prueba
 
-        binding.titleInfo1.text
-        binding.imageInfo1.load(url)
-        binding.description4.text
+        // Asegurarse de que el tamaño de la lista sea el esperado antes de asignar
+        if (loraWanInfo.size >= 4) {
+            binding.titleInfo1.text = loraWanInfo[0].title
+            binding.imageInfo1.loadUrl(url)
+            binding.description1.text = loraWanInfo[0].description
 
-        binding.titleInfo2.text
-        binding.imageInfo2.load(url)
-        binding.description2.text
+            binding.titleInfo2.text = loraWanInfo[1].title
+            binding.imageInfo2.loadUrl(url)
+            binding.description2.text = loraWanInfo[1].description
 
-        binding.titleInfo3.text
-        binding.imageInfo3.load(url)
-        binding.description3.text
+            binding.titleInfo3.text = loraWanInfo[2].title
+            binding.imageInfo3.loadUrl(url)
+            binding.description3.text = loraWanInfo[2].description
 
-        binding.titleInfo4.text
-        binding.imageInfo4.load(url)
-        binding.description4.text
+            binding.titleInfo4.text = loraWanInfo[3].title
+            binding.imageInfo4.loadUrl(url)
+            binding.description4.text = loraWanInfo[3].description
+        }
     }
 }

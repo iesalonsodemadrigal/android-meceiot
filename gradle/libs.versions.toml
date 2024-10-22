@@ -13,6 +13,7 @@ constraintlayout = "2.1.4"
 gson = "2.11.0"
 viewModelScope = "2.8.6"
 glide = "4.16.0"
+navigationComponent = "2.8.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,8 +27,10 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 viewmodel-scope = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModelScope" }
+nav-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationComponent" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+navigation_safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationComponent" }

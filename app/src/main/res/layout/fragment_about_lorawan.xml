@@ -51,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="Title info 2"
                 android:textSize="30sp"
+                android:layout_marginTop="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/description_1" />
@@ -81,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Title info 3"
                 android:textSize="30sp"
+                android:layout_marginTop="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/description_2" />
@@ -111,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:text="Title info 4"
                 android:textSize="30sp"
+                android:layout_marginTop="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/description_3" />

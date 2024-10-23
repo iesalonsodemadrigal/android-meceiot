@@ -9,7 +9,7 @@ import edu.iesam.meceiot.features.developer.domain.models.Developer
 import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import perfetto.protos.UiState
+
 
 class DeveloperViewModel(private val getDevelopersUseCase: GetDevelopersUseCase) : ViewModel() {
 

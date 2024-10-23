@@ -1,0 +1,40 @@
+{
+  "developers": [
+    {
+      "id": "dev001",
+      "name": "Jose Maria Perez Ramos",
+      "description": "Director del proyecto",
+      "image": "https://avatars.githubusercontent.com/u/93087250?v=4"
+    },
+    {
+      "id": "dev002",
+      "name": "Derek López García",
+      "description": "Desarrollador Android",
+      "image": "https://avatars.githubusercontent.com/u/115727176?v=4"
+    },
+    {
+      "id": "dev003",
+      "name": "Borja Jiménez Garcinuño",
+      "description": "Desarrollador Android",
+      "image": "https://avatars.githubusercontent.com/u/115727186?s=96&v=4"
+    },
+    {
+      "id": "dev004",
+      "name": "Fouad Aharchi Aharchi",
+      "description": "Desarrollador Android",
+      "image": "https://avatars.githubusercontent.com/u/146753676?v=4"
+    },
+    {
+      "id": "dev005",
+      "name": "Darnell Jose Livent Gonzalez",
+      "description": "Desarrollador Android",
+      "image": "https://example.com/profile/darnell_gonzalez.jpg"
+    },
+    {
+      "id": "dev006",
+      "name": "Miguel Álvarez Rubio",
+      "description": "Desarrollador Android",
+      "image": "https://avatars.githubusercontent.com/u/114093648?v=4"
+    }
+  ]
+}

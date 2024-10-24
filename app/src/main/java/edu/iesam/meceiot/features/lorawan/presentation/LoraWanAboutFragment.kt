@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_meceiot.databinding.FragmentAboutLorawanBinding
-import edu.iesam.meceiot.core.extensions.loadUrl
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
+import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
 
 class LoraWanAboutFragment : Fragment() {
     private lateinit var loraWanFactory: LoraWanFactory
@@ -17,6 +18,8 @@ class LoraWanAboutFragment : Fragment() {
     private var _binding: FragmentAboutLorawanBinding? = null
     private val binding get() = _binding!!
 
+    private val loraWanAdapter = LoraWanAdapter()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +27,7 @@ class LoraWanAboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAboutLorawanBinding.inflate(inflater, container, false)
+        setupView()
         return binding.root
     }
 
@@ -55,27 +59,22 @@ class LoraWanAboutFragment : Fragment() {
         loraWanViewModel.uiState.observe(viewLifecycleOwner, loraWanObserver)
     }
 
-    private fun bindData(loraWanInfo: List<LoraWanInfo>) {
-        val url = "https://alfaiot.com/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png"
-        //una foto de prueba
-
-        // Asegurarse de que el tamaño de la lista sea el esperado antes de asignar
-        if (loraWanInfo.size >= 4) {
-            binding.titleInfo1.text = loraWanInfo[0].title
-            binding.imageInfo1.loadUrl(url)
-            binding.description1.text = loraWanInfo[0].description
-
-            binding.titleInfo2.text = loraWanInfo[1].title
-            binding.imageInfo2.loadUrl(url)
-            binding.description2.text = loraWanInfo[1].description
-
-            binding.titleInfo3.text = loraWanInfo[2].title
-            binding.imageInfo3.loadUrl(url)
-            binding.description3.text = loraWanInfo[2].description
-
-            binding.titleInfo4.text = loraWanInfo[3].title
-            binding.imageInfo4.loadUrl(url)
-            binding.description4.text = loraWanInfo[3].description
+    private fun setupView() {
+        binding.apply {
+            recyclerViewLorawanInfo.layoutManager = LinearLayoutManager(
+                context, LinearLayoutManager.VERTICAL, false
+            )
+            recyclerViewLorawanInfo.adapter = loraWanAdapter
         }
+    }
+
+
+    private fun bindData(loraWanInfo: List<LoraWanInfo>) {
+        loraWanAdapter.submitList(loraWanInfo)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

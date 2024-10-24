@@ -50,6 +50,7 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit)
+    testImplementation(libs.test.coroutines)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 

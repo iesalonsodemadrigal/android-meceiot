@@ -7,23 +7,13 @@
     android:layout_height="match_parent"
     tools:context="edu.iesam.meceiot.MainActivity">
 
-    <ScrollView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/lorawan_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/lorawan_container"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:defaultNavHost="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:navGraph="@navigation/nav_graph" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:navGraph="@navigation/nav_graph" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ glide = "4.16.0"
 navigationComponent = "2.8.3"
 mockk = "1.13.13"
 junitJupiter = "5.10.2"
+test-coroutines = "1.6.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,7 +34,7 @@ nav-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
-
+test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "test-coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

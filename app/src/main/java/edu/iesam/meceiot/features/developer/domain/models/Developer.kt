@@ -1,8 +1,7 @@
 package edu.iesam.meceiot.features.developer.domain.models
 
 // Model representing a developer
-data class
-Developer(
+data class DeveloperInfo(
     // Unique identifier for the developer
     val id: String,
     // Name of the developer

@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_meceiot.databinding.FragmentDeveloperListBinding
-import edu.iesam.meceiot.features.developer.domain.models.Developer
+import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+import edu.iesam.meceiot.features.developer.presentation.adapter.DeveloperAdapter
 
 class DeveloperAboutFragment : Fragment() {
 
@@ -18,13 +20,14 @@ class DeveloperAboutFragment : Fragment() {
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
 
+    private val developerAdapter = DeveloperAdapter()
+
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDeveloperListBinding.inflate(inflater, container, false)
+        setupView()
         return binding.root
     }
 
@@ -56,7 +59,25 @@ class DeveloperAboutFragment : Fragment() {
         developerViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
     }
 
-    private fun bindData(developer: List<Developer>) {
 
+    private fun setupView() {
+        binding.apply {
+            recyclerView.layoutManager = LinearLayoutManager(
+                context, LinearLayoutManager.VERTICAL, false
+
+            )
+            recyclerView.adapter = developerAdapter
+
+        }
     }
+
+    private fun bindData(developer: List<DeveloperInfo>) {
+        developerAdapter.submitList(developer)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

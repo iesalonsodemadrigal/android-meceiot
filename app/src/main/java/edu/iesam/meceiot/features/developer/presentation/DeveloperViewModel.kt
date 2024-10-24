@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
-import edu.iesam.meceiot.features.developer.domain.models.Developer
+import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,7 +27,7 @@ class DeveloperViewModel(private val getDevelopersUseCase: GetDevelopersUseCase)
     data class UiState(
         val isLoading: Boolean = false,
         val errorMessage: ErrorApp? = null,
-        val infoDeveloper: List<Developer>? = null
+        val infoDeveloper: List<DeveloperInfo>? = null
     )
 
 

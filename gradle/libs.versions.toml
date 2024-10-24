@@ -1,6 +1,6 @@
 [versions]
 agp = "8.6.0"
-coilCompose = "3.0.0-rc01"
+coil = "2.7.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -15,11 +15,12 @@ viewModelScope = "2.8.6"
 glide = "4.16.0"
 navigationComponent = "2.8.3"
 mockk = "1.13.13"
-benchmarkCommon = "1.3.3"
+junitJupiter = "5.10.2"
+test-coroutines = "1.6.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -31,8 +32,9 @@ gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref =
 viewmodel-scope = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModelScope" }
 nav-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationComponent" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-androidx-benchmark-common = { group = "androidx.benchmark", name = "benchmark-common", version.ref = "benchmarkCommon" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "test-coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

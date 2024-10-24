@@ -12,10 +12,9 @@ class LoraWanViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
 
     fun bind(loraWanInfo: LoraWanInfo) {
         binding = ViewLorawanInfoItemBinding.bind(view)
-        val url = "https://alfaiot.com/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png"
         binding.apply {
             titleInfo1.text = loraWanInfo.title
-            imageInfo1.loadUrl(url)
+            imageInfo1.loadUrl(loraWanInfo.image)
             description1.text = loraWanInfo.description
         }
     }

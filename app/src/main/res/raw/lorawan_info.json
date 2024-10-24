@@ -2,26 +2,31 @@
   {
     "id": 1,
     "title": "¿Qué es LoRaWAN?",
+    "image": "https://th.bing.com/th/id/R.3aa74cb09a52c2cdd75ff0975f887fce?rik=qSQ70EWVEdHhDA&riu=http%3a%2f%2fpanamahitek.com%2fwp-content%2fuploads%2f2019%2f10%2fLORAWAN-devices-sensors.png&ehk=0Jl%2feRC1ZAffBL%2b0QSnBTPv6lexF0UQ%2fH3F5J3NWWOU%3d&risl=&pid=ImgRaw&r=0",
     "description": "LoRaWAN (Long Range Wide Area Network) es un protocolo de red diseñado para conectar dispositivos de bajo consumo a largas distancias, muy utilizado en aplicaciones de Internet de las Cosas (IoT)."
   },
   {
     "id": 2,
     "title": "Características",
+    "image": "https://www.mokosmart.com/wp-content/uploads/2022/09/2-2019.jpg",
     "description": "LoRaWAN se caracteriza por su bajo consumo energético, su capacidad de transmisión a larga distancia (hasta 15 km en áreas rurales) y su operación en bandas de frecuencia no licenciadas."
   },
   {
     "id": 3,
     "title": "Frecuencia",
+    "image": "https://th.bing.com/th/id/OIP.di0Phq_lGL96UV2BmvBQOgAAAA?rs=1&pid=ImgDetMain",
     "description": "LoRaWAN utiliza frecuencias sin licencia: 169 MHz, 433 MHz (Asia), 868 MHz (Europa) y 915 MHz (Norteamérica) para la comunicación entre nodos y puertas de enlace."
   },
   {
     "id": 4,
     "title": "Bajo consumo",
+    "image": "https://sensor-online.se/wp-content/uploads/2022/09/s1.png",
     "description": "Los dispositivos LoRaWAN solo se activan para transmitir datos, permaneciendo en un estado de reposo profundo, lo que optimiza el rendimiento de las baterías, permitiendo una duración de 2 a 5 años."
   },
   {
     "id": 5,
     "title": "Topología",
+    "image": "https://www.researchgate.net/profile/Carlos-Albaca-Paravan/publication/331273158/figure/fig3/AS:915837150060545@1595364000830/Topologia-LoRaWAN-de-doble-estrella-estrella-LoRa-y-estrella-de-infraestructura-de-red.ppm",
     "description": "La red LoRaWAN opera con una topología de 'estrella de estrellas', donde los nodos finales se comunican con puertas de enlace, que a su vez se conectan a un servidor central a través de redes IP."
   }
 ]

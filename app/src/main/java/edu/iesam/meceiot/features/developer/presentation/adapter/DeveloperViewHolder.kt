@@ -15,7 +15,7 @@ class DeveloperViewHolder (private val view: View) : RecyclerView.ViewHolder(vie
 
         binding.apply {
             developerName.text = developerInfo.name
-            developerImage.loadUrl(url = developerInfo.image)
+            developerImage.loadUrl(developerInfo.image)
             developerDescription.text = developerInfo.description
         }
 

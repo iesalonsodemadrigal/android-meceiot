@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/boder"
     android:layout_margin="20dp">
 
-    <!-- Imagen del desarrollador -->
-    <ImageView
+
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/developer_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:scaleType="centerCrop"
+        android:layout_margin="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:shapeAppearanceOverlay="@style/CircularImageView"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <!-- Contenedor vertical para el nombre y la descripción -->
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/developer_image"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="5dp">
+        app:layout_constraintStart_toEndOf="@id/developer_image"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-        <!-- Nombre del desarrollador -->
         <TextView
             android:id="@+id/developer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
+
             tools:text="Nombre del Desarrollador" />
 
-        <!-- Descripción del desarrollador -->
+
         <TextView
             android:id="@+id/developer_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+
             tools:text="Descripción del Desarrollador" />
     </LinearLayout>
 

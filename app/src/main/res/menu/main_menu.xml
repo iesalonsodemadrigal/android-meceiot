@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/fragmet_a"
+        android:id="@+id/fragment_a"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_a" />

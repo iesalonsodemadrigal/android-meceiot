@@ -54,7 +54,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.coil.compose)
+    implementation(libs.coil)
     
     api(libs.nav.fragment.ktx)
 

@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.ExternalResources.data.remote
+package edu.iesam.meceiot.features.externalresources.data.remote
 
 class ExternalResourcesRemoteDataSource {
     //Retrofit cuando sea Posible

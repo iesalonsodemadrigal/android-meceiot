@@ -1,6 +1,6 @@
-package edu.iesam.meceiot.features.ExternalResources.data.remote
+package edu.iesam.meceiot.features.externalresources.data.remote
 
-import edu.iesam.meceiot.features.ExternalResources.domain.ExtrenalResources
+import edu.iesam.meceiot.features.externalresources.domain.ExtrenalResources
 
 class ExternalResourcesMockRemoteDataSource {
     private val externalResources = listOf(

@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.ExternalResources.domain
+package edu.iesam.meceiot.features.externalresources.domain
 
 interface ExternalResourcesRepository {
     fun getAllExternalResources(): List<ExtrenalResources>

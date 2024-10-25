@@ -1,7 +1,7 @@
-package edu.iesam.meceiot.features.ExternalResources.data.local
+package edu.iesam.meceiot.features.externalresources.data.local
 
 import android.content.Context
-import edu.iesam.meceiot.features.ExternalResources.domain.ExtrenalResources
+import edu.iesam.meceiot.features.externalresources.domain.ExtrenalResources
 
 class ExternalResourcesXmlLocalDataSource(private val context: Context) {
     private val sharedPref =

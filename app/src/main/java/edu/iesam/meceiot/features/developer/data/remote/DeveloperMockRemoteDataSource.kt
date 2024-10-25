@@ -8,15 +8,15 @@ import java.io.InputStreamReader
 
 class DeveloperMockRemoteDataSource(private val context: Context) {
 
-   suspend fun getDevelopers(): List<DeveloperInfo> {
-       val inputStream = context.resources.openRawResource(R.raw.developer_info)
-       val reader = InputStreamReader(inputStream)
-       val infoFile: List<DeveloperInfo> =
-           Gson().fromJson(reader, Array<DeveloperInfo>::class.java).toList()
+    suspend fun getDevelopers(): List<DeveloperInfo> {
+        val inputStream = context.resources.openRawResource(R.raw.developer_info)
+        val reader = InputStreamReader(inputStream)
+        val infoFile: List<DeveloperInfo> =
+            Gson().fromJson(reader, Array<DeveloperInfo>::class.java).toList()
 
-       reader.close()
-       return  infoFile
-   }
+        reader.close()
+        return infoFile
+    }
 
 
 }

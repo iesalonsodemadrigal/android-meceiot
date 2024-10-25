@@ -6,11 +6,11 @@ import com.example.android_meceiot.databinding.ItemDeveloperBinding
 import edu.iesam.meceiot.core.extensions.loadUrl
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 
-class DeveloperViewHolder (private val view: View) : RecyclerView.ViewHolder(view) {
+class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
     private lateinit var binding: ItemDeveloperBinding
 
-    fun bind(developerInfo: DeveloperInfo)  {
+    fun bind(developerInfo: DeveloperInfo) {
         binding = ItemDeveloperBinding.bind(view)
 
         binding.apply {

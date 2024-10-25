@@ -45,15 +45,9 @@ class DeveloperAboutFragment : Fragment() {
             uiState.infoDeveloper?.let {
                 bindData(it)
             }
-            uiState.errorMessage?.let {
-                //print error
-            } ?: run {
-                // hide error
-            }
+            uiState.errorMessage?.let {} ?: run {}
             if (uiState.isLoading) {
-                //show loading
             } else {
-                //hide loading
             }
         }
         developerViewModel.uiState.observe(viewLifecycleOwner, developerObserver)

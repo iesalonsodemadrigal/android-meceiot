@@ -5,7 +5,7 @@ import edu.iesam.meceiot.features.developer.data.DeveloperDataRepository
 import edu.iesam.meceiot.features.developer.data.remote.DeveloperMockRemoteDataSource
 import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 
-class DeveloperFactory ( private val context: Context) {
+class DeveloperFactory(private val context: Context) {
     private val developerMockRemoteDataSource = DeveloperMockRemoteDataSource(context)
     private val developerDataRepository = DeveloperDataRepository(developerMockRemoteDataSource)
     private val getDevelopersUseCase = GetDevelopersUseCase(developerDataRepository)

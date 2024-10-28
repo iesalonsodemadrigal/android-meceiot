@@ -69,5 +69,4 @@ dependencies {
     //Navigation KTX
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.fragment.ktx)
 }

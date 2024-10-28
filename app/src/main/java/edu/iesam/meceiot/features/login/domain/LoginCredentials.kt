@@ -5,8 +5,4 @@ data class LoginCredentials(
     val password: String
 )
 
-data class LoginResponse(
-    val token: String,
-    val userId: String,
-    val message: String
-)
+class LoginResponse

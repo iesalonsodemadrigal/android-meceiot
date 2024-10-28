@@ -62,4 +62,6 @@ dependencies {
 
     implementation(libs.gson.serializer)
     implementation(libs.viewmodel.scope)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
 }

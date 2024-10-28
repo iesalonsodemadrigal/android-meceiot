@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">android-meceiot</string>
     <string name="developer_name">Developer Name</string>
+    <string name="developer_filer_xml">developer_filer_xml</string>
 </resources>

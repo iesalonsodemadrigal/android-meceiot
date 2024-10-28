@@ -11,3 +11,13 @@ data class DeveloperInfo(
 
     val image: String
 )
+
+data class DevelopersResponse(
+    val results: List<DeveloperListItem>
+)
+
+data class DeveloperListItem(
+    val name: String,
+    val url: String
+)
+

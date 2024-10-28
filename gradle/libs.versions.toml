@@ -17,8 +17,11 @@ navigationComponent = "2.8.3"
 mockk = "1.13.13"
 junitJupiter = "5.10.2"
 test-coroutines = "1.6.4"
+retrofit = "2.11.0"
 
 [libraries]
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +38,8 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "test-coroutines" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

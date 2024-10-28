@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">android-meceiot</string>
+    <string name="label_menu_a">fragmentA</string>
+    <string name="label_menu_b">fragmentB</string>
+    <string name="label_menu_c">fragmentC</string>
+    <string name="fragmentoa">fragmentoA</string>
 </resources>

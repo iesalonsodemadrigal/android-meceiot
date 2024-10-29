@@ -22,4 +22,10 @@
         tools:layout="@layout/fragment_c">
 
     </fragment>
+    <fragment
+        android:id="@+id/testfragment"
+        android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
+        tools:layout="@layout/testfragment"></fragment>
+
+
 </navigation>

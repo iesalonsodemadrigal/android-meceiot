@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.lorawan.data.local
 
 import android.content.Context
-import android.util.Log
 import com.example.android_meceiot.R
 import com.google.gson.Gson
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
@@ -12,7 +11,7 @@ class LoraWanXmlLocalDataSource(private val context: Context) {
 
     private val sharedPreferences =
         context.getSharedPreferences(
-            context.getString(R.string.lorawan_info_file),
+            context.getString(R.string.lorawan_info_file_xml),
             Context.MODE_PRIVATE
         )
 
@@ -25,10 +24,8 @@ class LoraWanXmlLocalDataSource(private val context: Context) {
         val editor = sharedPreferences.edit()
         loraWanInfos.forEach { loraWanInfo ->
             editor.putString(loraWanInfo.id, gson.toJson(loraWanInfo))
-            Log.d("@dev", "Guardando: ${loraWanInfo.id}")
         }
         editor.apply()
-        Log.d("@dev", "Datos guardados: ${loraWanInfos.size} items.")
     }
 
 

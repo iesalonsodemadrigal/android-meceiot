@@ -8,4 +8,16 @@
         android:id="@+id/fragment_about_lorawan"
         android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"
         tools:layout="@layout/fragment_about_lorawan" />
+    <fragment
+        android:id="@+id/fragment_b"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentB"
+        tools:layout="@layout/fragment_b">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_c"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentC"
+        tools:layout="@layout/fragment_c">
+
+    </fragment>
 </navigation>

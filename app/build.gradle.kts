@@ -47,19 +47,28 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    testImplementation(libs.mockk)
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.junit)
-    testImplementation(libs.test.coroutines)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 
     implementation(libs.coil)
-    
+
     api(libs.nav.fragment.ktx)
 
     implementation(libs.glide)
 
     implementation(libs.gson.serializer)
     implementation(libs.viewmodel.scope)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.test.coroutines)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit.jupiter)
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+
+
+
 }

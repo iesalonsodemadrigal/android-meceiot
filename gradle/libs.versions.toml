@@ -13,14 +13,16 @@ constraintlayout = "2.1.4"
 gson = "2.11.0"
 viewModelScope = "2.8.6"
 glide = "4.16.0"
-navigationComponent = "2.8.3"
 mockk = "1.13.13"
 junitJupiter = "5.10.2"
 test-coroutines = "1.6.4"
+navigationFragment = "2.8.3"
+navigationFragmentVersion = "2.8.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+androidx-navigation-ui = { module = "androidx.navigation", name = "navigation-ui", version.ref = "navigationFragmentVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -30,13 +32,14 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 viewmodel-scope = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModelScope" }
-nav-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationComponent" }
+nav-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragment" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "test-coroutines" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-navigation_safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationComponent" }
+navigation_safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragment" }

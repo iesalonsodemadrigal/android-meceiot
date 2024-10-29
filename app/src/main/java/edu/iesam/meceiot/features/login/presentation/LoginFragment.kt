@@ -63,12 +63,12 @@ class LoginFragment : Fragment() {
                 Log.d("@dev", "Cargando...")
             }
 
-            uiState.loginResponse?.let { loginResponse ->
+            uiState.loginSuccessful.let { loginSuccess ->
                 //DEBUG: muestra el response por pantalla
-                Log.d("@dev", "Login response: $loginResponse")
+                Log.d("@dev", "Login: $loginSuccess")
                 Toast.makeText(
                     requireContext(),
-                    "${loginResponse.code()}_${loginResponse.message()}",
+                    "$loginSuccess",
                     Toast.LENGTH_LONG,
                 ).show()
             }
@@ -82,9 +82,7 @@ class LoginFragment : Fragment() {
         val loginButton: Button = requireView().findViewById(R.id.loginButton)
 
         loginButton.setOnClickListener {
-            val loginCredentials =
-                LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
-            viewModel.postLoginCredentials(loginCredentials)
+            viewModel.postLoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
         }
     }
 

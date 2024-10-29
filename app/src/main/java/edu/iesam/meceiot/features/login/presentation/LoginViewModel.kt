@@ -6,29 +6,27 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
-import edu.iesam.meceiot.features.login.domain.LoginResponse
-import edu.iesam.meceiot.features.login.domain.PostLoginUseCase
+import edu.iesam.meceiot.features.login.domain.LoginUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class LoginViewModel(
-    private val postLoginCredentialsUseCase: PostLoginUseCase
+    private val postLoginCredentialsUseCase: LoginUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<LoginUiState>()
     val uiState: LiveData<LoginUiState> = _uiState
 
-    fun postLoginCredentials(login: LoginCredentials) {
+    fun postLoginCredentials(user: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _uiState.postValue(LoginUiState(isLoading = true))
-            val response: Response<LoginResponse> = postLoginCredentialsUseCase.invoke(login)
-            if (response.isSuccessful) {
+            val response: Boolean = postLoginCredentialsUseCase.invoke(user, password)
+            if (response) {
                 _uiState.postValue(
                     LoginUiState(
                         isLoading = false,
-                        loginCredentials = login, //Solo para pruebas
-                        loginResponse = response
+                        loginCredentials = LoginCredentials(user, password), //Solo para pruebas
+                        loginSuccessful = true
                     )
                 )
             } else {
@@ -37,8 +35,8 @@ class LoginViewModel(
                     LoginUiState(
                         isLoading = false,
                         errorApp = ErrorApp.UnknownErrorApp,
-                        loginResponse = response,
-                        loginCredentials = login
+                        loginSuccessful = false,
+                        loginCredentials = LoginCredentials(user, password)
                     )
                 )
             }
@@ -49,10 +47,8 @@ class LoginViewModel(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
         val loginCredentials: LoginCredentials? = null, //Solo para pruebas
-        val loginResponse: Response<LoginResponse>? = null
-
+        val loginSuccessful: Boolean = false
     )
-
 }
 
 

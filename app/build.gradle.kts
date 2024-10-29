@@ -46,16 +46,13 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
-
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-
-    implementation(libs.coil)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.nav.ui)
 
     api(libs.nav.fragment.ktx)
 
-    implementation(libs.glide)
+    implementation(libs.coil)
 
     implementation(libs.gson.serializer)
     implementation(libs.viewmodel.scope)

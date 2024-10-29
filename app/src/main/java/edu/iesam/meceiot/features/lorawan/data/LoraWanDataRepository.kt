@@ -1,14 +1,24 @@
 package edu.iesam.meceiot.features.lorawan.data
 
-import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanMockRemoteDataSource
+import edu.iesam.meceiot.features.lorawan.data.local.LoraWanXmlLocalDataSource
+import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiRemoteDataSource
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanRepository
 
-class LoraWanDataRepository(private val loraWanMockRemoteDataSource: LoraWanMockRemoteDataSource) :
-    LoraWanRepository {
+class LoraWanDataRepository(
+    private val loraWanApiRemoteDataSource: LoraWanApiRemoteDataSource,
+    private val loraWanXmlLocalDataSource: LoraWanXmlLocalDataSource
+) : LoraWanRepository {
 
-
+    // Lista de información sobre LoraWan
     override suspend fun getInfoLoraWan(): List<LoraWanInfo> {
-        return loraWanMockRemoteDataSource.getInfoLoraWan()
+        val loraWanInfoFromLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
+        if (loraWanInfoFromLocal.isEmpty()) {
+            val loraWanInfoFromRemote = loraWanApiRemoteDataSource.getInfoLoraWan()
+            loraWanXmlLocalDataSource.saveAll(loraWanInfoFromRemote)
+            return loraWanInfoFromRemote
+        } else {
+            return loraWanInfoFromLocal
+        }
     }
 }

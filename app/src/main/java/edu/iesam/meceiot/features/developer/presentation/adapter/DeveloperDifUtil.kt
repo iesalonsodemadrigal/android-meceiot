@@ -5,7 +5,7 @@ import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 
 class DeveloperDifUtil : DiffUtil.ItemCallback<DeveloperInfo>() {
     override fun areItemsTheSame(oldItem: DeveloperInfo, newItem: DeveloperInfo): Boolean {
-        return oldItem.name == newItem.name
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: DeveloperInfo, newItem: DeveloperInfo): Boolean {

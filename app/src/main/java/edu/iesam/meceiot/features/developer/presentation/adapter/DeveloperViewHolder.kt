@@ -14,10 +14,14 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
         binding = ItemDeveloperBinding.bind(view)
 
         binding.apply {
-            developerName.text = developerInfo.name
-            developerImage.loadUrl(developerInfo.image)
-            developerDescription.text = developerInfo.description
+            developerName.text = developerInfo.full_Name.takeIf { !it.isNullOrEmpty() }
+                ?: "Nombre no disponible" // Asigna un valor predeterminado si el nombre es nulo o vacío
+            developerImage.loadUrl(developerInfo.url_Avatar.takeIf { it.isNotEmpty() }
+                ?: "URL de imagen por defecto") // Usa una imagen por defecto si la URL está vacía
+            developerDescription.text = developerInfo.college_Degree.takeIf { !it.isNullOrEmpty() }
+                ?: "Descripción no disponible" // Asigna un valor predeterminado si la descripción es nula o vacía
         }
+
 
     }
 }

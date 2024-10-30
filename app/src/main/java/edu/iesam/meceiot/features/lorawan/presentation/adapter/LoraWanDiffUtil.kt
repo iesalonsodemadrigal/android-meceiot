@@ -5,7 +5,7 @@ import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 
 class LoraWanDiffUtil : DiffUtil.ItemCallback<LoraWanInfo>() {
     override fun areItemsTheSame(oldItem: LoraWanInfo, newItem: LoraWanInfo): Boolean {
-        return oldItem.title == newItem.title
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: LoraWanInfo, newItem: LoraWanInfo): Boolean {

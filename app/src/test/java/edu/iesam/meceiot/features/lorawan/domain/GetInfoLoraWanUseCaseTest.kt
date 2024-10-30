@@ -40,13 +40,13 @@ class GetInfoLoraWanUseCaseTest {
         // Given: Crear datos esperados y configurar el mock
         val loraWanInfoExpected = listOf(
             LoraWanInfo(
-                "Sensor 1",
-                "Descripción del sensor 1",
+                "1",
+                "title1",
                 "https://alfaiot.com/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png",
                 "descripion1"
             ),
             LoraWanInfo(
-                "Sensor 2", "Descripción del sensor 2",
+                "2", "title2",
                 "https://alfaiot.com/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png)",
                 "description2"
             )

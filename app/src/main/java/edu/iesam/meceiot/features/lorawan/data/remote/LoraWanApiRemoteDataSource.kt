@@ -7,7 +7,7 @@ class LoraWanApiRemoteDataSource(private val loraWanApiService: LoraWanApiServic
     suspend fun getInfoLoraWan(): List<LoraWanInfo> {
         val response = loraWanApiService.getLoraWanInfo()
         return if (response.isSuccessful) {
-            response.body()!!
+            response.body()!!.map { it.toModel() }
         } else {
             emptyList()
         }

@@ -19,7 +19,7 @@ class DeveloperViewModel(private val getDevelopersUseCase: GetDevelopersUseCase)
     fun viewDevelopers() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            val infoDeveloper = getDevelopersUseCase.invoke()
+            val infoDeveloper = getDevelopersUseCase()
             _uiState.postValue(UiState(infoDeveloper = infoDeveloper))
         }
     }

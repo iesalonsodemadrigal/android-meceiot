@@ -34,21 +34,27 @@
 
 
         <TextView
+            android:id="@+id/developer_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Id del Desarrollador" />
+
+        <TextView
             android:id="@+id/developer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-
             tools:text="Nombre del Desarrollador" />
 
 
         <TextView
-            android:id="@+id/developer_description"
+            android:id="@+id/college_degree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-
             tools:text="Descripción del Desarrollador" />
     </LinearLayout>
 

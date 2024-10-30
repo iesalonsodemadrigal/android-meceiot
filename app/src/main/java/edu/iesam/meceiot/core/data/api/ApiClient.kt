@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    const val BASE_URL_DEVELOPERS = "https://sandbox.aulapragmatica.es/"
+    private const val BASE_URL_DEVELOPERS = "https://sandbox.aulapragmatica.es/developers/2024/"
 
     private val serviceMap = mutableMapOf<String, Any>()
     private fun <T> createService(

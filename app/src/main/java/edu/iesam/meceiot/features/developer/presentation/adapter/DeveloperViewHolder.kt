@@ -16,11 +16,14 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
         binding = ItemDeveloperBinding.bind(view)
 
         binding.apply {
-            developerName.text = developerInfo.full_Name
-            developerImage.load(developerInfo.url_Avatar) {
+            developerName.text = developerInfo.fullName
+            developerImage.load(developerInfo.urlAvatar) {
                 size(width = 100, height = 100)
-                transformations(CircleCropTransformation())
+
             }
+            developerId.text= developerInfo.id
+            collegeDegree.text = developerInfo.collegeDegree
+
 
 
 

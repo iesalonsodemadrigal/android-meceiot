@@ -24,7 +24,9 @@ class DeveloperAboutFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDeveloperListBinding.inflate(inflater, container, false)
         setupView()
@@ -45,7 +47,10 @@ class DeveloperAboutFragment : Fragment() {
             uiState.infoDeveloper?.let {
                 bindData(it)
             }
-            uiState.errorMessage?.let {} ?: run {}
+            uiState.errorMessage?.let {} ?:
+            run {
+
+            }
             if (uiState.isLoading) {
             } else {
             }
@@ -58,10 +63,8 @@ class DeveloperAboutFragment : Fragment() {
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(
                 context, LinearLayoutManager.VERTICAL, false
-
             )
             recyclerView.adapter = developerAdapter
-
         }
     }
 

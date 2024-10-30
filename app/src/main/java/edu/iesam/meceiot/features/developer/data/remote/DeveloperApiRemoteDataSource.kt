@@ -9,7 +9,9 @@ class DeveloperApiRemoteDataSource(private val developerApiService: DeveloperApi
     suspend fun getDevelopers(): List<DeveloperInfo> {
         val response = developerApiService.getDevelopers()
         return if (response.isSuccessful) {
-            response.body()!!
+            response.body()!!.map {
+                it.toModel()
+            }
         } else {
             emptyList()
         }

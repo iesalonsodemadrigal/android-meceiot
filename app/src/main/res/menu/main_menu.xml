@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/fragment_about_lorawan"
+        android:id="@+id/fragment_b"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_a" />
     <item
-        android:id="@+id/fragment_b"
+        android:id="@+id/fragment_developer_list"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/label_menu_b" />
+        android:title="@string/developer_list" />
     <item
         android:id="@+id/fragment_c"
         android:enabled="true"

@@ -5,4 +5,6 @@ data class LoginCredentials(
     val password: String
 )
 
-class LoginResponse
+data class LoginResponse(
+    val isSuccessful: Boolean
+)

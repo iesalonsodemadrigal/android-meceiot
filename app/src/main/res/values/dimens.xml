@@ -12,4 +12,17 @@
     <dimen name="image_size_medium">20dp</dimen>
     <dimen name="image_size_high">24dp</dimen>
     <dimen name="image_size_extra_high">30dp</dimen>
+
+
+    <dimen name="margin_extra_small">5dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_high">24dp</dimen>
+    <dimen name="margin_extra_high">30dp</dimen>
+
+    <dimen name="padding_extra_small">5dp</dimen>
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_high">24dp</dimen>
+    <dimen name="padding_extra_high">30dp</dimen>"
 </resources>

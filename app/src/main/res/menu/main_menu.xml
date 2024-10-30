@@ -3,7 +3,7 @@
     <item
         android:id="@+id/fragment_about_lorawan"
         android:enabled="true"
-        android:icon="@drawable/download"
+        android:icon="@drawable/icon_wifi"
         android:title="@string/label_menu_a" />
     <item
         android:id="@+id/fragment_b"

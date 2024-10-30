@@ -16,7 +16,8 @@ class LoraWanViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
         binding.apply {
             titleInfo.text = loraWanInfo.title
             imageInfo.load(loraWanInfo.image) {
-                size(width = 1150, height = 825)
+                // "https://www.mdpi.com/sensors/sensors-18-03779/article_deploy/html/images/sensors-18-03779-g001.png"
+                size(width = 1150, height = 800)
                 transformations(RoundedCornersTransformation(60f))
             }
             description.text = loraWanInfo.description

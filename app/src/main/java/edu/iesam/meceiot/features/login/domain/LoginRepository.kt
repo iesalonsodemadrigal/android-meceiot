@@ -1,7 +1,5 @@
 package edu.iesam.meceiot.features.login.domain
 
-import retrofit2.Response
-
 interface LoginRepository {
-    suspend fun login(user: String,password: String): Boolean
+    suspend fun isLoginSuccessful(loginCredentials: LoginCredentials): Boolean
 }

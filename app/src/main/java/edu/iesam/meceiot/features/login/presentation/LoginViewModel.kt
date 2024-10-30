@@ -11,21 +11,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
-    private val postLoginCredentialsUseCase: LoginUseCase
+    private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<LoginUiState>()
     val uiState: LiveData<LoginUiState> = _uiState
 
-    fun postLoginCredentials(user: String, password: String) {
+    fun postLoginCredentials(loginCredentials: LoginCredentials) {
         viewModelScope.launch(Dispatchers.IO) {
             _uiState.postValue(LoginUiState(isLoading = true))
-            val response: Boolean = postLoginCredentialsUseCase.invoke(user, password)
-            if (response) {
+            val isLoginSuccessful: Boolean = loginUseCase.invoke(loginCredentials)
+            if (isLoginSuccessful) {
                 _uiState.postValue(
                     LoginUiState(
                         isLoading = false,
-                        loginCredentials = LoginCredentials(user, password), //Solo para pruebas
+                        loginCredentials = loginCredentials, //Solo para pruebas
                         loginSuccessful = true
                     )
                 )
@@ -36,7 +36,7 @@ class LoginViewModel(
                         isLoading = false,
                         errorApp = ErrorApp.UnknownErrorApp,
                         loginSuccessful = false,
-                        loginCredentials = LoginCredentials(user, password)
+                        loginCredentials = loginCredentials
                     )
                 )
             }

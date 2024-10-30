@@ -82,7 +82,9 @@ class LoginFragment : Fragment() {
         val loginButton: Button = requireView().findViewById(R.id.loginButton)
 
         loginButton.setOnClickListener {
-            viewModel.postLoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
+            val loginCredentials =
+                LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
+            viewModel.postLoginCredentials(loginCredentials)
         }
     }
 

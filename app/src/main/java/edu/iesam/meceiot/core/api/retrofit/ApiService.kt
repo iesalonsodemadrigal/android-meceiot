@@ -1,5 +1,8 @@
 package edu.iesam.meceiot.core.api.retrofit
 
+import edu.iesam.meceiot.features.login.domain.LoginCredentials
+import edu.iesam.meceiot.features.login.domain.LoginResponse
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
@@ -19,6 +22,6 @@ interface ApiService {
         "Cache-Control: no-cache"
     )
     @POST("g/login")
-    suspend fun login(@Body user: String, password: String): Boolean
+    suspend fun login(@Body loginCredentials: LoginCredentials): Response<LoginResponse>
 
 }

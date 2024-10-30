@@ -48,6 +48,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
+                android:text="chema"
                 android:hint="@string/username"
                 android:inputType="text" />
 
@@ -62,6 +63,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
+                android:text="769c36fd04d4af42665ec8f3d2271daccca629a14e8d8d94"
                 android:hint="@string/password"
                 android:inputType="textPassword" />
 

@@ -7,7 +7,7 @@ import edu.iesam.meceiot.features.login.domain.LoginRepository
 class LoginDataRepository(
     private val remote: LoginRemoteDataSource
 ) : LoginRepository {
-    override suspend fun login(user: String, password: String): Boolean {
-        return remote.login(user, password)
+    override suspend fun isLoginSuccessful(loginCredentials: LoginCredentials): Boolean {
+        return remote.login(loginCredentials).isSuccessful
     }
 }

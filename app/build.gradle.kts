@@ -46,22 +46,26 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
-    testImplementation(libs.mockk)
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.junit)
-    testImplementation(libs.test.coroutines)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation(libs.coil)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.nav.ui)
 
     api(libs.nav.fragment.ktx)
 
-    implementation(libs.glide)
+    implementation(libs.coil)
 
     implementation(libs.gson.serializer)
     implementation(libs.viewmodel.scope)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.test.coroutines)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit.jupiter)
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+
+
+
 }

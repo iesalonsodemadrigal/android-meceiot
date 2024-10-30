@@ -8,4 +8,16 @@
         android:id="@+id/fragment_developer_list"
         android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
         tools:layout="@layout/fragment_developer_list" />
+    <fragment
+        android:id="@+id/fragment_b"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentA"
+        tools:layout="@layout/fragment_a">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_c"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentC"
+        tools:layout="@layout/fragment_c">
+
+    </fragment>
 </navigation>

@@ -35,7 +35,7 @@ class DeveloperAboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         developerFactory = DeveloperFactory(requireContext())
-        developerViewModel = developerFactory.provideGetDevelopersUseCase()
+        developerViewModel = developerFactory.provideGetDevelopers()
         setupObserver()
         developerViewModel.viewDevelopers()
     }

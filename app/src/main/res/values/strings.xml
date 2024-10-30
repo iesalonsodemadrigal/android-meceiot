@@ -2,4 +2,7 @@
     <string name="app_name">android-meceiot</string>
     <string name="developer_name">Developer Name</string>
     <string name="developer_filer_xml">developer_filer_xml</string>
+    <string name="label_menu_c">label_menu_c</string>
+    <string name="label_menu_b">label_menu_b</string>
+    <string name="label_menu_a">label_menu_a</string>
 </resources>

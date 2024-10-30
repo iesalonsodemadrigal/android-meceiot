@@ -1,7 +1,7 @@
 # Mecelio
 
 **Mecelio** es una aplicación de IoT desarrollada para facilitar la conexión y gestión de
-dispositivos inteligentes en el hogar. Diseñada para tablets, la aplicación permite monitorizar y
+dispositivos inteligentes en el hogar. Diseñada para  monitorizar y
 controlar una amplia variedad de dispositivos de IoT de forma accesible y eficiente. Mecelio integra
 diferentes tipos de datos y sensores para ofrecer una experiencia completa e intuitiva.
 

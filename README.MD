@@ -91,34 +91,35 @@ personalizar alertas y analizar datos en tiempo real.
 Agradecemos la contribución de todas las personas involucradas en el desarrollo de Meceliot. Su
 trabajo y dedicación son fundamentales para el éxito de este proyecto.
 
-| 👤 **Nombre**                                                                                         | 🎓 **Rol**                                              | 🌐 **Redes Sociales** |
-|-------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------|
-| ![Chema](https://avatars.githubusercontent.com/u/33083007) **José María Pérez Ramos (Chema)**         | [jmperezra](https://github.com/jmperezra)               |
-| ![Enrique Arenas](https://avatars.githubusercontent.com/u/60384641) **Enrique Arenas**                | [Enriiqueee](https://github.com/Enriiqueee)             |
-| ![Henar](https://avatars.githubusercontent.com/u/101700273) **Henar Herraez Hernandez**               | [heennaarr](https://github.com/heennaarr)               |
-| ![Miguel](https://avatars.githubusercontent.com/u/1174935) **Miguel Álvarez Rubio**                   | [amrubio27](https://github.com/amrubio27)               |
-| ![Alberto](https://avatars.githubusercontent.com/u/13821679) **Alberto Linacero Encina**              | [lina0rm](https://github.com/lina0rm)                   |
-| ![Juan Garcia](https://avatars.githubusercontent.com/u/92960626) **Juan Garcia Arruche**              | [JuanGarArr](https://github.com/JuanGarArr)             |
-| ![Diego González](https://avatars.githubusercontent.com/u/87427606) **Diego González Díaz**           | [diegogd04](https://github.com/diegogd04)               |
-| ![Alfonso](https://avatars.githubusercontent.com/u/101628149) **Alfonso Suarez Aceña**                | [alfsuace](https://github.com/alfsuace)                 |
-| ![Alejandro](https://avatars.githubusercontent.com/u/19345806) **Alejandro de Pablo**                 | [AlejandrodePablo](https://github.com/AlejandrodePablo) |
-| ![Unai](https://avatars.githubusercontent.com/u/61574027) **Unai Gomez Diez**                         | [Unai-Gomez-Diez](https://github.com/Unai-Gomez-Diez)   |
-| ![Derek](https://avatars.githubusercontent.com/u/88119578) **Derek López García**                     | [DerekLopezGarcia](https://github.com/DerekLopezGarcia) |
-| ![Borja](https://avatars.githubusercontent.com/u/93769713) **Borja Jiménez Garcinuño**                | [BorjaJG](https://github.com/BorjaJG)                   |
-| ![Javier](https://avatars.githubusercontent.com/u/61405222) **Javier Lozano Herraéz**                 | [JavierLozHer](https://github.com/JavierLozHer)         |
-| ![Ian](https://avatars.githubusercontent.com/u/17992700) **Ian Gabriel Mendoza Portillo**             | [iangmenpor](https://github.com/iangmenpor)             |
-| ![Álvaro](https://avatars.githubusercontent.com/u/72004582) **Álvaro Muñoz Vaquero**                  | [AlvaroOlivix](https://github.com/AlvaroOlivix)         |
-| ![Juan Camilo](https://avatars.githubusercontent.com/u/59730553) **Juan Camilo Zuñiga Zuñiga**        | [JCzunzun](https://github.com/JCzunzun)                 |
-| ![Alessandro](https://avatars.githubusercontent.com/u/74701665) **Alessandro Jherik Paucar Enriquez** | [paucare](https://github.com/paucare)                   |
-| ![Carlos](https://avatars.githubusercontent.com/u/53632512) **Carlos De Mora Gil**                    | [CarlosDeMoraGil](https://github.com/CarlosDeMoraGil)   |
-| ![Rubén](https://avatars.githubusercontent.com/u/91348809) **Rubén Vallejo Jara**                     | [Rubenvalleho](https://github.com/Rubenvalleho)         |
-| ![David](https://avatars.githubusercontent.com/u/67612323) **David Andrés Lozano Sánchez**            | [DavidLozSan](https://github.com/DavidLozSan)           |
-| ![Fouad](https://avatars.githubusercontent.com/u/91577677) **Fouad Aharchi Aharchi**                  | [Fouad-Trabajo](https://github.com/Fouad-Trabajo)       |
-| ![Arturo](https://avatars.githubusercontent.com/u/55508650) **Arturo Sanchez Rodriguez**              | [ArturoSR05](https://github.com/ArturoSR05)             |
-| ![Iris](https://avatars.githubusercontent.com/u/60380626) **Iris Maria Ruiz Puyol**                   | [Irillium](https://github.com/Irillium)                 |
-| ![Diego Hernández](https://avatars.githubusercontent.com/u/77564662) **Diego Hernández Rubiano**      | [diegoherrub](https://github.com/diegoherrub)           |
-| ![Darnell](https://avatars.githubusercontent.com/u/55689274) **Darnell Jose Livent Gonzalez**         | [Darnell1195](https://github.com/Darnell1195)           |
-| ![Juan David](https://avatars.githubusercontent.com/u/9223345) **Juan David Alean**                   | [juandaalean](https://github.com/juandaalean)           |
+## 👥 Colaboradores
+
+Agradecemos la contribución de todas las personas involucradas en el desarrollo de Meceliot. Su
+trabajo y dedicación son fundamentales para el éxito de este proyecto.
+
+| 👤 **Nombre**                                                                                         | 🎓 **Rol**  | 🌐 **Redes Sociales**                                   | 🌐 **LinkedIn**                                                                    |
+|-------------------------------------------------------------------------------------------------------|-------------|---------------------------------------------------------|------------------------------------------------------------------------------------|
+| ![Chema](https://avatars.githubusercontent.com/u/93087250?v=4) **José María Pérez Ramos (Chema)**     | Colaborador | [jmperezra](https://github.com/jmperezra)               | [Perfil](https://www.linkedin.com/in/jmperezra/)                                   |
+| ![Alberto](https://avatars.githubusercontent.com/u/114472411?v=4) **Alberto Linacero Encina**         | Colaborador | [lina0rm](https://github.com/lina0rm)                   | [Perfil](https://www.linkedin.com/in/alberto-linacero-encinar-974101162)           |
+| ![Alejandro](https://avatars.githubusercontent.com/u/115726867?v=4) **Alejandro de Pablo**            | Colaborador | [AlejandrodePablo](https://github.com/AlejandrodePablo) | [Perfil](https://www.linkedin.com/in/alejandro)                                    |
+| ![Alfonso](https://avatars.githubusercontent.com/u/115726503?v=4) **Alfonso Suarez Aceña**            | Colaborador | [alfsuace](https://github.com/alfsuace)                 | [Perfil](https://www.linkedin.com/in/alfonso-suarez-acena/)                        |
+| ![Carlos](https://avatars.githubusercontent.com/u/146753433?v=4) **Carlos De Mora Gil**               | Colaborador | [CarlosDeMoraGil](https://github.com/CarlosDeMoraGil)   | [Perfil](https://www.linkedin.com/in/carlos-de-mora-gil-383931333/)                |
+| ![Darnell](https://avatars.githubusercontent.com/u/181871331?v=4) **Darnell Jose Livent Gonzalez**    | Colaborador | [Darnell1195](https://github.com/Darnell1195)           | [Perfil](https://www.linkedin.com/in/darnell-livent-g-6a0aa823/)                   |
+| ![Diego Hernández](https://avatars.githubusercontent.com/u/181871813?v=4) **Diego Hernández Rubiano** | Colaborador | [diegoherrub](https://github.com/diegoherrub)           | [Perfil](https://www.linkedin.com/in/diego-hernández-rubiano/)                     |
+| ![Diego González](https://avatars.githubusercontent.com/u/115726153?v=4) **Diego González Díaz**      | Colaborador | [diegogd04](https://github.com/diegogd04)               | [Perfil](https://www.linkedin.com/in/diego-gonzález-díaz/)                         |
+| ![Derek](https://avatars.githubusercontent.com/u/115727176?v=4) **Derek López García**                | Colaborador | [DerekLopezGarcia](https://github.com/DerekLopezGarcia) | [Perfil](https://www.linkedin.com/in/derek-lópez-garcía-b1338032/)                 |
+| ![Enrique Arenas](https://avatars.githubusercontent.com/u/94898081?v=4) **Enrique Arenas**            | Colaborador | [Enriiqueee](https://github.com/Enriiqueee)             | [Perfil](https://www.linkedin.com/in/enrique-arenas-aa0b74335)                     |
+| ![Fouad](https://avatars.githubusercontent.com/u/146753676?v=4) **Fouad Aharchi Aharchi**             | Colaborador | [Fouad-Trabajo](https://github.com/Fouad-Trabajo)       | [Perfil](https://www.linkedin.com/in/fouad-aharchi-aharchi-40a614227)              |
+| ![Henar](https://avatars.githubusercontent.com/u/103953861?v=4) **Henar Herraez Hernandez**           | Colaborador | [heennaarr](https://github.com/heennaarr)               | [Perfil](https://www.linkedin.com/in/henar-herraez-09522823/)                      |
+| ![Ian](https://avatars.githubusercontent.com/u/145766951?v=4) **Ian Gabriel Mendoza Portillo**        | Colaborador | [iangmenpor](https://github.com/iangmenpor)             | [Perfil](https://www.linkedin.com/in/ian-mendoza-4bb7332a6/)                       |
+| ![Iris](https://avatars.githubusercontent.com/u/146753865?v=4) **Iris Maria Ruiz Puyol**              | Colaborador | [Irillium](https://github.com/Irillium)                 | [Perfil](https://www.linkedin.com/in/iris-maria-ruiz-puyol-397320268/)             |
+| ![Juan David](https://avatars.githubusercontent.com/u/157162176?v=4) **Juan David Alean**             | Colaborador | [juandaalean](https://github.com/juandaalean)           | [Perfil](https://www.linkedin.com/in/juan-david-alean/)                            |
+| ![Juan Garcia](https://avatars.githubusercontent.com/u/115726146?v=4) **Juan Garcia Arruche**         | Colaborador | [JuanGarArr](https://github.com/JuanGarArr)             | [Perfil](https://www.linkedin.com/in/juan-garcia-arruche/)                         |
+| ![Juan Camilo](https://avatars.githubusercontent.com/u/146753356?v=4) **Juan Camilo Zuñiga Zuñiga**   | Colaborador | [JCzunzun](https://github.com/JCzunzun)                 | [Perfil](https://www.linkedin.com/in/juan-camilo-zuñiga-3bb39518b/)                |
+| ![Miguel](https://avatars.githubusercontent.com/u/114093648?v=4) **Miguel Álvarez Rubio**             | Colaborador | [amrubio27](https://github.com/amrubio27)               | [Perfil](https://www.linkedin.com/in/miguel-álvarez-rubio-7369a92b0)               |
+| ![Rubén](https://avatars.githubusercontent.com/u/146753439?v=4) **Rubén Vallejo Jara**                | Colaborador | [Rubenvalleho](https://github.com/Rubenvalleho)         | [Perfil](https://www.linkedin.com/in/rubén-vallejo-jara-131926153/)                |
+| ![David](https://avatars.githubusercontent.com/u/146753495?v=4) **David Andrés Lozano Sánchez**       | Colaborador | [DavidLozSan](https://github.com/DavidLozSan)           | [Perfil](https://www.linkedin.com/in/david-lozano-sánchez-3b282132/)               |
+| ![Alvaro](https://avatars.githubusercontent.com/u/146238163?v=4) **Álvaro Muñoz Vaquero**             | Colaborador | [AlvaroOlivix](https://github.com/AlvaroOlivix)         | [Perfil](https://www.linkedin.com/in/%C3%A1lvaro-mu%C3%B1oz-70b573283/)            |
+| ![Arturo](https://avatars.githubusercontent.com/u/146753689?v=4) **Arturo Sanchez Rodriguez**         | Colaborador | [ArturoSR05](https://github.com/ArturoSR05)             | [Perfil](https://www.linkedin.com/in/arturo-s%C3%A1nchez-rodr%C3%ADguez-003238310) |
 
 > **Nota:** Si deseas unirte al equipo o contribuir, no dudes en ponerte en contacto con nosotros.
 

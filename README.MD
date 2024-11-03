@@ -44,10 +44,11 @@ personalizar alertas y analizar datos en tiempo real.
 
 ## 📈 Estadísticas del Proyecto
 
-- **Código añadido en Pull Requests:
-  ** ![Lines of Code](https://img.shields.io/github/commit-activity/l/BorjaJG/Meceliot)
-- **Total de Commits:** ![Commits](https://img.shields.io/github/commit-activity/m/BorjaJG/Meceliot)
-- **Issues abiertos:** ![Issues](https://img.shields.io/github/issues/BorjaJG/Meceliot)
+- **Actividad de Commits:
+  ** ![Commits](https://img.shields.io/github/commit-activity/m/BorjaJG/Meceliot)
+- **Pull Requests Abiertos:
+  ** ![Pull Requests](https://img.shields.io/github/issues-pr/BorjaJG/Meceliot)
+- **Issues Abiertos:** ![Issues](https://img.shields.io/github/issues/BorjaJG/Meceliot)
 
 ---
 

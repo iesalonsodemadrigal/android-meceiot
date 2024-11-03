@@ -80,12 +80,12 @@ personalizar alertas y analizar datos en tiempo real.
 
 ## 📈 Estadísticas del Proyecto
 
-- **Actividad de Commits:
-  ** ![Commits](https://img.shields.io/github/commit-activity/m/iesalonsodemadrigal/android-meceiot)
-- **Pull Requests Abiertos:
-  ** ![Pull Requests](https://img.shields.io/github/issues-pr/iesalonsodemadrigal/android-meceiot)
-- **Issues Abiertos:
-  ** ![Issues](https://img.shields.io/github/issues/iesalonsodemadrigal/android-meceiot)
+- **Actividad de Commits:**
+  ![Commits](https://img.shields.io/github/commit-activity/m/iesalonsodemadrigal/android-meceiot)
+- **Pull Requests Abiertos:**
+  ![Pull Requests](https://img.shields.io/github/issues-pr/iesalonsodemadrigal/android-meceiot)
+- **Issues Abiertos:**
+  ![Issues](https://img.shields.io/github/issues/iesalonsodemadrigal/android-meceiot)
 
 ---
 

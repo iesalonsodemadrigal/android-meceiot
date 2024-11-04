@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.externalresources.data.local
 
 import android.content.Context
+import com.google.gson.Gson
 import edu.iesam.meceiot.features.externalresources.domain.ExtrenalResources
 
 class ExternalResourcesXmlLocalDataSource(private val context: Context) {
@@ -18,10 +19,8 @@ class ExternalResourcesXmlLocalDataSource(private val context: Context) {
     }
     fun findAll(): List<ExtrenalResources> {
         val externalResources = mutableListOf<ExtrenalResources>()
-        val allEntries = sharedPref.all
-        allEntries.forEach { jsonExternalResources ->
-            val externalResources = gson.fromJson(jsonExternalResources.value as String, ExtrenalResources::class.java)
-            externalResources.add(externalResources)
+        sharedPref.all.forEach { (_, value) ->
+            externalResources.add(gson.fromJson(value as String, ExtrenalResources::class.java))
         }
         return externalResources
     }

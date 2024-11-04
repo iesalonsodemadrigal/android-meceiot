@@ -17,7 +17,9 @@ class ExternalResourcesDataRepsitory(
             local.saveAll(externalResourcesFromRemote)
         } else
             return externalResources
+        return local.findAll()
     }
 }
+
 
 

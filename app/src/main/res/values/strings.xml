@@ -3,5 +3,5 @@
     <string name="label_menu_a">fragmentA</string>
     <string name="label_menu_b">fragmentB</string>
     <string name="label_menu_c">fragmentC</string>
-    <string name="fragmentoa">fragmentoA</string>
+    <string name="label_menu_d">External Resources</string>
 </resources>

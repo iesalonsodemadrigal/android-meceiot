@@ -52,6 +52,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.navigation.fragment.v280)
     implementation(libs.androidx.navigation.ui)
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.retrofit.converter)
+    implementation(libs.androidx.navigation.fragment.v280)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.coil)
 
 
 }

@@ -1,10 +1,10 @@
-package edu.iesam.meceiot.features.developer.presentation.adapter
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.android_meceiot.R
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+import edu.iesam.meceiot.features.developer.presentation.adapter.DeveloperDifUtil
+
 
 class DeveloperAdapter : ListAdapter<DeveloperInfo, DeveloperViewHolder>(DeveloperDifUtil()) {
 
@@ -15,6 +15,7 @@ class DeveloperAdapter : ListAdapter<DeveloperInfo, DeveloperViewHolder>(Develop
     }
 
     override fun onBindViewHolder(holder: DeveloperViewHolder, position: Int) {
-        holder.bind(currentList[position])
+        val developer = currentList[position]
+        holder.bind(developer)
     }
 }

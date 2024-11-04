@@ -9,7 +9,7 @@ class DeveloperDifUtil : DiffUtil.ItemCallback<DeveloperInfo>() {
     }
 
     override fun areItemsTheSame(oldItem: DeveloperInfo, newItem: DeveloperInfo): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.fullName == newItem.fullName
     }
 
 }

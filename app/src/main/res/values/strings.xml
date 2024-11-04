@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">android-meceiot</string>
     <string name="developer_name">Developer Name</string>
@@ -6,4 +7,6 @@
     <string name="label_menu_b">label_menu_b</string>
     <string name="label_menu_a">label_menu_a</string>
     <string name="developer_list">developer_list</string>
+    <string name="Fragmentoa">FragmentoA</string>
+    <string name="action_button">action_button</string>
 </resources>

@@ -53,6 +53,7 @@ class DeveloperAboutFragment : Fragment() {
             }
             if (uiState.isLoading) {
             } else {
+
             }
         }
         developerViewModel.uiState.observe(viewLifecycleOwner, developerObserver)

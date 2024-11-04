@@ -17,12 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupView()
     }
-
     private fun setupView() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
         val navController = navHostFragment.navController
-
         binding.mainMenu.setupWithNavController(navController)
     }
 }

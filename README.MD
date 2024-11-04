@@ -20,8 +20,7 @@ y el control de distintas tareas y funciones, mejorando así la eficiencia y la 
 Los dispositivos de IoT suelen estar equipados con sensores y software que les permiten recopilar
 información en tiempo real. Estos datos se envían a un servidor o una plataforma central donde se
 procesan y analizan. A partir de esta información, el usuario puede recibir alertas, realizar
-ajustes automáticos o ejecutar acciones manuales desde una aplicación, como es el caso de **Meceliot
-**.
+ajustes automáticos o ejecutar acciones manuales desde una aplicación, como es el caso de **Meceliot**.
 
 ### IoT en Meceliot
 

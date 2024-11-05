@@ -1,6 +1,8 @@
 package edu.iesam.meceiot.features.developer.presentation
 
 import DeveloperAdapter
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +22,9 @@ class DeveloperAboutFragment : Fragment() {
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
 
-    private val developerAdapter = DeveloperAdapter()
+    private val developerAdapter = DeveloperAdapter { url ->
+        openUrl(url)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,23 +48,12 @@ class DeveloperAboutFragment : Fragment() {
         binding.buttonExit.setOnClickListener {
             findNavController().navigateUp()
         }
-
-        // Configura el botón para abrir la URL
-        binding.buttonOpenUrl.setOnClickListener {
-            openUrlInBrowser("https://www.ejemplo.com")
-        }
     }
 
     private fun setupObserver() {
         val developerObserver = Observer<DeveloperViewModel.UiState> { uiState ->
             uiState.infoDeveloper?.let {
                 bindData(it)
-            }
-            uiState.errorMessage?.let {} ?: run {}
-            if (uiState.isLoading) {
-                // Mostrar progreso si es necesario
-            } else {
-                // Ocultar progreso si es necesario
             }
         }
         developerViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
@@ -77,6 +70,11 @@ class DeveloperAboutFragment : Fragment() {
 
     private fun bindData(developer: List<DeveloperInfo>) {
         developerAdapter.submitList(developer)
+    }
+
+    private fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

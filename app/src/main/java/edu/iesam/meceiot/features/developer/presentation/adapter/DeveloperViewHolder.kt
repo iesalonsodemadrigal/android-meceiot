@@ -1,6 +1,4 @@
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
+
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -12,7 +10,7 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
 
     private val binding: ItemDeveloperBinding = ItemDeveloperBinding.bind(view)
 
-    fun bind(developerInfo: DeveloperInfo) {
+    fun bind(developerInfo: DeveloperInfo, onUrlClick: (String) -> Unit) {
         binding.apply {
             developerImage.load(developerInfo.urlAvatar) {
                 transformations(CircleCropTransformation())
@@ -21,14 +19,13 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
 
             developerName.text = developerInfo.fullName
             collegeDegree.text = developerInfo.collegeDegree
+            buttonOpenUrl.text = "Ver perfil" // Texto genérico para el botón
 
-            // Configurar el botón de acción
-            actionButton.setOnClickListener {
-                Log.d("DeveloperAdapter", "URL Source: ${developerInfo.urlSource}") // Log de depuración
-                val intent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse(developerInfo.urlSource) // Asegúrate que developerInfo.urlSource es una URL válida
+            // Configura el clic del botón para abrir la URL
+            buttonOpenUrl.setOnClickListener {
+                developerInfo.urlSource?.let { url ->
+                    onUrlClick(url)
                 }
-
             }
         }
     }

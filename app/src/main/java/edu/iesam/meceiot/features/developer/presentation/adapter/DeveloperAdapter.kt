@@ -1,12 +1,15 @@
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.example.android_meceiot.R
+import com.example.android_meceiot.databinding.ItemDeveloperBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
-import edu.iesam.meceiot.features.developer.presentation.adapter.DeveloperDifUtil
 
+class DeveloperAdapter(
+    private val onUrlClick: (String) -> Unit
+) : RecyclerView.Adapter<DeveloperViewHolder>() {
 
-class DeveloperAdapter : ListAdapter<DeveloperInfo, DeveloperViewHolder>(DeveloperDifUtil()) {
+    private val developers = mutableListOf<DeveloperInfo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeveloperViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -15,7 +18,15 @@ class DeveloperAdapter : ListAdapter<DeveloperInfo, DeveloperViewHolder>(Develop
     }
 
     override fun onBindViewHolder(holder: DeveloperViewHolder, position: Int) {
-        val developer = currentList[position]
-        holder.bind(developer)
+        holder.bind(developers[position], onUrlClick)
+    }
+
+    override fun getItemCount(): Int = developers.size
+
+
+    fun submitList(list: List<DeveloperInfo>) {
+        developers.clear()
+        developers.addAll(list)
+        notifyDataSetChanged()
     }
 }

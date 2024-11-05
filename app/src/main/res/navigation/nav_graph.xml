@@ -6,7 +6,7 @@
     app:startDestination="@id/fragment_a">
     <fragment
         android:id="@+id/fragment_a"
-        android:name="edu.iesam.meceiot.features.externalresources.presentation.FragmentA"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentA"
         tools:layout="@layout/fragment_a">
 
     </fragment>
@@ -20,6 +20,9 @@
         android:id="@+id/fragment_c"
         android:name="edu.iesam.meceiot.features.presentation.FragmentC"
         tools:layout="@layout/fragment_c">
-
     </fragment>
+    <dialog
+        android:id="@+id/dialog_a"
+        android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
+        tools:layout="@layout/fragment_external_resources"/>
 </navigation>

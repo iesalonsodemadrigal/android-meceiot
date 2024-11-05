@@ -14,5 +14,6 @@
         android:scrollbars="vertical"
         android:scrollbarStyle="insideOverlay"
         android:scrollbarSize="8dp"
+        tools:listitem="@layout/item_external_resources"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

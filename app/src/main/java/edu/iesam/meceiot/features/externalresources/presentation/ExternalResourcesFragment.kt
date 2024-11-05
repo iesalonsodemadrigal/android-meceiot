@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.android_meceiot.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class ExternalResourcesFragment : Fragment(R.layout.fragment_external_resources) {
+class ExternalResourcesFragment : BottomSheetDialogFragment(){
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {

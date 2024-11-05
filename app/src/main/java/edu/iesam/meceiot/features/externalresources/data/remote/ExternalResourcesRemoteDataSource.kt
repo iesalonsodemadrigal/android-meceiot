@@ -1,16 +1,18 @@
 package edu.iesam.meceiot.features.externalresources.data.remote
 
+import edu.iesam.meceiot.features.externalresources.data.api.ExternalResourcesService
+import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ExternalResourcesRemoteDataSource {
-    object RetrofitInstance {
-        val api: ExternalResourcesService by lazy {
-            Retrofit.Builder()
-                .baseUrl("https://sandbox.aulapragmatica.es/resources/resources.json")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ExternalResourcesService::class.java)
+class ExternalResourcesRemoteDataSource(private val externalResourcesService: ExternalResourcesService) {
+    suspend fun getAllExternalResources(): List<ExternalResources> {
+        val response = externalResourcesService.getAllExternalResources()
+        return if (response.isSuccessful) {
+            response.body() ?: emptyList()
+        } else {
+            emptyList()
         }
     }
+
 }

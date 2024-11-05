@@ -68,8 +68,9 @@ class DeveloperAboutFragment : Fragment() {
         }
     }
 
-    private fun bindData(developer: List<DeveloperInfo>) {
-        developerAdapter.submitList(developer)
+    private fun bindData(developers: List<DeveloperInfo>) {
+
+        developerAdapter.submitList(developers.sortedBy { it.id.toInt() })
     }
 
     private fun openUrl(url: String) {

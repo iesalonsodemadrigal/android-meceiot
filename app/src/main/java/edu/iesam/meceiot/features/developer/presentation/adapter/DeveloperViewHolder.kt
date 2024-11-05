@@ -12,6 +12,7 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
 
     fun bind(developerInfo: DeveloperInfo, onUrlClick: (String) -> Unit) {
         binding.apply {
+
             developerImage.load(developerInfo.urlAvatar) {
                 transformations(CircleCropTransformation())
                 size(width = 100, height = 100)

@@ -16,7 +16,7 @@
             app:destination="@id/fragment_c"/>
         <action
             android:id="@+id/action_fragment_a_to_dialog_a"
-            app:destination="@id/dialog_a"/>
+            app:destination="@id/fragment_external_resources" />
     </fragment>
     <fragment
         android:id="@+id/fragment_b"
@@ -30,7 +30,7 @@
             app:destination="@id/fragment_c"/>
         <action
             android:id="@+id/action_fragment_b_to_dialog_a"
-            app:destination="@id/dialog_a"/>
+            app:destination="@id/fragment_external_resources" />
 
     </fragment>
     <fragment
@@ -45,10 +45,10 @@
             app:destination="@id/fragment_b"/>
         <action
             android:id="@+id/action_fragment_c_to_dialog_a"
-            app:destination="@id/dialog_a"/>
+            app:destination="@id/fragment_external_resources" />
     </fragment>
     <dialog
-        android:id="@+id/dialog_a"
+        android:id="@+id/fragment_external_resources"
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources"/>
 

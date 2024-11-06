@@ -16,7 +16,7 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_c" />
     <item
-        android:id="@+id/fragment_d"
+        android:id="@+id/fragment_external_resources"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_d" />

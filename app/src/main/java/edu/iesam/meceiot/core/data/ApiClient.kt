@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    private const val RESOURCES_URL = "https://sandbox.aulapragmatica.es/resources/resources.json"
+    private const val RESOURCES_URL = "https://sandbox.aulapragmatica.es/resources/"
 
     //Retrofit For External Resources
     private fun provideExternalResourcesRetrofit(): Retrofit {

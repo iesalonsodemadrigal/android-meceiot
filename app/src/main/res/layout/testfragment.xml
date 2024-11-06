@@ -1,274 +1,285 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment">
 
-    <!-- Question 1 -->
-    <TextView
-        android:id="@+id/question1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question1">
-
-        <RadioButton
-            android:id="@+id/radioButton1a"
+        <!-- Question 1 -->
+        <TextView
+            android:id="@+id/question1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a" />
+            android:text="1º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radioButton1b"
+        <RadioGroup
+            android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b" />
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question1">
 
-        <RadioButton
-            android:id="@+id/radioButton1c"
+            <RadioButton
+                android:id="@+id/option1_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
+
+            <RadioButton
+                android:id="@+id/option1_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
+
+            <RadioButton
+                android:id="@+id/option1_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <!-- Question 2 -->
+        <TextView
+            android:id="@+id/question2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
+            android:text="2º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup1" />
 
-    <!-- Question 2 -->
-    <TextView
-        android:id="@+id/question2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup1" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question2">
-
-        <RadioButton
-            android:id="@+id/radioButton2a"
+        <RadioGroup
+            android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a" />
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question2">
 
-        <RadioButton
-            android:id="@+id/radioButton2b"
+            <RadioButton
+                android:id="@+id/option2_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
+
+            <RadioButton
+                android:id="@+id/option2_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
+
+            <RadioButton
+                android:id="@+id/option2_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <!-- Question 3 -->
+        <TextView
+            android:id="@+id/question3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b" />
+            android:text="3º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup2" />
 
-        <RadioButton
-            android:id="@+id/radioButton2c"
+        <RadioGroup
+            android:id="@+id/radioGroup3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question3">
 
-    <!-- Question 3 -->
-    <TextView
-        android:id="@+id/question3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup2" />
+            <RadioButton
+                android:id="@+id/option3_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question3">
+            <RadioButton
+                android:id="@+id/option3_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
 
-        <RadioButton
-            android:id="@+id/radioButton3a"
+            <RadioButton
+                android:id="@+id/option3_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <!-- Question 4 -->
+        <TextView
+            android:id="@+id/question4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a" />
+            android:text="4º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup3" />
 
-        <RadioButton
-            android:id="@+id/radioButton3b"
+        <RadioGroup
+            android:id="@+id/radioGroup4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b" />
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question4">
 
-        <RadioButton
-            android:id="@+id/radioButton3c"
+            <RadioButton
+                android:id="@+id/option4_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
+
+            <RadioButton
+                android:id="@+id/option4_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
+
+            <RadioButton
+                android:id="@+id/option4_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <!-- Question 5 -->
+        <TextView
+            android:id="@+id/question5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
+            android:text="5º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup4" />
 
-    <!-- Question 4 -->
-    <TextView
-        android:id="@+id/question4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup3" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question4">
-
-        <RadioButton
-            android:id="@+id/radioButton4a"
+        <RadioGroup
+            android:id="@+id/radioGroup5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a" />
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question5">
 
-        <RadioButton
-            android:id="@+id/radioButton4b"
+            <RadioButton
+                android:id="@+id/option5_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
+
+            <RadioButton
+                android:id="@+id/option5_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
+
+            <RadioButton
+                android:id="@+id/option5_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <!-- Question 6 -->
+        <TextView
+            android:id="@+id/question6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b" />
+            android:text="6º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup5" />
 
-        <RadioButton
-            android:id="@+id/radioButton4c"
+        <RadioGroup
+            android:id="@+id/radioGroup6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question6">
 
-    <!-- Question 5 -->
-    <TextView
-        android:id="@+id/question5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup4" />
+            <RadioButton
+                android:id="@+id/option6_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question5">
+            <RadioButton
+                android:id="@+id/option6_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
 
-        <RadioButton
-            android:id="@+id/radioButton5a"
+            <RadioButton
+                android:id="@+id/option6_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <!-- Question 7 -->
+        <TextView
+            android:id="@+id/question7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a" />
+            android:text="7º pregunta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup6" />
 
-        <RadioButton
-            android:id="@+id/radioButton5b"
+        <RadioGroup
+            android:id="@+id/radioGroup7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b" />
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question7">
 
-        <RadioButton
-            android:id="@+id/radioButton5c"
+            <RadioButton
+                android:id="@+id/option7_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a" />
+
+            <RadioButton
+                android:id="@+id/option7_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b" />
+
+            <RadioButton
+                android:id="@+id/option7_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup7"
+            app:layout_constraintVertical_bias="0.293" />
 
-    <!-- Question 6 -->
-    <TextView
-        android:id="@+id/question6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup5" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question6">
-
-        <RadioButton
-            android:id="@+id/radioButton6a"
+        <TextView
+            android:id="@+id/selectedOptionsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a" />
+            android:text="Opciones seleccionadas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/submitButton" />
 
-        <RadioButton
-            android:id="@+id/radioButton6b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="b" />
-
-        <RadioButton
-            android:id="@+id/radioButton6c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
-
-    <!-- Question 7 -->
-    <TextView
-        android:id="@+id/question7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7º pregunta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup6" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question7">
-
-        <RadioButton
-            android:id="@+id/radioButton7a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="a" />
-
-        <RadioButton
-            android:id="@+id/radioButton7b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="b" />
-
-        <RadioButton
-            android:id="@+id/radioButton7c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="c" />
-    </RadioGroup>
-
-
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup7"
-        app:layout_constraintVertical_bias="0.293" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

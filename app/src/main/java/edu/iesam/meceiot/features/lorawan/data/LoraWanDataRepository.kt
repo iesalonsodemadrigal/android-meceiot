@@ -10,7 +10,6 @@ class LoraWanDataRepository(
     private val loraWanXmlLocalDataSource: LoraWanXmlLocalDataSource
 ) : LoraWanRepository {
 
-    // Lista de información sobre LoraWan
     override suspend fun getInfoLoraWan(): List<LoraWanInfo> {
         val loraWanInfoFromLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
         if (loraWanInfoFromLocal.isEmpty()) {

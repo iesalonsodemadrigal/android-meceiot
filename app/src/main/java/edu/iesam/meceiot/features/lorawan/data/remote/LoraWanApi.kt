@@ -1,8 +1,10 @@
 package edu.iesam.meceiot.features.lorawan.data.remote
 
+import com.google.gson.annotations.SerializedName
+
 data class LoraWanApiModel(
-    val id: String,
-    val title: String,
-    val image: String,
-    val description: String
+    @SerializedName("id") val id: String,
+    @SerializedName("title") val title: String,
+    @SerializedName("image") val image: String,
+    @SerializedName("description") val description: String
 )

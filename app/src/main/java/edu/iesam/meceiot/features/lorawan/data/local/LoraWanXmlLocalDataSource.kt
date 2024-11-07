@@ -38,8 +38,4 @@ class LoraWanXmlLocalDataSource(private val context: Context) {
         }
         return loraWanInfos
     }
-
-    fun deleteAll() {
-        sharedPreferences.edit().clear().apply()
-    }
 }

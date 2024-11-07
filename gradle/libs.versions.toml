@@ -11,8 +11,6 @@ activity = "1.9.3"
 constraintlayout = "2.1.4"
 navigationFragment = "2.8.3"
 navigationFragmentVersion = "2.8.3"
-navigationFragment = "2.8.3"
-navigationFragmentVersion = "2.8.0"
 retrofit = "2.9.0"
 gson = "2.8.8"
 coil = "1.4.0"
@@ -32,7 +30,6 @@ androidx-navigation-fragment = { group = "androidx.navigation", name = "navigati
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
-androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 
 [plugins]

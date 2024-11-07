@@ -70,7 +70,7 @@ class LoraWanAboutFragment : Fragment() {
 
 
     private fun bindData(loraWanInfo: List<LoraWanInfo>) {
-        loraWanAdapter.submitList(loraWanInfo)
+        loraWanAdapter.submitList(loraWanInfo.sortedBy { it.id.toInt() })
     }
 
     override fun onDestroyView() {

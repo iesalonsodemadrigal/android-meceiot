@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_c">
 
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/developerAboutFragment"
         android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
         android:label="Developer About Fragment"

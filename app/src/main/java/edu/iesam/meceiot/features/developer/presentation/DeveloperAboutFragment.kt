@@ -7,14 +7,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_meceiot.databinding.FragmentDeveloperListBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 
-class DeveloperAboutFragment : Fragment() {
+class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     private lateinit var developerFactory: DeveloperFactory
     private lateinit var developerViewModel: DeveloperViewModel
@@ -44,10 +43,7 @@ class DeveloperAboutFragment : Fragment() {
         setupObserver()
         developerViewModel.viewDevelopers()
 
-        // Configura el botón para salir
-        binding.buttonExit.setOnClickListener {
-            findNavController().navigateUp()
-        }
+
     }
 
     private fun setupObserver() {

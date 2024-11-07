@@ -35,10 +35,6 @@ class DeveloperXmlLocalDataSource(private val context: Context) {
 
     }
 
-    fun deleteAll() {
-        sharedPreferences.edit().clear().apply()
-
-    }
 
 
 }

@@ -69,5 +69,6 @@ class TestFragment : Fragment(R.layout.testfragment) {
         val correctCount = selectedOptions.count { it.option == it.correctOption }
         val selectedOptionsText = selectedOptions.joinToString("\n") { "Pregunta ${it.questionId}: ${it.option} (Correcta: ${it.correctOption})" }
         selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
+        selectedOptionsTextView.visibility = View.VISIBLE
     }
 }

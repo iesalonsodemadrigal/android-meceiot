@@ -8,6 +8,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert
 import org.junit.Before
@@ -27,7 +28,7 @@ class GetDevelopersUseCaseTest {
     }
 
     @Test
-    fun `lista vacia`() = runBlockingTest {
+    fun `lista vacia`() = runBlocking {
 
         coEvery { developerRepository.getDevelopers() } returns emptyList()
 
@@ -40,18 +41,23 @@ class GetDevelopersUseCaseTest {
     }
 
     @Test
-    fun `lista correcta`() = runBlockingTest {
+    fun `lista correcta`() = runBlocking {
 
         val developerExpected = listOf(
             DeveloperInfo(
                 "d1",
                 "d1",
                 "d1/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png",
-                "d1"
+                "d1",
+                "d1",
+
+
+
             ),
             DeveloperInfo(
                 "d2",
                 "D2",
+                "d2",
                 "d2",
                 "d2"
             )

@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ExternalResourcesItem_image_view"
+        android:id="@+id/ExternalResourcesItemImage"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
@@ -26,7 +26,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/ResourceName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ExternalResourcesItem_image_view"
+        app:layout_constraintStart_toEndOf="@id/ExternalResourcesItemImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.224" />
 
@@ -39,8 +39,21 @@
         android:layout_marginBottom="8dp"
         android:text="@string/ResourceDescription"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ExternalResourcesItem_image_view"
+        app:layout_constraintStart_toEndOf="@id/ExternalResourcesItemImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.685" />
+
+    <Button
+        android:id="@+id/ExternalResourcesItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="304dp"
+        android:text="@string/ResourceButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/ExternalResourcesItemImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

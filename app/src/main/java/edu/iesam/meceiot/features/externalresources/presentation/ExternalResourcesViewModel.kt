@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.externalresources.presentation
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,13 +18,13 @@ class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: Get
 
         viewModelScope.launch() {
             val resources = getAllExternalResourcesUseCase.invoke()
-            _uiState.value = UiStage(resources = resources)
+            _uiState.value = UiStage(externalResources = resources)
         }
     }
 
         data class UiStage(
             val loading: Boolean = false,
             val errorApp: ErrorApp? = null,
-            val resources: List<ExternalResources>? = null,
+            val externalResources: List<ExternalResources>? = null,
         )
     }

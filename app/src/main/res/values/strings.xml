@@ -6,4 +6,5 @@
     <string name="label_menu_d">External Resources</string>
     <string name="ResourceDescription">Description of the resource</string>
     <string name="ResourceName">Name of the resource</string>
+    <string name="ResourceButton" />
 </resources>

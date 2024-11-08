@@ -16,7 +16,7 @@ class ResourceFactory (private val context: Context){
     val getResourcesUseCase = GetAllExternalResourcesUseCase(resourceDataRepository)
 
 
-    fun getResourcesViewModel(): ExternalResourcesViewModel {
+    fun getExternalResourcesViewModel(): ExternalResourcesViewModel {
 
         return ExternalResourcesViewModel(getResourcesUseCase)
 

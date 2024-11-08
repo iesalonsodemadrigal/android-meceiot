@@ -43,27 +43,27 @@ android {
 
 dependencies {
 
-    //librerías de la app
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    //liberías para navigation
+
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.legacy.support.v4)
 
-    //liberías: retrofit, interceptor
+
     implementation(libs.gson.serializer)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter)
     implementation(libs.okhttp.log.interceptor)
 
-    //liberías para di
+
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
@@ -71,14 +71,14 @@ dependencies {
     //KSP
     ksp(libs.koin.ksp)
 
-    implementation(libs.coil)
 
-    //liberías para testing y android-test
+
+
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(libs.test.coroutines)
+
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

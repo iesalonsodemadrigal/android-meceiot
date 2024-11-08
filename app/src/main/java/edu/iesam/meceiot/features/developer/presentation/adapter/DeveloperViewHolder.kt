@@ -20,9 +20,9 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
 
             developerName.text = developerInfo.fullName
             collegeDegree.text = developerInfo.collegeDegree
-            buttonOpenUrl.text = "Ver perfil" // Texto genérico para el botón
+            buttonOpenUrl.text = "Ver perfil"
 
-            // Configura el clic del botón para abrir la URL
+
             buttonOpenUrl.setOnClickListener {
                 developerInfo.urlSource?.let { url ->
                     onUrlClick(url)

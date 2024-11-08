@@ -8,7 +8,6 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.android_meceiot.R
-import edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment
 
 class FragmentB : Fragment(R.layout.fragment_b) {
 
@@ -22,8 +21,8 @@ class FragmentB : Fragment(R.layout.fragment_b) {
 
         val navigateButton: Button = view.findViewById(R.id.button_navigate)
         navigateButton.setOnClickListener {
-            // Usar NavController para navegar
-            val navController = findNavController()
+
+        val navController = findNavController()
             navController.navigate(R.id.action_fragmentB_to_developerAboutFragment) // Asegúrate de tener la acción definida en tu navigation graph
         }
 

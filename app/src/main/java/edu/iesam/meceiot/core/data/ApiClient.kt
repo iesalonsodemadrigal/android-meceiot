@@ -8,24 +8,14 @@ object ApiClient {
     private const val BASE_URL_LORAWAN_INFO =
         "https://sandbox.aulapragmatica.es/meceiot/api/lorawan/"
 
-    private val serviceMap = mutableMapOf<String, Any>()
-    private fun <T> createService(
-        baseUrl: String,
-        serviceClass: Class<T>
-    ): T {
-        return Retrofit.Builder().baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create()).build()
-            .create(serviceClass)
-    }
-
-    private fun <T : Any> provideService(baseUrl: String, serviceClass: Class<T>): T {
-        return serviceMap[baseUrl] as? T ?: createService(
-            baseUrl,
-            serviceClass
-        ).also { serviceMap[baseUrl] = it }
+    private fun provideRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL_LORAWAN_INFO)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
     fun provideInfoLorawanService(): LoraWanApiService {
-        return provideService(BASE_URL_LORAWAN_INFO, LoraWanApiService::class.java)
+        return provideRetrofit().create(LoraWanApiService::class.java)
     }
 }

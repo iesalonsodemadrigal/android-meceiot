@@ -18,11 +18,10 @@ koinBom = "4.0.0"
 koinAnnotations = "1.4.0"
 kspVersion = "2.0.21-1.0.26"
 logginInterceptor = "4.12.0"
-coil = "2.7.0"
 mockk = "1.13.13"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
-testCoroutines = "1.9.0"
+
 
 
 [libraries]
@@ -49,14 +48,14 @@ koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "
 koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
 okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logginInterceptor" }
 
-coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
 
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "testCoroutines" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

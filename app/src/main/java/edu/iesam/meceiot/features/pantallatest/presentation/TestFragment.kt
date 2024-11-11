@@ -20,8 +20,18 @@ class TestFragment : Fragment(R.layout.testfragment) {
 
     private lateinit var getSelectedOptionsUseCase: GetSelectedOptionsUseCase
     private lateinit var updateSelectedOptionUseCase: UpdateSelectedOptionUseCase
-    private lateinit var selectedOptionsTextView: TextView
     private lateinit var correctOptions: List<QuestionOption>
+    private lateinit var selectedOptionsTextView: TextView
+    private lateinit var errorMessageTextView: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val dataSource = DataSource()
+        val repository = OptionsRepository(dataSource)
+        getSelectedOptionsUseCase = GetSelectedOptionsUseCase(repository)
+        updateSelectedOptionUseCase = UpdateSelectedOptionUseCase(repository)
+        correctOptions = dataSource.getCorrectOptions()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,13 +40,8 @@ class TestFragment : Fragment(R.layout.testfragment) {
     ): View? {
         val view = inflater.inflate(R.layout.testfragment, container, false)
 
-        val dataSource = DataSource()
-        val repository = OptionsRepository(dataSource)
-        getSelectedOptionsUseCase = GetSelectedOptionsUseCase(repository)
-        updateSelectedOptionUseCase = UpdateSelectedOptionUseCase(repository)
-        correctOptions = dataSource.getCorrectOptions()
-
         selectedOptionsTextView = view.findViewById(R.id.selectedOptionsTextView)
+        errorMessageTextView = view.findViewById(R.id.errorMessageTextView)
 
         val submitButton: Button = view.findViewById(R.id.submitButton)
         submitButton.setOnClickListener {
@@ -57,18 +62,34 @@ class TestFragment : Fragment(R.layout.testfragment) {
             view.findViewById<RadioGroup>(R.id.radioGroup7)
         )
 
-        radioGroups.forEachIndexed { index, radioGroup ->
-            val selectedOptionId = radioGroup.checkedRadioButtonId
-            if (selectedOptionId != -1) {
-                val selectedOption = view.findViewById<RadioButton>(selectedOptionId).text.toString()
-                updateSelectedOptionUseCase.execute(QuestionOption(index + 1, selectedOption, correctOptions[index].correctOption))
+        var allOptionsSelected = true
+        radioGroups.forEach { radioGroup ->
+            if (radioGroup.checkedRadioButtonId == -1) {
+                allOptionsSelected = false
             }
         }
 
-        val selectedOptions = getSelectedOptionsUseCase.execute()
-        val correctCount = selectedOptions.count { it.option == it.correctOption }
-        val selectedOptionsText = selectedOptions.joinToString("\n") { "Pregunta ${it.questionId}: ${it.option} (Correcta: ${it.correctOption})" }
-        selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
-        selectedOptionsTextView.visibility = View.VISIBLE
+        if (allOptionsSelected) {
+            errorMessageTextView.visibility = View.GONE
+            radioGroups.forEachIndexed { index, radioGroup ->
+                val selectedOptionId = radioGroup.checkedRadioButtonId
+                val selectedOption = view.findViewById<RadioButton>(selectedOptionId).text.toString()
+                updateSelectedOptionUseCase.execute(QuestionOption(index + 1, selectedOption, correctOptions[index].correctOption))
+            }
+
+            val selectedOptions = getSelectedOptionsUseCase.execute()
+            val correctCount = selectedOptions.count { it.option == it.correctOption }
+            val selectedOptionsText = selectedOptions.joinToString("\n") { "Pregunta ${it.questionId}: ${it.option} (Correcta: ${it.correctOption})" }
+            selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
+            selectedOptionsTextView.visibility = View.VISIBLE
+        } else {
+            errorMessageTextView.visibility = View.VISIBLE
+        }
+    }
+
+    companion object {
+        fun newInstance(): TestFragment {
+            return TestFragment()
+        }
     }
 }

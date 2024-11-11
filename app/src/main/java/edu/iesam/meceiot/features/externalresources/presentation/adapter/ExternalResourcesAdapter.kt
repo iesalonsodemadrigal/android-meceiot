@@ -12,13 +12,13 @@ class ExternalResourcesAdapter: ListAdapter<ExternalResources, ExternalResources
 ) {
     lateinit var onClick: (resourceId: String) -> Unit
 
-    fun setEvent(onClick: (String) -> Unit) {
-        this.onClick = { resourceId -> onClick(resourceId) }
+    fun setEvent(onClick: (resourceUrl: String) -> Unit) {
+        this.onClick = onClick
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExternalResourcesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_external_resources, parent, false)
-        return ExternalResourcesViewHolder(view, parent.context)
+        return ExternalResourcesViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ExternalResourcesViewHolder, position: Int) {

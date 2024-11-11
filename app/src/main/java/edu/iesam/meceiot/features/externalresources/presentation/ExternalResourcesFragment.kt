@@ -8,24 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_meceiot.R
 import com.example.android_meceiot.databinding.FragmentExternalResourcesBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
-import perfetto.protos.UiState
 
 
-class ExternalResourcesFragment : BottomSheetDialogFragment(){
+class ExternalResourcesFragment : BottomSheetDialogFragment() {
     private lateinit var resourceFactory: ResourceFactory
     private lateinit var viewModel: ExternalResourcesViewModel
 
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
-
-    private val adapter = ExternalResourcesAdapter{ resourceUrl ->
-        openUrl(resourceUrl)
-    }
+    private val externalResourcesAdapter = ExternalResourcesAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,14 +29,16 @@ class ExternalResourcesFragment : BottomSheetDialogFragment(){
         setupView()
         return binding.root
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         resourceFactory = ResourceFactory(requireContext())
         viewModel = resourceFactory.getExternalResourcesViewModel()
         setupObserver()
         viewModel.viewCreated()
     }
-    private fun setupObserver(){
+
+    private fun setupObserver() {
         val resourcesObserver = Observer<ExternalResourcesViewModel.UiStage> { uiState ->
             uiState.externalResources?.let {
                 bindData(it)
@@ -49,20 +46,29 @@ class ExternalResourcesFragment : BottomSheetDialogFragment(){
         }
         viewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }
-    private fun setupView(){
+
+    private fun setupView() {
         binding.apply {
-            ExternalResourcesFragmentRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            ExternalResourcesFragmentRecyclerView.adapter = adapter
+            ExternalResourcesFragmentRecyclerView.apply {
+                layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                externalResourcesAdapter.setEvent { url -> openUrl(url) }
+                adapter = externalResourcesAdapter
+
+            }
         }
     }
-    private fun bindData(ExternalResources: List<ExternalResources>){
-        adapter.submitList(ExternalResources.sortedBy { it.resourceName })
+
+    private fun bindData(ExternalResources: List<ExternalResources>) {
+        externalResourcesAdapter.submitList(ExternalResources.sortedBy { it.resourceName })
     }
-    private fun openUrl(url: String){
+
+    private fun openUrl(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
     }
-    override fun onDestroyView(){
+
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }

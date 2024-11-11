@@ -10,10 +10,10 @@
         tools:layout="@layout/fragment_a">
         <action
             android:id="@+id/action_fragment_a_to_fragment_b"
-            app:destination="@id/fragment_b"/>
+            app:destination="@id/fragment_b" />
         <action
             android:id="@+id/action_fragment_a_to_fragment_c"
-            app:destination="@id/fragment_c"/>
+            app:destination="@id/fragment_c" />
         <action
             android:id="@+id/action_fragment_a_to_dialog_a"
             app:destination="@id/fragment_external_resources" />
@@ -24,10 +24,10 @@
         tools:layout="@layout/fragment_b">
         <action
             android:id="@+id/action_fragment_b_to_fragment_a"
-            app:destination="@id/fragment_a"/>
+            app:destination="@id/fragment_a" />
         <action
             android:id="@+id/action_fragment_b_to_fragment_c"
-            app:destination="@id/fragment_c"/>
+            app:destination="@id/fragment_c" />
         <action
             android:id="@+id/action_fragment_b_to_dialog_a"
             app:destination="@id/fragment_external_resources" />
@@ -39,10 +39,10 @@
         tools:layout="@layout/fragment_c">
         <action
             android:id="@+id/action_fragment_c_to_fragment_a"
-            app:destination="@id/fragment_a"/>
+            app:destination="@id/fragment_a" />
         <action
             android:id="@+id/action_fragment_c_to_fragment_b"
-            app:destination="@id/fragment_b"/>
+            app:destination="@id/fragment_b" />
         <action
             android:id="@+id/action_fragment_c_to_dialog_a"
             app:destination="@id/fragment_external_resources" />
@@ -50,6 +50,6 @@
     <dialog
         android:id="@+id/fragment_external_resources"
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
-        tools:layout="@layout/fragment_external_resources"/>
+        tools:layout="@layout/fragment_external_resources" />
 
 </navigation>

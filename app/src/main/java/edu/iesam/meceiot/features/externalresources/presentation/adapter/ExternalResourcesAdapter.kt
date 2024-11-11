@@ -7,7 +7,7 @@ import com.example.android_meceiot.R
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesDiffUtil
 
-class ExternalResourcesAdapter: ListAdapter<ExternalResources, ExternalResourcesViewHolder>(
+class ExternalResourcesAdapter : ListAdapter<ExternalResources, ExternalResourcesViewHolder>(
     ExternalResourcesDiffUtil()
 ) {
     lateinit var onClick: (resourceId: String) -> Unit
@@ -17,7 +17,8 @@ class ExternalResourcesAdapter: ListAdapter<ExternalResources, ExternalResources
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExternalResourcesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_external_resources, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_external_resources, parent, false)
         return ExternalResourcesViewHolder(view)
     }
 

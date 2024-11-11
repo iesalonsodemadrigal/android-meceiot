@@ -22,9 +22,9 @@ class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: Get
         }
     }
 
-        data class UiStage(
-            val loading: Boolean = false,
-            val errorApp: ErrorApp? = null,
-            val externalResources: List<ExternalResources>? = null,
-        )
-    }
+    data class UiStage(
+        val loading: Boolean = false,
+        val errorApp: ErrorApp? = null,
+        val externalResources: List<ExternalResources>? = null,
+    )
+}

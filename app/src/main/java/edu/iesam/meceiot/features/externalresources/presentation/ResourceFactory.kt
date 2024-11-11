@@ -7,11 +7,12 @@ import edu.iesam.meceiot.features.externalresources.data.local.ExternalResources
 import edu.iesam.meceiot.features.externalresources.data.remote.ExternalResourcesMockRemoteDataSource
 import edu.iesam.meceiot.features.externalresources.domain.GetAllExternalResourcesUseCase
 
-class ResourceFactory (private val context: Context){
+class ResourceFactory(private val context: Context) {
     val resourcesXmlLocal = ExternalResourcesXmlLocalDataSource(context)
 
     val resourceDataRepository = ExternalResourcesDataRepsitory(
-        getResourceApiDataSource(), resourcesXmlLocal)
+        getResourceApiDataSource(), resourcesXmlLocal
+    )
 
     val getResourcesUseCase = GetAllExternalResourcesUseCase(resourceDataRepository)
 

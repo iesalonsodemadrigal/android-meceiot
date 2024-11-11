@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.externalresources.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.DiffUtil.*
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 
 class ExternalResourcesDiffUtil : DiffUtil.ItemCallback<ExternalResources>() {
@@ -9,7 +8,10 @@ class ExternalResourcesDiffUtil : DiffUtil.ItemCallback<ExternalResources>() {
         return oldItem.resourceName == newItem.resourceName
     }
 
-    override fun areContentsTheSame(oldItem: ExternalResources, newItem: ExternalResources): Boolean {
+    override fun areContentsTheSame(
+        oldItem: ExternalResources,
+        newItem: ExternalResources
+    ): Boolean {
         return oldItem == newItem
     }
 }

@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.navigation.safeargs.kotlin)
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.example.android_meceiot"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.android_meceiot"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -56,6 +57,16 @@ dependencies {
 
     implementation(libs.gson.serializer)
     implementation(libs.viewmodel.scope)
+
+
+    //Librerías para inyección de dependencias (Koin)
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.android)
+    implementation(libs.koin.annotations)
+    implementation(libs.okhttp.log.interceptor)
+
+    //KSP
+    ksp(libs.koin.ksp)
 
     testImplementation(libs.junit)
     testImplementation(libs.test.coroutines)

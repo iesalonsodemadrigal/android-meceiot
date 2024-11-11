@@ -4,7 +4,9 @@ import android.content.Context
 import com.example.android_meceiot.R
 import com.google.gson.Gson
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
+import org.koin.core.annotation.Single
 
+@Single
 class LoraWanXmlLocalDataSource(private val context: Context) {
 
     private val gson = Gson()

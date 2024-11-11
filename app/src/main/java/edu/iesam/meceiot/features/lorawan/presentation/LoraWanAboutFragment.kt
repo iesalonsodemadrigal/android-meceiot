@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_meceiot.databinding.FragmentAboutLorawanBinding
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoraWanAboutFragment : Fragment() {
-    private lateinit var loraWanFactory: LoraWanFactory
-    private lateinit var loraWanViewModel: LoraWanViewModel
+    //private lateinit var loraWanFactory: LoraWanFactory
+    //private lateinit var loraWanViewModel: LoraWanViewModel
+    val loraWanViewModel: LoraWanViewModel by viewModel()
 
     private var _binding: FragmentAboutLorawanBinding? = null
     private val binding get() = _binding!!
@@ -34,8 +36,8 @@ class LoraWanAboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loraWanFactory = LoraWanFactory(requireContext())
-        loraWanViewModel = loraWanFactory.provideGetInfoLoraWan()
+        //loraWanFactory = LoraWanFactory(requireContext())
+        //loraWanViewModel = loraWanFactory.provideGetInfoLoraWan()
         setupObserver()
         loraWanViewModel.viewCreated()
     }

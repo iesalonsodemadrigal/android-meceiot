@@ -1,6 +1,6 @@
 package edu.iesam.meceiot.core.data
 
-import edu.iesam.meceiot.features.externalresources.data.api.ExternalResourcesService
+import edu.iesam.meceiot.features.externalresources.data.remote.ExternalResourcesService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.pantallatest.domain
 
 
-
 import edu.iesam.meceiot.features.pantallatest.data.OptionsRepository
 import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 

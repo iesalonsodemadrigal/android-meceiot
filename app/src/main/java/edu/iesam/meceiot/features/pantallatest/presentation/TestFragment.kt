@@ -9,12 +9,12 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.android_meceiot.R
 import edu.iesam.meceiot.features.pantallatest.data.DataSource
 import edu.iesam.meceiot.features.pantallatest.data.OptionsRepository
 import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 import edu.iesam.meceiot.features.pantallatest.domain.GetSelectedOptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.UpdateSelectedOptionUseCase
-import com.example.android_meceiot.R
 
 class TestFragment : Fragment(R.layout.testfragment) {
 
@@ -73,13 +73,21 @@ class TestFragment : Fragment(R.layout.testfragment) {
             errorMessageTextView.visibility = View.GONE
             radioGroups.forEachIndexed { index, radioGroup ->
                 val selectedOptionId = radioGroup.checkedRadioButtonId
-                val selectedOption = view.findViewById<RadioButton>(selectedOptionId).text.toString()
-                updateSelectedOptionUseCase.execute(QuestionOption(index + 1, selectedOption, correctOptions[index].correctOption))
+                val selectedOption =
+                    view.findViewById<RadioButton>(selectedOptionId).text.toString()
+                updateSelectedOptionUseCase.execute(
+                    QuestionOption(
+                        index + 1,
+                        selectedOption,
+                        correctOptions[index].correctOption
+                    )
+                )
             }
 
             val selectedOptions = getSelectedOptionsUseCase.execute()
             val correctCount = selectedOptions.count { it.option == it.correctOption }
-            val selectedOptionsText = selectedOptions.joinToString("\n") { "Pregunta ${it.questionId}: ${it.option} (Correcta: ${it.correctOption})" }
+            val selectedOptionsText =
+                selectedOptions.joinToString("\n") { "Pregunta ${it.questionId}: ${it.option} (Correcta: ${it.correctOption})" }
             selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
             selectedOptionsTextView.visibility = View.VISIBLE
         } else {

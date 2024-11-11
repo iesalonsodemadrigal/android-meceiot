@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.android_meceiot"
+    namespace = "edu.iesam.meceiot"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.android_meceiot"
+        applicationId = "edu.iesam.meceiot"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

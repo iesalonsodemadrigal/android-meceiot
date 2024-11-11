@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.example.android_meceiot.databinding.ViewLorawanInfoItemBinding
+import edu.iesam.meceiot.databinding.ViewLorawanInfoItemBinding
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 
 class LoraWanViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {

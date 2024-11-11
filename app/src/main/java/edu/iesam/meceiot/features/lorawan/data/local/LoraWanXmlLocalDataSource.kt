@@ -1,8 +1,8 @@
 package edu.iesam.meceiot.features.lorawan.data.local
 
 import android.content.Context
-import com.example.android_meceiot.R
 import com.google.gson.Gson
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import org.koin.core.annotation.Single
 

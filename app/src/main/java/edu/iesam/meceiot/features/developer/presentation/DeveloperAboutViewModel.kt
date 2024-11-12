@@ -11,7 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class DeveloperViewModel(private val getDevelopersUseCase: GetDevelopersUseCase) : ViewModel() {
+class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUseCase) :
+    ViewModel() {
 
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState

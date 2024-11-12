@@ -17,7 +17,7 @@ class DeveloperFactory(private val context: Context) {
         DeveloperDataRepository(developerXmlLocalDataSource, developerApiRemoteDataSource)
     private val getDevelopersUseCase = GetDevelopersUseCase(developerDataRepository)
 
-    fun provideGetDevelopers(): DeveloperViewModel {
-        return DeveloperViewModel(getDevelopersUseCase)
+    fun provideGetDevelopers(): DeveloperAboutViewModel {
+        return DeveloperAboutViewModel(getDevelopersUseCase)
     }
 }

@@ -12,9 +12,7 @@ import com.example.android_meceiot.R
 class FragmentB : Fragment(R.layout.fragment_b) {
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_b, container, false)
@@ -22,7 +20,7 @@ class FragmentB : Fragment(R.layout.fragment_b) {
         val navigateButton: Button = view.findViewById(R.id.button_navigate)
         navigateButton.setOnClickListener {
 
-        val navController = findNavController()
+            val navController = findNavController()
             navController.navigate(R.id.action_fragmentB_to_developerAboutFragment) // Asegúrate de tener la acción definida en tu navigation graph
         }
 

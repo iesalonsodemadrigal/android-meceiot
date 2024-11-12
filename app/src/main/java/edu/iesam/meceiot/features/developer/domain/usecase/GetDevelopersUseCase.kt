@@ -9,5 +9,4 @@ class GetDevelopersUseCase(private val developerRepository: DeveloperRepository)
         return developerRepository.getDevelopers()
     }
 
-
 }

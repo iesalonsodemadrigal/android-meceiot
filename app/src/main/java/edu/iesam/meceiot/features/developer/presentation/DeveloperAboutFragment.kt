@@ -16,7 +16,7 @@ import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     private lateinit var developerFactory: DeveloperFactory
-    private lateinit var developerViewModel: DeveloperViewModel
+    private lateinit var developerAboutViewModel: DeveloperAboutViewModel
 
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
@@ -39,20 +39,20 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         developerFactory = DeveloperFactory(requireContext())
-        developerViewModel = developerFactory.provideGetDevelopers()
+        developerAboutViewModel = developerFactory.provideGetDevelopers()
         setupObserver()
-        developerViewModel.viewDevelopers()
+        developerAboutViewModel.viewDevelopers()
 
 
     }
 
     private fun setupObserver() {
-        val developerObserver = Observer<DeveloperViewModel.UiState> { uiState ->
+        val developerObserver = Observer<DeveloperAboutViewModel.UiState> { uiState ->
             uiState.infoDeveloper?.let {
                 bindData(it)
             }
         }
-        developerViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
+        developerAboutViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
     }
 
     private fun setupView() {

@@ -20,8 +20,7 @@ lifecycleViewmodelKtx = "2.8.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-navigation-fragment-v280 = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationFragmentVersion" }
-androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragmentVersion" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragment" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

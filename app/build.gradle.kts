@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.android_meceiot"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.android_meceiot"
@@ -65,8 +65,6 @@ dependencies {
     implementation(libs.converter.gson.v2110)
     // Navigation
     implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-    implementation(libs.androidx.navigation.fragment.v280)
     implementation(libs.androidx.navigation.ui)
     //Navigation KTX
     implementation(libs.androidx.navigation.fragment.ktx)

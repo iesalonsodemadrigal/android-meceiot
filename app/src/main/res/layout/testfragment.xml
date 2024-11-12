@@ -297,7 +297,9 @@
             android:text="Por favor, complete todas las opciones."
             android:textColor="@android:color/holo_red_dark"
             android:visibility="gone"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/submitButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

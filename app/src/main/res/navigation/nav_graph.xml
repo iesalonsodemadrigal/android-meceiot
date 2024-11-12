@@ -3,15 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/login_fragment">
+    app:startDestination="@id/fragment_a">
 
-    <!-- The start destination -->
+    <fragment
+        android:id="@+id/fragment_a"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentA"
+        tools:layout="@layout/fragment_a">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_b"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentB"
+        tools:layout="@layout/fragment_b">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_c"
+        android:name="edu.iesam.meceiot.features.presentation.FragmentC"
+        tools:layout="@layout/fragment_c">
+    </fragment>
+
     <fragment
         android:id="@+id/login_fragment"
         android:name="edu.iesam.meceiot.features.login.presentation.LoginFragment"
         tools:layout="@layout/fragment_login">
-
     </fragment>
-
-
 </navigation>

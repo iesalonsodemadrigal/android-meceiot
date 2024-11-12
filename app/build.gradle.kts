@@ -46,7 +46,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.legacy.support.v4)
+    testImplementation(libs.junit)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.converter.gson.v2110)
     // Navigation
     implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.fragment.v280)
     implementation(libs.androidx.navigation.ui)
     //Navigation KTX
     implementation(libs.androidx.navigation.fragment.ktx)

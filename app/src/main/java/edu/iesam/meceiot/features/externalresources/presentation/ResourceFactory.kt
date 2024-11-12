@@ -4,7 +4,7 @@ import android.content.Context
 import edu.iesam.meceiot.core.data.ApiClient
 import edu.iesam.meceiot.features.externalresources.data.ExternalResourcesDataRepsitory
 import edu.iesam.meceiot.features.externalresources.data.local.ExternalResourcesXmlLocalDataSource
-import edu.iesam.meceiot.features.externalresources.data.remote.ExternalResourcesMockRemoteDataSource
+import edu.iesam.meceiot.features.externalresources.data.remote.ExternalResourcesRemoteDataSource
 import edu.iesam.meceiot.features.externalresources.domain.GetAllExternalResourcesUseCase
 
 class ResourceFactory(private val context: Context) {
@@ -23,9 +23,9 @@ class ResourceFactory(private val context: Context) {
 
     }
 
-    fun getResourceApiDataSource(): ExternalResourcesMockRemoteDataSource {
+    fun getResourceApiDataSource(): ExternalResourcesRemoteDataSource {
         val resourceService = ApiClient.provideExternalResourcesService()
-        return ExternalResourcesMockRemoteDataSource()
+        return ExternalResourcesRemoteDataSource(resourceService)
     }
 }
 

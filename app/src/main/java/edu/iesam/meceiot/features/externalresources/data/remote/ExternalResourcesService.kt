@@ -4,7 +4,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface ExternalResourcesService {
-    @GET("/external-resources")
+    @GET("resources/resources.json")
     suspend fun getAllExternalResources(): Response<List<ExternalResourcesApiModel>>
 
 }

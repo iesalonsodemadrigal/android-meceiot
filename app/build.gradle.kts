@@ -89,15 +89,9 @@ dependencies {
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.navigation.fragment.v280)
-    implementation(libs.androidx.navigation.ui)
-
-    implementation(libs.androidx.navigation.fragment.v280)
-    implementation(libs.androidx.navigation.ui)
     implementation(libs.retrofit)
     implementation(libs.gson)
     implementation(libs.retrofit.converter)
-    implementation(libs.androidx.navigation.fragment.v280)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.coil)
     testImplementation(libs.mockk)
@@ -106,10 +100,8 @@ dependencies {
     testImplementation(libs.junit.jupiter.api)
     testRuntimeOnly(libs.junit.jupiter.engine)
 
-
-
-}
 }
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
 }
+

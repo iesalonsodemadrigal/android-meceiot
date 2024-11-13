@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.android_meceiot.R
+import edu.iesam.meceiot.R
+
 
 class FragmentB : Fragment(R.layout.fragment_b) {
 
@@ -27,4 +28,3 @@ class FragmentB : Fragment(R.layout.fragment_b) {
         return view
     }
 }
-

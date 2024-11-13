@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.1"
+junitJupiterApi = "5.11.3"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -9,6 +10,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.1.4"
+mockk = "1.13.13"
 navigationFragment = "2.8.3"
 navigationFragmentVersion = "2.8.3"
 retrofit = "2.9.0"
@@ -24,10 +26,15 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junitJupiterApi" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterApi" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockk" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
+
 android {
     namespace = "com.example.android_meceiot"
     compileSdk = 34
@@ -38,6 +39,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
+    }
 }
 
 dependencies {
@@ -63,6 +70,12 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.v280)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.coil)
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+
 
 
 }

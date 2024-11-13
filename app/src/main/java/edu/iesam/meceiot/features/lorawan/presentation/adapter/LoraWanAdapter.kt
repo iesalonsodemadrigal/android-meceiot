@@ -3,7 +3,7 @@ package edu.iesam.meceiot.features.lorawan.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.android_meceiot.R
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 
 class LoraWanAdapter : ListAdapter<LoraWanInfo, LoraWanViewHolder>(LoraWanDiffUtil()) {

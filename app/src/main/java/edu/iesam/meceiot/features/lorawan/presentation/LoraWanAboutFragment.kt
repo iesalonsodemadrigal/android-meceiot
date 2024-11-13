@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_meceiot.databinding.FragmentAboutLorawanBinding
+import edu.iesam.meceiot.databinding.FragmentAboutLorawanBinding
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
 

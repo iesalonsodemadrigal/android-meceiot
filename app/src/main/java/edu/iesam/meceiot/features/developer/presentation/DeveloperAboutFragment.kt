@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
-    private lateinit var developerFactory: DeveloperFactory
-    private lateinit var developerAboutViewModel: DeveloperAboutViewModel
+    private val developerAboutViewModel: DeveloperAboutViewModel by viewModel()
 
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
@@ -35,13 +35,8 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        developerFactory = DeveloperFactory(requireContext())
-        developerAboutViewModel = developerFactory.provideGetDevelopers()
         setupObserver()
         developerAboutViewModel.viewDevelopers()
-
-
     }
 
     private fun setupObserver() {

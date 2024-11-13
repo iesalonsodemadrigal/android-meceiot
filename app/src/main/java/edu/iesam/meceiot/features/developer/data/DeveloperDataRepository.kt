@@ -5,7 +5,9 @@ import edu.iesam.meceiot.features.developer.data.local.DeveloperXmlLocalDataSour
 import edu.iesam.meceiot.features.developer.data.remote.DeveloperApiRemoteDataSource
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.domain.usecase.DeveloperRepository
+import org.koin.core.annotation.Single
 
+@Single
 class DeveloperDataRepository(
     private val developerXmlLocalDataSource: DeveloperXmlLocalDataSource,
     private val developerApiRemoteDataSource: DeveloperApiRemoteDataSource

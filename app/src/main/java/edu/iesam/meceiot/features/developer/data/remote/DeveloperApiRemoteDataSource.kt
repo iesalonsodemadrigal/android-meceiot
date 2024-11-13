@@ -2,8 +2,9 @@ package edu.iesam.meceiot.features.developer.data.remote
 
 
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+import org.koin.core.annotation.Single
 
-
+@Single
 class DeveloperApiRemoteDataSource(private val developerApiService: DeveloperApiService) {
 
     suspend fun getDevelopers(): List<DeveloperInfo> {

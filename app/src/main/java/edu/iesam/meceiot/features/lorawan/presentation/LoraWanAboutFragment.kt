@@ -13,8 +13,7 @@ import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoraWanAboutFragment : Fragment() {
-    //private lateinit var loraWanFactory: LoraWanFactory
-    //private lateinit var loraWanViewModel: LoraWanViewModel
+
     private val loraWanViewModel: LoraWanViewModel by viewModel()
 
     private var _binding: FragmentAboutLorawanBinding? = null
@@ -36,8 +35,6 @@ class LoraWanAboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //loraWanFactory = LoraWanFactory(requireContext())
-        //loraWanViewModel = loraWanFactory.provideGetInfoLoraWan()
         setupObserver()
         loraWanViewModel.viewCreated()
     }

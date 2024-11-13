@@ -1,7 +1,7 @@
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.android_meceiot.R
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.presentation.adapter.DeveloperDiffUtil
 

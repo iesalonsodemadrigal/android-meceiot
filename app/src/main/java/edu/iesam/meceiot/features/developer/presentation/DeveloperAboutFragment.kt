@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_meceiot.databinding.FragmentDeveloperListBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
@@ -26,9 +26,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDeveloperListBinding.inflate(inflater, container, false)
         setupView()

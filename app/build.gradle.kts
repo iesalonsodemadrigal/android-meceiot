@@ -23,8 +23,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -35,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
     }
@@ -70,29 +70,14 @@ dependencies {
     //KSP
     ksp(libs.koin.ksp)
 
-
-
-
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter)
-    implementation(libs.nav.ui)
-
-    api(libs.nav.fragment.ktx)
-
     implementation(libs.coil)
 
-    implementation(libs.gson.serializer)
-    implementation(libs.viewmodel.scope)
-
+    testImplementation(libs.test.coroutines)
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.jupiter.engine)
 
-
-    testImplementation(libs.test.coroutines)
-    testImplementation(libs.mockk)
-    testImplementation(libs.junit.jupiter)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

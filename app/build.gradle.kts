@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-
 android {
     namespace = "edu.iesam.meceiot"
     compileSdk = 35
@@ -24,8 +23,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -40,12 +38,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    tasks.withType<Test> {
-        useJUnitPlatform()
-        testLogging {
-            events("passed", "skipped", "failed")
-        }
-    }
+
 }
 
 dependencies {
@@ -59,7 +52,6 @@ dependencies {
 
 
     implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.benchmark.common)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -79,9 +71,9 @@ dependencies {
     //KSP
     ksp(libs.koin.ksp)
 
+    implementation(libs.coil)
 
-
-    testImplementation(libs.junit)
+    testImplementation(libs.test.coroutines)
     testImplementation(libs.mockk)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.jupiter.engine)
@@ -89,19 +81,8 @@ dependencies {
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.retrofit)
-    implementation(libs.gson)
-    implementation(libs.retrofit.converter)
-    implementation(libs.androidx.navigation.ui)
-    implementation(libs.coil)
-    testImplementation(libs.mockk)
-    testImplementation(libs.mockk.android)
-    testImplementation(libs.mockk.agent)
-    testImplementation(libs.junit.jupiter.api)
-    testRuntimeOnly(libs.junit.jupiter.engine)
 
 }
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
 }
-

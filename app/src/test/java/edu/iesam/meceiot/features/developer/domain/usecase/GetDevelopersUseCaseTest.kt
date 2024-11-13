@@ -1,20 +1,16 @@
-package edu.iesam.meceiot.features.developer.domain.usecaseimport
+package edu.iesam.meceiot.features.developer.domain.usecase
 
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
-import edu.iesam.meceiot.features.developer.domain.usecase.DeveloperRepository
-import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-@ExperimentalCoroutinesApi
+
 class GetDevelopersUseCaseTest {
 
     @RelaxedMockK
@@ -32,12 +28,10 @@ class GetDevelopersUseCaseTest {
 
         coEvery { developerRepository.getDevelopers() } returns emptyList()
 
-
-        val developer = getDevelopersUseCase()
-
+        val developers = getDevelopersUseCase()
 
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assert(developer.isEmpty())
+        assert(developers.isEmpty())
     }
 
     @Test
@@ -49,10 +43,7 @@ class GetDevelopersUseCaseTest {
                 "d1",
                 "d1/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png",
                 "d1",
-                "d1",
-
-
-
+                "d1"
             ),
             DeveloperInfo(
                 "d2",
@@ -69,6 +60,6 @@ class GetDevelopersUseCaseTest {
 
         // Verificar la llamada y los datos recibidos
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        Assert.assertEquals(developerExpected, developerReceived)
+        assertEquals(developerExpected, developerReceived)
     }
 }

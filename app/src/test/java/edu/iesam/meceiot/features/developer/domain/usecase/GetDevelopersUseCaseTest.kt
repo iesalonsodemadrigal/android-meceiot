@@ -23,11 +23,13 @@ class GetDevelopersUseCaseTest {
     }
 
     @Test
-    fun `empty list`() = runBlocking {
+    fun `cuando el datasource devuelve una lista vacía de developers y loraWan`() = runBlocking {
+
         coEvery { developerRepository.getDevelopers() } returns Result.success(emptyList())
-        val result = getDevelopersUseCase()
+        val developersInfo = getDevelopersUseCase()
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assert(result.isSuccess)
+        assert(developersInfo.isSuccess)
+        assert(developersInfo.getOrNull()?.isEmpty() == true)
     }
 
     @Test

@@ -10,7 +10,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-
 class GetDevelopersUseCaseTest {
 
     @RelaxedMockK
@@ -24,19 +23,15 @@ class GetDevelopersUseCaseTest {
     }
 
     @Test
-    fun `lista vacia`() = runBlocking {
-
-        coEvery { developerRepository.getDevelopers() } returns emptyList()
-
-        val developers = getDevelopersUseCase()
-
+    fun `empty list`() = runBlocking {
+        coEvery { developerRepository.getDevelopers() } returns Result.success(emptyList())
+        val result = getDevelopersUseCase()
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assert(developers.isEmpty())
+        assert(result.isSuccess)
     }
 
     @Test
-    fun `lista correcta`() = runBlocking {
-
+    fun `correct list`() = runBlocking {
         val developerExpected = listOf(
             DeveloperInfo(
                 "d1",
@@ -53,13 +48,13 @@ class GetDevelopersUseCaseTest {
                 "d2"
             )
         )
-        coEvery { developerRepository.getDevelopers() } returns developerExpected
 
-        // Ejecutar el caso de uso
-        val developerReceived = getDevelopersUseCase()
-
-        // Verificar la llamada y los datos recibidos
+        coEvery { developerRepository.getDevelopers() } returns Result.success(developerExpected)
+        val result = getDevelopersUseCase()
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assertEquals(developerExpected, developerReceived)
+        val resultValue = result.getOrNull()
+        assertEquals(developerExpected, resultValue)
     }
+
 }
+

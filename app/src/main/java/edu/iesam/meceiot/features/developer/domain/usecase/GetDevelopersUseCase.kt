@@ -6,7 +6,7 @@ import org.koin.core.annotation.Single
 @Single
 class GetDevelopersUseCase(private val developerRepository: DeveloperRepository) {
 
-    suspend operator fun invoke(): List<DeveloperInfo> {
+    suspend operator fun invoke(): Result<List<DeveloperInfo>> {
         return developerRepository.getDevelopers()
     }
 

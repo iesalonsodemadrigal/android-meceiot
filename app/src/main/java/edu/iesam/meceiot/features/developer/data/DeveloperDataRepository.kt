@@ -13,18 +13,15 @@ class DeveloperDataRepository(
     private val developerApiRemoteDataSource: DeveloperApiRemoteDataSource
 
 ) : DeveloperRepository {
-    override suspend fun getDevelopers(): List<DeveloperInfo> {
+    override suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
         val developersFromLocal = developerXmlLocalDataSource.getDevelopers()
         if (developersFromLocal.isEmpty()) {
             val developersFromRemote = developerApiRemoteDataSource.getDevelopers()
             developerXmlLocalDataSource.saveAll(developersFromRemote)
-            return developersFromRemote
+            return Result.success(developersFromRemote)
         } else {
-            return developersFromLocal
-
+            return Result.success(developersFromLocal)
         }
-
-
     }
 
 

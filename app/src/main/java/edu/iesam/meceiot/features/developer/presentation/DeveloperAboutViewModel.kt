@@ -29,7 +29,7 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
     data class UiState(
         val isLoading: Boolean = false,
         val errorMessage: ErrorApp? = null,
-        val infoDeveloper: List<DeveloperInfo>? = null
+        val infoDeveloper: Result<List<DeveloperInfo>>? = null
     )
 
 

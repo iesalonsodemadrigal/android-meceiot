@@ -26,13 +26,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTest" />
 
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question1" />
+
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question1">
+            app:layout_constraintTop_toBottomOf="@id/image1">
 
             <RadioButton
                 android:id="@+id/option1_A"
@@ -51,8 +63,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
-        </RadioGroup>
 
+            <RadioButton
+                android:id="@+id/option1_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/question2"
@@ -62,13 +79,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/radioGroup1" />
 
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question2" />
+
         <RadioGroup
             android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question2">
+            app:layout_constraintTop_toBottomOf="@id/image2">
 
             <RadioButton
                 android:id="@+id/option2_A"
@@ -87,8 +115,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
-        </RadioGroup>
 
+            <RadioButton
+                android:id="@+id/option2_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/question3"
@@ -98,13 +131,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/radioGroup2" />
 
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question3" />
+
         <RadioGroup
             android:id="@+id/radioGroup3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question3">
+            app:layout_constraintTop_toBottomOf="@id/image3">
 
             <RadioButton
                 android:id="@+id/option3_A"
@@ -123,8 +167,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
-        </RadioGroup>
 
+            <RadioButton
+                android:id="@+id/option3_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/question4"
@@ -134,13 +183,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/radioGroup3" />
 
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question4" />
+
         <RadioGroup
             android:id="@+id/radioGroup4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question4">
+            app:layout_constraintTop_toBottomOf="@id/image4">
 
             <RadioButton
                 android:id="@+id/option4_A"
@@ -159,8 +219,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
-        </RadioGroup>
 
+            <RadioButton
+                android:id="@+id/option4_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/question5"
@@ -170,13 +235,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/radioGroup4" />
 
+        <ImageView
+            android:id="@+id/image5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question5" />
+
         <RadioGroup
             android:id="@+id/radioGroup5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question5">
+            app:layout_constraintTop_toBottomOf="@id/image5">
 
             <RadioButton
                 android:id="@+id/option5_A"
@@ -195,8 +271,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
-        </RadioGroup>
 
+            <RadioButton
+                android:id="@+id/option5_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/question6"
@@ -206,13 +287,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/radioGroup5" />
 
+        <ImageView
+            android:id="@+id/image6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question6" />
+
         <RadioGroup
             android:id="@+id/radioGroup6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question6">
+            app:layout_constraintTop_toBottomOf="@id/image6">
 
             <RadioButton
                 android:id="@+id/option6_A"
@@ -231,8 +323,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
-        </RadioGroup>
 
+            <RadioButton
+                android:id="@+id/option6_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/question7"
@@ -242,13 +339,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/radioGroup6" />
 
+        <ImageView
+            android:id="@+id/image7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_lorawan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question7" />
+
         <RadioGroup
             android:id="@+id/radioGroup7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question7">
+            app:layout_constraintTop_toBottomOf="@id/image7">
 
             <RadioButton
                 android:id="@+id/option7_A"
@@ -267,6 +375,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="c" />
+
+            <RadioButton
+                android:id="@+id/option7_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d" />
         </RadioGroup>
 
         <Button

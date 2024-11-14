@@ -8,9 +8,9 @@ class DataSource : OptionsDataSource {
         QuestionOption(2, "", "b"),
         QuestionOption(3, "", "c"),
         QuestionOption(4, "", "a"),
-        QuestionOption(5, "", "b"),
+        QuestionOption(5, "", "d"),
         QuestionOption(6, "", "c"),
-        QuestionOption(7, "", "a")
+        QuestionOption(7, "", "b")
     )
 
     override fun getSelectedOptions(): List<QuestionOption> {

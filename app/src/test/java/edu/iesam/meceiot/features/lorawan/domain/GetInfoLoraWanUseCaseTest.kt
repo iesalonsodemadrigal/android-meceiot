@@ -25,14 +25,14 @@ class GetInfoLoraWanUseCaseTest {
     @Test
     fun `cuando el datasource devuelve una lista vacia`() = runBlocking {
         // Given: Configurar el mock
-        coEvery { loraWanRepository.getInfoLoraWan() } returns emptyList()
+        coEvery { loraWanRepository.getInfoLoraWan() } returns Result.success(emptyList())
 
         // When: Ejecutar el caso de uso
         val loraWanInfo = getInfoLoraWanUseCase()
 
         // Then: Verificar que se llama al datasource una vez y la lista es vacía
         coVerify(exactly = 1) { loraWanRepository.getInfoLoraWan() }
-        assert(loraWanInfo.isEmpty())
+        assert(loraWanInfo.getOrNull()?.isEmpty() == true)
     }
 
     @Test
@@ -51,13 +51,13 @@ class GetInfoLoraWanUseCaseTest {
                 "description2"
             )
         )
-        coEvery { loraWanRepository.getInfoLoraWan() } returns loraWanInfoExpected
+        coEvery { loraWanRepository.getInfoLoraWan() } returns Result.success(loraWanInfoExpected)
 
         // When: Ejecutar el caso de uso
         val loraWanInfoReceived = getInfoLoraWanUseCase()
 
         // Then: Verificar que se llama al datasource una vez y los datos recibidos son los esperados
         coVerify(exactly = 1) { loraWanRepository.getInfoLoraWan() }
-        Assert.assertEquals(loraWanInfoReceived, loraWanInfoExpected)
+        Assert.assertEquals(loraWanInfoExpected, loraWanInfoReceived.getOrNull())
     }
 }

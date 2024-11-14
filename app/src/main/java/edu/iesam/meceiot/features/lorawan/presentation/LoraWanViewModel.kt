@@ -20,9 +20,15 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
 
     fun viewCreated() {
         _uiState.value = UiState(isLoading = true)
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             val infoLoraWan = getInfoLoraWanUseCase()
-            _uiState.postValue(UiState(infoLoraWan = infoLoraWan))
+            _uiState.postValue(
+                UiState(
+                    isLoading = false,
+                    infoLoraWan = infoLoraWan.getOrNull(),
+                    errorApp = infoLoraWan.exceptionOrNull() as? ErrorApp
+                )
+            )
         }
     }
 
@@ -30,6 +36,6 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
     data class UiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val infoLoraWan: List<LoraWanInfo>? = null
+        val infoLoraWan: List<LoraWanInfo>? = emptyList()
     )
 }

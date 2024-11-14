@@ -2,5 +2,5 @@ package edu.iesam.meceiot.features.lorawan.domain
 
 interface LoraWanRepository {
 
-    suspend fun getInfoLoraWan(): List<LoraWanInfo>
+    suspend fun getInfoLoraWan(): Result<List<LoraWanInfo>>
 }

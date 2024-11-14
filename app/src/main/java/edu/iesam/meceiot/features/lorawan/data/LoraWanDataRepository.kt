@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.lorawan.data
 
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.data.local.LoraWanXmlLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiRemoteDataSource
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
@@ -12,14 +13,21 @@ class LoraWanDataRepository(
     private val loraWanXmlLocalDataSource: LoraWanXmlLocalDataSource
 ) : LoraWanRepository {
 
-    override suspend fun getInfoLoraWan(): List<LoraWanInfo> {
+    override suspend fun getInfoLoraWan(): Result<List<LoraWanInfo>> {
         val loraWanInfoFromLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
-        if (loraWanInfoFromLocal.isEmpty()) {
+
+        return if (loraWanInfoFromLocal.isEmpty()) {
             val loraWanInfoFromRemote = loraWanApiRemoteDataSource.getInfoLoraWan()
-            loraWanXmlLocalDataSource.saveAll(loraWanInfoFromRemote)
-            return loraWanInfoFromRemote
+            return loraWanInfoFromRemote.fold(
+                onSuccess = { loraWanInfo ->
+                    loraWanXmlLocalDataSource.saveAll(loraWanInfo)
+                    Result.success(loraWanInfo)
+                },
+                onFailure = { error ->
+                    Result.failure(error as? ErrorApp ?: ErrorApp.DataErrorApp)
+                })
         } else {
-            return loraWanInfoFromLocal
+            Result.success(loraWanInfoFromLocal)
         }
     }
 }

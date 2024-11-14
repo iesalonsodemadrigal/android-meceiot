@@ -10,8 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.example.android_meceiot.R
-import com.example.android_meceiot.databinding.FragmentLoginBinding
+import edu.iesam.meceiot.R
+import edu.iesam.meceiot.databinding.FragmentLoginBinding
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 
 class LoginFragment : Fragment() {

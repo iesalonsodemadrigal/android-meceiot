@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.1"
+agp = "8.7.2"
 kotlin = "2.0.21"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -11,7 +11,6 @@ activity = "1.9.3"
 constraintlayout = "2.2.0"
 mockk = "1.13.13"
 navigationFragment = "2.8.4"
-fragmentKtx = "1.8.5"
 lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
 gson = "2.11.0"
@@ -22,23 +21,6 @@ kspVersion = "2.0.21-1.0.26"
 logginInterceptor = "4.12.0"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
-
-
-constraintlayout = "2.2.0"
-navigationFragment = "2.8.3"
-lifecycle = "2.8.7"
-legacySupportV4 = "1.0.0"
-gson = "2.11.0"
-retrofit = "2.11.0"
-koinBom = "4.0.0"
-koinAnnotations = "1.4.0"
-kspVersion = "2.0.21-1.0.26"
-logginInterceptor = "4.12.0"
-mockk = "1.13.13"
-junitJupiter = "5.11.3"
-junitJupiterEngine = "5.11.3"
-
-
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,7 +33,6 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
-androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationFragment" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragment" }
 
@@ -64,38 +45,14 @@ junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.r
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logginInterceptor" }
-gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
-
-koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
-koin-android = { module = "io.insert-koin:koin-android" }
-koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
-koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
-
-androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
-androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragment" }
-androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragment" }
-androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
-androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
-
-gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logginInterceptor" }
+gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
-koin-android = { module = "io.insert-koin:koin-android" }
+koin-android = { module = "io.insert-koin:koin-android", version = "4.0.0" }
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
 koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
-okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logginInterceptor" }
-
-
-
-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.navigation.safeargs.kotlin)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.example.android_meceiot"
+    namespace = "edu.iesam.meceiot"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.android_meceiot"
+        applicationId = "edu.iesam.meceiot"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -46,27 +47,36 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    //Testing
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    testImplementation(libs.junit)
-    testImplementation(libs.junit.jupiter.engine)
+
+    //Navigation
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui)
+    //Gson
+    implementation(libs.gson.serializer)
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.okhttp.log.interceptor)
+    //Koin
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.android)
+    implementation(libs.koin.annotations)
+    ksp(libs.koin.ksp)
+    //MockK
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.android)
     testImplementation(libs.mockk.agent)
-
-    //Retrofit
-    implementation(libs.retrofit)
-    //Gson Converter
-    implementation(libs.converter.gson.v2110)
-    // Navigation
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-    //Navigation KTX
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.fragment.ktx)
+    //JUnit
+    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter.engine)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+}
+ksp {
+    arg("KOIN_CONFIG_CHECK", "true")
 }

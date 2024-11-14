@@ -9,7 +9,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.android_meceiot.R
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.features.pantallatest.data.DataSource
 import edu.iesam.meceiot.features.pantallatest.data.OptionsRepository
 import edu.iesam.meceiot.features.pantallatest.data.QuestionOption

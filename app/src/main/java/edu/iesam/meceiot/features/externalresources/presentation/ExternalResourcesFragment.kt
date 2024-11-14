@@ -12,11 +12,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ExternalResourcesFragment : BottomSheetDialogFragment() {
-    private lateinit var resourceFactory: ResourceFactory
-    private lateinit var viewModel: ExternalResourcesViewModel
+    private val ExternalResourcesViewModel: ExternalResourcesViewModel by viewModel()
+
 
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
@@ -32,10 +33,8 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        resourceFactory = ResourceFactory(requireContext())
-        viewModel = resourceFactory.getExternalResourcesViewModel()
         setupObserver()
-        viewModel.viewCreated()
+        ExternalResourcesViewModel.viewCreated()
     }
 
     private fun setupObserver() {
@@ -44,7 +43,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
                 bindData(it)
             }
         }
-        viewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
+        ExternalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }
 
     private fun setupView() {

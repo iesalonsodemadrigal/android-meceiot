@@ -4,52 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/fragment_a">
+
     <fragment
         android:id="@+id/fragment_a"
         android:name="edu.iesam.meceiot.features.presentation.FragmentA"
         tools:layout="@layout/fragment_a">
-        <action
-            android:id="@+id/action_fragment_a_to_fragment_b"
-            app:destination="@id/fragment_b" />
-        <action
-            android:id="@+id/action_fragment_a_to_fragment_c"
-            app:destination="@id/fragment_c" />
-        <action
-            android:id="@+id/action_fragment_a_to_dialog_a"
-            app:destination="@id/fragment_external_resources" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_b"
         android:name="edu.iesam.meceiot.features.presentation.FragmentB"
         tools:layout="@layout/fragment_b">
-        <action
-            android:id="@+id/action_fragment_b_to_fragment_a"
-            app:destination="@id/fragment_a" />
-        <action
-            android:id="@+id/action_fragment_b_to_fragment_c"
-            app:destination="@id/fragment_c" />
-        <action
-            android:id="@+id/action_fragment_b_to_dialog_a"
-            app:destination="@id/fragment_external_resources" />
-
     </fragment>
+
     <fragment
         android:id="@+id/fragment_c"
         android:name="edu.iesam.meceiot.features.presentation.FragmentC"
         tools:layout="@layout/fragment_c">
-        <action
-            android:id="@+id/action_fragment_c_to_fragment_a"
-            app:destination="@id/fragment_a" />
-        <action
-            android:id="@+id/action_fragment_c_to_fragment_b"
-            app:destination="@id/fragment_b" />
-        <action
-            android:id="@+id/action_fragment_c_to_dialog_a"
-            app:destination="@id/fragment_external_resources" />
     </fragment>
-    <dialog
-        android:id="@+id/fragment_external_resources"
-        android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
-        tools:layout="@layout/fragment_external_resources" />
 
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="edu.iesam.meceiot.features.login.presentation.LoginFragment"
+        tools:layout="@layout/fragment_login">
+    </fragment>
 </navigation>

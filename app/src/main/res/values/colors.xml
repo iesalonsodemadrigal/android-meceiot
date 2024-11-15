@@ -2,7 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray">#FF808080</color>
     <color name="red">#FFFF0000</color>
     <color name="green">#FF00FF00</color>
     <color name="blue">#FF0000FF</color>
@@ -25,4 +24,5 @@
     <color name="azure">#FF00FFFF</color>
     <color name="beige">#FFF5F5DC</color>
     <color name="bisque">#FFFFE4C4</color>
+    <color name="gray">#4F4F4F</color>
 </resources>

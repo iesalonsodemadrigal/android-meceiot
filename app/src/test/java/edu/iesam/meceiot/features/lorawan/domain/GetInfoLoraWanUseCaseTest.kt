@@ -32,6 +32,7 @@ class GetInfoLoraWanUseCaseTest {
 
         // Then:
         coVerify(exactly = 1) { loraWanRepository.getInfoLoraWan() }
+        assert(loraWanInfo.isSuccess)
         assert(loraWanInfo.getOrNull()?.isEmpty() == true)
     }
 

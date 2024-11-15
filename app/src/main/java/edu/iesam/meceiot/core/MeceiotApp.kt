@@ -15,8 +15,8 @@ class MeceiotApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MeceiotApp)
+            modules(AppModule().module)
             modules(
-                AppModule().module,
                 RemoteModule().module,
                 ExternalResourceModule().module
             )

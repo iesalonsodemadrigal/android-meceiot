@@ -4,100 +4,81 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
-import edu.iesam.meceiot.features.pantallatest.data.DataSource
-import edu.iesam.meceiot.features.pantallatest.data.OptionsRepository
+import edu.iesam.meceiot.databinding.TestfragmentBinding
 import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 import edu.iesam.meceiot.features.pantallatest.domain.GetSelectedOptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.UpdateSelectedOptionUseCase
 
-class TestFragment : Fragment(R.layout.testfragment) {
+class TestFragment : Fragment() {
 
+    private lateinit var binding: TestfragmentBinding
+    private lateinit var questionsAdapter: QuestionsAdapter
     private lateinit var getSelectedOptionsUseCase: GetSelectedOptionsUseCase
     private lateinit var updateSelectedOptionUseCase: UpdateSelectedOptionUseCase
-    private lateinit var correctOptions: List<QuestionOption>
-    private lateinit var selectedOptionsTextView: TextView
-    private lateinit var errorMessageTextView: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val dataSource = DataSource()
-        val repository = OptionsRepository(dataSource)
-        getSelectedOptionsUseCase = GetSelectedOptionsUseCase(repository)
-        updateSelectedOptionUseCase = UpdateSelectedOptionUseCase(repository)
-        correctOptions = dataSource.getCorrectOptions()
-    }
+    private val correctOptions = listOf(
+        QuestionOption(1, "a", "a"),
+        QuestionOption(2, "b", "b"),
+        QuestionOption(3, "c", "c"),
+        QuestionOption(4, "d", "d"),
+        QuestionOption(5, "a", "a"),
+        QuestionOption(6, "b", "b"),
+        QuestionOption(7, "c", "c")
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.testfragment, container, false)
-
-        selectedOptionsTextView = view.findViewById(R.id.selectedOptionsTextView)
-        errorMessageTextView = view.findViewById(R.id.errorMessageTextView)
-
-        val submitButton: Button = view.findViewById(R.id.submitButton)
-        submitButton.setOnClickListener {
-            handleSubmit(view)
-        }
-
-        return view
+    ): View {
+        binding = TestfragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private fun handleSubmit(view: View) {
-        val radioGroups = listOf(
-            view.findViewById<RadioGroup>(R.id.radioGroup1),
-            view.findViewById<RadioGroup>(R.id.radioGroup2),
-            view.findViewById<RadioGroup>(R.id.radioGroup3),
-            view.findViewById<RadioGroup>(R.id.radioGroup4),
-            view.findViewById<RadioGroup>(R.id.radioGroup5),
-            view.findViewById<RadioGroup>(R.id.radioGroup6),
-            view.findViewById<RadioGroup>(R.id.radioGroup7)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val questions = listOf(
+            Question(1, "1º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "a"),
+            Question(2, "2º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "b"),
+            Question(3, "3º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "c"),
+            Question(4, "4º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "d"),
+            Question(5, "5º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "a"),
+            Question(6, "6º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "b"),
+            Question(7, "7º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "c")
         )
 
-        var allOptionsSelected = true
-        radioGroups.forEach { radioGroup ->
-            if (radioGroup.checkedRadioButtonId == -1) {
-                allOptionsSelected = false
-            }
-        }
+        questionsAdapter = QuestionsAdapter(questions)
 
-        if (allOptionsSelected) {
-            errorMessageTextView.visibility = View.GONE
-            radioGroups.forEachIndexed { index, radioGroup ->
-                val selectedOptionId = radioGroup.checkedRadioButtonId
-                val selectedOption =
-                    view.findViewById<RadioButton>(selectedOptionId).text.toString()
-                updateSelectedOptionUseCase.execute(
-                    QuestionOption(
-                        index + 1,
-                        selectedOption,
-                        correctOptions[index].correctOption
-                    )
-                )
-            }
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        binding.recyclerView.adapter = questionsAdapter
 
-            val selectedOptions = getSelectedOptionsUseCase.execute()
-            val correctCount = selectedOptions.count { it.option == it.correctOption }
-            val selectedOptionsText =
-                selectedOptions.joinToString("\n") { "Pregunta ${it.questionId}: ${it.option} (Correcta: ${it.correctOption})" }
-            selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
-            selectedOptionsTextView.visibility = View.VISIBLE
-        } else {
-            errorMessageTextView.visibility = View.VISIBLE
+        binding.submitButton.setOnClickListener {
+            handleSubmit()
         }
     }
 
-    companion object {
-        fun newInstance(): TestFragment {
-            return TestFragment()
+    private fun handleSubmit() {
+        val selectedOptions = questionsAdapter.getSelectedOptions()
+        if (selectedOptions.size == questionsAdapter.itemCount) {
+            binding.errorMessageTextView.visibility = View.GONE
+            var correctCount = 0
+            val selectedOptionsText = StringBuilder()
+            for ((questionId, selectedOption) in selectedOptions) {
+                val correctOption =
+                    correctOptions.find { it.questionId == questionId }?.correctOption
+                if (selectedOption == correctOption) {
+                    correctCount++
+                }
+                selectedOptionsText.append("Pregunta $questionId: $selectedOption (Correcta: $correctOption)\n")
+            }
+            binding.selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
+            binding.selectedOptionsTextView.visibility = View.VISIBLE
+        } else {
+            binding.errorMessageTextView.visibility = View.VISIBLE
         }
     }
 }

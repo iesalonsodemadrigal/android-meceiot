@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">android-meceiot</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="label_menu_a">LoraWan</string>
     <string name="lorawan_info_file_xml">lorawan</string>
     <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes
         dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla
@@ -11,8 +15,7 @@
     </string>
     <string name="title">Title</string>
     <string name="imageItem">ImageItem</string>
-    <string name="label_menu_a">LoraWan</string>
     <string name="label_menu_b">fragmentB</string>
     <string name="label_menu_c">fragmentC</string>
-
+    <string name="fragmentoa">fragmentoA</string>
 </resources>

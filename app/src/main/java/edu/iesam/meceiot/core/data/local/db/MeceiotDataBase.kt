@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 
-abstract class meceiotDataBase : RoomDatabase() {
+abstract class MeceiotDataBase : RoomDatabase() {
 
 
 }

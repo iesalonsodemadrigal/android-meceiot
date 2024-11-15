@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface LoraWanApiService {
 
-    @GET("lorawan_info.json")
+    @GET("meceiot/api/lorawan/lorawan_info.json")
     suspend fun getLoraWanInfo(): Response<List<LoraWanApiModel>>
 }

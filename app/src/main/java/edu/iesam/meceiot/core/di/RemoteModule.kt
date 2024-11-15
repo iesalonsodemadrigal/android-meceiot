@@ -2,10 +2,14 @@ package edu.iesam.meceiot.core.di
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+@Module
+@ComponentScan
 class RemoteModule {
 
     private val url = "https://sandbox.aulapragmatica.es/"

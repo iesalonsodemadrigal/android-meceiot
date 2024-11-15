@@ -72,7 +72,9 @@ dependencies {
     ksp(libs.koin.ksp)
 
 
-
+    implementation(libs.room.runtime)
+    ksp(libs.room.ksp)
+    implementation(libs.room.coroutines)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

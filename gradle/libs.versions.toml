@@ -21,6 +21,7 @@ logginInterceptor = "4.12.0"
 mockk = "1.13.13"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
+room-version = "2.6.1"
 
 
 
@@ -48,14 +49,15 @@ koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "
 koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
 okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logginInterceptor" }
 
-
-
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
+room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
+room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

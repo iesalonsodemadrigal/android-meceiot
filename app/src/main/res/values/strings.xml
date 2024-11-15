@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">android-meceiot</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
     <string name="label_menu_a">fragmentA</string>
     <string name="label_menu_b">fragmentB</string>
     <string name="label_menu_c">fragmentC</string>

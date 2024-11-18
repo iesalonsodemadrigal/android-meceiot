@@ -76,6 +76,9 @@ dependencies {
     testImplementation(libs.junit.jupiter.engine)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //Vico
+    implementation(libs.core)
+    implementation(libs.views)
     //coil
     implementation(libs.coil)
 }

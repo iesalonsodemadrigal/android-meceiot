@@ -76,6 +76,9 @@ dependencies {
     testImplementation(libs.junit.jupiter.engine)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //Vico
+    implementation(libs.core)
+    implementation(libs.views)
     //Room
     implementation(libs.room.runtime)
     ksp(libs.room.ksp)

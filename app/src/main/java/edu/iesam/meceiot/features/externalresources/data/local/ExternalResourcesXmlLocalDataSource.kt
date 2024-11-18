@@ -15,7 +15,7 @@ class ExternalResourcesXmlLocalDataSource(private val context: Context) {
 
     fun saveExternalResources(resources: List<ExternalResources>) {
         resources.forEach { externalResource ->
-            editor.putString(externalResource.resourceName, gson.toJson(externalResource))
+            editor.putString(externalResource.author, gson.toJson(externalResource))
         }
         editor.apply()
 

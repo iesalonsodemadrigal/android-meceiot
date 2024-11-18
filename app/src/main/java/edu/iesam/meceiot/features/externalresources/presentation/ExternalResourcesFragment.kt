@@ -37,15 +37,6 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         ExternalResourcesViewModel.viewCreated()
     }
 
-    private fun setupObserver() {
-        val resourcesObserver = Observer<ExternalResourcesViewModel.UiStage> { uiState ->
-            uiState.externalResources?.let {
-                bindData(it)
-            }
-        }
-        ExternalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
-    }
-
     private fun setupView() {
         binding.apply {
             ExternalResourcesFragmentRecyclerView.apply {
@@ -57,9 +48,19 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
             }
         }
     }
+    private fun setupObserver() {
+        val resourcesObserver = Observer<ExternalResourcesViewModel.UiStage> { uiState ->
+            uiState.externalResources?.let {
+                bindData(it)
+            }
+        }
+        ExternalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
+    }
+
+
 
     private fun bindData(ExternalResources: List<ExternalResources>) {
-        externalResourcesAdapter.submitList(ExternalResources.sortedBy { it.resourceName })
+        externalResourcesAdapter.submitList(ExternalResources.sortedBy { it.author })
     }
 
     private fun openUrl(url: String) {

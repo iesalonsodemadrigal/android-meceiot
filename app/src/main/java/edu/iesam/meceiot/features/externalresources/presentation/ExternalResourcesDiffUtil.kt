@@ -5,7 +5,7 @@ import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 
 class ExternalResourcesDiffUtil : DiffUtil.ItemCallback<ExternalResources>() {
     override fun areItemsTheSame(oldItem: ExternalResources, newItem: ExternalResources): Boolean {
-        return oldItem.resourceName == newItem.resourceName
+        return oldItem.author == newItem.author
     }
 
     override fun areContentsTheSame(

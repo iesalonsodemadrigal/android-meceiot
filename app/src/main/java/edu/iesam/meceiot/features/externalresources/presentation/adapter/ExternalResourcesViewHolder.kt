@@ -14,11 +14,11 @@ class ExternalResourcesViewHolder(private val view: View) : RecyclerView.ViewHol
 
     fun bind(externalResources: ExternalResources, onClick: (String) -> Unit) {
         itemExternalResources.apply {
-            ExternalResourcesItemImage.load(externalResources.resourceImage) {}
-            ExternalResourcesItemName.text = externalResources.resourceName
-            ExternalResourcesItemDescription.text = externalResources.resourceDescription
+            ExternalResourcesItemImage.load(externalResources.image) {}
+            ExternalResourcesItemName.text = externalResources.author
+            ExternalResourcesItemDescription.text = externalResources.description
             view.setOnClickListener {
-                onClick(externalResources.resourceUrl)
+                onClick(externalResources.url)
             }
         }
     }

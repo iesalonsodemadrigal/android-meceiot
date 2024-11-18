@@ -25,7 +25,9 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
             _uiState.postValue(
                 UiState(
                     isLoading = false,
-                    infoDeveloper = infoDeveloper
+                    infoDeveloper = infoDeveloper.getOrNull(),
+                    errorMessage = infoDeveloper.exceptionOrNull() as? ErrorApp
+
                 )
             )
         }
@@ -34,8 +36,6 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
     data class UiState(
         val isLoading: Boolean = false,
         val errorMessage: ErrorApp? = null,
-        val infoDeveloper: Result<List<DeveloperInfo>>? = null
+        val infoDeveloper: List<DeveloperInfo>? = emptyList()
     )
-
-
 }

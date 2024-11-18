@@ -57,9 +57,9 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun bindData(developers: Result<List<DeveloperInfo>>) {
+    private fun bindData(developers: List<DeveloperInfo>) {
 
-        developerAdapter.submitList(developers.getOrDefault(emptyList()).sortedBy { it.id.toInt() })
+        developerAdapter.submitList(developers.sortedBy { it.id.toInt() })
     }
 
     private fun openUrl(url: String) {

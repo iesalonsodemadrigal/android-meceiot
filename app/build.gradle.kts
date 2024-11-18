@@ -80,8 +80,12 @@ dependencies {
     testImplementation(libs.junit.jupiter.engine)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
+    //Vico
+    implementation(libs.core)
+    implementation(libs.views)
 }
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
+    
+
 }

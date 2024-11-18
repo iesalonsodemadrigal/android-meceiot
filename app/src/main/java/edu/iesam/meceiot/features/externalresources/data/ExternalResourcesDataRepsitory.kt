@@ -4,7 +4,9 @@ import edu.iesam.meceiot.features.externalresources.data.local.ExternalResources
 import edu.iesam.meceiot.features.externalresources.data.remote.ExternalResourcesRemoteDataSource
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResourcesRepository
+import org.koin.core.annotation.Single
 
+@Single
 class ExternalResourcesDataRepsitory(
     private val remoteDataSource: ExternalResourcesRemoteDataSource,
     private val localDataSource: ExternalResourcesXmlLocalDataSource

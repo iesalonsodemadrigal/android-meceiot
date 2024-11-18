@@ -7,7 +7,9 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.domain.GetAllExternalResourcesUseCase
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: GetAllExternalResourcesUseCase) :
     ViewModel() {
     private val _uiState = MutableLiveData<UiStage>()

@@ -3,7 +3,9 @@ package edu.iesam.meceiot.features.externalresources.data.local
 import android.content.Context
 import com.google.gson.Gson
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
+import org.koin.core.annotation.Single
 
+@Single
 class ExternalResourcesXmlLocalDataSource(private val context: Context) {
     private val sharedPref =
         context.getSharedPreferences("external_resources", Context.MODE_PRIVATE)

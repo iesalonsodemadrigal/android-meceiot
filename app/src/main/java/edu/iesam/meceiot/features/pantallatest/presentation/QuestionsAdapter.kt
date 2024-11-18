@@ -5,14 +5,7 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemQuestionBinding
-
-data class Question(
-    val id: Int,
-    val text: String,
-    val imageResId: Int,
-    val options: List<String>,
-    val correctOption: String
-)
+import edu.iesam.meceiot.features.pantallatest.data.Question
 
 class QuestionsAdapter(private val questions: List<Question>) :
     RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
@@ -44,8 +37,10 @@ class QuestionsAdapter(private val questions: List<Question>) :
             question.options.forEach { option ->
                 val radioButton = RadioButton(binding.root.context).apply {
                     text = option
+                    isChecked = selectedOptions[question.id] == option
                     setOnClickListener {
                         selectedOptions[question.id] = option
+                        notifyDataSetChanged()
                     }
                 }
                 binding.optionsGroup.addView(radioButton)

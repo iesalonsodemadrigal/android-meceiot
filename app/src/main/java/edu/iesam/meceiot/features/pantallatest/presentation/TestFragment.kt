@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
+import edu.iesam.meceiot.features.pantallatest.data.Question
 import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 import edu.iesam.meceiot.features.pantallatest.domain.GetSelectedOptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.UpdateSelectedOptionUseCase
@@ -75,10 +77,19 @@ class TestFragment : Fragment() {
                 }
                 selectedOptionsText.append("Pregunta $questionId: $selectedOption (Correcta: $correctOption)\n")
             }
-            binding.selectedOptionsTextView.text = "$selectedOptionsText\n\nAciertos: $correctCount"
-            binding.selectedOptionsTextView.visibility = View.VISIBLE
+
+            val bundle = Bundle().apply {
+                putString("selectedOptionsText", selectedOptionsText.toString())
+                putInt("correctCount", correctCount)
+            }
+
+            val resultDialogFragment = ResultDialogFragment().apply {
+                arguments = bundle
+            }
+
+            resultDialogFragment.show(parentFragmentManager, "ResultDialogFragment")
         } else {
-            binding.errorMessageTextView.visibility = View.VISIBLE
+            Toast.makeText(context, "Por favor, complete todas las opciones.", Toast.LENGTH_SHORT).show()
         }
     }
 }

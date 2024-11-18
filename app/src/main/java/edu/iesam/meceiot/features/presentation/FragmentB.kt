@@ -20,11 +20,9 @@ class FragmentB : Fragment(R.layout.fragment_b) {
 
         val navigateButton: Button = view.findViewById(R.id.button_navigate)
         navigateButton.setOnClickListener {
-
-            val navController = findNavController()
-            navController.navigate(R.id.action_fragmentB_to_developerAboutFragment) // Asegúrate de tener la acción definida en tu navigation graph
+            val action = FragmentBDirections.actionFragmentBToDeveloperAboutFragment()
+            findNavController().navigate(action)
         }
-
         return view
     }
 }

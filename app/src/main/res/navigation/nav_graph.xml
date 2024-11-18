@@ -15,6 +15,9 @@
         android:id="@+id/fragment_b"
         android:name="edu.iesam.meceiot.features.presentation.FragmentB"
         tools:layout="@layout/fragment_b">
+        <action
+            android:id="@+id/action_fragmentB_to_developerAboutFragment"
+            app:destination="@id/developerAboutFragment" />
     </fragment>
 
     <fragment
@@ -33,11 +36,5 @@
         android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
         android:label="Developer About Fragment"
        />
-    <action
-        android:id="@+id/action_fragmentB_to_developerAboutFragment"
-        app:destination="@id/developerAboutFragment" />
-
-
-
 
 </navigation>

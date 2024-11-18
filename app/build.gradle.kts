@@ -79,4 +79,6 @@ dependencies {
     //Vico
     implementation(libs.core)
     implementation(libs.views)
+    //coil
+    implementation(libs.coil)
 }

@@ -23,6 +23,7 @@ logginInterceptor = "4.12.0"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 coil = "2.7.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragment" }

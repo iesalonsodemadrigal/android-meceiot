@@ -3,6 +3,7 @@ package edu.iesam.meceiot.core
 import android.app.Application
 import edu.iesam.meceiot.core.di.AppModule
 import edu.iesam.meceiot.core.di.RemoteModule
+import edu.iesam.meceiot.core.di.LocalModule
 import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -18,7 +19,8 @@ class MeceiotApp : Application() {
             modules(
                 AppModule().module,
                 RemoteModule().module,
-                ExternalResourceModule().module
+                ExternalResourceModule().module,
+                LocalModule().module
             )
         }
     }

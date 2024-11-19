@@ -25,6 +25,7 @@ coil = "2.7.0"
 testCoroutines = "1.9.0"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
+room-version = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -63,6 +64,11 @@ views = { module = "com.patrykandpatrick.vico:views", version.ref = "core" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 
 test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "testCoroutines" }
+
+
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
+room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
+room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
 
 
 [plugins]

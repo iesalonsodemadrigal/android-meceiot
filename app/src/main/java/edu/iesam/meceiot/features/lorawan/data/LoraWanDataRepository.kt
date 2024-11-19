@@ -1,7 +1,7 @@
 package edu.iesam.meceiot.features.lorawan.data
 
 
-import edu.iesam.meceiot.features.lorawan.data.local.LoraWanXmlLocalDataSource
+import edu.iesam.meceiot.features.lorawan.data.local.xml.LoraWanXmlLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiRemoteDataSource
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanRepository

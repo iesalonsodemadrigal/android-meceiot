@@ -18,7 +18,7 @@
     <item
         android:id="@+id/testfragment"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_checklist"
         android:title="Test" />
 
 </menu>

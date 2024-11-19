@@ -17,11 +17,6 @@ class LoraWanXmlLocalDataSource(private val context: Context) {
             Context.MODE_PRIVATE
         )
 
-    /** Solo he puesto las funciones que sirven para guardar, recuperar y borrar
-     * el listado de información sobre `LoraWan` porque no tiene sentido mostrar solo
-     * 1 curiosidad/información sobre `LoraWan` en la `view`
-     */
-
     fun saveAll(loraWanInfos: List<LoraWanInfo>) {
         val editor = sharedPreferences.edit()
         loraWanInfos.forEach { loraWanInfo ->

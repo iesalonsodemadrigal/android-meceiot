@@ -31,6 +31,6 @@ class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: Get
     data class UiState(
         val loading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val externalResources: List<ExternalResources>? = null,
+        val externalResources: List<ExternalResources>? = emptyList()
     )
 }

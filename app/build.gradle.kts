@@ -82,6 +82,8 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.ksp)
     implementation(libs.room.coroutines)
+    //Coil
+    implementation(libs.coil)
 }
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")

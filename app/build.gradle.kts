@@ -79,6 +79,10 @@ dependencies {
     //Vico
     implementation(libs.core)
     implementation(libs.views)
+    //Room
+    implementation(libs.room.runtime)
+    ksp(libs.room.ksp)
+    implementation(libs.room.coroutines)
     //coil
     implementation(libs.coil)
 }

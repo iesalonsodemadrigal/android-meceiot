@@ -12,19 +12,23 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: GetAllExternalResourcesUseCase) :
     ViewModel() {
-    private val _uiState = MutableLiveData<UiStage>()
-    val uiState: MutableLiveData<UiStage> = _uiState
+    private val _uiState = MutableLiveData<UiState>()
+    val uiState: MutableLiveData<UiState> = _uiState
 
     fun viewCreated() {
-        _uiState.value = UiStage(loading = true)
+        _uiState.value = UiState(loading = true)
 
         viewModelScope.launch() {
             val resources = getAllExternalResourcesUseCase.invoke()
-            _uiState.value = UiStage(externalResources = resources)
+            resources.fold({
+                _uiState.value = UiState(externalResources = it)
+            },{
+                _uiState.value = UiState(errorApp = it as ErrorApp)
+            })
+            }
         }
-    }
 
-    data class UiStage(
+    data class UiState(
         val loading: Boolean = false,
         val errorApp: ErrorApp? = null,
         val externalResources: List<ExternalResources>? = null,

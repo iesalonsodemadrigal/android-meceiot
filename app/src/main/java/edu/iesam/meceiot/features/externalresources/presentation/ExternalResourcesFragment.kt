@@ -49,7 +49,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         }
     }
     private fun setupObserver() {
-        val resourcesObserver = Observer<ExternalResourcesViewModel.UiStage> { uiState ->
+        val resourcesObserver = Observer<ExternalResourcesViewModel.UiState> { uiState ->
             uiState.externalResources?.let {
                 bindData(it)
             }

@@ -7,7 +7,7 @@ import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
 import edu.iesam.meceiot.features.lorawan.data.local.db.converts.DateConverter
 
-@Database(entities = [LoraWanEntity::class], version = 1, exportSchema = false)
+@Database(entities = [LoraWanEntity::class], version = 2, exportSchema = false)
 @TypeConverters(DateConverter::class)
 abstract class MeceiotDataBase : RoomDatabase() {
 

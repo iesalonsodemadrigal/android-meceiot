@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.core.data.local.db
+package edu.iesam.meceiot.features.pantallatest.data.local.db
 
 import edu.iesam.meceiot.features.pantallatest.domain.QuestionGame
 import java.util.Date

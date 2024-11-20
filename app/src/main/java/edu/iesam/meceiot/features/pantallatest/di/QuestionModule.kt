@@ -8,6 +8,7 @@ class QuestionModule {
 
     @Single
 
+
     fun provideQuestionDao(db: MeceiotDataBase): QuestiongameDao {
         return db.QuestiongameDao()
     }

@@ -1,17 +1,16 @@
 package edu.iesam.meceiot.core.data.local.db.converters
 
-import android.health.connect.datatypes.units.Power
 import androidx.room.TypeConverter
-import com.google.gson.Gson
+import java.util.Date
 
 class PowerConverter {
     @TypeConverter
-    fun from(power: String): Power {
-        return Gson().fromJson(power, Power::class.java)
+    fun fromDateToLong(date: Date): Long {
+        return date.time
     }
 
     @TypeConverter
-    fun to(power: Power): String {
-        return Gson().toJson(power, Power::class.java)
+    fun fromLongToDate(date: Long): Date {
+        return Date(date)
     }
 }

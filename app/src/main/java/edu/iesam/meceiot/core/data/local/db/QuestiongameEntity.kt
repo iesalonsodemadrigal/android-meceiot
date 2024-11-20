@@ -3,6 +3,7 @@ package edu.iesam.meceiot.core.data.local.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 
 const val Questiongame_table = "questiongame"
 const val Questiongame_id = "id"
@@ -16,5 +17,6 @@ class QuestiongameEntity(
     @ColumnInfo(name = "respuesta2") val respuesta2: String,
     @ColumnInfo(name = "respuesta3") val respuesta3: String,
     @ColumnInfo(name = "respuesta4") val respuesta4: String,
+    @ColumnInfo(name = "ultimo_dato") val date: Date
 
     )

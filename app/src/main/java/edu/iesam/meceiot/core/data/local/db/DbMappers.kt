@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.core.data.local.db
 
 import edu.iesam.meceiot.features.pantallatest.domain.QuestionGame
+import java.util.Date
 
 fun QuestiongameEntity.toDomain(): QuestionGame {
     return QuestionGame(
@@ -22,6 +23,7 @@ fun QuestionGame.toEntity(): QuestiongameEntity {
         respuesta1 = this.option1,
         respuesta2 = this.option2,
         respuesta3 = this.option3,
-        respuesta4 = this.option4
+        respuesta4 = this.option4,
+        date = Date()
     )
 }

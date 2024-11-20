@@ -5,9 +5,10 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
+import edu.iesam.meceiot.features.lorawan.data.local.db.converts.DateConverter
 
 @Database(entities = [LoraWanEntity::class], version = 1, exportSchema = false)
-@TypeConverters()
+@TypeConverters(DateConverter::class)
 abstract class MeceiotDataBase : RoomDatabase() {
 
     abstract fun loraWanDao(): LoraWanDao

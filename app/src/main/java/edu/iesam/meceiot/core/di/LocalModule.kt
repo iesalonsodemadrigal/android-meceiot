@@ -13,15 +13,11 @@ class LocalModule {
 
     @Single
     fun provideDatabase(context: Context): MeceiotDataBase {
-       val db = Room.databaseBuilder(
+        val db = Room.databaseBuilder(
             context,
             MeceiotDataBase::class.java, "meceiot-db"
         )
         db.fallbackToDestructiveMigration()
         return db.build()
-
     }
-
-
-
 }

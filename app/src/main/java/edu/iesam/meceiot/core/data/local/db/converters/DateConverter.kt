@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.lorawan.data.local.db.converts
+package edu.iesam.meceiot.core.data.local.db.converters
 
 import androidx.room.TypeConverter
 import java.util.Date

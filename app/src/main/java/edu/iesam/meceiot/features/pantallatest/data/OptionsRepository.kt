@@ -9,22 +9,21 @@ class OptionsRepository(private val questiongameDao: QuestiongameDao) {
         return questiongameDao.findAll().map { entity ->
             QuestionOption(
                 questionId = entity.id,
-                option = entity.respuesta1, // Asumiendo que respuesta1 es la opción seleccionada
-                correctOption = entity.respuesta1 // Asumiendo que respuesta1 es la opción correcta
+                option = entity.respuesta1,
+                correctOption = entity.respuesta1
             )
         }
     }
-
     suspend fun updateSelectedOption(questionOption: QuestionOption) {
         val entity = QuestiongameEntity(
             id = questionOption.questionId,
-            question = "", // Proporciona el texto real de la pregunta
-            url_imagen = "", // Proporciona la URL de la imagen real
+            question = "",
+            url_imagen = "",
             respuesta1 = questionOption.option,
-            respuesta2 = "", // Proporciona la opción2 real
-            respuesta3 = "", // Proporciona la opción3 real
-            respuesta4 = "", // Proporciona la opción4 real
-            date = Date() // Proporciona la fecha real
+            respuesta2 = "",
+            respuesta3 = "",
+            respuesta4 = "",
+            date = Date()
         )
         questiongameDao.insert(entity)
     }

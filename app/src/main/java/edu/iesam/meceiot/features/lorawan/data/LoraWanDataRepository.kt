@@ -10,15 +10,16 @@ import org.koin.core.annotation.Single
 @Single
 class LoraWanDataRepository(
     private val loraWanApiRemoteDataSource: LoraWanApiRemoteDataSource,
-    private val loraWanXmlLocalDataSource: LoraWanDbLocalDataSource
+    //private val loraWanXmlLocalDataSource: LoraWanXmlLocalDataSource,
+    private val loraWanDbLocalDataSource: LoraWanDbLocalDataSource
 ) : LoraWanRepository {
 
     override suspend fun getInfoLoraWan(): Result<List<LoraWanInfo>> {
-        val loraWanInfoFromLocal = loraWanXmlLocalDataSource.getAll()
+        val loraWanInfoFromLocal = loraWanDbLocalDataSource.getAll()
 
         return if (loraWanInfoFromLocal.isEmpty()) {
             loraWanApiRemoteDataSource.getInfoLoraWan().onSuccess {
-                loraWanXmlLocalDataSource.saveAll(it)
+                loraWanDbLocalDataSource.saveAll(it)
             }
         } else {
             Result.success(loraWanInfoFromLocal)

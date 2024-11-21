@@ -1,5 +1,7 @@
 package edu.iesam.meceiot.features.lorawan.di
 
+import edu.iesam.meceiot.core.data.local.db.MeceiotDataBase
+import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiService
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
@@ -18,12 +20,6 @@ class LoraWanModule {
     @Single
     fun provideLoraWanInfoDao(db: MeceiotDataBase): LoraWanDao {
         return db.loraWanDao()
-    }
-
-    @Single
-    fun provideCacheCheck(dao: LoraWanDao): CacheCheck {
-        val time = 60000L //60 segundos
-        return CacheCheck(time, dao)
     }
 
 }

@@ -15,12 +15,12 @@ suspend fun <T : Any> apiCall(call: suspend () -> Response<T>): Result<T> {
             is ConnectException -> Result.failure(ErrorApp.InternetErrorApp)
             is UnknownHostException -> Result.failure(ErrorApp.ServerErrorApp)
             is SocketTimeoutException -> Result.failure(ErrorApp.InternetErrorApp)
-            else -> Result.failure(ErrorApp.UnknownErrorApp)
+            else -> Result.failure(ErrorApp.UnknowErrorApp)
         }
     }
     return if (response.isSuccessful && response.body() != null) {
         Result.success(response.body()!!)
     } else {
-        Result.failure(ErrorApp.UnknownErrorApp)
+        Result.failure(ErrorApp.UnknowErrorApp)
     }
 }

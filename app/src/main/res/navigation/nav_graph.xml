@@ -3,14 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_a">
-
+    app:startDestination="@+id/fragment_about_lorawan">
     <fragment
-        android:id="@+id/fragment_a"
-        android:name="edu.iesam.meceiot.features.presentation.FragmentA"
-        tools:layout="@layout/fragment_a">
-    </fragment>
-
+        android:id="@+id/fragment_about_lorawan"
+        android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"
+        tools:layout="@layout/fragment_about_lorawan" />
     <fragment
         android:id="@+id/fragment_b"
         android:name="edu.iesam.meceiot.features.presentation.FragmentB"

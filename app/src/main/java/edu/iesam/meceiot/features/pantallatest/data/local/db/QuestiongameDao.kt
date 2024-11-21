@@ -8,11 +8,16 @@ import androidx.room.Query
 @Dao
 interface QuestiongameDao {
     @Query("SELECT * FROM $Questiongame_table")
-    suspend fun findAll(): List<QuestiongameEntity>
+    suspend fun getAll(): List<QuestiongameEntity>
 
     @Query("SELECT * FROM $Questiongame_table WHERE $Questiongame_id = :id")
-    suspend fun findById(id: Int): QuestiongameEntity?
+    suspend fun getByById(id: Int): QuestiongameEntity?
+
+
+    @Query("DELETE FROM $Questiongame_table WHERE $Questiongame_id = :id")
+    suspend fun deleteById(id: String)
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(questionGame: QuestiongameEntity)
+    suspend fun saveAll(vararg questiongameEntity: QuestiongameEntity)
 }

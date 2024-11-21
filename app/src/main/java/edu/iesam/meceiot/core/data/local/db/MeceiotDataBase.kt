@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestiongameDao
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestiongameEntity
 
-@Database(entities = [QuestiongameEntity::class], version = 2)
+@Database(entities = [QuestiongameEntity::class], version = 2, exportSchema = false)
 @TypeConverters(DateTypeConverter::class)
 abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun QuestiongameDao(): QuestiongameDao

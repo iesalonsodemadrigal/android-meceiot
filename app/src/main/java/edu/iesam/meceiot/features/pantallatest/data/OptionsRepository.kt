@@ -6,7 +6,7 @@ import java.util.Date
 
 class OptionsRepository(private val questiongameDao: QuestiongameDao) {
     suspend fun getSelectedOptions(): List<QuestionOption> {
-        return questiongameDao.findAll().map { entity ->
+        return questiongameDao.getAll().map { entity ->
             QuestionOption(
                 questionId = entity.id,
                 option = entity.respuesta1,

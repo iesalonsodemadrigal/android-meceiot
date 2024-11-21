@@ -20,4 +20,7 @@ interface QuestiongameDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveAll(vararg questiongameEntity: QuestiongameEntity)
+
+    @Insert
+    suspend fun insert(questiongameEntity: QuestiongameEntity)
 }

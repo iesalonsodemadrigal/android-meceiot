@@ -1,8 +1,5 @@
 package edu.iesam.meceiot.features.lorawan.di
 
-import edu.iesam.meceiot.core.data.local.db.CacheCheck
-import edu.iesam.meceiot.core.data.local.db.MeceiotDataBase
-import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiService
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module

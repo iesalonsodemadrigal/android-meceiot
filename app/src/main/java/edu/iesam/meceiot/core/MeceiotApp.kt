@@ -17,7 +17,10 @@ class MeceiotApp : Application() {
         startKoin {
             androidContext(this@MeceiotApp)
             modules(
-                AppModule().module, RemoteModule().module, LocalModule().module, LoraWanModule().module
+                AppModule().module,
+                RemoteModule().module,
+                LocalModule().module,
+                LoraWanModule().module
             )
         }
     }

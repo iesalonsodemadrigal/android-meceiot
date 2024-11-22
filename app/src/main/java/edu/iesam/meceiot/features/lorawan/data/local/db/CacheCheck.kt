@@ -1,7 +1,4 @@
-package edu.iesam.meceiot.core.data.local.db
-
-import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
-import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
+package edu.iesam.meceiot.features.lorawan.data.local.db
 
 class CacheCheck(
     private val time: Long,

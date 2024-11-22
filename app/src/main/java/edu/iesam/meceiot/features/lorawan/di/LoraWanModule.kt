@@ -21,5 +21,4 @@ class LoraWanModule {
     fun provideLoraWanInfoDao(db: MeceiotDataBase): LoraWanDao {
         return db.loraWanDao()
     }
-
 }

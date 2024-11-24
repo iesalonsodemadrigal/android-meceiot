@@ -9,8 +9,10 @@ class LoraWanDbLocalDataSource(
     private val cacheCheck: CacheCheck
 ) {
 
+    private val timeTTL: Long = 600000
+
     suspend fun getAll(): List<LoraWanInfo> {
-        val validEntities = cacheCheck.execute()
+        val validEntities = cacheCheck.execute(timeTTL)
         return validEntities.map { it.toDomain() }
     }
 

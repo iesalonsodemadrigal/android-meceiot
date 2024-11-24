@@ -1,16 +1,24 @@
 package edu.iesam.meceiot.features.lorawan.data.local.db
 
-class CacheCheck(
-    private val time: Long,
-    private val dao: LoraWanDao
-) {
-    suspend fun execute(): List<LoraWanEntity> {
-        val currentTime = System.currentTimeMillis()
-        val entities = dao.getAll()
+import edu.iesam.meceiot.core.domain.ErrorApp
+import org.koin.core.annotation.Single
 
-        return entities.filter {
+@Single
+class CacheCheck(
+    private val loraWanDao: LoraWanDao
+) {
+    suspend fun execute(time: Long): List<LoraWanEntity> {
+        val currentTime = System.currentTimeMillis()
+        val entities = loraWanDao.getAll()
+
+        val expiredEntities = entities.filter {
             val timeDifference = currentTime - it.date.time
-            timeDifference <= time
+            timeDifference > time
         }
+
+        if (expiredEntities.isNotEmpty()) {
+            throw ErrorApp.DataExpiredErrorApp
+        }
+        return expiredEntities
     }
 }

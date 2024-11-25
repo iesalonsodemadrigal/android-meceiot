@@ -13,7 +13,7 @@ sealed class ErrorApp : Throwable() {
         private fun readResolve(): Any = DataErrorApp
     }
 
-    object UnknownErrorApp : ErrorApp() {
-        private fun readResolve(): Any = UnknownErrorApp
+    object UnknowErrorApp : ErrorApp() {
+        private fun readResolve(): Any = UnknowErrorApp
     }
 }

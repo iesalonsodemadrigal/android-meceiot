@@ -83,4 +83,6 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.ksp)
     implementation(libs.room.coroutines)
+    //coil
+    implementation(libs.coil)
 }

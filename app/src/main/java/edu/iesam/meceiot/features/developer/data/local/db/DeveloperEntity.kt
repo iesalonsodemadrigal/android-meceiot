@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 
-const val DEVELOPER_TABLE = "lorawan"
-const val DEVELOPER_ID = "lorawan_id"
+const val DEVELOPER_TABLE = "developer"
+const val DEVELOPER_ID = "developer_id"
 
 @Entity(tableName = DEVELOPER_TABLE)
 class DeveloperEntity(

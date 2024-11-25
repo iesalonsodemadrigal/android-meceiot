@@ -1,6 +1,7 @@
-package edu.iesam.meceiot.features.lorawan.data.local.db
+package edu.iesam.meceiot.core.domain
 
-import edu.iesam.meceiot.core.domain.ErrorApp
+import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
+import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
 import org.koin.core.annotation.Single
 
 @Single
@@ -19,6 +20,6 @@ class CacheCheck(
         if (expiredEntities.isNotEmpty()) {
             throw ErrorApp.DataExpiredErrorApp
         }
-        return expiredEntities
+        return entities
     }
 }

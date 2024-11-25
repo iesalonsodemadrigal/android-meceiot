@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.lorawan.data.local.db
 
+import edu.iesam.meceiot.core.domain.AppConstants.timeLoraWanTTL
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import org.koin.core.annotation.Single
 
@@ -9,10 +10,8 @@ class LoraWanDbLocalDataSource(
     private val cacheCheck: CacheCheck
 ) {
 
-    private val timeTTL: Long = 600000
-
     suspend fun getAll(): List<LoraWanInfo> {
-        val validEntities = cacheCheck.execute(timeTTL)
+        val validEntities = cacheCheck.execute(timeLoraWanTTL)
         return validEntities.map { it.toDomain() }
     }
 

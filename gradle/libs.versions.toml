@@ -64,7 +64,6 @@ room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "roo
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
 
 
-
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 
 [plugins]

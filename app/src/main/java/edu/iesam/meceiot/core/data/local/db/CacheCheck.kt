@@ -1,5 +1,6 @@
-package edu.iesam.meceiot.core.domain
+package edu.iesam.meceiot.core.data.local.db
 
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
 import org.koin.core.annotation.Single

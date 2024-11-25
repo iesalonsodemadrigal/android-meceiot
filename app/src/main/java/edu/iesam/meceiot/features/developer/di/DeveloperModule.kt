@@ -18,7 +18,7 @@ class DeveloperModule {
         retrofit.create(DeveloperApiService::class.java)
 
     @Single
-    fun provideLoraWanInfoDao(db: MeceiotDataBase): DeveloperDao {
+        fun provideDeveloperDao(db: MeceiotDataBase): DeveloperDao {
         return db.developerDao()
     }
 

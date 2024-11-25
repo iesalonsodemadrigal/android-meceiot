@@ -15,9 +15,9 @@ interface  DeveloperDao {
         suspend fun getById(id: String): DeveloperEntity?
 
     @Query("DELETE FROM $DEVELOPER_TABLE WHERE $DEVELOPER_ID = :developerId")
-    suspend fun deleteById(loraWanId: String)
+    suspend fun deleteById(developerId: String)
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveAll(vararg loraWanEntity: DeveloperEntity)
+    suspend fun saveAll(vararg developerEntity: DeveloperEntity)
 }

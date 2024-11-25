@@ -15,9 +15,5 @@ class DeveloperApiRemoteDataSource(private val developerApiService: DeveloperApi
 
         }
 
-        }
     }
-
-
-
-
+}

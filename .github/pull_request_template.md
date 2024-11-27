@@ -1,3 +1,11 @@
+---
+name: Feature Template
+about: Main feature template
+title: "[Feature]: "
+labels: ["feature"]
+projects: ["MeceIoT"]
+assignees: ''
+---
 ## 🤔 Descripción del problema a resolver
 <!--
 Objetivo: Asegurarse de que se ha entendido correctamente el problema a resolver. 
@@ -23,9 +31,10 @@ La estimación debe ser más precisa tras hacer pruebas de validación.
 <!-- Pruebas visuales que muestren rel resultado de la implementación -->
 
 ## ✋ Notas adicionales (Disclaimer)
-<!-- ¿Deberíamos saber algo sobre algo que no esperábamos?
+<!-- ¿Deberíamos saber algo sobre algo que no esperábamos? -->
 
 ## 🌈 Añade un Gif que represente a esta PR
+<!-- ¿Cómo te has sentido desarrollando esta PR -->
 
 ## ✅ Checklist
 - [ ] La rama tiene el formato correcto: tipo_de_issue/numero_issue/descripcion.

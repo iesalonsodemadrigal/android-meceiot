@@ -1,0 +1,38 @@
+package edu.iesam.meceiot.features.lorawan.data.local
+
+import android.content.Context
+import com.google.gson.Gson
+import edu.iesam.meceiot.R
+import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
+import org.koin.core.annotation.Single
+
+@Single
+class LoraWanXmlLocalDataSource(private val context: Context) {
+
+    private val gson = Gson()
+
+    private val sharedPreferences =
+        context.getSharedPreferences(
+            context.getString(R.string.lorawan_info_file_xml),
+            Context.MODE_PRIVATE
+        )
+
+    fun saveAll(loraWanInfos: List<LoraWanInfo>) {
+        val editor = sharedPreferences.edit()
+        loraWanInfos.forEach { loraWanInfo ->
+            editor.putString(loraWanInfo.id, gson.toJson(loraWanInfo))
+        }
+        editor.apply()
+    }
+
+
+    fun getLoraWanInfo(): List<LoraWanInfo> {
+        val loraWanInfos = mutableListOf<LoraWanInfo>()
+        val mapLoraWanInfos = sharedPreferences.all
+        mapLoraWanInfos.values.forEach { jsonLoraWanInfo ->
+            val loraWanInfo = gson.fromJson(jsonLoraWanInfo as String, LoraWanInfo::class.java)
+            loraWanInfos.add(loraWanInfo)
+        }
+        return loraWanInfos
+    }
+}

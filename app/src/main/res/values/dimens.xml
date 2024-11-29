@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_size_medium">20sp</dimen>
+    <dimen name="font_size_extra_high">30sp</dimen>
+
+    <dimen name="margin_extra_small">5dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_extra_high">30dp</dimen>
+
+    <dimen name="padding_small">10dp</dimen>
+</resources>

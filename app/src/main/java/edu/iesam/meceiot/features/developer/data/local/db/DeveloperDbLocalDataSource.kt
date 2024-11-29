@@ -5,13 +5,11 @@ import org.koin.core.annotation.Single
 
 @Single
 class DeveloperDbLocalDataSource (
-private val developerDao: DeveloperDao,
-private val cacheCheck: CacheCheck
+    private val developerDao: DeveloperDao
 ) {
 
     suspend fun getAll(): List<DeveloperInfo> {
-        val validEntities = cacheCheck.execute(time = 600000)
-        return validEntities.map { it.toDomain() }
+        return developerDao.getAll().map { it.toDomain() }
     }
 
     suspend fun saveAll(developerInfo: List<DeveloperInfo>) {

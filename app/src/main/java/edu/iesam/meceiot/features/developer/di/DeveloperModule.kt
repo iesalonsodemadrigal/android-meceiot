@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.developer.di
 
 import edu.iesam.meceiot.core.data.local.db.MeceiotDataBase
-import edu.iesam.meceiot.features.developer.data.local.db.CacheCheck
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDao
 import edu.iesam.meceiot.features.developer.data.remote.DeveloperApiService
 import org.koin.core.annotation.ComponentScan

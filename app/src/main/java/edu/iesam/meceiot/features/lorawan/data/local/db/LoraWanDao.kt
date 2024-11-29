@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface LoraWanDao {
+interface LoraWanDao: Dao<LoraWanEntity> {
 
     //Métodos de busqueda
     @Query("SELECT * FROM $LORAWAN_TABLE")

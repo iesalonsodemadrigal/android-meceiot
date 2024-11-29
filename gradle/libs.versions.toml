@@ -26,7 +26,7 @@ testCoroutines = "1.9.0"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
-coil = "2.7.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -72,7 +72,6 @@ room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "roo
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
 
 
-coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

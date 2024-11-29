@@ -2,16 +2,15 @@ package edu.iesam.meceiot.features.pantallatest.domain
 
 
 import edu.iesam.meceiot.features.pantallatest.data.OptionsRepository
-import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 
 class GetSelectedOptionsUseCase(private val repository: OptionsRepository) {
-    fun execute(): List<QuestionOption> {
+    fun execute(): List<Question> {
         return repository.getSelectedOptions()
     }
 }
 
 class UpdateSelectedOptionUseCase(private val repository: OptionsRepository) {
-    fun execute(questionOption: QuestionOption) {
-        repository.updateSelectedOption(questionOption)
+    fun execute(question: Question) {
+        repository.updateSelectedOption(question)
     }
 }

@@ -1,6 +1,8 @@
 package edu.iesam.meceiot.features.pantallatest.data
 
+import edu.iesam.meceiot.features.pantallatest.domain.Question
+
 interface OptionsDataSource {
-    fun getSelectedOptions(): List<QuestionOption>
-    fun updateSelectedOption(questionOption: QuestionOption)
+    fun getSelectedOptions(): List<Question>
+    fun updateSelectedOption(question: Question)
 }

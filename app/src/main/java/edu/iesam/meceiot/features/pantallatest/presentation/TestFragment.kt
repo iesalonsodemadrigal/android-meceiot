@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
 import edu.iesam.meceiot.features.pantallatest.domain.Question
-import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 import edu.iesam.meceiot.features.pantallatest.domain.GetSelectedOptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.UpdateSelectedOptionUseCase
 
@@ -20,16 +19,6 @@ class TestFragment : Fragment() {
     private lateinit var questionsAdapter: QuestionsAdapter
     private lateinit var getSelectedOptionsUseCase: GetSelectedOptionsUseCase
     private lateinit var updateSelectedOptionUseCase: UpdateSelectedOptionUseCase
-
-    private val correctOptions = listOf(
-        QuestionOption(1, "a", "a"),
-        QuestionOption(2, "b", "b"),
-        QuestionOption(3, "c", "c"),
-        QuestionOption(4, "d", "d"),
-        QuestionOption(5, "a", "a"),
-        QuestionOption(6, "b", "b"),
-        QuestionOption(7, "c", "c")
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,19 +48,18 @@ class TestFragment : Fragment() {
         binding.recyclerView.adapter = questionsAdapter
 
         binding.submitButton.setOnClickListener {
-            handleSubmit()
+            handleSubmit(questions)
         }
     }
 
-    private fun handleSubmit() {
+    private fun handleSubmit(questions: List<Question>) {
         val selectedOptions = questionsAdapter.getSelectedOptions()
         if (selectedOptions.size == questionsAdapter.itemCount) {
             binding.errorMessageTextView.visibility = View.GONE
             var correctCount = 0
             val selectedOptionsText = StringBuilder()
             for ((questionId, selectedOption) in selectedOptions) {
-                val correctOption =
-                    correctOptions.find { it.questionId == questionId }?.correctOption
+                val correctOption = questions.find { it.id == questionId }?.correctOption
                 if (selectedOption == correctOption) {
                     correctCount++
                 }

@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.lorawan.data
 
 
+import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDbLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.local.xml.LoraWanXmlLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiRemoteDataSource
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
@@ -11,18 +12,25 @@ import org.koin.core.annotation.Single
 class LoraWanDataRepository(
     private val loraWanApiRemoteDataSource: LoraWanApiRemoteDataSource,
     private val loraWanXmlLocalDataSource: LoraWanXmlLocalDataSource,
-    //private val loraWanDbLocalDataSource: LoraWanDbLocalDataSource
+    private val loraWanDbLocalDataSource: LoraWanDbLocalDataSource
 ) : LoraWanRepository {
 
     override suspend fun getInfoLoraWan(): Result<List<LoraWanInfo>> {
-        val loraWanInfoFromXmlLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
+        val loraWanInfoFromDbLocal = loraWanDbLocalDataSource.getAll()
+        return if (loraWanInfoFromDbLocal.isEmpty()) {
+            val loraWanInfoFromXmlLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
 
-        return if (loraWanInfoFromXmlLocal.isEmpty()) {
-            loraWanApiRemoteDataSource.getInfoLoraWan().onSuccess {
-                loraWanXmlLocalDataSource.saveAll(it)
+            return if (loraWanInfoFromXmlLocal.isEmpty()) {
+                loraWanApiRemoteDataSource.getInfoLoraWan().onSuccess {
+                    loraWanDbLocalDataSource.saveAll(it)
+                    loraWanXmlLocalDataSource.saveAll(it)
+                }
+            } else {
+                loraWanDbLocalDataSource.saveAll(loraWanInfoFromXmlLocal)
+                Result.success(loraWanInfoFromXmlLocal)
             }
         } else {
-            Result.success(loraWanInfoFromXmlLocal)
+            Result.success(loraWanInfoFromDbLocal)
         }
     }
 }

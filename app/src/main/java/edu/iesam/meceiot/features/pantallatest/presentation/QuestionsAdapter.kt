@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemQuestionBinding
-import edu.iesam.meceiot.features.pantallatest.data.Question
+import edu.iesam.meceiot.features.pantallatest.domain.Question
 
 class QuestionsAdapter(private val questions: List<Question>) :
     RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {

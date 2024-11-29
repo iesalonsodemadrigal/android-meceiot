@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
-import edu.iesam.meceiot.features.pantallatest.data.Question
+import edu.iesam.meceiot.features.pantallatest.domain.Question
 import edu.iesam.meceiot.features.pantallatest.data.QuestionOption
 import edu.iesam.meceiot.features.pantallatest.domain.GetSelectedOptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.UpdateSelectedOptionUseCase

@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.lorawan.data.local.db
 
 import android.util.Log
+import edu.iesam.meceiot.core.data.local.db.CacheCheck
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import org.koin.core.annotation.Single
@@ -13,7 +14,7 @@ class LoraWanDbLocalDataSource(
     //,private val cacheCheck: CacheCheck<LoraWanEntity>
 ) {
 
-    suspend fun getAll(): Result<List<LoraWanInfo>> {
+    suspend fun getAll(): List<LoraWanInfo> {
         val currentTime = System.currentTimeMillis()
         val loraWanInfoEntities = loraWanDao.getAll()
 
@@ -28,11 +29,7 @@ class LoraWanDbLocalDataSource(
         }
 
         //debemos lanzar un error cuando se tarda más del tiempo estipulado (ErrorApp??)
-        return if (validEntities.isEmpty()) {
-            Result.failure(ErrorApp.DataErrorApp) //Aquí deberíamos crear un DataExpiredError
-        } else {
-            Result.success(validEntities.map { it.toDomain() })
-        }
+        return validEntities.map { it.toDomain() }
         //val loraWanCache = cacheCheck.execute(TIME_LORAWAN_TTL)
         //return loraWanCache.map { it.toDomain() }
     }

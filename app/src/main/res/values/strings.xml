@@ -3,7 +3,18 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
-    <string name="label_menu_a">fragmentA</string>
+    <string name="label_menu_a">LoraWan</string>
+    <string name="lorawan_info_file_xml">lorawan</string>
+    <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes
+        dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla
+        iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus
+        quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora
+        dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum
+        neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet
+        mattis id hac, orci phasellus varius gravida curae cum cras sapien.
+    </string>
+    <string name="title">Title</string>
+    <string name="imageItem">ImageItem</string>
     <string name="label_menu_b">fragmentB</string>
     <string name="label_menu_c">fragmentC</string>
     <string name="label_menu_d">External Resources</string>

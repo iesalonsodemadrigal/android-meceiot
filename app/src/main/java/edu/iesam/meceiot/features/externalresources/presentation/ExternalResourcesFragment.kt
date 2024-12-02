@@ -1,7 +1,5 @@
 package edu.iesam.meceiot.features.externalresources.presentation
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
@@ -22,6 +21,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
     private val externalResourcesAdapter = ExternalResourcesAdapter()
+    private val appIntent: AppIntent by lazy { AppIntent(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -64,8 +64,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
     }
 
     private fun openUrl(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        startActivity(intent)
+        appIntent.openUrl(url)
     }
 
     override fun onDestroyView() {

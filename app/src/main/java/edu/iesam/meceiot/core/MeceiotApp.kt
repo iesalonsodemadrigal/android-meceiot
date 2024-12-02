@@ -5,6 +5,7 @@ import edu.iesam.meceiot.core.di.AppModule
 import edu.iesam.meceiot.core.di.RemoteModule
 import edu.iesam.meceiot.core.di.LocalModule
 import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
+import edu.iesam.meceiot.features.lorawan.di.LoraWanModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.ksp.generated.module
@@ -20,7 +21,8 @@ class MeceiotApp : Application() {
                 AppModule().module,
                 RemoteModule().module,
                 ExternalResourceModule().module,
-                LocalModule().module
+                LocalModule().module,
+                LoraWanModule().module
             )
         }
     }

@@ -27,6 +27,7 @@ junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
 
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragment" }
@@ -69,6 +70,7 @@ test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
+
 
 
 [plugins]

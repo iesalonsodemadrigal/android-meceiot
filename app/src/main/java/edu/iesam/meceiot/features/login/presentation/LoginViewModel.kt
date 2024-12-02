@@ -34,7 +34,7 @@ class LoginViewModel(
                 _uiState.postValue(
                     LoginUiState(
                         isLoading = false,
-                        errorApp = ErrorApp.UnknownErrorApp,
+                        errorApp = ErrorApp.UnknowErrorApp,
                         loginSuccessful = false,
                         loginCredentials = loginCredentials
                     )

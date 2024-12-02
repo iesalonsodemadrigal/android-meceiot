@@ -6,19 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
 import edu.iesam.meceiot.features.pantallatest.domain.Question
-import edu.iesam.meceiot.features.pantallatest.domain.GetSelectedOptionsUseCase
-import edu.iesam.meceiot.features.pantallatest.domain.UpdateSelectedOptionUseCase
 
 class TestFragment : Fragment() {
 
     private lateinit var binding: TestfragmentBinding
     private lateinit var questionsAdapter: QuestionsAdapter
-    private lateinit var getSelectedOptionsUseCase: GetSelectedOptionsUseCase
-    private lateinit var updateSelectedOptionUseCase: UpdateSelectedOptionUseCase
+    private val viewModel: TestViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,41 +42,54 @@ class TestFragment : Fragment() {
         )
 
         questionsAdapter = QuestionsAdapter(questions)
-
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = questionsAdapter
 
+        viewModel.setQuestions(questions)
+
         binding.submitButton.setOnClickListener {
-            handleSubmit(questions)
+            handleSubmit()
         }
+
+        viewModel.selectedOptions.observe(viewLifecycleOwner, Observer { selectedOptions ->
+            questionsAdapter.notifyDataSetChanged()
+        })
+
+        viewModel.correctCount.observe(viewLifecycleOwner, Observer { correctCount ->
+            showResultDialog(correctCount)
+        })
     }
 
-    private fun handleSubmit(questions: List<Question>) {
+    private fun handleSubmit() {
         val selectedOptions = questionsAdapter.getSelectedOptions()
         if (selectedOptions.size == questionsAdapter.itemCount) {
             binding.errorMessageTextView.visibility = View.GONE
-            var correctCount = 0
-            val selectedOptionsText = StringBuilder()
-            for ((questionId, selectedOption) in selectedOptions) {
-                val correctOption = questions.find { it.id == questionId }?.correctOption
-                if (selectedOption == correctOption) {
-                    correctCount++
-                }
-                selectedOptionsText.append("Pregunta $questionId: $selectedOption (Correcta: $correctOption)\n")
-            }
-
-            val bundle = Bundle().apply {
-                putString("selectedOptionsText", selectedOptionsText.toString())
-                putInt("correctCount", correctCount)
-            }
-
-            val resultDialogFragment = ResultDialogFragment().apply {
-                arguments = bundle
-            }
-
-            resultDialogFragment.show(parentFragmentManager, "ResultDialogFragment")
+            viewModel.setSelectedOptions(selectedOptions)
+            viewModel.calculateCorrectAnswers()
         } else {
             Toast.makeText(context, "Por favor, complete todas las opciones.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun showResultDialog(correctCount: Int) {
+        val selectedOptionsText = StringBuilder()
+        val questions = viewModel.questions.value ?: return
+        val selectedOptions = viewModel.selectedOptions.value ?: return
+
+        for ((questionId, selectedOption) in selectedOptions) {
+            val correctOption = questions.find { it.id == questionId }?.correctOption
+            selectedOptionsText.append("Pregunta $questionId: $selectedOption (Correcta: $correctOption)\n")
+        }
+
+        val bundle = Bundle().apply {
+            putString("selectedOptionsText", selectedOptionsText.toString())
+            putInt("correctCount", correctCount)
+        }
+
+        val resultDialogFragment = ResultDialogFragment().apply {
+            arguments = bundle
+        }
+
+        resultDialogFragment.show(parentFragmentManager, "ResultDialogFragment")
     }
 }

@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.lorawan.data
 
 
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDbLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.local.xml.LoraWanXmlLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiRemoteDataSource
@@ -19,6 +20,7 @@ class LoraWanDataRepository(
         val loraWanInfoFromDbLocal = loraWanDbLocalDataSource.getAll()
         return if (loraWanInfoFromDbLocal.isEmpty()) {
             val loraWanInfoFromXmlLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
+            //Result.failure(ErrorApp.DateExpiredError)
 
             return if (loraWanInfoFromXmlLocal.isEmpty()) {
                 loraWanApiRemoteDataSource.getInfoLoraWan().onSuccess {

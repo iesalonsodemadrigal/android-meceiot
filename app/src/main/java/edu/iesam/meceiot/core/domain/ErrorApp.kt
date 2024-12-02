@@ -16,4 +16,8 @@ sealed class ErrorApp : Throwable() {
     object UnknowErrorApp : ErrorApp() {
         private fun readResolve(): Any = UnknowErrorApp
     }
+
+    object DateExpiredError : ErrorApp(){
+        private fun readResolve(): Any = DateExpiredError
+    }
 }

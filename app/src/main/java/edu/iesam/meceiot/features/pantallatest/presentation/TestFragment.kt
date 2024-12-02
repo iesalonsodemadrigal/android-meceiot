@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.pantallatest.presentation
 
+import Question
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
-import edu.iesam.meceiot.features.pantallatest.domain.Question
 
 class TestFragment : Fragment() {
 
@@ -32,13 +32,13 @@ class TestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val questions = listOf(
-            Question(1, "1º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "a"),
-            Question(2, "2º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "b"),
-            Question(3, "3º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "c"),
-            Question(4, "4º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "d"),
-            Question(5, "5º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "a"),
-            Question(6, "6º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "b"),
-            Question(7, "7º pregunta", R.drawable.logo_lorawan, listOf("a", "b", "c", "d"), "c")
+            Question(1, "1º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "a"),
+            Question(2, "2º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "b"),
+            Question(3, "3º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "c"),
+            Question(4, "4º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "d"),
+            Question(5, "5º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "a"),
+            Question(6, "6º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "b"),
+            Question(7, "7º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "c")
         )
 
         questionsAdapter = QuestionsAdapter(questions)

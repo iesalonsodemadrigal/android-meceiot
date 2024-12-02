@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.pantallatest.data
 
-import edu.iesam.meceiot.features.pantallatest.domain.Question
+import Question
+
 
 
 class OptionsRepository(private val dataSource: OptionsDataSource) {

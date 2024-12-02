@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.pantallatest.domain
 
 
+import Question
 import edu.iesam.meceiot.features.pantallatest.data.OptionsRepository
 
 class GetSelectedOptionsUseCase(private val repository: OptionsRepository) {

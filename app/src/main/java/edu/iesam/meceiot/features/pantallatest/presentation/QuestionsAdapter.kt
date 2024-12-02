@@ -1,11 +1,12 @@
 package edu.iesam.meceiot.features.pantallatest.presentation
 
+import Question
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemQuestionBinding
-import edu.iesam.meceiot.features.pantallatest.domain.Question
+
 
 class QuestionsAdapter(private val questions: List<Question>) :
     RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
@@ -34,7 +35,8 @@ class QuestionsAdapter(private val questions: List<Question>) :
             binding.questionText.text = question.text
             binding.questionImage.setImageResource(question.imageResId)
             binding.optionsGroup.removeAllViews()
-            question.options.forEach { option ->
+            val options = listOf(question.option1, question.option2, question.option3, question.option4)
+            options.forEach { option ->
                 val radioButton = RadioButton(binding.root.context).apply {
                     text = option
                     isChecked = selectedOptions[question.id] == option

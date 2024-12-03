@@ -15,14 +15,14 @@ class LoraWanDbLocalDataSource(
         val loraWanInfoEntities = loraWanDao.getAll()
 
         // 'all' garantiza que todas las entidades cumplan la condición TTL
-        val validEntity = loraWanInfoEntities.all { entity ->
+        val validEntity = loraWanInfoEntities.filter { entity ->
             val timeDifference = System.currentTimeMillis() - entity.date.time
             timeDifference <= TIME_LORAWAN_TTL
         }
-        return if (validEntity) {
-            Result.success(loraWanInfoEntities.map { it.toDomain() })
-        } else {
+        return if (validEntity.isEmpty()) {
             Result.failure(ErrorApp.DataExpiredError)
+        } else {
+            Result.success(loraWanInfoEntities.map { it.toDomain() })
         }
     }
 

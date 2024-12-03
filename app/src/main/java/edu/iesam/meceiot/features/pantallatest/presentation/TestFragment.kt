@@ -10,11 +10,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.databinding.TestfragmentBinding
 import edu.iesam.meceiot.features.pantallatest.domain.OptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.Question
 import edu.iesam.meceiot.features.pantallatest.presentation.adapter.QuestionsAdapter
+import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 class TestFragment : Fragment() {

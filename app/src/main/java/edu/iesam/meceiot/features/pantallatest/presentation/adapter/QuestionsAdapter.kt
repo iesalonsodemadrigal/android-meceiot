@@ -20,13 +20,12 @@ class QuestionsAdapter(
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        val question = questions[position]
-        holder.bind(question)
+        holder.bind(questions[position])
     }
 
     override fun getItemCount(): Int = questions.size
 
-    inner class QuestionViewHolder(val binding: ItemQuestionBinding) :
+    inner class QuestionViewHolder(private val binding: ItemQuestionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(question: Question) {
@@ -36,16 +35,12 @@ class QuestionsAdapter(
             options.forEach { option ->
                 val radioButton = RadioButton(binding.root.context).apply {
                     text = option
-                    setOnClickListener {
-                        selectedOptions[question.id] = option
-                    }
+                    setOnClickListener { selectedOptions[question.id] = option }
                 }
                 binding.optionsGroup.addView(radioButton)
             }
         }
     }
 
-    fun getSelectedOptions(): Map<String, String> {
-        return selectedOptions
-    }
+    fun getSelectedOptions(): Map<String, String> = selectedOptions
 }

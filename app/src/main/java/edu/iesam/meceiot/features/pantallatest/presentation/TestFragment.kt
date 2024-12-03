@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.databinding.TestfragmentBinding
@@ -58,7 +61,6 @@ class TestFragment : Fragment() {
     }
 
     private fun handleSubmit() {
-        // Assuming the adapter has a method to get selected options
         val selectedOptions = questionsAdapter.getSelectedOptions()
         if (selectedOptions.size == questionsAdapter.itemCount) {
             binding.errorMessageTextView.visibility = View.GONE
@@ -86,5 +88,30 @@ class TestFragment : Fragment() {
         }
 
         resultDialogFragment.show(parentFragmentManager, "ResultDialogFragment")
+    }
+}
+
+class TestViewModel : ViewModel() {
+
+    private val _questions = MutableLiveData<List<Question>>()
+    val questions: LiveData<List<Question>> get() = _questions
+
+    private val _correctCount = MutableLiveData<Int>()
+    val correctCount: LiveData<Int> get() = _correctCount
+
+    fun setQuestions(questions: List<Question>) {
+        _questions.value = questions
+    }
+
+    fun calculateCorrectAnswers(selectedOptions: Map<String, String>) {
+        val questions = _questions.value ?: return
+        var correctCount = 0
+        for ((questionId, selectedOption) in selectedOptions) {
+            val correctOption = questions.find { it.id == questionId }?.correctOption
+            if (selectedOption == correctOption) {
+                correctCount++
+            }
+        }
+        _correctCount.value = correctCount
     }
 }

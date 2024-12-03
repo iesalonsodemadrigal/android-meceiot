@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.lorawan.data.local.db
 
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import org.koin.core.annotation.Single
 
@@ -10,15 +11,19 @@ class LoraWanDbLocalDataSource(
     private val loraWanDao: LoraWanDao,
 ) {
 
-    suspend fun getAll(): List<LoraWanInfo> {
-        val lastTime = System.currentTimeMillis()
+    suspend fun getAll(): Result<List<LoraWanInfo>> {
         val loraWanInfoEntities = loraWanDao.getAll()
 
-        loraWanInfoEntities.filter{ entity ->
-            val timeDifferent = lastTime - entity.date.time
-            timeDifferent <= TIME_LORAWAN_TTL
+        // 'all' garantiza que todas las entidades cumplan la condición TTL
+        val validEntity = loraWanInfoEntities.all { entity ->
+            val timeDifference = System.currentTimeMillis() - entity.date.time
+            timeDifference <= TIME_LORAWAN_TTL
         }
-        return loraWanInfoEntities.map { it.toDomain() }
+        return if (validEntity) {
+            Result.success(loraWanInfoEntities.map { it.toDomain() })
+        } else {
+            Result.failure(ErrorApp.DataExpiredError)
+        }
     }
 
     suspend fun saveAll(loraWanInfo: List<LoraWanInfo>) {
@@ -26,3 +31,7 @@ class LoraWanDbLocalDataSource(
         loraWanDao.saveAll(*loraWanInfoEntities.toTypedArray())
     }
 }
+
+
+
+

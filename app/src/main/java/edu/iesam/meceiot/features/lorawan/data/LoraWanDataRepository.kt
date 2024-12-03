@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.lorawan.data
 
 
-import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDbLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.local.xml.LoraWanXmlLocalDataSource
 import edu.iesam.meceiot.features.lorawan.data.remote.LoraWanApiRemoteDataSource
@@ -18,9 +17,9 @@ class LoraWanDataRepository(
 
     override suspend fun getInfoLoraWan(): Result<List<LoraWanInfo>> {
         val loraWanInfoFromDbLocal = loraWanDbLocalDataSource.getAll()
-        return if (loraWanInfoFromDbLocal.isEmpty()) {
+
+        return if (loraWanInfoFromDbLocal.isFailure) {
             val loraWanInfoFromXmlLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
-            //Result.failure(ErrorApp.DateExpiredError)
 
             return if (loraWanInfoFromXmlLocal.isEmpty()) {
                 loraWanApiRemoteDataSource.getInfoLoraWan().onSuccess {
@@ -32,7 +31,7 @@ class LoraWanDataRepository(
                 Result.success(loraWanInfoFromXmlLocal)
             }
         } else {
-            Result.success(loraWanInfoFromDbLocal)
+            Result.success(loraWanInfoFromDbLocal.getOrNull() ?: emptyList())
         }
     }
 }

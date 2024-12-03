@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.pantallatest.presentation
+package edu.iesam.meceiot.features.pantallatest.presentation.adapter
 
 import Question
 import android.view.LayoutInflater

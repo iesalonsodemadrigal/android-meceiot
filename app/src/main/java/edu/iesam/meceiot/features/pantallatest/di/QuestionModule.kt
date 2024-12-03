@@ -9,7 +9,7 @@ import org.koin.core.annotation.Single
 class QuestionModule {
 
     @Single
-    fun provideLoraWanInfoDao(db: MeceiotDataBase): QuestionDao {
+    fun provideQuestionDao(db: MeceiotDataBase): QuestionDao {
         return db.QuestionDao()
     }
 }

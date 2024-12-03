@@ -12,8 +12,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.databinding.TestfragmentBinding
+import edu.iesam.meceiot.features.pantallatest.domain.OptionsUseCase
 import edu.iesam.meceiot.features.pantallatest.domain.Question
 import edu.iesam.meceiot.features.pantallatest.presentation.adapter.QuestionsAdapter
+import org.koin.android.annotation.KoinViewModel
 
 class TestFragment : Fragment() {
 
@@ -91,13 +93,29 @@ class TestFragment : Fragment() {
     }
 }
 
-class TestViewModel : ViewModel() {
+@KoinViewModel
+class TestViewModel(private val optionsUseCase: OptionsUseCase) : ViewModel() {
 
     private val _questions = MutableLiveData<List<Question>>()
     val questions: LiveData<List<Question>> get() = _questions
 
     private val _correctCount = MutableLiveData<Int>()
     val correctCount: LiveData<Int> get() = _correctCount
+
+    init {
+        fetchQuestions()
+    }
+
+    private fun fetchQuestions() {
+        viewModelScope.launch {
+            val result = optionsUseCase.invoke()
+            if (result.isSuccess) {
+                _questions.value = result.getOrNull()
+            } else {
+                // Handle error case
+            }
+        }
+    }
 
     fun setQuestions(questions: List<Question>) {
         _questions.value = questions

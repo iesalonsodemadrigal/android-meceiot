@@ -1,7 +1,9 @@
+package  edu.iesam.meceiot.features.pantallatest.domain
+
 data class Question(
-    val id: Int,
+    val id: String,
     val text: String,
-    val imageResId: Int,
+    val urlimagen: String,
     val option1: String,
     val option2: String,
     val option3: String,

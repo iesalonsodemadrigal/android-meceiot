@@ -69,8 +69,6 @@ dependencies {
 
     implementation(libs.coil)
 
-    testImplementation(libs.test.coroutines)
-
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.android)
     testImplementation(libs.mockk.agent)
@@ -83,9 +81,15 @@ dependencies {
     //Vico
     implementation(libs.core)
     implementation(libs.views)
+    //Room
+    implementation(libs.room.runtime)
+    ksp(libs.room.ksp)
+    implementation(libs.room.coroutines)
+    //coil
+    implementation(libs.coil)
 }
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
-    
+
 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/fragment_a"
+        android:id="@+id/fragment_about_lorawan"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/icon_wifi"
         android:title="@string/label_menu_a" />
     <item
         android:id="@+id/fragment_b"

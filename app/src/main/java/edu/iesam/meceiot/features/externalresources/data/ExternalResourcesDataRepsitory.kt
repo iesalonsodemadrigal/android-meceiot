@@ -14,6 +14,9 @@ class ExternalResourcesDataRepsitory(
     override suspend fun getAllExternalResources(): Result<List<ExternalResources>> {
         val resourcesFromLocal = localDataSource.getExternalResources()
         return if (resourcesFromLocal.isEmpty()) {
+            val resourcesFromRemote = remoteDataSource.getAllExternalResources()
+            localDataSource.saveExternalResources(resourcesFromRemote)
+            resourcesFromRemote
            remoteDataSource.getAllExternalResources().onSuccess {
                 localDataSource.saveExternalResources(it)}
         } else {
@@ -21,8 +24,6 @@ class ExternalResourcesDataRepsitory(
         }
     }
 }
-
-
 
 
 

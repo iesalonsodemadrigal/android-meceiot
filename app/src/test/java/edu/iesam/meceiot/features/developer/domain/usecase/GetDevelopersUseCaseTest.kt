@@ -39,14 +39,14 @@ class GetDevelopersUseCaseTest {
 
         val developerExpected = listOf(
             DeveloperInfo(
-                "d1",
+                "1",
                 "d1",
                 "d1/wp-content/uploads/2022/11/LoRaWAN_Logo.svg_.png",
                 "d1",
                 "d1"
             ),
             DeveloperInfo(
-                "d2",
+                "2",
                 "D2",
                 "d2",
                 "d2",

@@ -8,7 +8,6 @@ import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 @Module
 @ComponentScan
 class RemoteModule {

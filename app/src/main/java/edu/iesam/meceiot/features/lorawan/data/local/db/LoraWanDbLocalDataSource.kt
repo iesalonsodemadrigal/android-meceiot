@@ -14,7 +14,6 @@ class LoraWanDbLocalDataSource(
     suspend fun getAll(): Result<List<LoraWanInfo>> {
         val loraWanInfoEntities = loraWanDao.getAll()
 
-        // 'all' garantiza que todas las entidades cumplan la condición TTL
         val validEntity = loraWanInfoEntities.filter { entity ->
             val timeDifference = System.currentTimeMillis() - entity.date.time
             timeDifference <= TIME_LORAWAN_TTL

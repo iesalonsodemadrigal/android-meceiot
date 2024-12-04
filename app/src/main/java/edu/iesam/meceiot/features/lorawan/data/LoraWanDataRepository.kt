@@ -18,7 +18,7 @@ class LoraWanDataRepository(
     override suspend fun getInfoLoraWan(): Result<List<LoraWanInfo>> {
         val loraWanInfoFromDbLocal = loraWanDbLocalDataSource.getAll()
 
-        return if (loraWanInfoFromDbLocal.isFailure || loraWanInfoFromDbLocal.getOrNull().isNullOrEmpty()) {
+        return if (loraWanInfoFromDbLocal.isFailure) {
             val loraWanInfoFromXmlLocal = loraWanXmlLocalDataSource.getLoraWanInfo()
 
             return if (loraWanInfoFromXmlLocal.isEmpty()) {

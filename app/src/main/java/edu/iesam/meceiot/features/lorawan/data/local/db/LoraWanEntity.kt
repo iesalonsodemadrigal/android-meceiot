@@ -14,5 +14,5 @@ class LoraWanEntity(
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "image") val image: String,
     @ColumnInfo(name = "description") val description: String,
-    @ColumnInfo(name = "last_date") val date: Date
+    @ColumnInfo(name = "createdAt") val date: Date
 )

@@ -1,5 +1,7 @@
 package edu.iesam.meceiot.features.externalresources.di
 
+import edu.iesam.meceiot.core.data.local.db.MeceiotDataBase
+import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesDao
 import edu.iesam.meceiot.features.externalresources.data.remote.ExternalResourcesService
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module

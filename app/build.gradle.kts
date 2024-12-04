@@ -23,8 +23,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -85,4 +84,9 @@ dependencies {
     implementation(libs.room.coroutines)
     //coil
     implementation(libs.coil)
+}
+ksp {
+    arg("KOIN_CONFIG_CHECK", "true")
+
+
 }

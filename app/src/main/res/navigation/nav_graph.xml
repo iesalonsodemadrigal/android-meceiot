@@ -19,10 +19,14 @@
         android:name="edu.iesam.meceiot.features.presentation.FragmentC"
         tools:layout="@layout/fragment_c">
     </fragment>
-
     <fragment
         android:id="@+id/login_fragment"
         android:name="edu.iesam.meceiot.features.login.presentation.LoginFragment"
         tools:layout="@layout/fragment_login">
     </fragment>
+    <dialog
+        android:id="@+id/fragment_external_resources"
+        android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
+        tools:layout="@layout/fragment_external_resources">
+    </dialog>
 </navigation>

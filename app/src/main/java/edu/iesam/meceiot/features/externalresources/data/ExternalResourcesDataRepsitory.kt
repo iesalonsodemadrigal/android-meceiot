@@ -12,18 +12,19 @@ class ExternalResourcesDataRepsitory(
     private val localDataSource: ExternalResourcesXmlLocalDataSource
 ) : ExternalResourcesRepository {
     override suspend fun getAllExternalResources(): Result<List<ExternalResources>> {
-        val resourcesFromLocal = localDataSource.getExternalResources()
-        return if (resourcesFromLocal.isEmpty()) {
-            val resourcesFromRemote = remoteDataSource.getAllExternalResources()
-            localDataSource.saveExternalResources(resourcesFromRemote)
-            resourcesFromRemote
-           remoteDataSource.getAllExternalResources().onSuccess {
-                localDataSource.saveExternalResources(it)}
+        val localExternalResources = localDataSource.getExternalResources()
+        return if (localExternalResources.isEmpty()) {
+            val remoteExternalResources = remoteDataSource.getAllExternalResources()
+            remoteExternalResources.map {
+                localDataSource.saveExternalResources(it)
+                it
+            }
         } else {
-            Result.success(resourcesFromLocal)
+            Result.success(localExternalResources)
         }
     }
 }
+
 
 
 

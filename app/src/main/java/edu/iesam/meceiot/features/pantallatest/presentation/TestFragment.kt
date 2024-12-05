@@ -33,13 +33,13 @@ class TestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val questions = listOf(
-            Question(1, "1º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "a"),
-            Question(2, "2º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "b"),
-            Question(3, "3º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "c"),
-            Question(4, "4º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "d"),
-            Question(5, "5º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "a"),
-            Question(6, "6º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "b"),
-            Question(7, "7º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "c")
+            Question(1, "1º pregunta", "logo_lorawan", "a", "b", "c", "d", "a"),
+            Question(2, "2º pregunta", "logo_lorawan", "a", "b", "c", "d", "b"),
+            Question(3, "3º pregunta", "logo_lorawan", "a", "b", "c", "d", "c"),
+            Question(4, "4º pregunta", "logo_lorawan", "a", "b", "c", "d", "d"),
+            Question(5, "5º pregunta", "logo_lorawan", "a", "b", "c", "d", "a"),
+            Question(6, "6º pregunta", "logo_lorawan", "a", "b", "c", "d", "b"),
+            Question(7, "7º pregunta", "logo_lorawan", "a", "b", "c", "d", "c")
         )
 
         questionsAdapter = QuestionsAdapter(questions)

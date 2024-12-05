@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.pantallatest.presentation.adapter
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
@@ -8,15 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemQuestionBinding
 import edu.iesam.meceiot.features.pantallatest.domain.Question
 
-
-class QuestionsAdapter(private val questions: List<Question>) :
-    RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
+class QuestionsAdapter(private val questions: List<Question>) : RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
 
     private val selectedOptions = mutableMapOf<Int, String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
-        val binding =
-            ItemQuestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemQuestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return QuestionViewHolder(binding)
     }
 
@@ -29,12 +25,14 @@ class QuestionsAdapter(private val questions: List<Question>) :
 
     fun getSelectedOptions(): Map<Int, String> = selectedOptions
 
-    inner class QuestionViewHolder(val binding: ItemQuestionBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class QuestionViewHolder(val binding: ItemQuestionBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(question: Question) {
             binding.questionText.text = question.text
-            binding.questionImage.setImageResource(question.imageResId)
+            val imageResId = binding.root.context.resources.getIdentifier(
+                question.urlimagen, "drawable", binding.root.context.packageName
+            )
+            binding.questionImage.setImageResource(imageResId)
             binding.optionsGroup.removeAllViews()
             val options = listOf(question.option1, question.option2, question.option3, question.option4)
             options.forEach { option ->

@@ -15,8 +15,10 @@ object DatabaseProvider {
             database = Room.databaseBuilder(
                 context.applicationContext,
                 MeceiotDataBase::class.java,
-                "meceiot_database"
-            ).build()
+                "meceiot-db"
+            )
+                .fallbackToDestructiveMigration()
+                .build()
         }
         return database!!
     }

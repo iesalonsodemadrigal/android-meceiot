@@ -1,13 +1,21 @@
 package edu.iesam.meceiot.features.pantallatest.presentation
 
-
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import edu.iesam.meceiot.core.data.local.db.converters.DatabaseProvider
+import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDblocalDataSource
+import edu.iesam.meceiot.features.pantallatest.data.local.db.toEntity
 import edu.iesam.meceiot.features.pantallatest.domain.Question
+import kotlinx.coroutines.launch
 
+class TestViewModel(application: Application) : AndroidViewModel(application) {
 
-class TestViewModel : ViewModel() {
+    private val questionDblocalDataSource: QuestionDblocalDataSource =
+        DatabaseProvider.provideQuestionDblocalDataSource(application)
 
     private val _questions = MutableLiveData<List<Question>>()
     val questions: LiveData<List<Question>> get() = _questions
@@ -43,5 +51,13 @@ class TestViewModel : ViewModel() {
             }
         }
         _correctCount.value = correctCount
+    }
+
+    fun saveQuestionToDatabase(question: Question) {
+        viewModelScope.launch {
+            val questionEntity = question.toEntity()
+            Log.d("TestViewModel", "Saving question to database: $questionEntity")
+            questionDblocalDataSource.insertOrUpdateQuestion(questionEntity)
+        }
     }
 }

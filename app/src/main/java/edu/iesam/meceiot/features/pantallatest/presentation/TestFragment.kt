@@ -67,6 +67,11 @@ class TestFragment : Fragment() {
             binding.errorMessageTextView.visibility = View.GONE
             viewModel.setSelectedOptions(selectedOptions)
             viewModel.calculateCorrectAnswers()
+
+            // Guardar cada pregunta en la base de datos
+            viewModel.questions.value?.forEach { question ->
+                viewModel.saveQuestionToDatabase(question)
+            }
         } else {
             Toast.makeText(context, "Por favor, complete todas las opciones.", Toast.LENGTH_SHORT).show()
         }

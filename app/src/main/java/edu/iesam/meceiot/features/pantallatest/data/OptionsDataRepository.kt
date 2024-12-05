@@ -1,10 +1,8 @@
 package edu.iesam.meceiot.features.pantallatest.data
 
-import Question
+import edu.iesam.meceiot.features.pantallatest.domain.Question
 
-
-
-class OptionsRepository(private val dataSource: OptionsDataSource) {
+class OptionsDataRepository(private val dataSource: OptionsDataSource) {
     fun getSelectedOptions(): List<Question> {
         return dataSource.getSelectedOptions()
     }

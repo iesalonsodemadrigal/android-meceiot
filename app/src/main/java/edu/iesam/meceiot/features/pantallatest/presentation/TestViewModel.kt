@@ -1,9 +1,10 @@
 package edu.iesam.meceiot.features.pantallatest.presentation
 
-import Question
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import edu.iesam.meceiot.features.pantallatest.domain.Question
 
 
 class TestViewModel : ViewModel() {

@@ -1,11 +1,12 @@
 package edu.iesam.meceiot.features.pantallatest.presentation.adapter
 
-import Question
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemQuestionBinding
+import edu.iesam.meceiot.features.pantallatest.domain.Question
 
 
 class QuestionsAdapter(private val questions: List<Question>) :

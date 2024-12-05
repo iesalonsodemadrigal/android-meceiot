@@ -1,3 +1,5 @@
+package edu.iesam.meceiot.features.pantallatest.domain
+
 data class Question(
     val id: Int,
     val text: String,

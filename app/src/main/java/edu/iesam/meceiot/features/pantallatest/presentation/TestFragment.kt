@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.pantallatest.presentation
 
-import Question
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
+import edu.iesam.meceiot.features.pantallatest.domain.Question
 import edu.iesam.meceiot.features.pantallatest.presentation.adapter.QuestionsAdapter
 
 class TestFragment : Fragment() {

@@ -1,29 +1,24 @@
 package edu.iesam.meceiot.features.pantallatest.presentation
 
+import Question
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.TestfragmentBinding
-import edu.iesam.meceiot.features.pantallatest.domain.OptionsUseCase
-import edu.iesam.meceiot.features.pantallatest.domain.Question
 import edu.iesam.meceiot.features.pantallatest.presentation.adapter.QuestionsAdapter
-import kotlinx.coroutines.launch
-import org.koin.android.annotation.KoinViewModel
 
 class TestFragment : Fragment() {
 
     private lateinit var binding: TestfragmentBinding
     private lateinit var questionsAdapter: QuestionsAdapter
-    private lateinit var viewModel: TestViewModel
+    private val viewModel: TestViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,16 +32,14 @@ class TestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(TestViewModel::class.java)
-
         val questions = listOf(
-            Question("1", "1º pregunta", "url1", "a", "b", "c", "d", "a"),
-            Question("2", "2º pregunta", "url2", "a", "b", "c", "d", "b"),
-            Question("3", "3º pregunta", "url3", "a", "b", "c", "d", "c"),
-            Question("4", "4º pregunta", "url4", "a", "b", "c", "d", "d"),
-            Question("5", "5º pregunta", "url5", "a", "b", "c", "d", "a"),
-            Question("6", "6º pregunta", "url6", "a", "b", "c", "d", "b"),
-            Question("7", "7º pregunta", "url7", "a", "b", "c", "d", "c")
+            Question(1, "1º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "a"),
+            Question(2, "2º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "b"),
+            Question(3, "3º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "c"),
+            Question(4, "4º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "d"),
+            Question(5, "5º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "a"),
+            Question(6, "6º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "b"),
+            Question(7, "7º pregunta", R.drawable.logo_lorawan, "a", "b", "c", "d", "c")
         )
 
         questionsAdapter = QuestionsAdapter(questions)
@@ -59,7 +52,11 @@ class TestFragment : Fragment() {
             handleSubmit()
         }
 
-        viewModel.correctCount.observe(viewLifecycleOwner, { correctCount ->
+        viewModel.selectedOptions.observe(viewLifecycleOwner, Observer { selectedOptions ->
+            questionsAdapter.notifyDataSetChanged()
+        })
+
+        viewModel.correctCount.observe(viewLifecycleOwner, Observer { correctCount ->
             showResultDialog(correctCount)
         })
     }
@@ -68,7 +65,8 @@ class TestFragment : Fragment() {
         val selectedOptions = questionsAdapter.getSelectedOptions()
         if (selectedOptions.size == questionsAdapter.itemCount) {
             binding.errorMessageTextView.visibility = View.GONE
-            viewModel.calculateCorrectAnswers(selectedOptions)
+            viewModel.setSelectedOptions(selectedOptions)
+            viewModel.calculateCorrectAnswers()
         } else {
             Toast.makeText(context, "Por favor, complete todas las opciones.", Toast.LENGTH_SHORT).show()
         }
@@ -77,9 +75,11 @@ class TestFragment : Fragment() {
     private fun showResultDialog(correctCount: Int) {
         val selectedOptionsText = StringBuilder()
         val questions = viewModel.questions.value ?: return
+        val selectedOptions = viewModel.selectedOptions.value ?: return
 
-        for (question in questions) {
-            selectedOptionsText.append("Pregunta ${question.id}: (Correcta: ${question.correctOption})\n")
+        for ((questionId, selectedOption) in selectedOptions) {
+            val correctOption = questions.find { it.id == questionId }?.correctOption
+            selectedOptionsText.append("Pregunta $questionId: $selectedOption (Correcta: $correctOption)\n")
         }
 
         val bundle = Bundle().apply {
@@ -92,46 +92,5 @@ class TestFragment : Fragment() {
         }
 
         resultDialogFragment.show(parentFragmentManager, "ResultDialogFragment")
-    }
-}
-
-@KoinViewModel
-class TestViewModel(private val optionsUseCase: OptionsUseCase) : ViewModel() {
-
-    private val _questions = MutableLiveData<List<Question>>()
-    val questions: LiveData<List<Question>> get() = _questions
-
-    private val _correctCount = MutableLiveData<Int>()
-    val correctCount: LiveData<Int> get() = _correctCount
-
-    init {
-        fetchQuestions()
-    }
-
-    private fun fetchQuestions() {
-        viewModelScope.launch {
-            val result = optionsUseCase.invoke()
-            if (result.isSuccess) {
-                _questions.value = result.getOrNull()
-            } else {
-                // Handle error case
-            }
-        }
-    }
-
-    fun setQuestions(questions: List<Question>) {
-        _questions.value = questions
-    }
-
-    fun calculateCorrectAnswers(selectedOptions: Map<String, String>) {
-        val questions = _questions.value ?: return
-        var correctCount = 0
-        for ((questionId, selectedOption) in selectedOptions) {
-            val correctOption = questions.find { it.id == questionId }?.correctOption
-            if (selectedOption == correctOption) {
-                correctCount++
-            }
-        }
-        _correctCount.value = correctCount
     }
 }

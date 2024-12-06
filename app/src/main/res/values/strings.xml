@@ -24,4 +24,9 @@
     <string name="Fragmentoa">FragmentoA</string>
     <string name="action_button">action_button</string>
     <string name="fragmentob">Fragmentob</string>
+    <string name="label_menu_d">External Resources</string>
+    <string name="ResourceDescription">Description of the resource</string>
+    <string name="ResourceName">Name of the resource</string>
+    <string name="fragmentoc">fragmentoC</string>
+
 </resources>

@@ -59,7 +59,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     }
 
     private fun bindData(developers: List<DeveloperInfo>) {
-        developerAdapter.submitList(developers.sortedBy { it.id.toInt() }) // Ordena por ID
+        developerAdapter.submitList(developers)
     }
 
     override fun onDestroyView() {

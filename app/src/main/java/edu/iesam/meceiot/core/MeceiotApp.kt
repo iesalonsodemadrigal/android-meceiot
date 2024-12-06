@@ -2,8 +2,9 @@ package edu.iesam.meceiot.core
 
 import android.app.Application
 import edu.iesam.meceiot.core.di.AppModule
-import edu.iesam.meceiot.core.di.LocalModule
 import edu.iesam.meceiot.core.di.RemoteModule
+import edu.iesam.meceiot.core.di.LocalModule
+import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
 import edu.iesam.meceiot.features.lorawan.di.LoraWanModule
 import edu.iesam.meceiot.features.developer.di.DeveloperModule
 import org.koin.android.ext.koin.androidContext

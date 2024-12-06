@@ -6,8 +6,6 @@ import org.koin.core.annotation.Single
 @Single
 class GetDevelopersUseCase(private val developerRepository: DeveloperRepository) {
 
-    suspend operator fun invoke(): Result<List<DeveloperInfo>> {
-        return developerRepository.getDevelopers().sortedBy { it.id.toInt() }
-    }
-
+    suspend operator fun invoke(): Result<List<DeveloperInfo>> =
+        developerRepository.getDevelopers().map { it.sortedBy { dev -> dev.id.toInt() } }
 }

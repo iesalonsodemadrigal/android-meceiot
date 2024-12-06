@@ -16,5 +16,5 @@ class AppIntent(private val context: Context) {
         )
     }
 
-    // Add more intent methods here if needed
+
 }

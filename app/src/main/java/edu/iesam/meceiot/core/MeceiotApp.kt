@@ -23,9 +23,10 @@ class MeceiotApp : Application() {
                 RemoteModule().module,
                 ExternalResourceModule().module,
                 LocalModule().module,
-                DeveloperModule().module,
-                LoraWanModule().module
+                LoraWanModule().module,
+                DeveloperModule().module
             )
         }
     }
 }
+

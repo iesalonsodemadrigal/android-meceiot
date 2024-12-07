@@ -1,7 +1,5 @@
 package edu.iesam.meceiot.features.developer.data
 
-
-
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDbLocalDataSource
 import edu.iesam.meceiot.features.developer.data.remote.DeveloperApiRemoteDataSource
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
@@ -12,20 +10,17 @@ import org.koin.core.annotation.Single
 class DeveloperDataRepository(
     private val developerDbLocalDataSource: DeveloperDbLocalDataSource,
     private val developerApiRemoteDataSource: DeveloperApiRemoteDataSource
-
 ) : DeveloperRepository {
+
     override suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
-        val developersFromLocal = developerDbLocalDataSource.getAll()
-        return if (developersFromLocal.isEmpty()) {
+        val developersFromDbLocal = developerDbLocalDataSource.getAll()
+
+        return if (developersFromDbLocal.isFailure) {
             developerApiRemoteDataSource.getDevelopers().onSuccess {
                 developerDbLocalDataSource.saveAll(it)
-
             }
-
         } else {
-            Result.success(developersFromLocal)
+            Result.success(developersFromDbLocal.getOrNull() ?: emptyList())
         }
     }
-
-
 }

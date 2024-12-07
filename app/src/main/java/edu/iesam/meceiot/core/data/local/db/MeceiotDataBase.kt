@@ -14,5 +14,4 @@ import edu.iesam.meceiot.features.developer.data.local.db.DeveloperEntity
 abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun externalResourcesDao(): ExternalResourcesDao
     abstract fun developerDao(): DeveloperDao
-
 }

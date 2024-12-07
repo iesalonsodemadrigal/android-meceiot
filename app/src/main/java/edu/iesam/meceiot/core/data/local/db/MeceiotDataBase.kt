@@ -12,9 +12,10 @@ import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
 
 
-@Database(entities = [ExternalResource::class,DeveloperEntity::class], version = 3, exportSchema = false)
+@Database(entities = [LoraWanEntity::class,ExternalResource::class,DeveloperEntity::class], version = 3, exportSchema = false)
 @TypeConverters(DateConverter::class)
 abstract class MeceiotDataBase : RoomDatabase() {
+    abstract fun loraWanDao(): LoraWanDao
     abstract fun externalResourcesDao(): ExternalResourcesDao
     abstract fun developerDao(): DeveloperDao
 }

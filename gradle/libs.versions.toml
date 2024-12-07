@@ -20,10 +20,13 @@ koinBom = "4.0.0"
 koinAnnotations = "1.4.0"
 kspVersion = "2.0.21-1.0.26"
 logginInterceptor = "4.12.0"
+
+coil = "2.7.0"
+testCoroutines = "1.9.0"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
-coil = "2.7.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -59,16 +62,19 @@ koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "
 koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
 views = { module = "com.patrykandpatrick.vico:views", version.ref = "core" }
 
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
+test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "testCoroutines" }
+
+
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
 
 
-coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragment" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
-

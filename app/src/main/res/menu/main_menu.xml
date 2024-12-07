@@ -11,10 +11,15 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_b" />
     <item
-        android:id="@+id/fragment_c"
+        android:id="@+id/testfragment"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/label_menu_c" />
+        android:title="Test" />
+    <item
+        android:id="@+id/fragment_external_resources"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/label_menu_d" />
 
 
 

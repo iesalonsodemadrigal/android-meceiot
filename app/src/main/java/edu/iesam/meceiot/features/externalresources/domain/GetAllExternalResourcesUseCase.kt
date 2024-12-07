@@ -4,7 +4,7 @@ import org.koin.core.annotation.Single
 
 @Single
 class GetAllExternalResourcesUseCase(private val externalResourcesRepository: ExternalResourcesRepository) {
-    suspend operator fun invoke(): List<ExternalResources> {
+    suspend operator fun invoke(): Result<List<ExternalResources>> {
         return externalResourcesRepository.getAllExternalResources()
     }
 

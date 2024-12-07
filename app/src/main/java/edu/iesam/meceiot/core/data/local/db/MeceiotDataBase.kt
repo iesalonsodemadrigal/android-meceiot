@@ -6,7 +6,6 @@ import androidx.room.TypeConverters
 import edu.iesam.meceiot.core.data.local.db.converters.DateConverter
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResource
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesDao
-import edu.iesam.meceiot.core.data.local.db.converters.DateConverter
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDao
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperEntity
 

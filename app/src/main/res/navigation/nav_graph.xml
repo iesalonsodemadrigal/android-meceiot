@@ -25,9 +25,9 @@
         tools:layout="@layout/fragment_developer_list" />
 
     <fragment
-        android:id="@+id/fragment_c"
-        android:name="edu.iesam.meceiot.features.presentation.FragmentC"
-        tools:layout="@layout/fragment_c">
+        android:id="@+id/testfragment"
+        android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
+        tools:layout="@layout/testfragment">
     </fragment>
 
     <fragment

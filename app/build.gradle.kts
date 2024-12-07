@@ -66,9 +66,6 @@ dependencies {
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp)
     //MockK
-
-    implementation(libs.coil)
-
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.android)
     testImplementation(libs.mockk.agent)

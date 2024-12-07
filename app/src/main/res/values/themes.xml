@@ -51,4 +51,6 @@
         <item name="colorCustomColor1Container">@color/colorCustomColor1Container</item>
         <item name="colorOnCustomColor1Container">@color/colorOnCustomColor1Container</item>
     </style>
+
+    <style name="Theme.Androidmeceiot" parent="Base.Theme.Androidmeceiot" />
 </resources>

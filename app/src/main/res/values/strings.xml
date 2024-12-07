@@ -17,8 +17,16 @@
     <string name="imageItem">ImageItem</string>
     <string name="label_menu_b">fragmentB</string>
     <string name="label_menu_c">fragmentC</string>
+    <string name="fragmentoa">fragmentoA</string>
+    <string name="developer_name">Developer Name</string>
+    <string name="developer_filer_xml">developer_filer_xml</string>
+    <string name="developer_list">developer_list</string>
+    <string name="Fragmentoa">FragmentoA</string>
+    <string name="action_button">action_button</string>
+    <string name="fragmentob">Fragmentob</string>
     <string name="label_menu_d">External Resources</string>
     <string name="ResourceDescription">Description of the resource</string>
     <string name="ResourceName">Name of the resource</string>
     <string name="ResourceButton" />
+    <string name="fragmentoc">fragmentoc</string>
 </resources>

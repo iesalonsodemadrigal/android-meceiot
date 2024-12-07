@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context="edu.iesam.meceiot.features.presentation.FragmentB">
 
-
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fragmentoB"
+        android:text="FragmentoB"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,11 +20,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(developers)"
+        android:text="@string/fragmentob"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
+    <Button
+        android:id="@+id/button_navigate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ir al listado"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_high" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

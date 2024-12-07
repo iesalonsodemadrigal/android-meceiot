@@ -8,25 +8,43 @@
         android:id="@+id/fragment_about_lorawan"
         android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"
         tools:layout="@layout/fragment_about_lorawan" />
+
+
     <fragment
         android:id="@+id/fragment_b"
         android:name="edu.iesam.meceiot.features.presentation.FragmentB"
         tools:layout="@layout/fragment_b">
+        <action
+            android:id="@+id/action_fragmentB_to_developerAboutFragment"
+            app:destination="@id/fragment_developer_list" />
     </fragment>
 
+    <dialog
+        android:id="@+id/fragment_developer_list"
+        android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
+        tools:layout="@layout/fragment_developer_list" />
+
     <fragment
-        android:id="@+id/fragment_c"
-        android:name="edu.iesam.meceiot.features.presentation.FragmentC"
-        tools:layout="@layout/fragment_c">
+        android:id="@+id/testfragment"
+        android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
+        tools:layout="@layout/testfragment">
     </fragment>
+
     <fragment
         android:id="@+id/login_fragment"
         android:name="edu.iesam.meceiot.features.login.presentation.LoginFragment"
         tools:layout="@layout/fragment_login">
     </fragment>
+
     <dialog
         android:id="@+id/fragment_external_resources"
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources">
     </dialog>
+    <dialog
+        android:id="@+id/developerAboutFragment"
+        android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
+        android:label="Developer About Fragment"
+       />
+
 </navigation>

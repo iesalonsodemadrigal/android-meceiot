@@ -15,4 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/view_lorawan_info_item" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

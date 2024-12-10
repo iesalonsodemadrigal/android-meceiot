@@ -11,11 +11,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
-    private lateinit var developerFactory: DeveloperFactory
-    private lateinit var developerAboutViewModel: DeveloperAboutViewModel
+
+    private val developerAboutViewModel: DeveloperAboutViewModel by viewModel()
     private lateinit var appIntent: AppIntent
 
     private var _binding: FragmentDeveloperListBinding? = null
@@ -29,6 +30,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDeveloperListBinding.inflate(inflater, container, false)
+        appIntent = AppIntent(requireContext())
         setupView()
         return binding.root
     }
@@ -36,10 +38,6 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        appIntent = AppIntent(requireContext())
-
-        developerFactory = DeveloperFactory(requireContext())
-        developerAboutViewModel = developerFactory.provideGetDevelopers()
         setupObserver()
         developerAboutViewModel.viewDevelopers()
     }

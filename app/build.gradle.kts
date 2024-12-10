@@ -85,8 +85,3 @@ dependencies {
     //coil
     implementation(libs.coil)
 }
-ksp {
-    arg("KOIN_CONFIG_CHECK", "true")
-
-
-}

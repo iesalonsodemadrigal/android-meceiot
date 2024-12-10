@@ -9,8 +9,9 @@ import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
-
+@KoinViewModel
 class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUseCase) :
     ViewModel() {
 

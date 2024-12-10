@@ -1,4 +1,4 @@
-# 🚀 Meceliot
+# 🚀 MeceIoT
 
 **Meceliot** es una aplicación de IoT desarrollada para facilitar la conexión y gestión de
 dispositivos inteligentes en el hogar. Diseñada para monitorizar y controlar una amplia variedad de

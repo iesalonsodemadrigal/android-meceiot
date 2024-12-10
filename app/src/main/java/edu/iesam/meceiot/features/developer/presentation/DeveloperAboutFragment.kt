@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.core.presentation.AppIntent
@@ -42,11 +43,12 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupObserver() {
-        developerAboutViewModel.uiState.observe(viewLifecycleOwner) { uiState ->
+        val developerObserver = Observer<DeveloperAboutViewModel.UiState> { uiState ->
             uiState.infoDeveloper?.let {
                 bindData(it)
             }
         }
+        developerAboutViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
     }
 
     private fun setupView() {

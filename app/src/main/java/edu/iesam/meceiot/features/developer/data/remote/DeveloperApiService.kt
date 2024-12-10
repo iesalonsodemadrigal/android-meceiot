@@ -5,7 +5,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface DeveloperApiService {
-    @GET("developers.json")
+    @GET("developers/2024/developers.json")
     suspend fun getDevelopers(): Response<List<DeveloperApiModel>>
 }
 

@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.lorawan.data.local
+package edu.iesam.meceiot.features.lorawan.data.local.xml
 
 import android.content.Context
 import com.google.gson.Gson

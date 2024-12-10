@@ -11,12 +11,10 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-
 class GetDevelopersUseCaseTest {
 
     @RelaxedMockK
     private lateinit var developerRepository: DeveloperRepository
-
     private lateinit var getDevelopersUseCase: GetDevelopersUseCase
 
     @Before
@@ -24,7 +22,6 @@ class GetDevelopersUseCaseTest {
         MockKAnnotations.init(this)
         getDevelopersUseCase = GetDevelopersUseCase(developerRepository)
     }
-
 
     @Test
     fun `deberia devolver lista de desarrolladores ordenada por ID`() = runBlocking {
@@ -37,42 +34,37 @@ class GetDevelopersUseCaseTest {
             DeveloperInfo("2", "Dev2", "url2", "desc2", "other2")
         )
 
-        coEvery { developerRepository.getDevelopers() } returns unsortedDevelopers
+        coEvery { developerRepository.getDevelopers() } returns Result.success(unsortedDevelopers)
 
-        val developers = getDevelopersUseCase()
+        val developersResult = getDevelopersUseCase()
 
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assertEquals(expectedDevelopers, developers)
+        assertTrue(developersResult.isSuccess)
+        assertEquals(expectedDevelopers, developersResult.getOrNull())
     }
-
 
     @Test
     fun `deberia devolver error si el repositorio lanza una excepcion`() = runBlocking {
         val exception = Exception("Error al obtener desarrolladores")
-        coEvery { developerRepository.getDevelopers() } throws exception
+        coEvery { developerRepository.getDevelopers() } returns Result.failure(exception)
 
-        try {
-            getDevelopersUseCase()
-        } catch (e: Exception) {
-            assertEquals("Error al obtener desarrolladores", e.message)
-        }
+        val developersResult = getDevelopersUseCase()
 
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
+        assertTrue(developersResult.isFailure)
+        assertEquals("Error al obtener desarrolladores", developersResult.exceptionOrNull()?.message)
     }
 
-
     @Test
-    fun `deberia devolver lista vacia con comportamiento controlado si lista inicial es vacia`() =
-        runBlocking {
-        coEvery { developerRepository.getDevelopers() } returns emptyList()
+    fun `deberia devolver lista vacía cuando el repositorio devuelve una lista vacía`() = runBlocking {
+        coEvery { developerRepository.getDevelopers() } returns Result.success(emptyList())
 
-            val developers = getDevelopersUseCase()
+        val developersResult = getDevelopersUseCase()
 
-            assertTrue(developers.isEmpty())
-
-            coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        }
-
+        coVerify(exactly = 1) { developerRepository.getDevelopers() }
+        assertTrue(developersResult.isSuccess)
+        assertTrue(developersResult.getOrNull()?.isEmpty() == true)
+    }
 
     @Test
     fun `deberia manejar duplicados en el repositorio`() = runBlocking {
@@ -81,30 +73,28 @@ class GetDevelopersUseCaseTest {
             DeveloperInfo("1", "Dev1", "url1", "desc1", "other1")
         )
 
-        coEvery { developerRepository.getDevelopers() } returns developersDuplicados
+        coEvery { developerRepository.getDevelopers() } returns Result.success(developersDuplicados)
 
-        val developers = getDevelopersUseCase().distinct()
+        val developersResult = getDevelopersUseCase().getOrNull()?.distinct()
 
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assertEquals(1, developers.size)
+        assertEquals(1, developersResult?.size)
     }
-
 
     @Test
-    fun `deberia devolver un único desarrollador cuando la lista contiene uno solo`() =
-        runBlocking {
-            val singleDeveloper = listOf(
-                DeveloperInfo("1", "Dev1", "url1", "desc1", "other1")
-            )
+    fun `deberia devolver un único desarrollador cuando la lista contiene uno solo`() = runBlocking {
+        val singleDeveloper = listOf(
+            DeveloperInfo("1", "Dev1", "url1", "desc1", "other1")
+        )
 
-            coEvery { developerRepository.getDevelopers() } returns singleDeveloper
+        coEvery { developerRepository.getDevelopers() } returns Result.success(singleDeveloper)
 
-        val developers = getDevelopersUseCase()
+        val developersResult = getDevelopersUseCase()
 
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-            assertEquals(singleDeveloper, developers)
+        assertTrue(developersResult.isSuccess)
+        assertEquals(singleDeveloper, developersResult.getOrNull())
     }
-
 
     @Test
     fun `deberia manejar desarrolladores con datos incompletos`() = runBlocking {
@@ -112,11 +102,12 @@ class GetDevelopersUseCaseTest {
             DeveloperInfo("2", "", "url2", "", "other2")
         )
 
-        coEvery { developerRepository.getDevelopers() } returns developersIncomplete
+        coEvery { developerRepository.getDevelopers() } returns Result.success(developersIncomplete)
 
-        val developers = getDevelopersUseCase()
+        val developersResult = getDevelopersUseCase()
 
         coVerify(exactly = 1) { developerRepository.getDevelopers() }
-        assertEquals(developersIncomplete, developers)
+        assertTrue(developersResult.isSuccess)
+        assertEquals(developersIncomplete, developersResult.getOrNull())
     }
 }

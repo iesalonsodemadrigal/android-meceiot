@@ -22,15 +22,20 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val infoDeveloper = getDevelopersUseCase()
-            _uiState.postValue(UiState(infoDeveloper = infoDeveloper))
+            _uiState.postValue(
+                UiState(
+                    isLoading = false,
+                    infoDeveloper = infoDeveloper.getOrNull(),
+                    errorMessage = infoDeveloper.exceptionOrNull() as? ErrorApp
+
+                )
+            )
         }
     }
 
     data class UiState(
         val isLoading: Boolean = false,
         val errorMessage: ErrorApp? = null,
-        val infoDeveloper: List<DeveloperInfo>? = null
+        val infoDeveloper: List<DeveloperInfo>? = emptyList()
     )
-
-
 }

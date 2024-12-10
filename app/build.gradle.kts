@@ -84,4 +84,6 @@ dependencies {
     implementation(libs.room.coroutines)
     //coil
     implementation(libs.coil)
+    //Skeleton
+    implementation (libs.skeletonlayout)
 }

@@ -24,6 +24,7 @@ coil = "2.7.0"
 junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
+skeletonlayout = "5.0.0"
 
 
 [libraries]
@@ -58,6 +59,7 @@ koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
 koin-android = { module = "io.insert-koin:koin-android", version = "4.0.0" }
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
 koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
+skeletonlayout = { module = "com.faltenreich:skeletonlayout", version.ref = "skeletonlayout" }
 views = { module = "com.patrykandpatrick.vico:views", version.ref = "core" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 

@@ -14,7 +14,7 @@ import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDao
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
 
 
-@Database(entities = [LoraWanEntity::class,ExternalResource::class,DeveloperEntity::class,QuestionEntity::class], version = 3, exportSchema = false)
+@Database(entities = [LoraWanEntity::class,ExternalResource::class,DeveloperEntity::class,QuestionEntity::class], version = 5, exportSchema = false)
 @TypeConverters(DateConverter::class)
 abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun loraWanDao(): LoraWanDao

@@ -12,11 +12,10 @@ import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import android.os.Handler
-import android.os.Looper
+
 
 class ExternalResourcesFragment : BottomSheetDialogFragment() {
-    private val ExternalResourcesViewModel: ExternalResourcesViewModel by viewModel()
+    private val externalResourcesViewModel: ExternalResourcesViewModel by viewModel()
 
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
@@ -35,7 +34,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         showSkeleton()
-        ExternalResourcesViewModel.viewCreated()
+        externalResourcesViewModel.viewCreated()
 
     }
 
@@ -57,7 +56,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
                 bindData(it)
             }
         }
-        ExternalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
+        externalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }
 
     private fun showSkeleton() {

@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment">
-
+<com.faltenreich.skeletonlayout.SkeletonLayout
+    android:id="@+id/skeletonLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ExternalResourcesFragmentRecyclerView"
         android:layout_width="match_parent"
@@ -16,4 +19,5 @@
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_external_resources" />
+</com.faltenreich.skeletonlayout.SkeletonLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,11 +12,11 @@ import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
+import android.os.Handler
+import android.os.Looper
 
 class ExternalResourcesFragment : BottomSheetDialogFragment() {
     private val ExternalResourcesViewModel: ExternalResourcesViewModel by viewModel()
-
 
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +34,9 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
+        showSkeleton()
         ExternalResourcesViewModel.viewCreated()
+
     }
 
     private fun setupView() {
@@ -44,20 +46,27 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
                     LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 externalResourcesAdapter.setEvent { url -> openUrl(url) }
                 adapter = externalResourcesAdapter
-
             }
         }
     }
+
     private fun setupObserver() {
         val resourcesObserver = Observer<ExternalResourcesViewModel.UiState> { uiState ->
             uiState.externalResources?.let {
+                hideSkeleton()
                 bindData(it)
             }
         }
         ExternalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }
 
+    private fun showSkeleton() {
+        binding.skeletonLayout.showSkeleton()
+    }
 
+    private fun hideSkeleton() {
+        binding.skeletonLayout.showOriginal()
+    }
 
     private fun bindData(ExternalResources: List<ExternalResources>) {
         externalResourcesAdapter.submitList(ExternalResources.sortedBy { it.author })
@@ -71,5 +80,4 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

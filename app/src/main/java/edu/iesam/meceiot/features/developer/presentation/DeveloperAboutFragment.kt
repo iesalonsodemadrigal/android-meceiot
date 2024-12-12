@@ -2,12 +2,15 @@ package edu.iesam.meceiot.features.developer.presentation
 
 import DeveloperAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.faltenreich.skeletonlayout.SkeletonLayout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
@@ -15,16 +18,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
-
     private val developerAboutViewModel: DeveloperAboutViewModel by viewModel()
     private lateinit var appIntent: AppIntent
 
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
 
-    private val developerAdapter = DeveloperAdapter { url ->
-        appIntent.openUrl(url)
-    }
+    private val developerAdapter = DeveloperAdapter { url -> appIntent.openUrl(url) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,16 +39,28 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupObserver()
+        showSkeleton()  // Muestra el placeholder mientras se cargan datos
         developerAboutViewModel.viewDevelopers()
     }
 
     private fun setupObserver() {
-        val developerObserver = Observer<DeveloperAboutViewModel.UiState> { uiState ->
-            uiState.infoDeveloper?.let {
-                bindData(it)
+        developerAboutViewModel.uiState.observe(viewLifecycleOwner) { uiState ->
+            if (uiState.isLoading) {
+                showSkeleton()
+                binding.recyclerView.visibility = View.GONE
+            } else {
+                hideSkeleton()
+                binding.recyclerView.visibility = View.VISIBLE
+
+                uiState.infoDeveloper?.let {
+                    bindData(it)
+                }
+
+                uiState.errorMessage?.let { error ->
+                    Log.e("DeveloperFragment", "Error al obtener datos: $error")
+                }
             }
         }
-        developerAboutViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
     }
 
     private fun setupView() {
@@ -60,6 +72,14 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         }
     }
 
+    private fun showSkeleton() {
+        binding.skeletonLayout.showSkeleton()
+    }
+
+    private fun hideSkeleton() {
+        binding.skeletonLayout.showOriginal()
+    }
+
     private fun bindData(developers: List<DeveloperInfo>) {
         developerAdapter.submitList(developers)
     }
@@ -69,5 +89,3 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         _binding = null
     }
 }
-
-

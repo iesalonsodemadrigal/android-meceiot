@@ -8,6 +8,7 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
@@ -19,19 +20,24 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
     val uiState: LiveData<UiState> = _uiState
 
     fun viewDevelopers() {
-        _uiState.value = UiState(isLoading = true)
+        _uiState.postValue(UiState(isLoading = true))
+
         viewModelScope.launch(Dispatchers.IO) {
+            delay(8000)
             val infoDeveloper = getDevelopersUseCase()
-            _uiState.postValue(
-                UiState(
+            // Actualiza el estado UI en el hilo principal
+            viewModelScope.launch(Dispatchers.Main) {
+                val resultState = UiState(
                     isLoading = false,
                     infoDeveloper = infoDeveloper.getOrNull(),
                     errorMessage = infoDeveloper.exceptionOrNull() as? ErrorApp
-
                 )
-            )
+
+                _uiState.value = resultState
+            }
         }
     }
+
 
     data class UiState(
         val isLoading: Boolean = false,

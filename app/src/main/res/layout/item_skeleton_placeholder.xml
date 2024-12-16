@@ -7,15 +7,34 @@
     android:padding="16dp"
     android:background="@color/md_theme_outlineVariant_mediumContrast">
 
+
     <View
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/md_theme_inverseSurface_mediumContrast"/>
-
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/md_theme_inverseSurface_mediumContrast"
-        android:layout_marginTop="8dp"/>
+        android:background="@color/md_theme_inverseSurface_mediumContrast"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/md_theme_inverseSurface_mediumContrast"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/md_theme_inverseSurface_mediumContrast"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
 
 </LinearLayout>

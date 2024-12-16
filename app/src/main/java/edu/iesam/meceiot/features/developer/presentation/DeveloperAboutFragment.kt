@@ -48,27 +48,20 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
             if (uiState.isLoading) {
                 showSkeleton()
                 binding.recyclerView.visibility = View.GONE
+
             } else {
                 hideSkeleton()
+                binding.skeletonLayout.visibility = View.INVISIBLE
                 binding.recyclerView.visibility = View.VISIBLE
-
-                uiState.infoDeveloper?.let {
-                    bindData(it)
-                }
-
-                uiState.errorMessage?.let { error ->
-                    Log.e("DeveloperFragment", "Error al obtener datos: $error")
-                }
             }
-        }
-    }
 
-    private fun setupView() {
-        binding.apply {
-            recyclerView.layoutManager = LinearLayoutManager(
-                context, LinearLayoutManager.VERTICAL, false
-            )
-            recyclerView.adapter = developerAdapter
+            uiState.infoDeveloper?.let {
+                bindData(it)
+            }
+
+            uiState.errorMessage?.let { error ->
+                Log.e("DeveloperFragment", "Error al obtener datos: $error")
+            }
         }
     }
 
@@ -79,6 +72,16 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     private fun hideSkeleton() {
         binding.skeletonLayout.showOriginal()
     }
+    private fun setupView() {
+        binding.apply {
+            recyclerView.layoutManager = LinearLayoutManager(
+                context, LinearLayoutManager.VERTICAL, false
+            )
+            recyclerView.adapter = developerAdapter
+        }
+    }
+
+
 
     private fun bindData(developers: List<DeveloperInfo>) {
         developerAdapter.submitList(developers)

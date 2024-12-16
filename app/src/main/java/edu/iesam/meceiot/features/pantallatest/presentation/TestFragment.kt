@@ -59,6 +59,21 @@ class TestFragment : Fragment() {
         viewModel.correctCount.observe(viewLifecycleOwner, Observer { correctCount ->
             showResultDialog(correctCount)
         })
+
+        showSkeleton()
+        binding.recyclerView.visibility = View.INVISIBLE
+        binding.submitButton.visibility = View.INVISIBLE
+        viewModel.questions.observe(viewLifecycleOwner, Observer { questions ->
+            if (questions.isNotEmpty()) {
+                // Agregar un retraso artificial de 2 segundos
+                binding.recyclerView.postDelayed({
+                    hideSkeleton()
+                    binding.skeletonLayout.visibility = View.GONE
+                    binding.recyclerView.visibility = View.VISIBLE
+                    binding.submitButton.visibility = View.VISIBLE
+                }, 2000)
+            }
+        })
     }
 
     private fun handleSubmit() {
@@ -75,6 +90,14 @@ class TestFragment : Fragment() {
         } else {
             Toast.makeText(context, "Por favor, complete todas las opciones.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun showSkeleton() {
+        binding.skeletonLayout.showSkeleton()
+    }
+
+    private fun hideSkeleton() {
+        binding.skeletonLayout.showOriginal()
     }
 
     private fun showResultDialog(correctCount: Int) {

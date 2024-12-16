@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.externalresources.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,13 +51,23 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupObserver() {
-        val resourcesObserver = Observer<ExternalResourcesViewModel.UiState> { uiState ->
-            uiState.externalResources?.let {
+        externalResourcesViewModel.uiState.observe(viewLifecycleOwner) { uiState ->
+            if (uiState.loading) {
+                showSkeleton()
+                binding.ExternalResourcesFragmentRecyclerView.visibility = View.GONE
+            } else {
                 hideSkeleton()
+                binding.skeletonLayout.visibility = View.INVISIBLE
+                binding.ExternalResourcesFragmentRecyclerView.visibility = View.VISIBLE
+            }
+
+            uiState.externalResources?.let {
                 bindData(it)
             }
+            uiState.errorApp?.let {
+                Log.e("ExternalResourcesFragment", "Error: ${it.message}")
+            }
         }
-        externalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }
 
     private fun showSkeleton() {

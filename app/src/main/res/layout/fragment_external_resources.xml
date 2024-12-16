@@ -2,11 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment">
-<com.faltenreich.skeletonlayout.SkeletonLayout
-    android:id="@+id/skeletonLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <com.faltenreich.skeletonlayout.SkeletonLayout
+        android:id="@+id/skeletonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <include layout="@layout/item_skeleton_placeholder" />
+    </com.faltenreich.skeletonlayout.SkeletonLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ExternalResourcesFragmentRecyclerView"
         android:layout_width="match_parent"
@@ -19,5 +25,5 @@
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_external_resources" />
-</com.faltenreich.skeletonlayout.SkeletonLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

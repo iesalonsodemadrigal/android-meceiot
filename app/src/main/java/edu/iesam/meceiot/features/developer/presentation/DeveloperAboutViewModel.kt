@@ -23,7 +23,7 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
         _uiState.postValue(UiState(isLoading = true))
 
         viewModelScope.launch(Dispatchers.IO) {
-            delay(8000)
+            delay(2000)
             val infoDeveloper = getDevelopersUseCase()
             // Actualiza el estado UI en el hilo principal
             viewModelScope.launch(Dispatchers.Main) {

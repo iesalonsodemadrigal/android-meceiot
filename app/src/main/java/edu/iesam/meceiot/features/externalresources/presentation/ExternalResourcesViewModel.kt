@@ -20,6 +20,7 @@ class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: Get
         _uiState.value = UiState(loading = true)
 
         viewModelScope.launch {
+            delay(2000)
             val resources = getAllExternalResourcesUseCase.invoke()
             resources.fold({
                 _uiState.value = UiState(externalResources = it)

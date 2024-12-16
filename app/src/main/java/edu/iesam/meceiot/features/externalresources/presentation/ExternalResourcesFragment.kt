@@ -55,6 +55,14 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
                 hideSkeleton()
                 bindData(it)
             }
+            if(uiState.loading){
+                showSkeleton()
+                binding.ExternalResourcesFragmentRecyclerView.visibility = View.INVISIBLE
+            }else{
+                hideSkeleton()
+                binding.skeletonLayout.visibility = View.GONE
+                binding.ExternalResourcesFragmentRecyclerView.visibility = View.VISIBLE
+            }
         }
         externalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }

@@ -8,6 +8,7 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.lorawan.domain.GetInfoLoraWanUseCase
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
@@ -21,6 +22,7 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
     fun viewCreated() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
+            delay(2000)
             val infoLoraWan = getInfoLoraWanUseCase()
             _uiState.postValue(
                 UiState(

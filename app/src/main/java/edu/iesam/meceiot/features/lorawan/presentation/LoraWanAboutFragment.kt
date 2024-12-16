@@ -36,6 +36,7 @@ class LoraWanAboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
+        showSkeleton()
         loraWanViewModel.viewCreated()
     }
 
@@ -50,9 +51,12 @@ class LoraWanAboutFragment : Fragment() {
                 // hide error
             }
             if (uiState.isLoading) {
-                //show loading
+                showSkeleton()
+                binding.recyclerViewLorawanInfo.visibility = View.INVISIBLE
             } else {
-                //hide loading
+                hideSkeleton()
+                binding.skeletonLayout.visibility = View.GONE
+                binding.recyclerViewLorawanInfo.visibility = View.VISIBLE
             }
         }
         loraWanViewModel.uiState.observe(viewLifecycleOwner, loraWanObserver)
@@ -64,7 +68,17 @@ class LoraWanAboutFragment : Fragment() {
                 context, LinearLayoutManager.VERTICAL, false
             )
             recyclerViewLorawanInfo.adapter = loraWanAdapter
+            showSkeleton()
+            recyclerViewLorawanInfo.visibility = View.INVISIBLE
         }
+    }
+
+    private fun showSkeleton() {
+        binding.skeletonLayout.showSkeleton()
+    }
+
+    private fun hideSkeleton() {
+        binding.skeletonLayout.showOriginal()
     }
 
 

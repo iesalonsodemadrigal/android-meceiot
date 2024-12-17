@@ -13,7 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/item_skeleton_placeholder" />
+
+        <include layout="@layout/new_item_skeleton_testgame" />
     </com.faltenreich.skeletonlayout.SkeletonLayout>
 
     <androidx.recyclerview.widget.RecyclerView

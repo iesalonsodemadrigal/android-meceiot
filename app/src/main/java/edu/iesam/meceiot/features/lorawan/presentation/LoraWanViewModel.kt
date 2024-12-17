@@ -22,7 +22,6 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
     fun viewCreated() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            delay(5000)
             val infoLoraWan = getInfoLoraWanUseCase()
             _uiState.postValue(
                 UiState(
@@ -37,7 +36,7 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
 
     data class UiState(
         val isLoading: Boolean = false,
-        val errorApp: ErrorApp? = ErrorApp.UnknowErrorApp,
+        val errorApp: ErrorApp? = null,
         val infoLoraWan: List<LoraWanInfo>? = emptyList()
     )
 }

@@ -47,11 +47,9 @@ class LoraWanAboutFragment : Fragment() {
                 bindData(it)
             }
             uiState.errorApp?.let {
-                val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it)
-                binding.errorAppView.render(errorAppUI)
+               //muestro el error
             } ?: run {
-                binding.errorAppView.hide()
+                //escondo el error
             }
             if (uiState.isLoading) {
                 //show loading

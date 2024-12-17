@@ -32,8 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_extra_high"
         android:text="@string/description_error"
-        android:textSize="@dimen/font_size_small"
+        android:textSize="@dimen/font_size_high"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_error" />

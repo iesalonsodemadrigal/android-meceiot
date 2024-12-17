@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.faltenreich.skeletonlayout.Skeleton
+import com.faltenreich.skeletonlayout.applySkeleton
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentAboutLorawanBinding
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
@@ -18,6 +21,7 @@ class LoraWanAboutFragment : Fragment() {
 
     private var _binding: FragmentAboutLorawanBinding? = null
     private val binding get() = _binding!!
+    private lateinit var skeleton: Skeleton
 
     private val loraWanAdapter = LoraWanAdapter()
 
@@ -36,7 +40,6 @@ class LoraWanAboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        showSkeleton()
         loraWanViewModel.viewCreated()
     }
 
@@ -51,12 +54,9 @@ class LoraWanAboutFragment : Fragment() {
                 // hide error
             }
             if (uiState.isLoading) {
-                showSkeleton()
-                binding.recyclerViewLorawanInfo.visibility = View.INVISIBLE
+                skeleton.showSkeleton()
             } else {
-                hideSkeleton()
-                binding.skeletonLayout.visibility = View.GONE
-                binding.recyclerViewLorawanInfo.visibility = View.VISIBLE
+                skeleton.showOriginal()
             }
         }
         loraWanViewModel.uiState.observe(viewLifecycleOwner, loraWanObserver)
@@ -68,17 +68,8 @@ class LoraWanAboutFragment : Fragment() {
                 context, LinearLayoutManager.VERTICAL, false
             )
             recyclerViewLorawanInfo.adapter = loraWanAdapter
-            showSkeleton()
-            recyclerViewLorawanInfo.visibility = View.INVISIBLE
+            skeleton = recyclerViewLorawanInfo.applySkeleton(R.layout.view_lorawan_info_item)
         }
-    }
-
-    private fun showSkeleton() {
-        binding.skeletonLayout.showSkeleton()
-    }
-
-    private fun hideSkeleton() {
-        binding.skeletonLayout.showOriginal()
     }
 
 

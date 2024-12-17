@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment">
 
-    <com.faltenreich.skeletonlayout.SkeletonLayout
-        android:id="@+id/skeletonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/item_skeleton_placeholder" />
-
-    </com.faltenreich.skeletonlayout.SkeletonLayout>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_lorawan_info"
         android:layout_width="match_parent"
@@ -28,6 +15,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/view_lorawan_info_item" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

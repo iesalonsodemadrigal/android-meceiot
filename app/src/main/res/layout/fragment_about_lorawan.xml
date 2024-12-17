@@ -16,5 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/view_lorawan_info_item" />
 
+    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
+        android:id="@+id/error_app_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

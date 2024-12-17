@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import edu.iesam.meceiot.core.presentation.hide
-import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentAboutLorawanBinding
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
@@ -47,9 +45,9 @@ class LoraWanAboutFragment : Fragment() {
                 bindData(it)
             }
             uiState.errorApp?.let {
-               //muestro el error
+                //print error
             } ?: run {
-                //escondo el error
+                // hide error
             }
             if (uiState.isLoading) {
                 //show loading

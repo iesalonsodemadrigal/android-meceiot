@@ -9,7 +9,7 @@ class ErrorAppFactory(val context: Context) {
     fun build(errorApp: ErrorApp): ErrorAppUI {
         return when (errorApp) {
             ErrorApp.DataErrorApp -> ServerErrorAppUI(context)
-            ErrorApp.DataExpiredError -> TODO()
+            ErrorApp.DataExpiredError -> ConnectionErrorAppUI(context)
             ErrorApp.InternetErrorApp -> ConnectionErrorAppUI(context)
             ErrorApp.ServerErrorApp -> ServerErrorAppUI(context)
             ErrorApp.UnknowErrorApp -> UnknownErrorAppUI(context)

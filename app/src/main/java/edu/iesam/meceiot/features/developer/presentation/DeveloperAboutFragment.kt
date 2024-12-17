@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.faltenreich.skeletonlayout.SkeletonLayout
+import com.faltenreich.skeletonlayout.Skeleton
+
+import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
@@ -23,6 +26,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
+    private lateinit var skeleton: Skeleton
 
     private val developerAdapter = DeveloperAdapter { url -> appIntent.openUrl(url) }
 
@@ -37,51 +41,39 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupObserver()
-        showSkeleton()  // Muestra el placeholder mientras se cargan datos
         developerAboutViewModel.viewDevelopers()
     }
 
     private fun setupObserver() {
-        developerAboutViewModel.uiState.observe(viewLifecycleOwner) { uiState ->
-            if (uiState.isLoading) {
-                showSkeleton()
-                binding.recyclerView.visibility = View.GONE
-
-            } else {
-                hideSkeleton()
-                binding.skeletonLayout.visibility = View.INVISIBLE
-                binding.recyclerView.visibility = View.VISIBLE
-            }
-
-            uiState.infoDeveloper?.let {
-                bindData(it)
-            }
-
-            uiState.errorMessage?.let { error ->
-                Log.e("DeveloperFragment", "Error al obtener datos: $error")
-            }
+      val developerObserver =  Observer<DeveloperAboutViewModel.UiState>{ uiState ->
+          uiState.infoDeveloper?.let {
+              bindData(it)
+          }
+          uiState.errorMessage?.let {
+              //print error
+          } ?: run {
+              // hide error
+          }
+          if (uiState.isLoading) {
+              skeleton.showSkeleton()
+          } else {
+              skeleton.showOriginal()
+          }
         }
+        developerAboutViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
     }
 
-    private fun showSkeleton() {
-        binding.skeletonLayout.showSkeleton()
-    }
 
-    private fun hideSkeleton() {
-        binding.skeletonLayout.showOriginal()
-    }
     private fun setupView() {
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(
                 context, LinearLayoutManager.VERTICAL, false
             )
             recyclerView.adapter = developerAdapter
+            skeleton = recyclerView.applySkeleton(R.layout.item_developer)
         }
     }
-
-
 
     private fun bindData(developers: List<DeveloperInfo>) {
         developerAdapter.submitList(developers)

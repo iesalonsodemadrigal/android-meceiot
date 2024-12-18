@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemQuestionBinding
 import edu.iesam.meceiot.features.pantallatest.domain.Question
 
-class QuestionsAdapter(private val questions: List<Question>) : RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
+class QuestionsAdapter(private var questions: List<Question>) :
+    RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
 
     private val selectedOptions = mutableMapOf<Int, String>()
 
@@ -24,6 +25,11 @@ class QuestionsAdapter(private val questions: List<Question>) : RecyclerView.Ada
     override fun getItemCount(): Int = questions.size
 
     fun getSelectedOptions(): Map<Int, String> = selectedOptions
+
+    fun updateQuestions(newQuestions: List<Question>) {
+        questions = newQuestions
+        notifyDataSetChanged()
+    }
 
     inner class QuestionViewHolder(val binding: ItemQuestionBinding) : RecyclerView.ViewHolder(binding.root) {
 

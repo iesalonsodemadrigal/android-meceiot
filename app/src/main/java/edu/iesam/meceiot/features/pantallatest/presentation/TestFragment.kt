@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.databinding.TestfragmentBinding
-import edu.iesam.meceiot.features.pantallatest.domain.Question
 import edu.iesam.meceiot.features.pantallatest.presentation.adapter.QuestionsAdapter
 
 class TestFragment : Fragment() {
@@ -31,21 +30,9 @@ class TestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val questions = listOf(
-            Question(1, "1º pregunta", "logo_lorawan", "a", "b", "c", "d", "a"),
-            Question(2, "2º pregunta", "logo_lorawan", "a", "b", "c", "d", "b"),
-            Question(3, "3º pregunta", "logo_lorawan", "a", "b", "c", "d", "c"),
-            Question(4, "4º pregunta", "logo_lorawan", "a", "b", "c", "d", "d"),
-            Question(5, "5º pregunta", "logo_lorawan", "a", "b", "c", "d", "a"),
-            Question(6, "6º pregunta", "logo_lorawan", "a", "b", "c", "d", "b"),
-            Question(7, "7º pregunta", "logo_lorawan", "a", "b", "c", "d", "c")
-        )
-
-        questionsAdapter = QuestionsAdapter(questions)
+        questionsAdapter = QuestionsAdapter(emptyList())
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = questionsAdapter
-
-        viewModel.setQuestions(questions)
 
         binding.submitButton.setOnClickListener {
             handleSubmit()
@@ -64,7 +51,7 @@ class TestFragment : Fragment() {
         binding.submitButton.visibility = View.INVISIBLE
         viewModel.questions.observe(viewLifecycleOwner, Observer { questions ->
             if (questions.isNotEmpty()) {
-                // Agregar un retraso artificial de 2 segundos
+                questionsAdapter.updateQuestions(questions)
                 binding.recyclerView.postDelayed({
                     hideSkeleton()
                     binding.skeletonLayout.visibility = View.GONE
@@ -82,7 +69,6 @@ class TestFragment : Fragment() {
             viewModel.setSelectedOptions(selectedOptions)
             viewModel.calculateCorrectAnswers()
 
-            // Guardar cada pregunta en la base de datos
             viewModel.questions.value?.forEach { question ->
                 viewModel.saveQuestionToDatabase(question)
             }

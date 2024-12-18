@@ -72,7 +72,10 @@ class LoraWanAboutFragment : Fragment() {
                 context, LinearLayoutManager.VERTICAL, false
             )
             recyclerViewLorawanInfo.adapter = loraWanAdapter
-            skeleton = recyclerViewLorawanInfo.applySkeleton(R.layout.view_lorawan_info_item)
+            skeleton = recyclerViewLorawanInfo.applySkeleton(
+                R.layout.view_lorawan_info_item,
+                itemCount = 5
+            )
         }
     }
 

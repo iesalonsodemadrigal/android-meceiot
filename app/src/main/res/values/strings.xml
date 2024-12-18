@@ -29,4 +29,24 @@
     <string name="ResourceName">Name of the resource</string>
     <string name="fragmentoc">fragmentoC</string>
     <string name="ResourceButton" />
+
+    <!-- Errors App -->
+    <string name="title_error">Titulo error</string>
+    <string name="description_error">Descripción del error</string>
+    <string name="button_retry">Reintentar</string>
+
+    <string name="title_error_connection">Error en la conexión</string>
+    <string name="description_error_connection">Error en la conexión a internet.
+    Verifique y vuelva a intentarlo más tarde</string>
+    <string name="button_retry_connection">Reintentar</string>
+
+    <string name="title_error_server">Error en el servidor</string>
+    <string name="description_error_server">Ocurrió un error relacionado con
+    la conexión del servidor</string>
+
+    <string name="title_error_unknown">Error desconocido</string>
+    <string name="description_error_unknown">Se está produciendo un error desconocido
+    en el sistema</string>
+
+
 </resources>

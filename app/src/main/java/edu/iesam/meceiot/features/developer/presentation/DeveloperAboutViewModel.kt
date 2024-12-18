@@ -8,7 +8,6 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.domain.usecase.GetDevelopersUseCase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
@@ -22,7 +21,6 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
     fun viewDevelopers() {
         _uiState.postValue(UiState(isLoading = true))
         viewModelScope.launch(Dispatchers.IO) {
-            delay(2000)
             val infoDeveloper = getDevelopersUseCase()
             _uiState.postValue(
                 UiState(

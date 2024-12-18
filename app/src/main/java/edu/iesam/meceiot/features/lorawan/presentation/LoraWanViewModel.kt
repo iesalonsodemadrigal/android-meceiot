@@ -22,6 +22,7 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
     fun viewCreated() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
+            delay(2000)
             val infoLoraWan = getInfoLoraWanUseCase()
             _uiState.postValue(
                 UiState(

@@ -2,21 +2,20 @@ package edu.iesam.meceiot.features.developer.presentation
 
 import DeveloperAdapter
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
-
 import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
+import edu.iesam.meceiot.core.presentation.hide
+import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
-
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
@@ -51,9 +50,11 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
               bindData(it)
           }
           uiState.errorMessage?.let {
-              //print error
+              val error = ErrorAppFactory(requireContext())
+              val errorAppUI = error.build(it)
+              binding.errorAppView.render(errorAppUI)
           } ?: run {
-              // hide error
+              binding.errorAppView.hide()
           }
           if (uiState.isLoading) {
               skeleton.showSkeleton()

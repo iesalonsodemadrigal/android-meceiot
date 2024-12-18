@@ -1,12 +1,13 @@
 package edu.iesam.meceiot.features.externalresources.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.faltenreich.skeletonlayout.Skeleton
+import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
@@ -14,68 +15,64 @@ import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class ExternalResourcesFragment : BottomSheetDialogFragment() {
     private val externalResourcesViewModel: ExternalResourcesViewModel by viewModel()
-
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
     private val externalResourcesAdapter = ExternalResourcesAdapter()
     private val appIntent: AppIntent by lazy { AppIntent(requireContext()) }
-
+    private lateinit var skeleton: Skeleton
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentExternalResourcesBinding.inflate(inflater, container, false)
+        _binding = FragmentExternalResourcesBinding.inflate(
+            inflater,
+            container,
+            false
+        )
         setupView()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(
+            view,
+            savedInstanceState
+        )
         setupObserver()
-        showSkeleton()
         externalResourcesViewModel.viewCreated()
-
     }
 
     private fun setupView() {
         binding.apply {
             ExternalResourcesFragmentRecyclerView.apply {
-                layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                layoutManager = LinearLayoutManager(
+                    context,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
                 externalResourcesAdapter.setEvent { url -> openUrl(url) }
                 adapter = externalResourcesAdapter
+                skeleton =
+                    ExternalResourcesFragmentRecyclerView.applySkeleton(edu.iesam.meceiot.R.layout.item_external_resources)
             }
         }
     }
 
     private fun setupObserver() {
-        externalResourcesViewModel.uiState.observe(viewLifecycleOwner) { uiState ->
-            if (uiState.loading) {
-                showSkeleton()
-                binding.ExternalResourcesFragmentRecyclerView.visibility = View.GONE
-            } else {
-                hideSkeleton()
-                binding.skeletonLayout.visibility = View.INVISIBLE
-                binding.ExternalResourcesFragmentRecyclerView.visibility = View.VISIBLE
-            }
-
+        val resourcesObserver = Observer<ExternalResourcesViewModel.UiState> { uiState ->
             uiState.externalResources?.let {
                 bindData(it)
             }
-            uiState.errorApp?.let {
-                Log.e("ExternalResourcesFragment", "Error: ${it.message}")
+            if (uiState.loading) {
+                skeleton.showSkeleton()
+            } else {
+                skeleton.showOriginal()
             }
         }
-    }
-
-    private fun showSkeleton() {
-        binding.skeletonLayout.showSkeleton()
-    }
-
-    private fun hideSkeleton() {
-        binding.skeletonLayout.showOriginal()
+        externalResourcesViewModel.uiState.observe(viewLifecycleOwner, resourcesObserver)
     }
 
     private fun bindData(ExternalResources: List<ExternalResources>) {

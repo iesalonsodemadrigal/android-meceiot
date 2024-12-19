@@ -5,7 +5,18 @@ import java.util.Date
 
 
 fun DeveloperInfo.toEntity(): DeveloperEntity =
-    DeveloperEntity(this.id, this.fullName, this.urlAvatar, this.collegeDegree,this.urlSource, date = Date())
+    DeveloperEntity(
+        id =  this.id,
+        fullName = this.fullName,
+        urlAvatar = this.urlAvatar,
+        collegeDegree = this.collegeDegree,
+        urlSource = this.urlSource,
+        date = Date())
 
     fun DeveloperEntity.toDomain(): DeveloperInfo =
-    DeveloperInfo(this.id, this.fullName, this.urlAvatar, this.collegeDegree,this.urlSource)
+    DeveloperInfo(
+        id =  this.id,
+        fullName = this.fullName,
+        urlAvatar = this.urlAvatar,
+        collegeDegree = this.collegeDegree,
+        urlSource = this.urlSource)

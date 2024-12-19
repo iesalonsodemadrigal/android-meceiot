@@ -7,27 +7,25 @@
 
     <com.faltenreich.skeletonlayout.SkeletonLayout
         android:id="@+id/skeletonLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/item_skeleton_placeholder" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ExternalResourcesFragmentRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:scrollbarSize="8dp"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item_external_resources" />
+
     </com.faltenreich.skeletonlayout.SkeletonLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ExternalResourcesFragmentRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:scrollbarSize="8dp"
-        android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/item_external_resources" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

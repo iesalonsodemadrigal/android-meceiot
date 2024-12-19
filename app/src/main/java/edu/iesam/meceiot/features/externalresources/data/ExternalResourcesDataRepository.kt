@@ -7,7 +7,7 @@ import edu.iesam.meceiot.features.externalresources.domain.ExternalResourcesRepo
 import org.koin.core.annotation.Single
 
 @Single
-class ExternalResourcesDataRepsitory(
+class ExternalResourcesDataRepository(
     private val remoteDataSource: ExternalResourcesRemoteDataSource,
     private val localDataSource: ExternalResourcesDbDataSource
 ) : ExternalResourcesRepository {

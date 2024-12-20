@@ -5,12 +5,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-@Entity(tableName = "EXTERNAL_RESOURCES_TABLE")
+const val EXTERNAL_RESOURCES_TABLE = "external_resources"
+
+@Entity(tableName = EXTERNAL_RESOURCES_TABLE)
 class ExternalResourcesEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = "createdAt") val date: Date,
     @ColumnInfo(name = "author") val author: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "image") val image: String,
-    @ColumnInfo(name = "url") val url: String,
-    @ColumnInfo(name = "createdAt") val date: Date,
+    @PrimaryKey @ColumnInfo(name = "url") val url: String
 )

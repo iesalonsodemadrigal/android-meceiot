@@ -16,7 +16,7 @@ import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
 
 @Database(
     entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class, QuestionEntity::class],
-    version = 5,
+    version = 6,
     exportSchema = false
 )
 @TypeConverters(DateConverter::class)

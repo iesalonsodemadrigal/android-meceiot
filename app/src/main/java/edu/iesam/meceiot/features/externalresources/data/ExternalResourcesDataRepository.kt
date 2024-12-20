@@ -13,13 +13,9 @@ class ExternalResourcesDataRepository(
 ) : ExternalResourcesRepository {
     override suspend fun getAllExternalResources(): Result<List<ExternalResources>> {
         val localExternalResourcesResult = localDataSource.getAll()
-        return if (localExternalResourcesResult.isFailure || localExternalResourcesResult.getOrNull()
-                .isNullOrEmpty()
-        ) {
-            val remoteExternalResourcesResult = remoteDataSource.getAllExternalResources()
-            remoteExternalResourcesResult.map {
+        return if (localExternalResourcesResult.isFailure) {
+            remoteDataSource.getAllExternalResources().onSuccess {
                 localDataSource.saveAll(it)
-                it
             }
         } else {
             localExternalResourcesResult

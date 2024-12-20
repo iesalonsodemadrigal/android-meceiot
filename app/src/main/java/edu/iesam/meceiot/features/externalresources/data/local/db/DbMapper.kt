@@ -5,7 +5,6 @@ import java.util.Date
 
 fun ExternalResources.toEntity(): ExternalResourcesEntity =
     ExternalResourcesEntity(
-        id = 0,
         date = Date(),
         author = author,
         description = description,

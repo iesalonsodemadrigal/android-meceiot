@@ -1,11 +1,3 @@
----
-name: Feature Template
-about: Main feature template
-title: "[Feature]: "
-labels: ["feature"]
-projects: ["MeceIoT"]
-assignees: ''
----
 ## 🤔 Descripción del problema a resolver
 <!--
 Objetivo: Asegurarse de que se ha entendido correctamente el problema a resolver. 

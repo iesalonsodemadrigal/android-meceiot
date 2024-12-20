@@ -11,9 +11,9 @@
         android:id="@+id/developer_image"
         android:layout_width="@dimen/image_size_extra_extra_high"
         android:layout_height="@dimen/image_size_extra_extra_high"
+        android:layout_margin="1dp"
         android:layout_marginEnd="@dimen/margin_medium"
         android:scaleType="centerCrop"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,13 +46,16 @@
             tools:text="Descripción del Desarrollador" />
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonOpenUrl"
         android:layout_width="@dimen/image_size_extra_extra_high"
         android:layout_height="@dimen/image_size_extra_extra_high"
-        android:background="@drawable/baseline_arrow_forward_ios_24"
+        android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/action_button"
-        app:layout_constraintTop_toTopOf="@+id/developer_image"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
         app:layout_constraintBottom_toBottomOf="@+id/developer_image"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/developer_image" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

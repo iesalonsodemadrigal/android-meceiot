@@ -7,7 +7,7 @@ import edu.iesam.meceiot.features.externalresources.domain.ExternalResourcesRepo
 import org.koin.core.annotation.Single
 
 @Single
-class ExternalResourcesDataRepsitory(
+class ExternalResourcesDataRepository(
     private val remoteDataSource: ExternalResourcesRemoteDataSource,
     private val localDataSource: ExternalResourcesDbDataSource
 ) : ExternalResourcesRepository {
@@ -16,10 +16,8 @@ class ExternalResourcesDataRepsitory(
         return if (localExternalResourcesResult.isFailure || localExternalResourcesResult.getOrNull()
                 .isNullOrEmpty()
         ) {
-            val remoteExternalResourcesResult = remoteDataSource.getAllExternalResources()
-            remoteExternalResourcesResult.map {
+            remoteDataSource.getAllExternalResources().onSuccess {
                 localDataSource.saveAll(it)
-                it
             }
         } else {
             localExternalResourcesResult

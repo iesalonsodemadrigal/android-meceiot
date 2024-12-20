@@ -3,9 +3,8 @@ package edu.iesam.meceiot.features.externalresources.data.local.db
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import java.util.Date
 
-fun ExternalResources.toEntity(): ExternalResource =
-    ExternalResource(
-        id = 0,
+fun ExternalResources.toEntity(): ExternalResourcesEntity =
+    ExternalResourcesEntity(
         date = Date(),
         author = this.author,
         description = this.description,
@@ -13,7 +12,7 @@ fun ExternalResources.toEntity(): ExternalResource =
         url = this.url
     )
 
-fun ExternalResource.toDomain(): ExternalResources =
+fun ExternalResourcesEntity.toDomain(): ExternalResources =
     ExternalResources(
         author = this.author,
         description = this.description,

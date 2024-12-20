@@ -6,10 +6,10 @@ import java.util.Date
 fun ExternalResources.toEntity(): ExternalResourcesEntity =
     ExternalResourcesEntity(
         date = Date(),
-        author = author,
-        description = description,
-        image = image,
-        url = url
+        author = this.author,
+        description = this.description,
+        image = this.image,
+        url = this.url
     )
 
 fun ExternalResourcesEntity.toDomain(): ExternalResources =

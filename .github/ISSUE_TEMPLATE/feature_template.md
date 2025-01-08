@@ -18,3 +18,5 @@ assignees: ''
 ## ✅ Definición de hecho (DoD)
 
 ## ✂️ Subtareas
+
+## ✍️ Documentar

@@ -2,13 +2,16 @@
 name: Feature Template
 about: Main feature template
 title: "[Feature]: "
-labels: ["feature"]
-projects: ["Meceiot"]
+labels: feature
 assignees: ''
+
 ---
+
 ## 📝 Descripción
 
 ## 🛠️ Recursos
+
+## 👩🏽‍🎨 Diseño
 
 ## 🆘 Ayuda
 

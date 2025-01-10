@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_navigate_developer" />
 
     <Button
-        android:id="@+id/button_navigate_externaResource"
+        android:id="@+id/button_navigate_externalResource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ir al listado"

@@ -13,8 +13,8 @@
         android:title="@string/test" />
 
     <item
-        android:id="@+id/sttings"
+        android:id="@+id/fragment_settings"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/sttings" />
+        android:title="@string/settings" />
 </menu>

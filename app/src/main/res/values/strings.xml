@@ -48,5 +48,8 @@
     <string name="description_error_unknown">Se está produciendo un error desconocido
     en el sistema</string>
 
+    <string name="settings">Settings</string>
+    <string name="test">Test</string>
+
 
 </resources>

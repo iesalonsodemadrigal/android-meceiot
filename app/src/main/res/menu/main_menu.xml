@@ -5,22 +5,16 @@
         android:enabled="true"
         android:icon="@drawable/icon_wifi"
         android:title="@string/label_menu_a" />
-    <item
-        android:id="@+id/fragment_b"
-        android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/label_menu_b" />
+
     <item
         android:id="@+id/testfragment"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Test" />
+        android:title="@string/test" />
+
     <item
-        android:id="@+id/fragment_external_resources"
+        android:id="@+id/sttings"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/label_menu_d" />
-
-
-
+        android:title="@string/sttings" />
 </menu>

@@ -11,9 +11,9 @@
 
 
     <fragment
-        android:id="@+id/fragment_b"
-        android:name="edu.iesam.meceiot.features.presentation.FragmentB"
-        tools:layout="@layout/fragment_b">
+        android:id="@+id/fragment_settings"
+        android:name="edu.iesam.meceiot.features.presentation.Settings"
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_fragmentB_to_developerAboutFragment"
             app:destination="@id/fragment_developer_list" />

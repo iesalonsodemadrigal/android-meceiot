@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.IoT.domain
+package edu.iesam.meceiot.features.iot.domain
 
 data class IoT(
     val id: String,

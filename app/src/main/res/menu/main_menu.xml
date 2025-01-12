@@ -11,6 +11,11 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_b" />
     <item
+        android:id="@+id/IoT_Fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/IoT" />
+    <item
         android:id="@+id/testfragment"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"

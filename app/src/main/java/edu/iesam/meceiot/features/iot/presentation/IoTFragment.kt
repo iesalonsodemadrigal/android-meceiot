@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.iot.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,7 +67,7 @@ class IoTFragment : Fragment() {
     }
 
     private fun bindData(iotInfo: List<IoT>) {
-        iotAdapter.submitList(iotInfo.sortedBy { it.id.toInt() })
+        iotAdapter.submitList(iotInfo)
     }
 
     override fun onDestroyView() {

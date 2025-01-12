@@ -24,6 +24,7 @@ class IoTViewModel(private val getInfoIoTUseCase: GetIoTListUseCase) : ViewModel
             _uiState.postValue(
                 UiState(
                     isLoading = false,
+                    infoIoT = infoIoT,
 
 
                 )

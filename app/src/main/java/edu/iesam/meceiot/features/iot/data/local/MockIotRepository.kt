@@ -10,27 +10,33 @@ class MockIoTRepository : IotRepository {
         return listOf(
             IoT(
                 id = "1",
-                title = "IoT en el Alonso",
+                title = "Información",
                 image = "https://example.com/image1.png",
-                description = "Uso del IoT en las instalaciones del Alonso..."
+                description = "informacion relacionada con el centro como historia, localizacion, Contacto..."
             ),
             IoT(
                 id = "2",
-                title = "Ahorro energético",
+                title = "Planes Educativos",
                 image = "https://example.com/image2.png",
-                description = "El IoT puede optimizar el consumo energético..."
+                description = "planes educativos,programacion general anual,reglamento interno"
             ),
             IoT(
                 id = "3",
-                title = "MecelOT",
+                title = "Calendario Escolar",
                 image = "https://example.com/image3.png",
-                description = "Plataforma de IoT para industrias inteligentes..."
+                description = "inicio y fin del curso , dias lectivos y dias no lectivos"
             ),
             IoT(
                 id = "4",
-                title = "Contextos de IoT",
+                title = "programas",
                 image = "https://example.com/image4.png",
-                description = "Áreas donde el IoT se utiliza con mayor frecuencia..."
+                description = "erasmus,FpEmpresa"
+            ),
+            IoT(
+                id = "5",
+                title = "departamentos",
+                image = "https://example.com/image4.png",
+                description = "departamentos del centro con informacion sobre los profesores que lo integran"
             )
         )
     }

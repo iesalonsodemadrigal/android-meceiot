@@ -11,31 +11,31 @@ class MockIoTRepository : IotRepository {
             IoT(
                 id = "1",
                 title = "Información",
-                image = "https://example.com/image1.png",
+                image = "android.resource://edu.iesam.meceiot/drawable/icon",
                 description = "informacion relacionada con el centro como historia, localizacion, Contacto..."
             ),
             IoT(
                 id = "2",
                 title = "Planes Educativos",
-                image = "https://example.com/image2.png",
+                image = "android.resource://edu.iesam.meceiot/drawable/icon",
                 description = "planes educativos,programacion general anual,reglamento interno"
             ),
             IoT(
                 id = "3",
                 title = "Calendario Escolar",
-                image = "https://example.com/image3.png",
+                image = "android.resource://edu.iesam.meceiot/drawable/icon",
                 description = "inicio y fin del curso , dias lectivos y dias no lectivos"
             ),
             IoT(
                 id = "4",
                 title = "programas",
-                image = "https://example.com/image4.png",
+                image = "android.resource://edu.iesam.meceiot/drawable/icon",
                 description = "erasmus,FpEmpresa"
             ),
             IoT(
                 id = "5",
                 title = "departamentos",
-                image = "https://example.com/image4.png",
+                image = "android.resource://edu.iesam.meceiot/drawable/icon",
                 description = "departamentos del centro con informacion sobre los profesores que lo integran"
             )
         )

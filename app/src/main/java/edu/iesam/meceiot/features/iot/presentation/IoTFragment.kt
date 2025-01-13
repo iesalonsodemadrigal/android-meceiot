@@ -1,12 +1,12 @@
 package edu.iesam.meceiot.features.iot.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.databinding.FragmentIotBinding
 import edu.iesam.meceiot.features.iot.domain.IoT
@@ -63,6 +63,11 @@ class IoTFragment : Fragment() {
                 context, LinearLayoutManager.VERTICAL, false
             )
             recyclerViewIoT.adapter = iotAdapter
+
+
+            val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            recyclerViewIoT.addItemDecoration(itemDecoration)
+
         }
     }
 

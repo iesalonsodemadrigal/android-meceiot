@@ -1,5 +1,5 @@
 package edu.iesam.meceiot.features.pantallasensor.domain
 
 interface SensorRepository {
-    fun getSensorData(): List<Sensor>
+    suspend fun getSensorDataById(id: Int): Sensor
 }

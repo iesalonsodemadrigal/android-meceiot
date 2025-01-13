@@ -10,13 +10,15 @@ import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResour
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesEntity
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
+import edu.iesam.meceiot.features.pantallasensor.data.local.db.SensorDao
+import edu.iesam.meceiot.features.pantallasensor.data.local.db.SensorEntity
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDao
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
 
 
 @Database(
-    entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class, QuestionEntity::class],
-    version = 6,
+    entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class, QuestionEntity::class, SensorEntity::class],
+    version = 7,
     exportSchema = false
 )
 @TypeConverters(DateConverter::class)
@@ -25,4 +27,5 @@ abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun externalResourcesDao(): ExternalResourcesDao
     abstract fun developerDao(): DeveloperDao
     abstract fun questionDao(): QuestionDao
+    abstract fun sensorDao(): SensorDao
 }

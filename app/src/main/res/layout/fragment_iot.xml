@@ -18,6 +18,7 @@
             android:layout_gravity="center"
             android:padding="@dimen/image_size_small"
             android:text="@string/IoT"
+            android:textColor="@color/md_theme_onSecondaryFixedVariant"
             android:textSize="@dimen/font_size_high"
             android:textStyle="bold" />
 

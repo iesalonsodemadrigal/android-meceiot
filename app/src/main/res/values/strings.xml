@@ -53,6 +53,8 @@
     //strings Iot
     <string name="iot_title">IoT</string>
     <string name="iot_description">Descripción de IoT</string>
+    <string name="titulo_item">Titulo</string>
+    <string name="descripcion_item">Descripción</string>
 
 
 </resources>

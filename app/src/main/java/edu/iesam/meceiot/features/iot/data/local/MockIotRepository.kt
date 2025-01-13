@@ -10,33 +10,33 @@ class MockIoTRepository : IotRepository {
         return listOf(
             IoT(
                 id = "1",
-                title = "Información",
+                title = "IoT",
                 image = "android.resource://edu.iesam.meceiot/drawable/icon",
-                description = "informacion relacionada con el centro como historia, localizacion, Contacto..."
+                description = "informacion relacionada con IoT..."
             ),
             IoT(
                 id = "2",
-                title = "Planes Educativos",
+                title = "Ahorro energetico a través de IoT",
                 image = "android.resource://edu.iesam.meceiot/drawable/icon",
-                description = "planes educativos,programacion general anual,reglamento interno"
+                description = "Ahorro energetico..... "
             ),
             IoT(
                 id = "3",
-                title = "Calendario Escolar",
+                title = "Contextos donde mas se usa IoT",
                 image = "android.resource://edu.iesam.meceiot/drawable/icon",
-                description = "inicio y fin del curso , dias lectivos y dias no lectivos"
+                description = "Iot es mas usado en......"
             ),
             IoT(
                 id = "4",
-                title = "programas",
+                title = "IoT en el Alonso",
                 image = "android.resource://edu.iesam.meceiot/drawable/icon",
-                description = "erasmus,FpEmpresa"
+                description = "el Ies Alonso de Madrigal tiene IoT en...."
             ),
             IoT(
                 id = "5",
-                title = "departamentos",
+                title = "MeceIot",
                 image = "android.resource://edu.iesam.meceiot/drawable/icon",
-                description = "departamentos del centro con informacion sobre los profesores que lo integran"
+                description = "MeceIot es un proyecto que...."
             )
         )
     }

@@ -52,7 +52,20 @@
     <string name="test">Test</string>
 
     <string name="setting_filer_xml">setting_filer_xml</string>
-
+    <string name="ver_perfil">Ver Perfil</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="perfil">Perfil</string>
+    <string name="usuario">Usuario:</string>
+    <string name="alumnos">Alumnos que han desarrollado la aplicación</string>
+    <string name="desarrolladores">Desarrolladores</string>
+    <string name="recursos_text">Recursos de terceros que se han usado en la aplicación</string>
+    <string name="recursos_externos">Recursos Externos</string>
+    <string name="politica_de_privacidad">Pulse para ver la politica de privacidad</string>
+    <string name="pol_tica_de_privacidad">Politica de Privacidad</string>
+    <string name="link_a_play_store">Link a Play Store</string>
+    <string name="version">Version:</string>
+    <string name="contactar_con_nosotros">Aquí puedes contactar con nosotros</string>
+    <string name="contacta_con_nosotros">Contacta con Nosotros</string>
 
 
 </resources>

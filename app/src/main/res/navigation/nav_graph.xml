@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/fragment_settings"
-        android:name="edu.iesam.meceiot.features.setting.presentation.Settings"
+        android:name="edu.iesam.meceiot.features.setting.presentation.SettingAboutFragment"
         tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settings_to_developerAboutFragment"

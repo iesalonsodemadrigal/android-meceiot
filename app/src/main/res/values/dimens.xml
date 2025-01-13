@@ -21,6 +21,7 @@
     <dimen name="image_size_high">24dp</dimen>
     <dimen name="image_size_extra_high">30dp</dimen>
     <dimen name="image_size_extra_extra_high">60dp</dimen>
+    <dimen name="image_size_back_iot">200dp</dimen>
 
 
     <dimen name="margin_extra_small">5dp</dimen>

@@ -50,4 +50,9 @@
     en el sistema</string>
 
 
+    //strings Iot
+    <string name="iot_title">IoT</string>
+    <string name="iot_description">Descripción de IoT</string>
+
+
 </resources>

@@ -8,6 +8,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/md_theme_secondaryFixedDim"
         android:orientation="vertical">
 
         <TextView
@@ -15,17 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="16dp"
-            android:text="IoT"
-            android:textSize="24sp"
+            android:padding="@dimen/image_size_small"
+            android:text="@string/IoT"
+            android:textSize="@dimen/font_size_high"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageViewIoT"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/image_size_back_iot"
             android:layout_gravity="center"
-            android:contentDescription="iamgen de cabezera del fragmento"
+            android:contentDescription="@string/IoT"
             android:src="@drawable/iotbanner" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -33,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/item_iot"
-            android:padding="16dp"/>
+            android:padding="@dimen/padding_medium" />
 
     </LinearLayout>
 

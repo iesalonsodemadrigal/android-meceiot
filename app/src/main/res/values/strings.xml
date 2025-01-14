@@ -11,15 +11,6 @@
 
     <!-- Menú -->
     <string name="label_menu_a">LoraWan</string>
-    <string name="label_menu_b">fragmentB</string>
-    <string name="label_menu_c">fragmentC</string>
-    <string name="label_menu_d">External Resources</string>
-
-    <!-- Fragmentos -->
-    <string name="fragmentoa">fragmentoA</string>
-    <string name="Fragmentoa">FragmentoA</string>
-    <string name="fragmentob">Fragmentob</string>
-    <string name="fragmentoc">fragmentoC</string>
 
     <!-- LoraWan -->
     <string name="lorawan_info_file_xml">lorawan</string>

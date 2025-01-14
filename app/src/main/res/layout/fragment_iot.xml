@@ -8,19 +8,17 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/md_theme_secondaryFixedDim"
         android:orientation="vertical">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textViewIoT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="@dimen/image_size_small"
             android:text="@string/IoT"
-            android:textColor="@color/md_theme_onSecondaryFixedVariant"
-            android:textSize="@dimen/font_size_high"
-            android:textStyle="bold" />
+            style="@style/AppHeadlineHeader"
+            android:textSize="@dimen/font_size_high" />
 
         <ImageView
             android:id="@+id/imageViewIoT"

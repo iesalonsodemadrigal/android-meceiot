@@ -200,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:text="Aplicación"
+                android:text="@string/aplicacion"
                 android:textColor="@color/md_theme_onSecondaryFixedVariant"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -227,7 +227,7 @@
                         android:id="@+id/text_button_project_website"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Web del Proyecto"
+                        android:text="@string/text_web"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -236,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:text="Aquí puedes acceder a la página web oficial."
+                        android:text="@string/dresp_text_web"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>

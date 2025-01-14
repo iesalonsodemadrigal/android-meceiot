@@ -1,71 +1,90 @@
 <resources>
+    <!-- App General -->
     <string name="app_name">android-meceiot</string>
+    <string name="title">Title</string>
+    <string name="imageItem">ImageItem</string>
+
+    <!-- Login -->
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+
+    <!-- Menú -->
     <string name="label_menu_a">LoraWan</string>
-    <string name="lorawan_info_file_xml">lorawan</string>
-    <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes
-        dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla
-        iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus
-        quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora
-        dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum
-        neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet
-        mattis id hac, orci phasellus varius gravida curae cum cras sapien.
-    </string>
-    <string name="title">Title</string>
-    <string name="imageItem">ImageItem</string>
     <string name="label_menu_b">fragmentB</string>
     <string name="label_menu_c">fragmentC</string>
+    <string name="label_menu_d">External Resources</string>
+
+    <!-- Fragmentos -->
     <string name="fragmentoa">fragmentoA</string>
+    <string name="Fragmentoa">FragmentoA</string>
+    <string name="fragmentob">Fragmentob</string>
+    <string name="fragmentoc">fragmentoC</string>
+
+    <!-- LoraWan -->
+    <string name="lorawan_info_file_xml">lorawan</string>
+
+    <!-- Desarrolladores -->
     <string name="developer_name">Developer Name</string>
     <string name="developer_filer_xml">developer_filer_xml</string>
     <string name="developer_list">developer_list</string>
-    <string name="Fragmentoa">FragmentoA</string>
-    <string name="action_button">action_button</string>
-    <string name="fragmentob">Fragmentob</string>
-    <string name="label_menu_d">External Resources</string>
+
+    <!-- Recursos Externos -->
     <string name="ResourceDescription">Description of the resource</string>
     <string name="ResourceName">Name of the resource</string>
-    <string name="fragmentoc">fragmentoC</string>
     <string name="ResourceButton" />
+    <string name="recursos_text">Recursos de terceros que se han usado en la aplicación</string>
+    <string name="recursos_externos">Recursos Externos</string>
 
-    <!-- Errors App -->
-    <string name="title_error">Titulo error</string>
-    <string name="description_error">Descripción del error</string>
-    <string name="button_retry">Reintentar</string>
+    <!-- Textos de Ejemplo -->
+    <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet mattis id hac, orci phasellus varius gravida curae cum cras sapien.</string>
 
-    <string name="title_error_connection">Error en la conexión</string>
-    <string name="description_error_connection">Error en la conexión a internet.
-    Verifique y vuelva a intentarlo más tarde</string>
-    <string name="button_retry_connection">Reintentar</string>
-
-    <string name="title_error_server">Error en el servidor</string>
-    <string name="description_error_server">Ocurrió un error relacionado con
-    la conexión del servidor</string>
-
-    <string name="title_error_unknown">Error desconocido</string>
-    <string name="description_error_unknown">Se está produciendo un error desconocido
-    en el sistema</string>
-
+    <!-- Configuración -->
     <string name="settings">Settings</string>
     <string name="test">Test</string>
-
     <string name="setting_filer_xml">setting_filer_xml</string>
     <string name="ver_perfil">Ver Perfil</string>
     <string name="notificaciones">Notificaciones</string>
     <string name="perfil">Perfil</string>
+
+    <!-- Usuario -->
     <string name="usuario">Usuario:</string>
-    <string name="alumnos">Alumnos que han desarrollado la aplicación</string>
-    <string name="desarrolladores">Desarrolladores</string>
-    <string name="recursos_text">Recursos de terceros que se han usado en la aplicación</string>
-    <string name="recursos_externos">Recursos Externos</string>
-    <string name="politica_de_privacidad">Pulse para ver la politica de privacidad</string>
-    <string name="pol_tica_de_privacidad">Politica de Privacidad</string>
-    <string name="link_a_play_store">Link a Play Store</string>
-    <string name="version">Version:</string>
+
+    <!-- Información de Contacto -->
     <string name="contactar_con_nosotros">Aquí puedes contactar con nosotros</string>
     <string name="contacta_con_nosotros">Contacta con Nosotros</string>
+    <string name="link_a_play_store">Link a Play Store</string>
+    <string name="version">Version:</string>
+
+    <!-- Política de Privacidad -->
+    <string name="politica_de_privacidad">Pulse para ver la politica de privacidad</string>
+    <string name="pol_tica_de_privacidad">Politica de Privacidad</string>
+
+    <!-- Error en la Aplicación -->
+    <string name="title_error">Titulo error</string>
+    <string name="description_error">Descripción del error</string>
+    <string name="button_retry">Reintentar</string>
+    <string name="title_error_connection">Error en la conexión</string>
+    <string name="description_error_connection">Error en la conexión a internet. Verifique y vuelva a intentarlo más tarde</string>
+    <string name="button_retry_connection">Reintentar</string>
+    <string name="title_error_server">Error en el servidor</string>
+    <string name="description_error_server">Ocurrió un error relacionado con la conexión del servidor</string>
+    <string name="title_error_unknown">Error desconocido</string>
+    <string name="description_error_unknown">Se está produciendo un error desconocido en el sistema</string>
+
+    <!-- Información de la Aplicación -->
+    <string name="aplicacion">Aplicación</string>
+    <string name="alumnos">Alumnos que han desarrollado la aplicación</string>
+    <string name="desarrolladores">Desarrolladores</string>
+    <string name="action_button">Acción</string>
+    <string name="text_web">Web del Proyecto</string>
+    <string name="dresp_text_web">Aquí puedes acceder a la página web oficial.</string>
+
+    <!--Text de App Meceiot -->
+    <string name="opciones_seleccionadas">Opciones seleccionadas</string>
+    <string name="aciertos">Aciertos</string>
+    <string name="question">Question</string>
+    <string name="opciones_respuesta">Por favor, complete todas las opciones.</string>
 
 
 </resources>

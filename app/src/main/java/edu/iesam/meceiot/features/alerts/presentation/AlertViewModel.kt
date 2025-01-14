@@ -34,7 +34,7 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
 
     data class UiState(
         val isLoading: Boolean = false,
-        val errorApp: ErrorApp? = null,
+        val errorApp: ErrorApp? = null, //ErrorApp.UnknowErrorApp
         val alert: List<Sensor>? = emptyList()
     )
 }

@@ -1,0 +1,32 @@
+{
+  "panels": {
+    "panel1": {
+      "id": "1",
+      "name": "Meceiot_Alonso_Sound_010 - Hall",
+      "location": "Hall - Entrada principal",
+      "movement": 1,
+      "temperature": 15.3
+    },
+    "panel2": {
+      "id": "2",
+      "name": "Meceiot_Alonso_Sound_010 - C22",
+      "location": "Clase 22 - Pabellón C",
+      "movement": 0,
+      "temperature": 20.0
+    },
+    "panel3": {
+      "id": "3",
+      "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+      "location": "Pasillo - Pabellón A",
+      "movement": 1,
+      "temperature": 36.0
+    },
+    "panel4": {
+      "id": "4",
+      "name": "Meceiot_Alonso_Sound_009 - A16",
+      "location": "Aula 16 - Pabellón A",
+      "movement": 0,
+      "temperature": 24.7
+    }
+  }
+}

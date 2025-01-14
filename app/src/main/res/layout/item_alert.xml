@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/icon_movement"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/image_size_extra_extra_high"
+        android:layout_height="@dimen/image_size_extra_extra_high"
         android:src="@drawable/ic_person_walk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

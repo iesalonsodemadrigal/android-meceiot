@@ -10,6 +10,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private lateinit var binding: ItemAlertBinding
 
     fun bind(sensor: Sensor) {
+        binding = ItemAlertBinding.bind(view)
         binding.apply {
             titlePanel.text = sensor.name
             descriptionSensor.text = sensor.location

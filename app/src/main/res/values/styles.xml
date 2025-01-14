@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Commons Component -->
+    <style name="AppHeadlineHeader" parent="TextAppearance.Material3.BodyLarge">
+        <item name="textFillColor">@color/md_theme_onSecondaryContainer</item>
+    </style>
+
+    <style name="AppHeadline" parent="TextAppearance.Material3.BodyLarge">
+        <item name="textFillColor">@color/md_theme_onSurface</item>
+    </style>
+
+    <style name="AppSupportingText" parent="TextAppearance.Material3.BodyLarge">
+        <item name="textFillColor">@color/md_theme_onSurface</item>
+    </style>
+    <!-- End Commons Component -->
+
+    <!-- StackedCard Component -->
+    <style name="AppMediaStackedCard">
+        <item name="android:height">@dimen/height_media_card</item>
+    </style>
+
+    <style name="AppTitleHeadlineStackedCard" parent="AppHeadline">
+        <item name="textFillColor">@color/md_theme_onSurface</item>
+    </style>
+
+    <style name="AppSubHeadLineStackedCard" parent="TextAppearance.Material3.BodyMedium">
+        <item name="textFillColor">@color/md_theme_onSurfaceVariant</item>
+    </style>
+
+    <style name="AppSupportingTextStackedCard" parent="TextAppearance.Material3.BodyMedium">
+        <item name="textFillColor">@color/md_theme_onSurfaceVariant</item>
+    </style>
+    <!-- End StackedCard Component -->
+
+    <!-- ListItem Component -->
+    <style name="AppImageListItem">
+        <item name="android:height">@dimen/size_media_listitem</item>
+        <item name="android:width">@dimen/size_media_listitem</item>
+    </style>
+
+    <style name="AppHeadlineListItem" parent="AppHeadline">
+        <item name="android:fillColor">@color/md_theme_onSurface</item>
+    </style>
+
+    <style name="AppSupportingTextListItem" parent="AppSupportingText">
+        <item name="textFillColor">@color/md_theme_onSurfaceVariant</item>
+    </style>
+    <!-- End ListItem Component -->
+
     <style name="CircularImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

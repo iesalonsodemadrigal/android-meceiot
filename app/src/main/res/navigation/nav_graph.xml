@@ -46,5 +46,9 @@
         android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
         android:label="Developer About Fragment"
        />
+    <fragment
+        android:id="@+id/fragment_sensor"
+        android:name="edu.iesam.meceiot.features.pantallasensor.presentation.SensorFragment"
+        tools:layout="@layout/fragment_sensor" />
 
 </navigation>

@@ -47,4 +47,9 @@
         android:label="Developer About Fragment"
        />
 
+    <fragment
+        android:id="@+id/alert_fragment"
+        android:name="edu.iesam.meceiot.features.alerts.presentation.AlertFragment"
+        tools:layout="@layout/fragment_alert" />
+
 </navigation>

@@ -47,6 +47,10 @@
     <string name="title_error_unknown">Error desconocido</string>
     <string name="description_error_unknown">Se está produciendo un error desconocido
     en el sistema</string>
+    <string name="alerts_title">Alertas de sensores</string>
+    <string name="detection_movement">Detección de movimiento</string>
+    <string name="description_panel">Nombre del panel, localicación</string>
+    <string name="label_menu_alerts">Alertas</string>
 
 
 </resources>

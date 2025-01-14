@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_medium"
+    tools:context="edu.iesam.meceiot.features.alerts.presentation.adapter.AlertViewHolder">
+
+
+    <ImageView
+        android:id="@+id/icon_movement"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_person_walk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detection_movement"
+        android:textSize="@dimen/font_size_high"
+        app:layout_constraintStart_toEndOf="@+id/icon_movement"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/description_panel"
+        app:layout_constraintStart_toEndOf="@+id/icon_movement"
+        app:layout_constraintTop_toBottomOf="@+id/title_panel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

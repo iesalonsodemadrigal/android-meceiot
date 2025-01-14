@@ -20,7 +20,11 @@
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_d" />
-
+    <item
+        android:id="@+id/alert_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_alert"
+        android:title="@string/label_menu_alerts" />
 
 
 </menu>

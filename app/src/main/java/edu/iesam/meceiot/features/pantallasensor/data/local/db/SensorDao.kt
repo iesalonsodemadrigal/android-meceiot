@@ -8,14 +8,14 @@ import androidx.room.Query
 @Dao
 interface SensorDao {
     @Query("SELECT * FROM $SENSOR_TABLE")
-    suspend fun getAll(): List<SensorEntity>
+    fun getAll(): List<SensorEntity>
 
     @Query("SELECT * FROM $SENSOR_TABLE WHERE id = :id")
-    suspend fun getById(id: Int): SensorEntity
+    fun getById(id: Int): SensorEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(vararg sensorEntity: SensorEntity)
+    fun insertAll(vararg sensorEntity: SensorEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(sensorEntity: SensorEntity)
+    fun insert(sensorEntity: SensorEntity)
 }

@@ -11,7 +11,7 @@ class SensorDataRepository(
     private val remoteDataSource: SensorRemoteMockDataSource,
     private val localDataSource: SensorDbDataSource
 ) : SensorRepository {
-    override suspend fun getSensorDataById(id: Int): Sensor {
+    override fun getSensorDataById(id: Int): Sensor {
         val localSensor = localDataSource.getById(id)
         if (localSensor == null) {
             localDataSource.save(remoteDataSource.getSensorData())

@@ -1,13 +1,12 @@
 package edu.iesam.meceiot.features.pantallasensor.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
-import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
@@ -18,17 +17,12 @@ class SensorFragment : Fragment() {
     private var _binding: FragmentSensorBinding? = null
     private val binding get() = _binding!!
     private lateinit var chart: CartesianChartView
-    private val cartesianChartModelProducer = CartesianChartModelProducer()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSensorBinding.inflate(
-            inflater,
-            container,
-            false
+            inflater, container, false
         )
         setupView()
         return binding.root
@@ -49,30 +43,18 @@ class SensorFragment : Fragment() {
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
             }
+            uiState.chartData?.let { chartData ->
+                chart.modelProducer = chartData
+            }
         }
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
 
     private fun bindData(sensor: Sensor) {
         binding.apply {
+            Log.d("Mios", "bindData: $sensor")
             nombrepanel.text = sensor.nombrePanel
             nombresensor.text = sensor.nombre
-
-
-        }
-    }
-
-    private suspend fun setChartData(sensor: Sensor) {
-        cartesianChartModelProducer.runTransaction {
-            lineSeries {
-                series(sensor.valoresX, sensor.valoresY)
-            }
-        }
-    }
-
-    private suspend fun setChartLabels(sensor: Sensor) {
-        cartesianChartModelProducer.runTransaction {
-
         }
     }
 

@@ -23,17 +23,17 @@ class SensorDbDataSource(private val sensorDao: SensorDao) {
         }
     }
 
-    suspend fun saveAll(sensors: List<Sensor>) {
+    fun saveAll(sensors: List<Sensor>) {
         val sensorEntities = sensors.map { it.toEntity() }
         sensorDao.insertAll(*sensorEntities.toTypedArray())
     }
 
-    suspend fun save(sensor: Sensor) {
+    fun save(sensor: Sensor) {
         val sensorEntity = sensor.toEntity()
         sensorDao.insert(sensorEntity)
     }
 
-    suspend fun getById(id: Int): Sensor {
+    fun getById(id: Int): Sensor {
         return sensorDao.getById(id).toDomain()
     }
 

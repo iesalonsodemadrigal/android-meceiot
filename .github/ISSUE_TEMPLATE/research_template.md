@@ -2,9 +2,9 @@
 name: Research Template
 about: Main research template
 title: "[Research]: "
-labels: ["research"]
-projects: ["AvilaDigital"]
+labels: research
 assignees: ''
+
 ---
 
 ## 📝 Descripción

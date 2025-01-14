@@ -1,7 +1,9 @@
 package edu.iesam.meceiot.features.pantallasensor.data.remote
 
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import org.koin.core.annotation.Single
 
+@Single
 class SensorRemoteMockDataSource {
 
     private val dataX = listOf(

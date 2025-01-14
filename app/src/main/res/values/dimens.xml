@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Commons Dimens -->
+    <dimen name="spacing_vertical">16dp</dimen>
+    <dimen name="spacing_horizontal">16dp</dimen>
+    <dimen name="spacing_text">8dp</dimen>
+    <dimen name="height_media_card">188dp</dimen>
+    <dimen name="size_media_listitem">56dp</dimen>
+
     <dimen name="null_value">0dp</dimen>
 
     <dimen name="Medium_font_size">16sp</dimen>

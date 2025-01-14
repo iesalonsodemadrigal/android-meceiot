@@ -20,6 +20,7 @@
         <action
             android:id="@+id/action_settings_to_externalResourcesFragment"
             app:destination="@+id/fragment_external_resources" />
+
     </fragment>
 
     <dialog

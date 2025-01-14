@@ -15,13 +15,16 @@ fun Sensor.toEntity(): SensorEntity =
         date = Date()
     )
 
-fun SensorEntity.toDomain(): Sensor =
-    Sensor(
-        id = this.id,
-        nombre = this.nombre,
-        nombrePanel = this.nombrePanel,
-        valoresX = this.valoresX,
-        valoresY = this.valoresY,
-        leyendaX = this.leyendaX,
-        leyendaY = this.leyendaY,
-    )
+fun SensorEntity?.toDomain(): Sensor? {
+    return this?.let {
+        Sensor(
+            id = it.id,
+            nombre = it.nombre,
+            nombrePanel = it.nombrePanel,
+            valoresX = it.valoresX,
+            valoresY = it.valoresY,
+            leyendaX = it.leyendaX,
+            leyendaY = it.leyendaY
+        )
+    }
+}

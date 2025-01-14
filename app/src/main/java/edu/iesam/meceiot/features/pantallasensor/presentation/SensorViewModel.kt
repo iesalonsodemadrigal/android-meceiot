@@ -25,23 +25,27 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
             _uiState.postValue(
                 UiState(
                     loading = false,
-                    sensors = sensor,
-                    chartData = generateChartData(sensor)
+                    sensors = sensor
                 )
             )
         }
-
     }
 
-    private suspend fun generateChartData(sensor: Sensor): CartesianChartModelProducer {
-        val producer = CartesianChartModelProducer()
-        producer.runTransaction {
-            lineSeries {
-                series(sensor.valoresX, sensor.valoresY)
+    fun updateChartData(sensor: Sensor, modelProducer: CartesianChartModelProducer) {
+        viewModelScope.launch(Dispatchers.IO) {
+            modelProducer.runTransaction {
+                lineSeries {
+                    series(sensor.valoresX, sensor.valoresY)
+                }
             }
+            _uiState.postValue(
+                UiState(
+                    loading = false,
+                    sensors = sensor,
+                    chartData = modelProducer
+                )
+            )
         }
-
-        return producer
     }
 
     data class UiState(

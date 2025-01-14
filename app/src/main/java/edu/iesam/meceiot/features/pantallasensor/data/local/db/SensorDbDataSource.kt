@@ -10,16 +10,16 @@ const val TIME_SENSOR = 60000L
 @Single
 class SensorDbDataSource(private val sensorDao: SensorDao) {
 
-    suspend fun getAll(): Result<List<Sensor>> {
+    fun getAll(): Result<List<Sensor>> {
         val sensorEntities = sensorDao.getAll()
-        val validEntity = sensorEntities.filter { entity ->
+        val validEntities = sensorEntities.filter { entity ->
             val timeDifference = System.currentTimeMillis() - entity.date.time
             timeDifference <= TIME_EXTERNAL_RESOURCES
         }
-        return if (validEntity.isEmpty()) {
+        return if (validEntities.isEmpty()) {
             Result.failure(ErrorApp.DataExpiredError)
         } else {
-            Result.success(sensorEntities.map { it.toDomain() })
+            Result.success(validEntities.mapNotNull { it.toDomain() })
         }
     }
 
@@ -33,8 +33,9 @@ class SensorDbDataSource(private val sensorDao: SensorDao) {
         sensorDao.insert(sensorEntity)
     }
 
-    fun getById(id: Int): Sensor {
-        return sensorDao.getById(id).toDomain()
+    fun getById(id: Int): Sensor? {
+        val sensorEntity = sensorDao.getById(id)
+        return sensorEntity.toDomain() // Ensure toDomain is called only if sensorEntity is not null
     }
 
 }

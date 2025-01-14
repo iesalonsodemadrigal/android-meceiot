@@ -7,24 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SensorFragment : Fragment() {
     private val sensorViewModel: SensorViewModel by viewModel()
     private var _binding: FragmentSensorBinding? = null
     private val binding get() = _binding!!
-    private lateinit var chart: CartesianChartView
+    private lateinit var cartesianChartView: CartesianChartView
+    private val modelProducer = CartesianChartModelProducer()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSensorBinding.inflate(
-            inflater, container, false
-        )
+        _binding = FragmentSensorBinding.inflate(inflater, container, false)
         setupView()
+        cartesianChartView.modelProducer = modelProducer
         return binding.root
     }
 
@@ -35,16 +37,14 @@ class SensorFragment : Fragment() {
     }
 
     private fun setupView() {
-        chart = binding.chart
+        cartesianChartView = binding.chart
     }
 
     private fun setupObserver() {
         val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
-            }
-            uiState.chartData?.let { chartData ->
-                chart.modelProducer = chartData
+                sensorViewModel.updateChartData(sensor, modelProducer)
             }
         }
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)

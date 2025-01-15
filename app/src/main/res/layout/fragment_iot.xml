@@ -5,20 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textViewIoT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="@dimen/image_size_small"
-            android:text="@string/IoT"
+
+        <com.google.android.material.appbar.MaterialToolbar
             style="@style/AppHeadlineHeader"
-            android:textSize="@dimen/font_size_high" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/image_size_small">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewIoT"
+                style="@style/AppHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/IoT"
+                android:textSize="@dimen/font_size_high" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <ImageView
             android:id="@+id/imageViewIoT"
@@ -28,12 +38,26 @@
             android:contentDescription="@string/IoT"
             android:src="@drawable/iotbanner" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewIoT"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_iot"
-            android:padding="@dimen/padding_medium" />
+        <include
+            android:id="@+id/item_1"
+            layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/item_2"
+            layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/item_3"
+            layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/item_4"
+            layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/item_5"
+            layout="@layout/item_iot" />
+
 
     </LinearLayout>
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,17 +8,19 @@
         android:id="@+id/ItemImage"
         android:layout_width="@dimen/size_media_listitem"
         android:layout_height="@dimen/size_media_listitem"
+        android:layout_marginBottom="@dimen/margin_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        android:src="@drawable/icon" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/itemTitle"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/image_size_medium"
         android:layout_marginStart="@dimen/margin_medium"
-        android:text="@string/titulo_item"
+        android:layout_marginBottom="@dimen/margin_extra_small"
+        android:text="@string/title_item"
         style="@style/AppHeadlineListItem"
         app:layout_constraintBottom_toTopOf="@id/itemDescription"
         app:layout_constraintStart_toEndOf="@id/ItemImage"
@@ -30,10 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/image_size_medium"
         android:layout_marginStart="@dimen/margin_medium"
-        android:text="@string/descripcion_item"
+        android:text="@string/description_item"
         style="@style/AppSupportingTextListItem"
         app:layout_constraintStart_toEndOf="@id/ItemImage"
         app:layout_constraintTop_toBottomOf="@id/itemTitle" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

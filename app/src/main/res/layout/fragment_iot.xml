@@ -35,7 +35,7 @@
             android:layout_height="@dimen/image_size_back_iot"
             android:layout_gravity="center"
             android:contentDescription="@string/IoT"
-            android:src="@drawable/imagen_iot_1" />
+            android:src="@drawable/iotbanner" />
 
         <include
             android:id="@+id/item_1"

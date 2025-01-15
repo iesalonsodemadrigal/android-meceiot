@@ -7,7 +7,7 @@
     android:background="@color/md_theme_secondaryFixedDim"
     tools:context="edu.iesam.meceiot.features.setting.presentation.SettingAboutFragment">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,84 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:text="@string/perfil"
-                android:textColor="@color/md_theme_onSecondaryFixedVariant"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:textColor="@android:color/background_dark"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_profile">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/padding_medium">
-
-                    <TextView
-                        android:id="@+id/text_username_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/margin_small"
-                        android:text="@string/usuario"
-                        android:textColor="@android:color/background_dark"
-
-                        android:textSize="@dimen/font_size_small"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/text_username"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="usuario"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="@dimen/font_size_small" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <TextView
-                android:id="@+id/text_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:text="@string/notificaciones"
-                android:textColor="@color/md_theme_onSecondaryFixedVariant"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_profile" />
-
-            <Switch
-                android:id="@+id/switch_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="Habilitar notificaciones"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_notifications" />
-
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/text_collaborators"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,9 +42,9 @@
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch_notifications" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_collaborators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +61,7 @@
                     android:padding="@dimen/padding_medium">
 
                     <!-- Título: Desarrolladores -->
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_view_collaborators"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -147,7 +70,7 @@
                         android:textSize="18sp" />
 
                     <!-- Subtítulo: Alumnos -->
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_sub_collaborators"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -156,9 +79,9 @@
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_resources"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,7 +98,7 @@
                     android:padding="@dimen/padding_medium">
 
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_view_resources"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,7 +106,7 @@
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_sub_resources"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -192,9 +115,9 @@
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/text_application"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -207,7 +130,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_resources" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_project_website"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -223,7 +146,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/padding_medium">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_button_project_website"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -231,7 +154,7 @@
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -240,9 +163,9 @@
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_contact_us"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -258,7 +181,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/padding_medium">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_button_contact_us"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -266,7 +189,7 @@
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_contact"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -275,9 +198,9 @@
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_play_store"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -293,7 +216,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/padding_medium">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_version"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -301,7 +224,7 @@
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_view_version"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -310,9 +233,9 @@
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -328,7 +251,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/padding_medium">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_button_privacy_policy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -336,7 +259,7 @@
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_privacy_policy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -345,9 +268,7 @@
                         android:textColor="@color/gray"
                         android:textSize="@dimen/font_size_small" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

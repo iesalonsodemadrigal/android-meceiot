@@ -28,15 +28,16 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
     }
 
     private fun setupCardViews() {
-        listOf(
-            R.id.card_collaborators to { navigateTo(SettingAboutFragmentDirections.actionSettingsToDeveloperAboutFragment()) },
-            R.id.card_resources to { navigateTo(SettingAboutFragmentDirections.actionSettingsToExternalResourcesFragment()) },
-            R.id.card_contact_us to { startActivity(Intent.createChooser(share(), "Choose an email app")) },
-            R.id.card_play_store to { openWebsite("https://play.google.com/store/apps/details?id=edu.iesam.meceiot") },
-            R.id.card_project_website to { openWebsite("https://siadenlab.iesalonsodemadrigal.es/meceiot") },
-            R.id.card_privacy_policy to { openWebsite("https://siadenlab.iesalonsodemadrigal.es/meceiot/legal.html") }
-        ).forEach { (id, action) ->
-            binding.root.findViewById<CardView>(id).setOnClickListener { action() }
+        val actions =listOf (
+            binding.cardCollaborators to { navigateTo(SettingAboutFragmentDirections.actionSettingsToDeveloperAboutFragment()) },
+            binding.cardResources to { navigateTo(SettingAboutFragmentDirections.actionSettingsToExternalResourcesFragment()) },
+            binding.cardContactUs to { startActivity(Intent.createChooser(share(),"Choose an email app")) },
+            binding.cardPlayStore to { openWebsite("https://play.google.com/store/apps/details?id=edu.iesam.meceiot") },
+            binding.cardProjectWebsite to { openWebsite("https://siadenlab.iesalonsodemadrigal.es/meceiot") },
+            binding.cardPrivacyPolicy to { openWebsite("https://siadenlab.iesalonsodemadrigal.es/meceiot/legal.html") }
+        )
+        actions.forEach { (view, action) ->
+            view.setOnClickListener { action() }
         }
     }
 

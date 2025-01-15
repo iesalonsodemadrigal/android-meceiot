@@ -9,6 +9,8 @@
         android:layout_width="@dimen/size_media_listitem"
         android:layout_height="@dimen/size_media_listitem"
         android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

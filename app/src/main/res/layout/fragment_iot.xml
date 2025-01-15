@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:orientation="vertical">
 
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -26,7 +23,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/IoT"
-                android:textSize="@dimen/font_size_high" />
+                android:paddingTop="@dimen/padding_extra_small"
+                android:paddingBottom="@dimen/padding_extra_small"
+                android:textSize="@dimen/font_size_medium" />
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -36,7 +35,7 @@
             android:layout_height="@dimen/image_size_back_iot"
             android:layout_gravity="center"
             android:contentDescription="@string/IoT"
-            android:src="@drawable/iotbanner" />
+            android:src="@drawable/imagen_iot_1" />
 
         <include
             android:id="@+id/item_1"

@@ -1,77 +1,81 @@
 package edu.iesam.meceiot.features.setting.presentation
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
-import androidx.cardview.widget.CardView
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.BuildConfig
 import edu.iesam.meceiot.R
+import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentSettingsBinding
 
 class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var intent: AppIntent
 
-    @SuppressLint("SetTextI18n")
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        intent = AppIntent(requireContext())
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentSettingsBinding.bind(view)
-        setupCardViews()
-        binding.textViewVersion.text = "Version: ${BuildConfig.VERSION_NAME}"
-    }
 
-    private fun setupCardViews() {
-        val actions =listOf (
-            binding.cardCollaborators to { navigateTo(SettingAboutFragmentDirections.actionSettingsToDeveloperAboutFragment()) },
-            binding.cardResources to { navigateTo(SettingAboutFragmentDirections.actionSettingsToExternalResourcesFragment()) },
-            binding.cardContactUs to { startActivity(Intent.createChooser(share(),"Choose an email app")) },
-            binding.cardPlayStore to { openWebsite("https://play.google.com/store/apps/details?id=edu.iesam.meceiot") },
-            binding.cardProjectWebsite to { openWebsite("https://siadenlab.iesalonsodemadrigal.es/meceiot") },
-            binding.cardPrivacyPolicy to { openWebsite("https://siadenlab.iesalonsodemadrigal.es/meceiot/legal.html") }
-        )
-        actions.forEach { (view, action) ->
-            view.setOnClickListener { action() }
-        }
-    }
+        binding.apply {
+            itemDeveloper.textTitle.text = getString(R.string.title_developers)
+            itemDeveloper.textSubtitle.text = getString(R.string.text_developers)
 
-    private fun navigateTo(action: NavDirections) {
-        findNavController().navigate(action)
-    }
+            itemResources.textTitle.text = getString(R.string.title_resources)
+            itemResources.textSubtitle.text = getString(R.string.text_resources)
 
-    private fun openWebsite(url: String) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-    }
+            itemWeb.textTitle.text = getString(R.string.title_web)
+            itemWeb.textSubtitle.text = getString(R.string.text_web)
+            itemWeb.settingItem.setOnClickListener {
+                intent.openUrl(getString(R.string.link_web))
+            }
 
-    private val imageUris: ArrayList<Uri> = arrayListOf()
+            itemEmail.textTitle.text = getString(R.string.title_email)
+            itemEmail.textSubtitle.text = getString(R.string.text_email)
+            itemEmail.settingItem.setOnClickListener {
+                intent.openEmail(getString(R.string.text_email))
+            }
 
-    private fun share(): Intent {
-        val shareIntent = Intent().apply {
-            action = Intent.ACTION_SEND
-            putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris)
-            putExtra(Intent.EXTRA_EMAIL, arrayOf("info@siadenlab.es"))
-            putExtra(Intent.EXTRA_SUBJECT, "Solicitud de colaboración - APP MECEIOT")
-            type = "image/*"
-            `package` = "com.google.android.gm"  // Intent exclusivo para Gmail
-        }
-        try {
-            startActivity(Intent.createChooser(shareIntent, "Choose an email app"))
-        } catch (e: android.content.ActivityNotFoundException) {
-            shareIntent.`package` = "com.microsoft.office.outlook"
-            try {
-                startActivity(Intent.createChooser(shareIntent, "Choose an email app"))
-            } catch (e: android.content.ActivityNotFoundException) {
-                Toast.makeText(context, "Neither Gmail nor Hotmail is installed.", Toast.LENGTH_SHORT).show()
+            itemPlaystore.textTitle.text = getString(R.string.title_store)
+            itemPlaystore.textSubtitle.text = getString(R.string.text_appstore)
+            itemPlaystore.settingItem.setOnClickListener {
+                intent.shareApp(getString(R.string.link_appstore))
+            }
+
+            itemLegalWarning.textTitle.text = getString(R.string.title_legal_warning)
+            itemLegalWarning.textSubtitle.text = getString(R.string.legal_warning_text)
+            itemLegalWarning.settingItem.setOnClickListener {
+                intent.openUrl(getString(R.string.link_legal_warning))
+            }
+
+            itemVersion.textTitle.text = getString(R.string.text_version)
+            val appVersion = BuildConfig.VERSION_NAME
+            itemVersion.textSubtitle.text = appVersion
+            itemVersion.settingItem.setOnClickListener{
+                intent.openUrl(getString(R.string.link_appstore))
             }
         }
 
-        return shareIntent
+        binding.itemDeveloper.settingItem.setOnClickListener {
+            findNavController().navigate(R.id.action_settings_to_developerAboutFragment)
+        }
+
+        binding.itemResources.settingItem.setOnClickListener {
+            findNavController().navigate(R.id.action_settings_to_externalResourcesFragment)
+        }
     }
 
     override fun onDestroyView() {

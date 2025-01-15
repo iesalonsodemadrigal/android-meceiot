@@ -30,26 +30,6 @@
     <!-- Textos de Ejemplo -->
     <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet mattis id hac, orci phasellus varius gravida curae cum cras sapien.</string>
 
-    <!-- Configuración -->
-    <string name="settings">Settings</string>
-    <string name="test">Test</string>
-    <string name="setting_filer_xml">setting_filer_xml</string>
-    <string name="ver_perfil">Ver Perfil</string>
-    <string name="notificaciones">Notificaciones</string>
-    <string name="perfil">Perfil</string>
-
-    <!-- Usuario -->
-    <string name="usuario">Usuario:</string>
-
-    <!-- Información de Contacto -->
-    <string name="contactar_con_nosotros">Aquí puedes contactar con nosotros</string>
-    <string name="contacta_con_nosotros">Contacta con Nosotros</string>
-    <string name="link_a_play_store">Link a Play Store</string>
-    <string name="version">Version:</string>
-
-    <!-- Política de Privacidad -->
-    <string name="politica_de_privacidad">Pulse para ver la politica de privacidad</string>
-    <string name="pol_tica_de_privacidad">Politica de Privacidad</string>
 
     <!-- Error en la Aplicación -->
     <string name="title_error">Titulo error</string>
@@ -64,12 +44,28 @@
     <string name="description_error_unknown">Se está produciendo un error desconocido en el sistema</string>
 
     <!-- Información de la Aplicación -->
-    <string name="aplicacion">Aplicación</string>
-    <string name="alumnos">Alumnos que han desarrollado la aplicación</string>
-    <string name="desarrolladores">Desarrolladores</string>
-    <string name="action_button">Acción</string>
-    <string name="text_web">Web del Proyecto</string>
-    <string name="dresp_text_web">Aquí puedes acceder a la página web oficial.</string>
+    <string name="title_settings">Ajustes</string>
+    <string name="colaboraciones">Colaboraciones</string>
+    <string name="title_developers">Desarrolladores</string>
+    <string name="text_developers">Alumnos que han desarrollado la aplicación</string>
+    <string name="title_resources">Recursos</string>
+    <string name="text_resources">Recursos de terceros que se han utilizado en la aplicación</string>
+    <string name="title_web">Pagina Web</string>
+    <string name="text_web">Pulsa para ir a la web del centro</string>
+    <string name="link_web">https://siadenlab.iesalonsodemadrigal.es/meceliot</string>
+    <string name="title_email">Email de Contacto</string>
+    <string name="text_email">siadenlab@aulapragmatica.es</string>
+    <string name="title_store">Link a Play Store</string>
+    <string name="text_appstore">Compartir Aplicación</string>
+    <string name="link_appstore"> https://play.google.com/store/apps/details?id=edu.iesam.fungidex</string>
+    <string name="title_legal_warning">Aviso Legal</string>
+    <string name="legal_warning_text">Pulse para ver la politica de privacidad</string>
+    <string name="link_legal_warning">https://siadenlab.iesalonsodemadrigal.es/fungidex/legal.html</string>
+    <string name="title_version">App instalada</string>
+    <string name="text_version">Versión</string>
+    <string name="action_button">Botón de Acción</string>
+    <string name="test">Prueba</string>
+    <string name="settings">Configuración</string>
 
     <!--Text de App Meceiot -->
     <string name="opciones_seleccionadas">Opciones seleccionadas</string>

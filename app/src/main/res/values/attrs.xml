@@ -3,4 +3,11 @@
     <attr name="colorOnCustomColor1" format="color" />
     <attr name="colorCustomColor1Container" format="color" />
     <attr name="colorOnCustomColor1Container" format="color" />
+    <declare-styleable name="TextCardView">
+        <attr name="title" format="string"/>
+        <attr name="subTitle" format="string"/>
+    </declare-styleable>
+    
 </resources>
+
+

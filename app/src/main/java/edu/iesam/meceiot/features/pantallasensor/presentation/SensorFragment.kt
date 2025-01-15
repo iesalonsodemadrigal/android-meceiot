@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.pantallasensor.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SensorFragment : Fragment() {
@@ -46,13 +44,15 @@ class SensorFragment : Fragment() {
                 bindData(sensor)
                 sensorViewModel.updateChartData(sensor, modelProducer)
             }
+            uiState.chartData?.let { chartData ->
+                cartesianChartView.modelProducer = chartData
+            }
         }
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
 
     private fun bindData(sensor: Sensor) {
         binding.apply {
-            Log.d("Mios", "bindData: $sensor")
             nombrepanel.text = sensor.nombrePanel
             nombresensor.text = sensor.nombre
         }

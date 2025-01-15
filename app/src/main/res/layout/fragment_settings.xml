@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_secondaryFixedDim"
     tools:context="edu.iesam.meceiot.features.setting.presentation.SettingAboutFragment">
 
     <com.google.android.material.textview.MaterialTextView
@@ -13,16 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_medium"
         android:text="@string/settings"
-        android:textColor="@color/md_theme_onSecondaryFixedVariant"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        style="@style/AppTitleSectionSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/null_value"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/setting">
@@ -37,10 +34,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:text="Colaboradores"
-                android:textColor="@color/md_theme_onSecondaryFixedVariant"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                android:text="@string/colaboradores"
+                style="@style/AppTitleSectionSettings"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_collaborators">
@@ -66,8 +60,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/desarrolladores"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
+                        style="@style/AppTitleOptionSettings"
+                        />
 
                     <!-- Subtítulo: Alumnos -->
                     <com.google.android.material.textview.MaterialTextView
@@ -76,8 +70,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@string/alumnos"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/font_size_small" />
+                        style="@style/AppDescriptionOptionSettings"
+                         />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -86,7 +80,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_collaborators">
@@ -103,8 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/recursos_externos"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
+                        style="@style/AppTitleOptionSettings" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_sub_resources"
@@ -112,8 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@string/recursos_text"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/font_size_small" />
+                        style="@style/AppDescriptionOptionSettings" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -124,9 +115,7 @@
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:text="@string/aplicacion"
-                android:textColor="@color/md_theme_onSecondaryFixedVariant"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                style="@style/AppTitleSectionSettings"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_resources" />
 
@@ -135,7 +124,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_application">
@@ -151,8 +139,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_web"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
+                        style="@style/AppTitleOptionSettings"
+                         />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_info"
@@ -160,8 +148,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@string/dresp_text_web"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/font_size_small" />
+                        style="@style/AppDescriptionOptionSettings"
+                         />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -170,7 +158,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_project_website">
@@ -186,8 +173,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contacta_con_nosotros"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
+                        style="@style/AppTitleOptionSettings"
+                         />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_contact"
@@ -195,8 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@string/contactar_con_nosotros"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/font_size_small" />
+                        style="@style/AppDescriptionOptionSettings" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -205,7 +191,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_contact_us">
@@ -221,8 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/link_a_play_store"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
+                        style="style/AppTitleOptionSettings" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_view_version"
@@ -230,8 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@string/version"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/font_size_small" />
+                        style="@style/AppDescriptionOptionSettings"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -240,7 +223,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                app:cardBackgroundColor="@color/md_theme_secondaryFixedDim"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_play_store">
@@ -256,8 +238,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pol_tica_de_privacidad"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
+                        style="style/AppTitleOptionSettings"/>
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_additional_privacy_policy"
@@ -265,8 +246,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:text="@string/politica_de_privacidad"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/font_size_small" />
+                         style="@style/AppDescriptionOptionSettings" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

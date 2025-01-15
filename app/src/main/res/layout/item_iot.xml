@@ -11,6 +11,7 @@
         android:layout_marginBottom="@dimen/margin_small"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_small"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,15 +19,17 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/itemTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/image_size_medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_extra_small"
+        android:layout_marginEnd="@dimen/margin_medium"
         android:text="@string/title_item"
         style="@style/AppHeadlineListItem"
-        app:layout_constraintBottom_toTopOf="@id/itemDescription"
         app:layout_constraintStart_toEndOf="@id/ItemImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/itemDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="@id/ItemImage" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/itemDescription"
@@ -34,6 +37,7 @@
         android:layout_height="@dimen/image_size_medium"
         android:layout_marginStart="@dimen/margin_medium"
         android:text="@string/description_item"
+        android:textSize="@dimen/font_size_extra_small"
         style="@style/AppSupportingTextListItem"
         app:layout_constraintStart_toEndOf="@id/ItemImage"
         app:layout_constraintTop_toBottomOf="@id/itemTitle" />

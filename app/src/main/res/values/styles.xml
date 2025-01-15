@@ -69,7 +69,7 @@
     </style>
 
     <style name="AppSupportingTextListItem" parent="AppSupportingText">
-        <item name="textFillColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
     <!-- End ListItem Component -->
     <style name="CircularImageView" parent="">

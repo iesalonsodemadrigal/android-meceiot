@@ -1,6 +1,6 @@
 package edu.iesam.meceiot.features.alerts.domain
 
-import android.util.Log
+
 import org.koin.core.annotation.Single
 
 @Single

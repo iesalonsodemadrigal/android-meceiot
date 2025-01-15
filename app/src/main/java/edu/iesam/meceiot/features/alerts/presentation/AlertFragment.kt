@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentAlertBinding
-import edu.iesam.meceiot.features.alerts.domain.Sensor
+import edu.iesam.meceiot.features.alerts.domain.Zone
 import edu.iesam.meceiot.features.alerts.presentation.adapter.AlertAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -69,7 +69,7 @@ class AlertFragment : Fragment() {
 
     }
 
-    private fun binData(alert: List<Sensor>) {
+    private fun binData(alert: List<Zone>) {
         alertAdapter.submitList(alert)
     }
 

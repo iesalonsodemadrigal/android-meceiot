@@ -2,27 +2,167 @@
   "panels": {
     "panel1": {
       "id": "1",
-      "name": "Meceiot_Alonso_Sound_010 - Hall",
-      "description": "Alumno detectado: Hall - Entrada principal",
-      "movement": 1
+      "name": "Meceiot_Alonso_CO2_009 - A16",
+      "sensor": [
+        {
+          "id": "1",
+          "name": "CO2_009",
+          "description": "Sensor  CO2 - clase A16",
+          "type": "co2",
+          "value": "420"
+        },
+        {
+          "id": "2",
+          "name": "CO2_009",
+          "description": "Sensor temperatua - clase A16",
+          "type": "temp",
+          "value": "20.45"
+        },
+        {
+          "id": "3",
+          "name": "CO2_009",
+          "description": "Sensor lux - clase A16",
+          "type": "light",
+          "value": "1000"
+        },
+        {
+          "id": "4",
+          "name": "CO2_009",
+          "description": "Sensor humedad - clase A16",
+          "type": "hum",
+          "value": "32"
+        },
+        {
+          "id": "5",
+          "name": "CO2_009",
+          "description": "Sensor movimiento - clase A16",
+          "type": "mov",
+          "value": "1"
+        }
+      ]
     },
     "panel2": {
       "id": "2",
       "name": "Meceiot_Alonso_CO2_010 - C22",
-      "description": "Alumno detectado: Clase 22 - Pabellón C",
-      "movement": 0
+      "sensor": [
+        {
+          "id": "6",
+          "name": "CO2_010",
+          "description": "Sensor  CO2 - clase C22",
+          "type": "co2",
+          "value": "420"
+        },
+        {
+          "id": "7",
+          "name": "CO2_010",
+          "description": "Sensor temperatua - clase C22",
+          "type": "temp",
+          "value": "3"
+        },
+        {
+          "id": "8",
+          "name": "CO2_010",
+          "description": "Sensor lux - clase C22",
+          "type": "light",
+          "value": "1000"
+        },
+        {
+          "id": "9",
+          "name": "CO2_010",
+          "description": "Sensor humedad - clase C22",
+          "type": "hum",
+          "value": "32"
+        },
+        {
+          "id": "10",
+          "name": "CO2_010",
+          "description": "Sensor movimiento - clase C22",
+          "type": "mov",
+          "value": "1"
+        }
+      ]
     },
     "panel3": {
       "id": "3",
       "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-      "description": "Alumno detectado: Pasillo - Pabellón A",
-      "movement": 1
+      "sensor": [
+        {
+          "id": "11",
+          "name": "Sound_009",
+          "description": "Sensor  sonido - Pab A",
+          "type": "sound",
+          "value": "60"
+        },
+        {
+          "id": "12",
+          "name": "Sound_009",
+          "description": "Sensor temperatua - Pab A",
+          "type": "temp",
+          "value": "20"
+        },
+        {
+          "id": "13",
+          "name": "Sound_009",
+          "description": "Sensor lux - Pab A",
+          "type": "light",
+          "value": "1000"
+        },
+        {
+          "id": "14",
+          "name": "Sound_009",
+          "description": "Sensor humedad - Pab A",
+          "type": "hum",
+          "value": "32"
+        },
+        {
+          "id": "15",
+          "name": "Sound_009",
+          "description": "Sensor movimiento - Pab A",
+          "type": "mov",
+          "value": "0"
+        }
+      ]
     },
     "panel4": {
       "id": "4",
-      "name": "Meceiot_Alonso_CO2_009 - A16",
-      "description": "Alumno detectado:Aula 16 - Pabellón A",
-      "movement": 0
+      "name": "Meceiot_Alonso_Sound_010 - Hall",
+      "sensor": [
+        {
+          "id": "16",
+          "name": "Sound_010",
+          "description": "Sensor  sonido - Hall",
+          "type": "sound",
+          "value": "60"
+        },
+        {
+          "id": "17",
+          "name": "Sound_010",
+          "description": "Sensor temperatua - Hall",
+          "type": "temp",
+          "value": "20.45"
+        },
+        {
+          "id": "18",
+          "name": "Sound_010",
+          "description": "Sensor lux - Hall",
+          "type": "light",
+          "value": "1000"
+        },
+        {
+          "id": "19",
+          "name": "Sound_010",
+          "description": "Sensor humedad - Hall",
+          "type": "hum",
+          "value": "32"
+        },
+        {
+          "id": "20",
+          "name": "Sound_010",
+          "description": "Sensor movimiento - Hall",
+          "type": "mov",
+          "value": "1"
+        }
+      ]
     }
   }
 }

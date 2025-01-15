@@ -1,13 +1,16 @@
 package edu.iesam.meceiot.features.alerts.domain
 
-data class Panels(
-    val panels: Map<String, Sensor>
+data class Zone(
+    val id: String,
+    val name: String,
+    val sensors: List<Sensor>
 )
+
 
 data class Sensor(
     val id: String,
     val name: String,
     val description: String,
-    val movement: Int,
-    //add more detections
+    val type: String,
+    val value: String
 )

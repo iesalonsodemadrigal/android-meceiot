@@ -7,13 +7,7 @@ data class Panels(
 data class Sensor(
     val id: String,
     val name: String,
-    val location: String,
+    val description: String,
     val movement: Int,
-    val temperature: Double
     //add more detections
-)
-
-data class Alert(
-    val sensorId: String,
-    val message: String
 )

@@ -12,8 +12,8 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(sensor: Sensor) {
         binding = ItemAlertBinding.bind(view)
         binding.apply {
-            titlePanel.text = sensor.name
-            descriptionSensor.text = sensor.location
+            titlePanel.text = sensor.description
+            descriptionSensor.text = sensor.name
         }
     }
 }

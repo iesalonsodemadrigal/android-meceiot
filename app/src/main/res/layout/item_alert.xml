@@ -18,10 +18,10 @@
 
     <TextView
         android:id="@+id/title_panel"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/detection_movement"
-        android:textSize="@dimen/font_size_high"
+        android:textSize="@dimen/font_size_medium"
         app:layout_constraintStart_toEndOf="@+id/icon_movement"
         app:layout_constraintTop_toTopOf="parent" />
 

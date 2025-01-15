@@ -3,30 +3,26 @@
     "panel1": {
       "id": "1",
       "name": "Meceiot_Alonso_Sound_010 - Hall",
-      "location": "Hall - Entrada principal",
-      "movement": 1,
-      "temperature": 15.3
+      "description": "Alumno detectado: Hall - Entrada principal",
+      "movement": 1
     },
     "panel2": {
       "id": "2",
-      "name": "Meceiot_Alonso_Sound_010 - C22",
-      "location": "Clase 22 - Pabellón C",
-      "movement": 0,
-      "temperature": 20.0
+      "name": "Meceiot_Alonso_CO2_010 - C22",
+      "description": "Alumno detectado: Clase 22 - Pabellón C",
+      "movement": 0
     },
     "panel3": {
       "id": "3",
       "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-      "location": "Pasillo - Pabellón A",
-      "movement": 1,
-      "temperature": 36.0
+      "description": "Alumno detectado: Pasillo - Pabellón A",
+      "movement": 1
     },
     "panel4": {
       "id": "4",
-      "name": "Meceiot_Alonso_Sound_009 - A16",
-      "location": "Aula 16 - Pabellón A",
-      "movement": 0,
-      "temperature": 24.7
+      "name": "Meceiot_Alonso_CO2_009 - A16",
+      "description": "Alumno detectado:Aula 16 - Pabellón A",
+      "movement": 0
     }
   }
 }

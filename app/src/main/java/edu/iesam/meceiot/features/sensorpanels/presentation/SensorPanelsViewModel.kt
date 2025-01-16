@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.sensorpanels.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,10 +21,7 @@ class SensorPanelsViewModel(
 
     fun fetchSensorPanels() {
         viewModelScope.launch(Dispatchers.IO) {
-            //DEBUG
             val sensorPanels = getSensorPanelsUseCase.invoke()
-            //print log sensor panels
-            Log.d("@dev", sensorPanels.toString())
 
             _uiState.postValue(
                 UiState(

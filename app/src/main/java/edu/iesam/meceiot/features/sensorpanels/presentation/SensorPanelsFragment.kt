@@ -85,11 +85,11 @@ class SensorPanelsFragment : Fragment() {
             }
 
             if (uiState.isLoading) {
-                //Pintar Skeleton
-                Log.d("@dev", "Cargando...")
+                // Show loading
+                Log.d("@dev", "Loading...")
             } else {
-                //Ocultar Skeleton
-                Log.d("@dev", "Cargando...")
+                // Hide loading
+                Log.d("@dev", "Loadon't...")
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)

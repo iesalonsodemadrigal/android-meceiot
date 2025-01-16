@@ -31,10 +31,23 @@ class AppIntent(private val context: Context) {
         }
 
         try {
-            context.startActivity(intent)
+            val emailApp = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:$recipient"))
+            emailApp.setPackage("com.google.android.gm") // Gmail
+            context.startActivity(emailApp)
         } catch (e: Exception) {
-            println("No se encontró una app para enviar correos.")
+            try {
+                val hotmailApp = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:$recipient"))
+                hotmailApp.setPackage("com.microsoft.office.outlook") // Hotmail/Outlook
+                context.startActivity(hotmailApp)
+            } catch (e: Exception) {
+                try {
+                    context.startActivity(Intent.createChooser(intent, "Elige una app para enviar el correo"))
+                } catch (e: Exception) {
+                    println("No se encontró una app para enviar correos.")
+                }
+            }
         }
     }
+
 
 }

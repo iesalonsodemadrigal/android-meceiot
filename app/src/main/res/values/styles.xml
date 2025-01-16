@@ -49,10 +49,12 @@
     <style name="AppTitleSectionSettings" parent="TextAppearance.Material3.TitleSmall">
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
+
     <style name="AppTitleOptionSettings" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/md_theme_onSurface</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="AppDescriptionOptionSettings" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
@@ -77,4 +79,11 @@
         <item name="cornerSize">50%</item>
 
     </style>
+
+    <style name="ChartStyle">
+        <item name="layers">line</item>
+        <item name="showBottomAxis">true</item>
+        <item name="showStartAxis">true</item>
+    </style>
+
 </resources>

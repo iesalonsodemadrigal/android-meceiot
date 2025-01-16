@@ -6,7 +6,7 @@ import org.koin.core.annotation.Single
 @Single
 class SensorRemoteMockDataSource {
 
-    private val dataX = listOf(
+    private val dataY = listOf(
         1736783340000,
         1736783490000,
         1736783640000,
@@ -54,7 +54,7 @@ class SensorRemoteMockDataSource {
         1736789940000,
         1736790090000
     )
-    private val dataY = listOf(
+    private val dataX = listOf(
         1054,
         1043,
         1009,

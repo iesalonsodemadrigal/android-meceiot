@@ -4,8 +4,8 @@ data class Sensor(
     val id: Int,
     val nombre: String,
     val nombrePanel: String,
-    val valoresX: List<Long>,
-    val valoresY: List<Int>,
+    val valoresX: List<Int>,
+    val valoresY: List<Long>,
     val leyendaX: String,
     val leyendaY: String
 )

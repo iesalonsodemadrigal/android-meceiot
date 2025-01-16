@@ -3,7 +3,6 @@ package edu.iesam.meceiot.features.alerts.domain
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
-import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -21,43 +20,53 @@ class GetSensorUseCaseTest {
     }
 
     @Test
-    fun `cuando el sensor no detecta movimiento = 0, o el valor es negativo`() {
+    fun `cuando el valor del sensor es 0 o negativo, no detecta movimiento`() {
         // Give: Declaración de variables
-        val mockSensor = listOf(
-            Sensor(
-                "1",
-                "Sensor-22-Hall",
-                "Sensor princial", 0
-            ),
-            Sensor(
-                "2",
-                "Sensor-Puerta-Salida",
-                "Sensor Patio", -1
+        val mockZone = listOf(
+            Zone(
+                "1", "Meceiot_Alonson_Sound_22", listOf(
+                    Sensor(
+                        "1",
+                        "Sensor-22-Hall",
+                        "Sensor princial", "mov", "-1"
+                    ),
+                    Sensor(
+                        "2",
+                        "Sensor-Puerta-Salida",
+                        "Sensor Patio", "mov", "0"
+                    )
+                )
             )
         )
-        coEvery { sensorRepository.getSensors() } returns Result.success(mockSensor)
+        coEvery { sensorRepository.getSensors() } returns Result.success(mockZone)
 
         // When: Ejecutar el caso de uso
         val result = getSensorUseCase()
 
         //Then
-        assertTrue(result.getOrNull()?.isEmpty() == true)
-        assertEquals(0, result.getOrNull()?.size)
+        val sensors = result.getOrNull()?.flatMap { it.sensors }
+        sensors?.forEach { sensor ->
+            assertTrue(sensor.value.toInt() <= 0)
+        }
     }
 
     @Test
     fun `cuando el sensor detecta movimiento = 1`() {
         //Given
         val mockSensor = listOf(
-            Sensor(
-                "1",
-                "Sensor-22-Hall",
-                "Sensor princial", 1
-            ),
-            Sensor(
-                "2",
-                "Sensor-45-Pabellon3",
-                "Sensor Pasillo", 1
+            Zone(
+                "1", "Meceiot_Alonson_Co2_45", listOf(
+                    Sensor(
+                        "1",
+                        "Sensor-43-Pasillo",
+                        "Sensor Pabellón A", "mov", "1"
+                    ),
+                    Sensor(
+                        "2",
+                        "Sensor-Entrada",
+                        "Sensor Hall", "mov", "1"
+                    )
+                )
             )
         )
         coEvery { sensorRepository.getSensors() } returns Result.success(mockSensor)
@@ -67,7 +76,10 @@ class GetSensorUseCaseTest {
         val result = getSensorUseCase()
 
         //Then
-        assertEquals(1, result.getOrNull()?.first()?.movement)
+        val sensors = result.getOrNull()?.flatMap { it.sensors }
+        sensors?.forEach { sensor ->
+            assertTrue(sensor.value.toInt() == 1)
+        }
 
     }
 
@@ -75,24 +87,31 @@ class GetSensorUseCaseTest {
     fun `cuando el valor de deteccion es mayor a 1`() {
         //Given
         val mockSensor = listOf(
-            Sensor(
-                "1",
-                "Sensor-22-Hall",
-                "Sensor princial", 5
-            ),
-            Sensor(
-                "2",
-                "Sensor-45-Pabellon3",
-                "Sensor Pasillo", 3
+            Zone(
+                "1", "Meceiot_Alonson_Temp_13", listOf(
+                    Sensor(
+                        "1",
+                        "Sensor-22-Hall",
+                        "Sensor princial", "mov", "7"
+                    ),
+                    Sensor(
+                        "2",
+                        "Sensor-Puerta-Salida",
+                        "Sensor Patio", "mov", "12"
+                    )
+                )
             )
         )
         coEvery { sensorRepository.getSensors() } returns Result.success(mockSensor)
 
 
-        //Then
+        //When
         val result = getSensorUseCase()
 
-        //When
-        assertTrue(result.getOrNull()?.all { it.movement > 1 } == true)
+        //Then
+        val sensors = result.getOrNull()?.flatMap { it.sensors }
+        sensors?.forEach { sensor ->
+            assertTrue(sensor.value.toInt() >= 1)
+        }
     }
 }

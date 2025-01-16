@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.databinding.FragmentSensorPanelsBinding
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
@@ -37,11 +37,21 @@ class SensorPanelsFragment : Fragment() {
     }
 
     private fun setupView() {
-        sensorPanelsAdapter = SensorPanelsAdapter(emptyList())
-        binding.listSensorPanels.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = sensorPanelsAdapter
+
+        sensorPanelsAdapter = SensorPanelsAdapter()
+        val layoutManager = GridLayoutManager(context, 2)
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return when (sensorPanelsAdapter.getItemViewType(position)) {
+                    ListItem.Type.PANEL.value -> 2 // Panel occupies full width
+                    ListItem.Type.SENSOR.value -> 1 // Sensor occupies one column
+                    else -> 1
+                }
+            }
         }
+        binding.listSensorPanels.layoutManager = layoutManager
+        binding.listSensorPanels.adapter = sensorPanelsAdapter
+
         sensorPanelsAdapter.setOnClickListener { sensorId ->
             navigateToDetail(sensorId.toInt())
         }
@@ -49,15 +59,15 @@ class SensorPanelsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchSensorPanels()
         setupObservers()
+        viewModel.fetchSensorPanels()
     }
 
     private fun setupObservers() {
         val sensorPanelsObserver = Observer<SensorPanelsViewModel.UiState> { uiState ->
             uiState.sensorPanels?.let { sensorPanels ->
-                binding.listSensorPanels.adapter =
-                    SensorPanelsAdapter(generateListItem(sensorPanels))
+                sensorPanelsAdapter.updateItems(generateListItem(sensorPanels))
+                binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
                 /*val errorAppUi = errorFactory?.build(errorApp)

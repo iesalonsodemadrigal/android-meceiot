@@ -8,8 +8,11 @@ import edu.iesam.meceiot.databinding.ItemSensorBinding
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 
-class SensorPanelsAdapter(private val items: List<ListItem>) :
+//class SensorPanelsAdapter(private val items: List<ListItem>) :
+class SensorPanelsAdapter() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private val items: MutableList<ListItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -54,5 +57,10 @@ class SensorPanelsAdapter(private val items: List<ListItem>) :
 
     fun setOnClickListener(onClickListener: (String) -> Unit) {
         this.onClickListener = onClickListener
+    }
+
+    fun updateItems(newItems: List<ListItem>) {
+        items.clear()
+        items.addAll(newItems)
     }
 }

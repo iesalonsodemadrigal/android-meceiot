@@ -45,9 +45,7 @@ class GetSensorUseCaseTest {
 
         //Then
         val sensors = result.getOrNull()?.flatMap { it.sensors }
-        sensors?.forEach { sensor ->
-            assertTrue(sensor.value.toInt() <= 0)
-        }
+        assertTrue(sensors.isNullOrEmpty())
     }
 
     @Test

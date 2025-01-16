@@ -47,6 +47,7 @@
     <string name="title_error_unknown">Error desconocido</string>
     <string name="description_error_unknown">Se está produciendo un error desconocido
     en el sistema</string>
+    <string name="label_menu_panels">Panels</string>
 
 
 </resources>

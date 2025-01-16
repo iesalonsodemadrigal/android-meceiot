@@ -20,7 +20,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/label_menu_d" />
-
-
+    <item
+        android:id="@+id/fragment_sensor_panels"
+        android:enabled="true"
+        android:icon="@drawable/baseline_chart_outlined_24"
+        android:title="@string/label_menu_panels" />
 
 </menu>

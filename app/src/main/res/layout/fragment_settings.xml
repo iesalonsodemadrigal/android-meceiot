@@ -5,18 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Toolbar -->
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:titleTextColor="@android:color/white"
-        app:title="Mi App" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/null_value">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:layout_gravity="center"/>
+    </com.google.android.material.appbar.MaterialToolbar>
 
 
     <ScrollView
@@ -41,14 +40,8 @@
                     style="@style/AppTitleSectionSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/colaboraciones" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@color/black" />
+                    android:text="@string/colaboradores"
+                    android:layout_marginStart="@dimen/margin_medium"/>
 
                 <include
                     android:id="@+id/item_developer"
@@ -60,14 +53,12 @@
 
             </LinearLayout>
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:background="@color/black" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +71,8 @@
                     style="@style/AppTitleSectionSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name" />
+                    android:text="@string/proyecto"
+                    android:layout_marginStart="@dimen/margin_medium"/>
 
                 <include
                     android:id="@+id/item_web"
@@ -99,14 +91,12 @@
                     layout="@layout/item_setting" />
             </LinearLayout>
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:background="@color/black" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,7 +109,8 @@
                     style="@style/AppTitleSectionSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_version" />
+                    android:text="@string/title_version"
+                    android:layout_marginStart="@dimen/margin_medium"/>
 
                 <include
                     android:id="@+id/item_version"

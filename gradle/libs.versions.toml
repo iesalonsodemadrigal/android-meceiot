@@ -25,7 +25,6 @@ junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
 skeletonlayout = "5.0.0"
-cardview = "1.0.0"
 
 
 [libraries]
@@ -67,7 +66,6 @@ coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
-androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
 
 
 

@@ -41,7 +41,7 @@
     </style>
 
     <style name="AppSupportingTextStackedCard" parent="TextAppearance.Material3.BodyMedium">
-        <item name="textFillColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
     <!-- End StackedCard Component -->
 

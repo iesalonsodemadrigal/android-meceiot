@@ -9,14 +9,18 @@ class GetSensorUseCase(private val sensorRepository: SensorRepository) {
     operator fun invoke(): Result<List<Zone>> {
         val result = sensorRepository.getSensors()
 
-        val zones = result.getOrNull() ?: emptyList()
+        val filteredSensor = result.getOrNull()?.map { zone ->
+            zone.copy(
+                sensors = zone.sensors.filter { sensor ->
+                    sensor.type == "mov" && sensor.value != "0" && sensor.value >= "1"
+                }
+            )
+        }?.filter { zone ->
+            zone.sensors.isNotEmpty()
+        } ?: emptyList()
 
-        val filteredSensors = zones.filter { zone ->
-            zone.sensors.any { sensor ->
-                sensor.type == "mov" && sensor.value != "0" && sensor.value >= "1"
-            }
-        }
 
-        return Result.success(filteredSensors)
+
+        return Result.success(filteredSensor)
     }
 }

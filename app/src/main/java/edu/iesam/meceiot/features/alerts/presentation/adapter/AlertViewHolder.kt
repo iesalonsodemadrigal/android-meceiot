@@ -13,10 +13,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         binding = ItemAlertBinding.bind(view)
         binding.apply {
             titlePanel.text = zone.name
-            val filteredSensors = zone.sensors.filter { sensor ->
-                sensor.type == "mov" && sensor.value != "0" && sensor.value >= "1"
-            }
-            descriptionSensor.text = filteredSensors.joinToString { it.description }
+            descriptionSensor.text = zone.sensors.joinToString { it.description }
         }
     }
 }

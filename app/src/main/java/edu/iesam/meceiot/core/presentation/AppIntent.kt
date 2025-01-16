@@ -3,11 +3,13 @@ package edu.iesam.meceiot.core.presentation
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import edu.iesam.meceiot.R
 import org.koin.core.annotation.Single
 
 @Single
 class AppIntent(private val context: Context) {
+
     fun openUrl(url: String) {
         context.startActivity(
             Intent(
@@ -16,13 +18,17 @@ class AppIntent(private val context: Context) {
             )
         )
     }
+
     fun shareApp(shareText: String) {
+        Toast.makeText(context, context.getString(R.string.text_sharing_message), Toast.LENGTH_SHORT).show()
+
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, shareText)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }
-        context.startActivity(Intent.createChooser(intent, R.string.text_appstore.toString()))
+
+        context.startActivity(Intent.createChooser(intent, context.getString(R.string.text_share_title)))
     }
 
     fun openEmail(recipient: String) {
@@ -48,6 +54,4 @@ class AppIntent(private val context: Context) {
             }
         }
     }
-
-
 }

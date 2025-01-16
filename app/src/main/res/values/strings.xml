@@ -66,6 +66,8 @@
     <string name="text_resources">Recursos de terceros que se han utilizado en la aplicación</string>
 
     <!-- Página Web -->
+    <string name="text_sharing_message">Preparando para compartir...</string>
+    <string name="text_share_title">Selecciona una app para compartir</string>
     <string name="title_web">Página Web</string>
     <string name="text_web">Pulsa para ir a la web del centro</string>
     <string name="link_web">https://siadenlab.iesalonsodemadrigal.es/meceiot</string>

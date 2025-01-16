@@ -10,7 +10,7 @@ import edu.iesam.meceiot.BuildConfig
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentSettingsBinding
-
+import edu.iesam.meceiot.databinding.ItemSettingBinding
 class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
 
     private var _binding: FragmentSettingsBinding? = null
@@ -18,9 +18,7 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
     private lateinit var intent: AppIntent
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         intent = AppIntent(requireContext())
@@ -29,53 +27,59 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpView()
+    }
 
-        binding.apply {
-            itemDeveloper.textTitle.text = getString(R.string.title_developers)
-            itemDeveloper.textSubtitle.text = getString(R.string.text_developers)
-
-            itemResources.textTitle.text = getString(R.string.title_resources)
-            itemResources.textSubtitle.text = getString(R.string.text_resources)
-
-            itemWeb.textTitle.text = getString(R.string.title_web)
-            itemWeb.textSubtitle.text = getString(R.string.text_web)
-            itemWeb.settingItem.setOnClickListener {
-                intent.openUrl(getString(R.string.link_web))
-            }
-
-            itemEmail.textTitle.text = getString(R.string.title_email)
-            itemEmail.textSubtitle.text = getString(R.string.text_email)
-            itemEmail.settingItem.setOnClickListener {
-                intent.openEmail(getString(R.string.text_email))
-            }
-
-            itemPlaystore.textTitle.text = getString(R.string.title_store)
-            itemPlaystore.textSubtitle.text = getString(R.string.text_appstore)
-            itemPlaystore.settingItem.setOnClickListener {
-                intent.shareApp(getString(R.string.link_appstore))
-            }
-
-            itemLegalWarning.textTitle.text = getString(R.string.title_legal_warning)
-            itemLegalWarning.textSubtitle.text = getString(R.string.legal_warning_text)
-            itemLegalWarning.settingItem.setOnClickListener {
-                intent.openUrl(getString(R.string.link_legal_warning))
-            }
-
-            itemVersion.textTitle.text = getString(R.string.text_version)
-            val appVersion = BuildConfig.VERSION_NAME
-            itemVersion.textSubtitle.text = appVersion
-            itemVersion.settingItem.setOnClickListener{
-                intent.openUrl(getString(R.string.link_appstore))
-            }
-        }
-
-        binding.itemDeveloper.settingItem.setOnClickListener {
+    private fun setUpView() {
+        configureItem(
+            binding.itemDeveloper, R.string.title_developers, R.string.text_developers
+        ) {
             findNavController().navigate(R.id.action_settings_to_developerAboutFragment)
         }
 
-        binding.itemResources.settingItem.setOnClickListener {
+        configureItem(
+            binding.itemResources, R.string.title_resources, R.string.text_resources
+        ) {
             findNavController().navigate(R.id.action_settings_to_externalResourcesFragment)
         }
+
+        configureItem(
+            binding.itemWeb, R.string.title_web, R.string.text_web
+        ) {
+            intent.openUrl(getString(R.string.link_web))
+        }
+
+        configureItem(
+            binding.itemEmail, R.string.title_email, R.string.text_email
+        ) {
+            intent.openEmail(getString(R.string.text_email))
+        }
+
+        configureItem(
+            binding.itemPlaystore, R.string.title_store, R.string.text_appstore
+        ) {
+            intent.shareApp(getString(R.string.link_appstore))
+        }
+
+        configureItem(
+            binding.itemLegalWarning, R.string.title_legal_warning, R.string.legal_warning_text
+        ) {
+            intent.openUrl(getString(R.string.link_legal_warning))
+        }
+
+        binding.itemVersion.textTitle.text = getString(R.string.text_version)
+        binding.itemVersion.textSubtitle.text = BuildConfig.VERSION_NAME
+        binding.itemVersion.settingItem.setOnClickListener {
+            intent.openUrl(getString(R.string.link_appstore))
+        }
+    }
+
+    private fun configureItem(
+        item: ItemSettingBinding, titleRes: Int, subtitleRes: Int, onClick: () -> Unit
+    ) {
+        item.textTitle.text = getString(titleRes)
+        item.textSubtitle.text = getString(subtitleRes)
+        item.settingItem.setOnClickListener { onClick() }
     }
 
     override fun onDestroyView() {

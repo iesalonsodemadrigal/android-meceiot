@@ -17,14 +17,14 @@
         android:padding="@dimen/padding_medium">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_title"
+            android:id="@+id/textTitle"
             style="@style/AppTitleOptionSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{title}" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_subtitle"
+            android:id="@+id/textSubtitle"
             style="@style/AppDescriptionOptionSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

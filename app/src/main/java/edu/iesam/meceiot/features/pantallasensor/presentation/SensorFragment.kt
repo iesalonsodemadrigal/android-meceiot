@@ -36,6 +36,9 @@ class SensorFragment : Fragment() {
 
     private fun setupView() {
         cartesianChartView = binding.chart
+        binding.back.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun setupObserver() {

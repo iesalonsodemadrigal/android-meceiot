@@ -68,7 +68,7 @@
     <!-- Página Web -->
     <string name="title_web">Página Web</string>
     <string name="text_web">Pulsa para ir a la web del centro</string>
-    <string name="link_web">https://siadenlab.iesalonsodemadrigal.es/meceliot</string>
+    <string name="link_web">https://siadenlab.iesalonsodemadrigal.es/meceiot</string>
 
     <!-- Contacto -->
     <string name="title_email">Email de Contacto</string>
@@ -77,12 +77,12 @@
     <!-- Play Store -->
     <string name="title_store">Link a Play Store</string>
     <string name="text_appstore">Compartir Aplicación</string>
-    <string name="link_appstore">https://play.google.com/store/apps/details?id=edu.iesam.meceliot</string>
+    <string name="link_appstore">https://play.google.com/store/apps/details?id=edu.iesam.meceiot</string>
 
     <!-- Aviso Legal -->
     <string name="title_legal_warning">Aviso Legal</string>
     <string name="legal_warning_text">Pulse para ver la política de privacidad</string>
-    <string name="link_legal_warning">https://siadenlab.iesalonsodemadrigal.es/fungidex/legal.html</string>
+    <string name="link_legal_warning">https://siadenlab.iesalonsodemadrigal.es/meceiot/legal.html</string>
 
     <!-- Información de la Versión -->
     <string name="title_version">App instalada</string>

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import edu.iesam.meceiot.core.presentation.hide
+import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorPanelsBinding
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
 import edu.iesam.meceiot.features.sensorpanels.presentation.adapter.ListItem
@@ -22,7 +23,7 @@ class SensorPanelsFragment : Fragment() {
     lateinit var sensorPanelsAdapter: SensorPanelsAdapter
 
     val viewModel: SensorPanelsViewModel by viewModel()
-    //private var errorFactory: ErrorAppFactory? = null
+    private var errorFactory: ErrorAppFactory? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -77,8 +78,8 @@ class SensorPanelsFragment : Fragment() {
                 binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
-                /*val errorAppUi = errorFactory?.build(errorApp)
-                binding.errorApp.render(errorAppUi!!)*/
+                val errorAppUi = errorFactory?.build(errorApp)
+                binding.errorApp.render(errorAppUi!!)
             } ?: run {
                 binding.errorApp.hide()
             }

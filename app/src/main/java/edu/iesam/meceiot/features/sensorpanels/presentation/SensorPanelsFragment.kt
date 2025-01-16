@@ -37,23 +37,30 @@ class SensorPanelsFragment : Fragment() {
     }
 
     private fun setupView() {
-
         sensorPanelsAdapter = SensorPanelsAdapter()
-        val layoutManager = GridLayoutManager(context, 2)
-        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                return when (sensorPanelsAdapter.getItemViewType(position)) {
-                    ListItem.Type.PANEL.value -> 2 // Panel occupies full width
-                    ListItem.Type.SENSOR.value -> 1 // Sensor occupies one column
-                    else -> 1
+        binding.apply {
+            listSensorPanels.apply {
+                layoutManager = GridLayoutManager(
+                    context,
+                    2,
+                    GridLayoutManager.VERTICAL,
+                    false
+                ).apply {
+                    spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                        override fun getSpanSize(position: Int): Int {
+                            return when (sensorPanelsAdapter.getItemViewType(position)) {
+                                ListItem.Type.PANEL.value -> 2 // Panel, occupies full width
+                                ListItem.Type.SENSOR.value -> 1 // Sensor, occupies half width (2 sensors per row)
+                                else -> 1
+                            }
+                        }
+                    }
                 }
+                sensorPanelsAdapter.setOnClickListener { sensorId ->
+                    navigateToDetail(sensorId.toInt())
+                }
+                adapter = sensorPanelsAdapter
             }
-        }
-        binding.listSensorPanels.layoutManager = layoutManager
-        binding.listSensorPanels.adapter = sensorPanelsAdapter
-
-        sensorPanelsAdapter.setOnClickListener { sensorId ->
-            navigateToDetail(sensorId.toInt())
         }
     }
 

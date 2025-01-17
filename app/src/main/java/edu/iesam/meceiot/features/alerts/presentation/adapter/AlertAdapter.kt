@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import edu.iesam.meceiot.R
-import edu.iesam.meceiot.features.alerts.domain.Zone
+import edu.iesam.meceiot.features.alerts.domain.Sensor
 
-class AlertAdapter : ListAdapter<Zone, AlertViewHolder>(AlertDiffUtil()) {
+class AlertAdapter : ListAdapter<Sensor, AlertViewHolder>(AlertDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlertViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_alert, parent, false)
         return AlertViewHolder(view)
@@ -19,12 +19,12 @@ class AlertAdapter : ListAdapter<Zone, AlertViewHolder>(AlertDiffUtil()) {
 }
 
 
-class AlertDiffUtil : DiffUtil.ItemCallback<Zone>() {
-    override fun areItemsTheSame(oldItem: Zone, newItem: Zone): Boolean {
+class AlertDiffUtil : DiffUtil.ItemCallback<Sensor>() {
+    override fun areItemsTheSame(oldItem: Sensor, newItem: Sensor): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Zone, newItem: Zone): Boolean {
+    override fun areContentsTheSame(oldItem: Sensor, newItem: Sensor): Boolean {
         return oldItem == newItem
     }
 }

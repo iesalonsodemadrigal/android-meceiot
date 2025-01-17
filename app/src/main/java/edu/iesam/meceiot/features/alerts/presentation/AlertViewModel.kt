@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.alerts.domain.GetSensorUseCase
-import edu.iesam.meceiot.features.alerts.domain.Zone
+import edu.iesam.meceiot.features.alerts.domain.Sensor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
@@ -35,6 +35,6 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
     data class UiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null, //ErrorApp.UnknowErrorApp
-        val alert: List<Zone>? = emptyList()
+        val alert: List<Sensor>? = emptyList()
     )
 }

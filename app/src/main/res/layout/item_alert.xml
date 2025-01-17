@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/icon_movement"
+        android:id="@+id/icon_sensor"
         android:layout_width="@dimen/image_size_extra_extra_high"
         android:layout_height="@dimen/image_size_extra_extra_high"
         android:src="@drawable/ic_alert_sensor"
@@ -17,12 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/title_panel"
+        android:id="@+id/title_alert"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/detection_movement"
         android:textSize="@dimen/font_size_medium"
-        app:layout_constraintStart_toEndOf="@+id/icon_movement"
+        app:layout_constraintStart_toEndOf="@+id/icon_sensor"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:text="@string/description_panel"
-        app:layout_constraintStart_toEndOf="@+id/icon_movement"
-        app:layout_constraintTop_toBottomOf="@+id/title_panel" />
+        app:layout_constraintStart_toEndOf="@+id/icon_sensor"
+        app:layout_constraintTop_toBottomOf="@+id/title_alert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

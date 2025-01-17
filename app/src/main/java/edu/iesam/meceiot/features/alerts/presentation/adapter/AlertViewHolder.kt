@@ -2,18 +2,33 @@ package edu.iesam.meceiot.features.alerts.presentation.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.ItemAlertBinding
-import edu.iesam.meceiot.features.alerts.domain.Zone
+import edu.iesam.meceiot.features.alerts.domain.Sensor
+import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 
 class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
     private lateinit var binding: ItemAlertBinding
 
-    fun bind(zone: Zone) {
+    fun bind(sensor: Sensor) {
         binding = ItemAlertBinding.bind(view)
         binding.apply {
-            titlePanel.text = zone.name
-            descriptionSensor.text = zone.sensors.joinToString { it.description }
+            descriptionSensor.text = sensor.name
+            titleAlert.text = sensor.description
+
+
+            iconSensor.setImageResource(
+                when (sensor.type) {
+                    TypeSensor.Co2 -> R.drawable.ic_alert_co2
+                    TypeSensor.Temperature -> R.drawable.ic_alert_temperature
+                    TypeSensor.Light -> R.drawable.ic_alert_light
+                    TypeSensor.Humidity -> R.drawable.ic_alert_humidity
+                    TypeSensor.Movement -> R.drawable.ic_person_walk
+                    TypeSensor.Sound -> R.drawable.ic_alert_sound
+                    else -> R.drawable.ic_alert_sensor
+                }
+            )
         }
     }
 }

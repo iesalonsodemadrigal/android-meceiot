@@ -7,7 +7,7 @@
     tools:context=".features.sensorpanels.presentation.SensorPanelsFragment">
 
     <Toolbar
-        android:id="@+id/panelsToolbar"
+        android:id="@+id/panels_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -22,7 +22,7 @@
     </Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listSensorPanels"
+        android:id="@+id/list_sensor_panels"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

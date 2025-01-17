@@ -18,12 +18,12 @@ class DateConverter {
     }
 
     @TypeConverter
-    fun fromFloatList(value: List<Long>?): String? {
+    fun fromLongList(value: List<Long>?): String? {
         return Gson().toJson(value)
     }
 
     @TypeConverter
-    fun toFloatList(value: String?): List<Long>? {
+    fun toLongList(value: String?): List<Long>? {
         val listType = object : TypeToken<List<Long>>() {}.type
         return Gson().fromJson(value, listType)
     }

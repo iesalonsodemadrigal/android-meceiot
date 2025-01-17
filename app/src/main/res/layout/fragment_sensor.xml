@@ -5,41 +5,9 @@
     android:id="@+id/fragment_sensor"
     android:layout_height="match_parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/nombrepanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="Nombre del Panel"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/back"
-        android:layout_width="32dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        app:icon="@drawable/baseline_exit_to_app_24"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconTint="@color/black"
-        app:layout_constraintStart_toStartOf="@id/nombrepanel"
-        app:layout_constraintTop_toTopOf="@id/nombrepanel" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/options"
-        android:layout_width="32dp"
-        android:layout_height="28dp"
-        android:layout_margin="4dp"
-        app:icon="@drawable/baseline_clear_all_24"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconTint="@color/black"
-        app:layout_constraintEnd_toEndOf="@id/nombrepanel"
-        app:layout_constraintTop_toTopOf="@id/nombrepanel" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/view_toolbar_detail" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/nombresensor"
@@ -49,7 +17,7 @@
         android:text="Nombre del Sensor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nombrepanel" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
         android:id="@+id/chart"

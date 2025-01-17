@@ -36,8 +36,8 @@ class SensorFragment : Fragment() {
 
     private fun setupView() {
         cartesianChartView = binding.chart
-        binding.back.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+        binding.toolbar.pageupButton.setOnClickListener {
+
         }
     }
 
@@ -56,7 +56,6 @@ class SensorFragment : Fragment() {
 
     private fun bindData(sensor: Sensor) {
         binding.apply {
-            nombrepanel.text = sensor.nombrePanel
             nombresensor.text = sensor.nombre
         }
     }

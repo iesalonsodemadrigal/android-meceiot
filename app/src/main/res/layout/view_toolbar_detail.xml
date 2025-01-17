@@ -1,0 +1,30 @@
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/AppHeadlineHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/image_size_small">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pageup_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/spacing_horizontal"
+        android:layout_marginTop="@dimen/spacing_vertical"
+        android:layout_marginBottom="@dimen/spacing_vertical"
+        app:icon="@drawable/baseline_arrow_back_24"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconTint="@color/black" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/view_toolbar_detail"
+        style="@style/AppHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_extra_small"
+        android:paddingTop="@dimen/padding_extra_small"
+        android:paddingBottom="@dimen/padding_extra_small"
+        android:textSize="@dimen/font_size_medium"
+        app:title="Generic Title" />
+</com.google.android.material.appbar.MaterialToolbar>

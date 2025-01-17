@@ -14,7 +14,6 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
             developerImage.load(developerInfo.urlAvatar)
             developerName.text = developerInfo.fullName
             collegeDegree.text = developerInfo.collegeDegree
-
             buttonOpenUrl.setOnClickListener {
                 developerInfo.urlSource?.let { url ->
                     onUrlClick(url)

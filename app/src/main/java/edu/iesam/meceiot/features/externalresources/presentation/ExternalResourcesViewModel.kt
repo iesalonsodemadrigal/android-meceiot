@@ -18,7 +18,6 @@ class ExternalResourcesViewModel(private val getAllExternalResourcesUseCase: Get
 
     fun viewCreated() {
         _uiState.value = UiState(loading = true)
-
         viewModelScope.launch {
             val resources = getAllExternalResourcesUseCase.invoke()
             resources.fold({

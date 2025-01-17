@@ -14,6 +14,8 @@ import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
+import okhttp3.internal.wait
 
 class ExternalResourcesFragment : BottomSheetDialogFragment() {
     private val externalResourcesViewModel: ExternalResourcesViewModel by viewModel()
@@ -65,6 +67,13 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         val resourcesObserver = Observer<ExternalResourcesViewModel.UiState> { uiState ->
             uiState.externalResources?.let {
                 bindData(it)
+            }
+            uiState.errorApp?.let {
+                val error = ErrorAppFactory(requireContext())
+                val errorAppUI = error.build(it)
+                binding.errorAppViewResources.render(errorAppUI)
+            }?: run {
+                //binding.errorAppViewResources.hide()
             }
             if (uiState.loading) {
                 skeleton.showSkeleton()

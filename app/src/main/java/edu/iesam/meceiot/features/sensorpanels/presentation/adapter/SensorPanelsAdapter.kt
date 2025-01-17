@@ -8,7 +8,6 @@ import edu.iesam.meceiot.databinding.ItemSensorBinding
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 
-//class SensorPanelsAdapter(private val items: List<ListItem>) :
 class SensorPanelsAdapter() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

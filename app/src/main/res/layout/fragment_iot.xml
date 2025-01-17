@@ -22,23 +22,23 @@
 
         <include
             android:id="@+id/view_item_iot"
-            layout="@layout/view_item_iot" />
+            layout="@layout/item_iot" />
 
         <include
             android:id="@+id/view_item_planes_educativos"
-            layout="@layout/view_item_iot" />
+            layout="@layout/item_iot" />
 
         <include
             android:id="@+id/view_item_calendario"
-            layout="@layout/view_item_iot" />
+            layout="@layout/item_iot" />
 
         <include
             android:id="@+id/view_item_programas"
-            layout="@layout/view_item_iot" />
+            layout="@layout/item_iot" />
 
         <include
             android:id="@+id/view_item_meceiot"
-            layout="@layout/view_item_iot" />
+            layout="@layout/item_iot" />
 
     </LinearLayout>
 

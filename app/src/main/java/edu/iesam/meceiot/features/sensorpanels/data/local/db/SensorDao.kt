@@ -8,9 +8,9 @@ import androidx.room.Query
 @Dao
 interface SensorDao {
     @Query("SELECT * FROM $SENSOR_TABLE")
-    fun getSensors(): List<SensorEntity>
+    suspend fun getSensors(): List<SensorEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveSensors(vararg sensors: SensorEntity)
+    suspend fun saveSensors(vararg sensors: SensorEntity)
 
 }

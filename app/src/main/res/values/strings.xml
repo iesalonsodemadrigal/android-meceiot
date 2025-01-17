@@ -66,6 +66,7 @@
     <string name="description_item_4">Implementación y uso de IoT en Alonso.</string>
     <string name="title_item_5">MeceIoT</string>
     <string name="description_item_5">Descripción general del proyecto MeceIoT...</string>
+    <string name="title_this_fragment">tu titulo</string>
 
 
 </resources>

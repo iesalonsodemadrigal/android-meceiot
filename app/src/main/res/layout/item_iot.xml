@@ -5,41 +5,40 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/ItemImage"
+        android:id="@+id/view_item_image"
         android:layout_width="@dimen/size_media_listitem"
         android:layout_height="@dimen/size_media_listitem"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-
+        android:layout_marginLeft="@dimen/spacing_horizontal"
+        android:layout_marginTop="@dimen/spacing_vertical"
+        android:layout_marginBottom="@dimen/spacing_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/icon" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/itemTitle"
+        android:id="@+id/view_item_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:text="@string/title_item"
         style="@style/AppHeadlineListItem"
-        app:layout_constraintStart_toEndOf="@id/ItemImage"
-        app:layout_constraintBottom_toTopOf="@id/itemDescription"
+        app:layout_constraintBottom_toTopOf="@id/view_item_description"
+        app:layout_constraintStart_toEndOf="@id/view_item_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toTopOf="@id/ItemImage" />
+        app:layout_constraintTop_toTopOf="@id/view_item_image" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/itemDescription"
+        android:id="@+id/view_item_description"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/image_size_medium"
         android:layout_marginStart="@dimen/margin_medium"
         android:text="@string/description_item"
         android:textSize="@dimen/font_size_extra_small"
         style="@style/AppSupportingTextListItem"
-        app:layout_constraintStart_toEndOf="@id/ItemImage"
-        app:layout_constraintTop_toBottomOf="@id/itemTitle" />
+        app:layout_constraintStart_toEndOf="@id/view_item_image"
+        app:layout_constraintTop_toBottomOf="@id/view_item_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

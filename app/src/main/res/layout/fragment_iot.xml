@@ -8,29 +8,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <com.google.android.material.appbar.MaterialToolbar
-            style="@style/AppHeadlineHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/image_size_small">
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textViewIoT"
-                style="@style/AppHeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/IoT"
-                android:paddingTop="@dimen/padding_extra_small"
-                android:paddingBottom="@dimen/padding_extra_small"
-                android:textSize="@dimen/font_size_medium" />
-
-        </com.google.android.material.appbar.MaterialToolbar>
+        <include
+            android:id="@+id/view_toolbar"
+            layout="@layout/view_toolbar_generic" />
 
         <ImageView
-            android:id="@+id/imageViewIoT"
+            android:id="@+id/view_image_iot"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/image_size_back_iot"
             android:layout_gravity="center"
@@ -38,25 +21,24 @@
             android:src="@drawable/iotbanner" />
 
         <include
-            android:id="@+id/item_1"
+            android:id="@+id/view_item_iot"
             layout="@layout/item_iot" />
 
         <include
-            android:id="@+id/item_2"
+            android:id="@+id/view_item_planes_educativos"
             layout="@layout/item_iot" />
 
         <include
-            android:id="@+id/item_3"
+            android:id="@+id/view_item_calendario"
             layout="@layout/item_iot" />
 
         <include
-            android:id="@+id/item_4"
+            android:id="@+id/view_item_programas"
             layout="@layout/item_iot" />
 
         <include
-            android:id="@+id/item_5"
+            android:id="@+id/view_item_meceiot"
             layout="@layout/item_iot" />
-
 
     </LinearLayout>
 

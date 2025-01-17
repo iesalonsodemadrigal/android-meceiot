@@ -14,7 +14,7 @@ class SensorPanelsMockRemoteDataSource {
                 sensors = listOf(
                     Sensor(
                         id = 1,
-                        name = "Sensor 1"
+                        name = "Temperature"
                     ),
                     Sensor(
                         id = 2,
@@ -58,7 +58,7 @@ class SensorPanelsMockRemoteDataSource {
                 sensors = listOf(
                     Sensor(
                         id = 1,
-                        name = "Sensor 1"
+                        name = "Temperature"
                     )
                 )
             ),

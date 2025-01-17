@@ -15,7 +15,7 @@
             android:layout_height="36dp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:src="@drawable/ic_launcher_background" />
+            tools:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/sensor_name"

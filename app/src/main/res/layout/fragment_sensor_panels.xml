@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context=".features.sensorpanels.presentation.SensorPanelsFragment">
 
+    <!-- Si ves esto es que no estaba implementada la Toolbar del proyecto todavía -->
     <Toolbar
         android:id="@+id/panels_toolbar"
         android:layout_width="match_parent"

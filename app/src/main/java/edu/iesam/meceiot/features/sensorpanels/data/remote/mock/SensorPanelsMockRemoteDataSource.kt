@@ -18,15 +18,15 @@ class SensorPanelsMockRemoteDataSource {
                     ),
                     Sensor(
                         id = 2,
-                        name = "Sensor 2"
+                        name = "Humidity"
                     ),
                     Sensor(
                         id = 3,
-                        name = "Sensor 3"
+                        name = "CO2"
                     ),
                     Sensor(
                         id = 4,
-                        name = "Sensor 4"
+                        name = "Motion"
                     ),
                     Sensor(
                         id = 5,
@@ -40,11 +40,11 @@ class SensorPanelsMockRemoteDataSource {
                 sensors = listOf(
                     Sensor(
                         id = 3,
-                        name = "Sensor 3"
+                        name = "Humidity"
                     ),
                     Sensor(
                         id = 4,
-                        name = "Sensor 4"
+                        name = "CO2"
                     ),
                     Sensor(
                         id = 5,

@@ -50,8 +50,8 @@ class SensorPanelsFragment : Fragment() {
                     spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                         override fun getSpanSize(position: Int): Int {
                             return when (sensorPanelsAdapter.getItemViewType(position)) {
-                                ListItem.Type.PANEL.value -> 2 // Panel, occupies full width
-                                ListItem.Type.SENSOR.value -> 1 // Sensor, occupies half width (2 sensors per row)
+                                ListItem.Type.PANEL.value -> 2
+                                ListItem.Type.SENSOR.value -> 1
                                 else -> 1
                             }
                         }

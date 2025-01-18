@@ -4,41 +4,33 @@ import edu.iesam.meceiot.features.sensorpanels.domain.GetSensorPanelsUseCase
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 import edu.iesam.meceiot.features.sensorpanels.domain.SensorPanelRepository
-import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.impl.annotations.RelaxedMockK
-import kotlinx.coroutines.runBlocking
-import org.junit.Before
+import io.mockk.mockk
+import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.io.IOException
 
 class GetSensorPanelsUseCaseTest {
-    @RelaxedMockK
-    private lateinit var sensorPanelRepository: SensorPanelRepository
-    private lateinit var getSensorPanelsUseCase: GetSensorPanelsUseCase
-
-    @Before
-    fun setUp() {
-        MockKAnnotations.init(this)
-        getSensorPanelsUseCase = GetSensorPanelsUseCase(sensorPanelRepository)
-    }
+    private var sensorPanelRepository: SensorPanelRepository = mockk()
+    private var getSensorPanelsUseCase = GetSensorPanelsUseCase(sensorPanelRepository)
 
     @Test
-    fun `invoke with EmptyList`() = runBlocking {
-        // Given:
+    fun `invoke should return empty list when repository returns empty list`() = runTest {
+        // Given
         coEvery { sensorPanelRepository.getSensorPanels() } returns Result.success(emptyList())
 
-        // When:
-        val sensorPanels = getSensorPanelsUseCase()
+        // When
+        val result = getSensorPanelsUseCase()
 
-        // Then:
+        // Then
         coVerify(exactly = 1) { sensorPanelRepository.getSensorPanels() }
-        assert(sensorPanels.isSuccess)
-        assert(sensorPanels.getOrNull()?.isEmpty() == true)
+        assertEquals(Result.success(emptyList<Panel>()), result)
     }
 
     @Test
-    fun `invoke with valid list`() = runBlocking {
+    fun `invoke should return panel list when repository succeeds`() = runTest {
         // Given:
         val sensorPanelsExpected = listOf(
             Panel(
@@ -101,17 +93,16 @@ class GetSensorPanelsUseCaseTest {
             sensorPanelsExpected
         )
 
-        // When:
-        val sensorPanelsReceived = getSensorPanelsUseCase()
+        // When
+        val result = getSensorPanelsUseCase()
 
-        // Then:
+        // Then
         coVerify(exactly = 1) { sensorPanelRepository.getSensorPanels() }
-        assert(sensorPanelsReceived.isSuccess)
-        assert(sensorPanelsReceived.getOrNull() == sensorPanelsExpected)
+        assertEquals(Result.success(sensorPanelsExpected), result)
     }
 
     @Test
-    fun `invoke with error`() = runBlocking {
+    fun `invoke with error`() = runTest {
         // Given:
         val exception = Exception("Error fetching sensor panels")
         coEvery { sensorPanelRepository.getSensorPanels() } returns Result.failure(exception)
@@ -125,4 +116,37 @@ class GetSensorPanelsUseCaseTest {
         assert(sensorPanels.exceptionOrNull() == exception)
     }
 
+    @Test
+    fun `invoke should return Failure with IOException when repository throws IOException`() =
+        runTest {
+            // Given
+            val expectedException = IOException("Network error")
+            coEvery { sensorPanelRepository.getSensorPanels() } returns Result.failure(
+                expectedException
+            )
+
+            // When
+            val result = getSensorPanelsUseCase()
+
+            // Then
+            coVerify(exactly = 1) { sensorPanelRepository.getSensorPanels() }
+            assertEquals(Result.failure<List<Panel>>(expectedException), result)
+        }
+
+    @Test
+    fun `invoke should return Failure with generic Exception when repository throws Exception`() =
+        runTest {
+            // Given
+            val expectedException = Exception("Generic error")
+            coEvery { sensorPanelRepository.getSensorPanels() } returns Result.failure(
+                expectedException
+            )
+
+            // When
+            val result = getSensorPanelsUseCase()
+
+            // Then
+            coVerify(exactly = 1) { sensorPanelRepository.getSensorPanels() }
+            assertEquals(Result.failure<List<Panel>>(expectedException), result)
+        }
 }

@@ -64,6 +64,8 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     ksp(libs.koin.ksp)
     //MockK
     testImplementation(libs.mockk)
@@ -86,4 +88,7 @@ dependencies {
     implementation(libs.coil)
     //Skeleton
     implementation (libs.skeletonlayout)
+    //Kotln Coroutines Test
+    testImplementation(libs.kotlinx.coroutines.test)
+
 }

@@ -2,10 +2,16 @@ package edu.iesam.meceiot.features.pantallasensor.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
+import com.google.android.material.appbar.MaterialToolbar
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
@@ -19,12 +25,14 @@ class SensorFragment : Fragment() {
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSensorBinding.inflate(inflater, container, false)
         setupView()
         cartesianChartView.modelProducer = modelProducer
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -34,11 +42,27 @@ class SensorFragment : Fragment() {
         sensorViewModel.viewCreated()
     }
 
-    private fun setupView() {
-        cartesianChartView = binding.chart
-        binding.toolbar.pageupButton.setOnClickListener {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                findNavController().navigateUp()
+                true
+            }
 
+            else -> {
+                val navController = findNavController()
+                item.onNavDestinationSelected(navController)
+            }
         }
+    }
+
+    private fun setupView() {
+        val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        val actionBar: ActionBar? = (activity as AppCompatActivity).supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setHomeButtonEnabled(true)
+        cartesianChartView = binding.chart
     }
 
     private fun setupObserver() {
@@ -59,6 +83,7 @@ class SensorFragment : Fragment() {
             nombresensor.text = sensor.nombre
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

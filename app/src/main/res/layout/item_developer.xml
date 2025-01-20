@@ -7,8 +7,6 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/developer_image"
-        android:layout_width="@dimen/image_size_extra_extra_high"
-        android:layout_height="@dimen/image_size_extra_extra_high"
         android:layout_marginEnd="@dimen/margin_medium"
         android:scaleType="centerCrop"
         style="@style/AppImageListItem"

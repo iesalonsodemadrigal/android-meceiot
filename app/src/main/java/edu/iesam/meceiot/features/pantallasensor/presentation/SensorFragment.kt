@@ -12,11 +12,15 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.google.android.material.appbar.MaterialToolbar
+import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
+import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.Calendar
+import java.util.Date
 
 class SensorFragment : Fragment() {
     private val sensorViewModel: SensorViewModel by viewModel()
@@ -24,6 +28,9 @@ class SensorFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
+    private val valueFormatter = CartesianValueFormatter { _, x, _ ->
+        x.toLong().toHourAndMinute()
+    }
 
 
     override fun onCreateView(
@@ -32,6 +39,11 @@ class SensorFragment : Fragment() {
         _binding = FragmentSensorBinding.inflate(inflater, container, false)
         setupView()
         cartesianChartView.modelProducer = modelProducer
+        val chart = cartesianChartView.chart!!
+        cartesianChartView.chart = chart.copy(
+            bottomAxis =
+            (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatter),
+        )
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -76,6 +88,13 @@ class SensorFragment : Fragment() {
             }
         }
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
+    }
+    fun Long.toHourAndMinute(): String {
+        val date = Date(this) // Assuming the long value is in milliseconds
+        val calendar = Calendar.getInstance().apply { time = date }
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+        return String.format("%02d:%02d", hour, minute)
     }
 
     private fun bindData(sensor: Sensor) {

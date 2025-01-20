@@ -18,6 +18,7 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 
+
     fun viewCreated() {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
@@ -47,6 +48,7 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
             )
         }
     }
+
 
     data class UiState(
         val loading: Boolean = false,

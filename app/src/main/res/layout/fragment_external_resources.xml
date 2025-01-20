@@ -6,19 +6,19 @@
     tools:context="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment">
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ExternalResourcesFragmentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbarSize="8dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_external_resources"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ExternalResourcesFragmentRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:scrollbarSize="8dp"
-            android:scrollbarStyle="insideOverlay"
-            android:scrollbars="vertical"
-            tools:listitem="@layout/item_external_resources" />
 
     <edu.iesam.meceiot.core.presentation.views.ErrorAppView
         android:id="@+id/error_app_view_resources"

@@ -25,9 +25,7 @@ class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUse
             val infoDeveloper = getDevelopersUseCase()
             delay(1000)
             _uiState.postValue(
-
                 UiState(
-
                     isLoading = false,
                     infoDeveloper = infoDeveloper.getOrNull(),
                     errorMessage = infoDeveloper.exceptionOrNull() as? ErrorApp

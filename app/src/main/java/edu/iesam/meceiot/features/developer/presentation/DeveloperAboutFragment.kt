@@ -12,7 +12,6 @@ import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
-import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
@@ -21,19 +20,18 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     private val developerAboutViewModel: DeveloperAboutViewModel by viewModel()
-    private lateinit var appIntent: AppIntent
-
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
+    private val developerAdapter = DeveloperAdapter()
+    private val appIntent: AppIntent by lazy { AppIntent(requireContext()) }
     private lateinit var skeleton: Skeleton
 
-    private val developerAdapter = DeveloperAdapter { url -> appIntent.openUrl(url) }
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentDeveloperListBinding.inflate(inflater, container, false)
-        appIntent = AppIntent(requireContext())
         setupView()
         return binding.root
     }
@@ -44,18 +42,29 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         developerAboutViewModel.viewDevelopers()
     }
 
-    private fun setupObserver() {
-        val developerObserver =  Observer<DeveloperAboutViewModel.UiState>{ uiState ->
-            uiState.infoDeveloper?.let {
-                bindData(it)
+    private fun setupView() {
+        binding.apply {
+            recyclerView.apply {
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                developerAdapter.setEvent { url -> openUrl(url) }
+                adapter = developerAdapter
+                skeleton = applySkeleton(R.layout.item_developer)
             }
+        }
+    }
+
+    private fun setupObserver() {
+        val developerObserver = Observer<DeveloperAboutViewModel.UiState> { uiState ->
+            uiState.infoDeveloper?.let { bindData(it) }
+
             uiState.errorMessage?.let {
                 val error = ErrorAppFactory(requireContext())
                 val errorAppUI = error.build(it)
                 binding.errorAppView.render(errorAppUI)
             } ?: run {
-                binding.errorAppView.hide()
+
             }
+
             if (uiState.isLoading) {
                 skeleton.showSkeleton()
             } else {
@@ -65,19 +74,13 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         developerAboutViewModel.uiState.observe(viewLifecycleOwner, developerObserver)
     }
 
-
-    private fun setupView() {
-        binding.apply {
-            recyclerView.layoutManager = LinearLayoutManager(
-                context, LinearLayoutManager.VERTICAL, false
-            )
-            recyclerView.adapter = developerAdapter
-            skeleton = recyclerView.applySkeleton(R.layout.item_developer)
-        }
+    private fun bindData(developers: List<DeveloperInfo>) {
+        developerAdapter.submitList(developers.sortedBy { it.id.toIntOrNull() ?: Int.MAX_VALUE })
     }
 
-    private fun bindData(developers: List<DeveloperInfo>) {
-        developerAdapter.submitList(developers)
+
+    private fun openUrl(url: String) {
+        appIntent.openUrl(url)
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,16 @@
+package edu.iesam.meceiot.features.alerts.data.remote
+
+import edu.iesam.meceiot.features.alerts.domain.Zone
+import org.koin.core.annotation.Single
+
+@Single
+class SensorApiRemoteDataSource(private val sensorService: SensorService) {
+
+    suspend fun getSensors(): Result<List<Zone>> {
+        return TODO(
+            /*apiCall { sensorService.getSensors() }.map { sensorApiModel ->
+                sensorApiModel.map { it.toModel() }
+            }*/
+        )
+    }
+}

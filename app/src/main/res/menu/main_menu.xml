@@ -23,7 +23,7 @@
     <item
         android:id="@+id/alert_fragment"
         android:enabled="true"
-        android:icon="@drawable/ic_alert"
+        android:icon="@drawable/ic_alerts"
         android:title="@string/label_menu_alerts" />
 
 

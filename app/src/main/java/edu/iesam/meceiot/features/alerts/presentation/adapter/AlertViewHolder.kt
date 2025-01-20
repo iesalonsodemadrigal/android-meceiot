@@ -20,12 +20,12 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
             iconSensor.setImageResource(
                 when (sensor.type) {
-                    TypeSensor.Co2 -> R.drawable.ic_alert_co2
-                    TypeSensor.Temperature -> R.drawable.ic_alert_temperature
-                    TypeSensor.Light -> R.drawable.ic_alert_light
-                    TypeSensor.Humidity -> R.drawable.ic_alert_humidity
-                    TypeSensor.Movement -> R.drawable.ic_alert_movement
-                    TypeSensor.Sound -> R.drawable.ic_alert_sound
+                    TypeSensor.Co2 -> R.drawable.ic_co2
+                    TypeSensor.Temperature -> R.drawable.ic_temperature
+                    TypeSensor.Light -> R.drawable.ic_light
+                    TypeSensor.Humidity -> R.drawable.ic_humidity
+                    TypeSensor.Movement -> R.drawable.ic_motion
+                    TypeSensor.Sound -> R.drawable.ic_sound
                     else -> R.drawable.ic_alert_sensor
                 }
             )

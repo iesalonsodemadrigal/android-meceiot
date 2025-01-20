@@ -48,7 +48,7 @@ class AlertFragment : Fragment() {
             alertsRecyclerview.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter
-            skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert)
+            skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 5)
         }
     }
 

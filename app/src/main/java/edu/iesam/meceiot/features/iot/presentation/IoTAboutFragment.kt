@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.MaterialToolbar
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentIotBinding
 import edu.iesam.meceiot.databinding.ItemIotBinding
@@ -21,9 +20,7 @@ class IoTFragment : Fragment() {
     ): View {
         _binding = FragmentIotBinding.inflate(inflater, container, false)
 
-
-        val toolbar = binding.root.findViewById<MaterialToolbar>(R.id.view_toolbar_title)
-        toolbar.title = getString(R.string.iot_title)
+        bindData()
 
         setItemText(
             ItemIotBinding.bind(binding.viewItemIot.root),
@@ -57,6 +54,12 @@ class IoTFragment : Fragment() {
     private fun setItemText(itemBinding: ItemIotBinding, titleId: Int, descriptionId: Int) {
         itemBinding.viewItemTitle.setText(titleId)
         itemBinding.viewItemDescription.setText(descriptionId)
+    }
+
+    private fun bindData() {
+        binding.apply {
+            viewToolbar.viewToolbarTitle.title = getString(R.string.iot_title)
+        }
     }
 
     override fun onDestroyView() {

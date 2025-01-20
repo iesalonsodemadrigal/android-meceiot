@@ -10,7 +10,7 @@
 
         <include
             android:id="@+id/view_toolbar"
-            layout="@layout/view_toolbar_generic" />
+            layout="@layout/view_main_toolbar" />
 
         <ImageView
             android:id="@+id/view_image_iot"

@@ -81,6 +81,7 @@ class SensorFragment : Fragment() {
     private fun bindData(sensor: Sensor) {
         binding.apply {
             nombresensor.text = sensor.nombre
+            toolbar.viewToolbarDetail.title = sensor.nombrePanel
         }
     }
 

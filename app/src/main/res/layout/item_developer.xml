@@ -17,35 +17,32 @@
         app:shapeAppearanceOverlay="@style/CircularImageView"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/developer_text_name"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
         android:text="@string/developer_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="@dimen/margin_medium"
+        style="@style/AppHeadlineListItem"
         app:layout_constraintStart_toEndOf="@+id/developer_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/developer_descprition"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
         android:text="@string/text_developers"
-        android:layout_marginStart="@dimen/margin_medium"
+        style="@style/AppSupportingTextListItem"
         app:layout_constraintStart_toEndOf="@+id/developer_image"
-        app:layout_constraintTop_toBottomOf="@+id/developer_text_name"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/developer_text_name" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
-        android:layout_marginVertical="@dimen/margin_small"
+        android:background="@color/gray"
+        android:layout_marginVertical="@dimen/margin_medium"
         app:layout_constraintTop_toBottomOf="@+id/developer_descprition"
         />
 

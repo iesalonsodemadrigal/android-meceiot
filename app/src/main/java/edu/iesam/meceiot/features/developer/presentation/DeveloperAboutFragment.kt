@@ -44,7 +44,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
     private fun setupView() {
         binding.apply {
-            recyclerView.apply {
+            recyclerViewDeveloper.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 adapter = developerAdapter
                 skeleton = applySkeleton(R.layout.item_developer)

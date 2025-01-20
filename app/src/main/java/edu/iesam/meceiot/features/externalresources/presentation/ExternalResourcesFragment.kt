@@ -49,7 +49,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
 
     private fun setupView() {
         binding.apply {
-            ExternalResourcesFragmentRecyclerView.apply {
+            recyclerViewExternalResource.apply {
                 layoutManager = LinearLayoutManager(
                     context,
                     LinearLayoutManager.VERTICAL,
@@ -58,7 +58,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
                 externalResourcesAdapter.setEvent { url -> openUrl(url) }
                 adapter = externalResourcesAdapter
                 skeleton =
-                    ExternalResourcesFragmentRecyclerView.applySkeleton(edu.iesam.meceiot.R.layout.item_external_resources)
+                    recyclerViewExternalResource.applySkeleton(edu.iesam.meceiot.R.layout.item_external_resources)
             }
         }
     }

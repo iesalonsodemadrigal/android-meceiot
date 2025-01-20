@@ -24,7 +24,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                     TypeSensor.Temperature -> R.drawable.ic_alert_temperature
                     TypeSensor.Light -> R.drawable.ic_alert_light
                     TypeSensor.Humidity -> R.drawable.ic_alert_humidity
-                    TypeSensor.Movement -> R.drawable.ic_person_walk
+                    TypeSensor.Movement -> R.drawable.ic_alert_movement
                     TypeSensor.Sound -> R.drawable.ic_alert_sound
                     else -> R.drawable.ic_alert_sensor
                 }

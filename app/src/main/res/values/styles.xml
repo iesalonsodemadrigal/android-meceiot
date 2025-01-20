@@ -60,8 +60,8 @@
 
     <!-- ListItem Component -->
     <style name="AppImageListItem">
-        <item name="android:height">@dimen/size_media_listitem</item>
-        <item name="android:width">@dimen/size_media_listitem</item>
+        <item name="android:layout_height">@dimen/size_media_listitem</item>
+        <item name="android:layout_width">@dimen/size_media_listitem</item>
     </style>
 
     <style name="AppHeadlineListItem" parent="AppHeadline">

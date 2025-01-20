@@ -1,3 +1,4 @@
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -13,10 +14,12 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
             developerImage.load(developerInfo.urlAvatar) {}
             developerTextName.text = developerInfo.fullName
             developerDescprition.text = developerInfo.collegeDegree
-            view.setOnClickListener {
-                onClick(developerInfo.urlSource)
-                }
-            }
+
         }
+        view.setOnClickListener {
+        Log.d("DeveloperViewHolder", "URL: ${developerInfo.urlSource}")
+        onClick(developerInfo.urlSource)
+    }
+}
     }
 

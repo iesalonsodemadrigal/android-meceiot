@@ -46,9 +46,9 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         binding.apply {
             recyclerView.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                developerAdapter.setEvent { url -> openUrl(url) }
                 adapter = developerAdapter
                 skeleton = applySkeleton(R.layout.item_developer)
+                developerAdapter.setEvent { url -> openUrl(url) }
             }
         }
     }
@@ -75,7 +75,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     }
 
     private fun bindData(developers: List<DeveloperInfo>) {
-        developerAdapter.submitList(developers.sortedBy { it.id.toIntOrNull() ?: Int.MAX_VALUE })
+        developerAdapter.submitList( developers.sortedBy { it.id.toIntOrNull() ?: Int.MAX_VALUE })
     }
 
 

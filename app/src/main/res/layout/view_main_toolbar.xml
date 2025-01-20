@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_extra_small"
-    android:padding="@dimen/image_size_small"
+    android:padding="@dimen/padding_medium"
     android:paddingTop="@dimen/padding_extra_small"
     android:paddingBottom="@dimen/padding_extra_small"
     android:textSize="@dimen/font_size_medium"

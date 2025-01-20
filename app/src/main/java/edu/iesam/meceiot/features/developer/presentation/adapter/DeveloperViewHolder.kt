@@ -17,7 +17,6 @@ class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view
 
         }
         view.setOnClickListener {
-        Log.d("DeveloperViewHolder", "URL: ${developerInfo.urlSource}")
         onClick(developerInfo.urlSource)
     }
 }

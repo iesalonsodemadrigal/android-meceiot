@@ -17,9 +17,8 @@ class ExternalResourcesViewHolder(private val view: View) : RecyclerView.ViewHol
             externalResourcesItemImage.load(externalResources.image) {}
             externalResourcesItemName.text = externalResources.author
             externalResourcesItemDescription.text = externalResources.description
-            view.setOnClickListener {
-                onClick(externalResources.url)
-            }
         }
+        view.setOnClickListener { onClick(externalResources.url) }
+
     }
 }

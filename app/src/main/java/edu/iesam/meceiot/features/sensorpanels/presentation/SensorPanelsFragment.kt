@@ -1,13 +1,15 @@
 package edu.iesam.meceiot.features.sensorpanels.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.faltenreich.skeletonlayout.Skeleton
+import com.faltenreich.skeletonlayout.createSkeleton
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorPanelsBinding
@@ -20,10 +22,12 @@ class SensorPanelsFragment : Fragment() {
 
     private var _binding: FragmentSensorPanelsBinding? = null
     private val binding get() = _binding!!
-    lateinit var sensorPanelsAdapter: SensorPanelsAdapter
 
+    lateinit var sensorPanelsAdapter: SensorPanelsAdapter
     val viewModel: SensorPanelsViewModel by viewModel()
     private var errorFactory: ErrorAppFactory? = null
+
+    private lateinit var skeleton: Skeleton
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,8 +71,16 @@ class SensorPanelsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupSkeleton()
         setupObservers()
         viewModel.fetchSensorPanels()
+    }
+
+    private fun setupSkeleton() {
+        val skeletonView = LayoutInflater.from(requireContext())
+            .inflate(R.layout.view_skeleton_panels, binding.root, false)
+        skeleton = skeletonView.createSkeleton()
+        //skeleton = binding.listSensorPanels.applySkeleton(R.layout.fragment_sensor_panels)
     }
 
     private fun setupObservers() {
@@ -85,11 +97,9 @@ class SensorPanelsFragment : Fragment() {
             }
 
             if (uiState.isLoading) {
-                // Show loading
-                Log.d("@dev", "Loading...")
+                skeleton.showSkeleton()
             } else {
-                // Hide loading
-                Log.d("@dev", "Loadon't...")
+                skeleton.showOriginal()
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)

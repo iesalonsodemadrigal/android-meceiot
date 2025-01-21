@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.pantallasensor.presentation
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.google.android.material.appbar.MaterialToolbar
 import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
+import com.patrykandpatrick.vico.core.cartesian.axis.VerticalAxis
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
@@ -28,8 +30,11 @@ class SensorFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
-    private val valueFormatter = CartesianValueFormatter { _, x, _ ->
+    private val valueFormatterXaxis = CartesianValueFormatter { _, x, _ ->
         x.toLong().toHourAndMinute()
+    }
+    private val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
+        y.toLong().toPartPerMillion()
     }
 
 
@@ -39,11 +44,6 @@ class SensorFragment : Fragment() {
         _binding = FragmentSensorBinding.inflate(inflater, container, false)
         setupView()
         cartesianChartView.modelProducer = modelProducer
-        val chart = cartesianChartView.chart!!
-        cartesianChartView.chart = chart.copy(
-            bottomAxis =
-            (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatter),
-        )
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -56,7 +56,7 @@ class SensorFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
+            R.id.home -> {
                 findNavController().navigateUp()
                 true
             }
@@ -82,6 +82,15 @@ class SensorFragment : Fragment() {
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
                 sensorViewModel.updateChartData(sensor, modelProducer)
+                val minY = sensor.valoresY.min()
+                val maxY = sensor.valoresY.max()
+                val chart = cartesianChartView.chart!!
+                cartesianChartView.chart = chart.copy(
+                    bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
+                    startAxis = (chart.startAxis as VerticalAxis).copy(
+                        valueFormatter = valueFormatterYaxis,
+                    ),
+                )
             }
             uiState.chartData?.let { chartData ->
                 cartesianChartView.modelProducer = chartData
@@ -89,12 +98,17 @@ class SensorFragment : Fragment() {
         }
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
-    fun Long.toHourAndMinute(): String {
+
+    private fun Long.toHourAndMinute(): String {
         val date = Date(this) // Assuming the long value is in milliseconds
         val calendar = Calendar.getInstance().apply { time = date }
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
         return String.format("%02d:%02d", hour, minute)
+    }
+
+    private fun Long.toPartPerMillion(): String {
+        return String.format("%d ppm", this)
     }
 
     private fun bindData(sensor: Sensor) {
@@ -110,3 +124,4 @@ class SensorFragment : Fragment() {
         _binding = null
     }
 }
+

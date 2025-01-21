@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.alerts.data.local
+package edu.iesam.meceiot.features.alerts.data.local.mock
 
 import android.content.Context
 import edu.iesam.meceiot.features.alerts.domain.Sensor

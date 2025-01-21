@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="edu.iesam.meceiot.features.alerts.presentation.AlertFragment">
+
+    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
+        android:id="@+id/error_app_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/alerts_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:text="@string/alerts_title"
-        android:textSize="@dimen/font_size_extra_high"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:textSize="@dimen/font_size_extra_high" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alerts_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/null_value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alerts_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_alert" />
-
-
-    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
-        android:id="@+id/error_app_view"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:listitem="@layout/item_alert" />
+</LinearLayout>

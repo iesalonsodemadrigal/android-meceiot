@@ -6,8 +6,10 @@ import edu.iesam.meceiot.R
 interface ErrorAppUI {
     fun getImageError(): Int
     fun getTitleError(): String
+    fun getRetryActivity(): Class<*>
     fun getDescriptionError(): String
     fun getActionRetry(): Unit
+
 }
 
 class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
@@ -26,6 +28,11 @@ class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
     override fun getActionRetry() {
         TODO("Not yet implemented")
     }
+    override fun getRetryActivity(): Class<*> {
+        return edu.iesam.meceiot.MainActivity::class.java
+
+    }
+
 }
 
 class ServerErrorAppUI(val context: Context) : ErrorAppUI {
@@ -44,6 +51,8 @@ class ServerErrorAppUI(val context: Context) : ErrorAppUI {
     override fun getActionRetry() {
         TODO("Not yet implemented")
     }
+    override fun getRetryActivity(): Class<*> {
+        return edu.iesam.meceiot.MainActivity::class.java
 }
 
 class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
@@ -62,4 +71,8 @@ class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
     override fun getActionRetry() {
         TODO("Not yet implemented")
     }
+    override fun getRetryActivity(): Class<*> {
+        return edu.iesam.meceiot.MainActivity::class.java
+}
+}
 }

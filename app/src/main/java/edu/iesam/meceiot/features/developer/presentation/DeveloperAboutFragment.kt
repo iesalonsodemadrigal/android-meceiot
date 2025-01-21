@@ -12,6 +12,7 @@ import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
+import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
@@ -62,7 +63,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
                 val errorAppUI = error.build(it)
                 binding.errorAppView.render(errorAppUI)
             } ?: run {
-
+                binding.errorAppView.hide()
             }
 
             if (uiState.isLoading) {

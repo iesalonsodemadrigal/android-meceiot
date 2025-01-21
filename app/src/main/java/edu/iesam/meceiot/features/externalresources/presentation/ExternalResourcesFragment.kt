@@ -10,6 +10,7 @@ import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.core.presentation.AppIntent
+import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.databinding.FragmentExternalResourcesBinding
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.presentation.adapter.ExternalResourcesAdapter
@@ -73,7 +74,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
                 val errorAppUI = error.build(it)
                 binding.errorAppViewResources.render(errorAppUI)
             }?: run {
-                //binding.errorAppViewResources.hide()
+                binding.errorAppViewResources.hide()
             }
             if (uiState.loading) {
                 skeleton.showSkeleton()

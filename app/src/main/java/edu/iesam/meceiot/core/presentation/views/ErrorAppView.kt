@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.core.presentation.views
 
 import android.content.Context
+import android.content.Intent
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -25,7 +26,10 @@ class ErrorAppView @JvmOverloads constructor(
             imageError.setImageResource(errorAppUI.getImageError())
             titleError.text = errorAppUI.getTitleError()
             descriptionError.text = errorAppUI.getDescriptionError()
-            //button action...
+            buttonRetryError.setOnClickListener {
+                    val intent = Intent(context, errorAppUI.getRetryActivity())
+                    context.startActivity(intent)
+            }
             visible()
         }
     }

@@ -15,6 +15,6 @@
     <item
         android:id="@+id/fragment_settings"
         android:enabled="true"
-        android:icon="@drawable/notifications_active_24px"
+        android:icon="@drawable/ic_setting"
         android:title="@string/settings" />
 </menu>

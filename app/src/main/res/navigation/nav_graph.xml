@@ -33,10 +33,6 @@
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources" />
 
-    <dialog
-        android:id="@+id/developerAboutFragment"
-        android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
-        android:label="Developer About Fragment" />
 
     <fragment
         android:id="@+id/testfragment"

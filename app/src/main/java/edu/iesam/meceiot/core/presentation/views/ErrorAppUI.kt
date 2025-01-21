@@ -9,7 +9,8 @@ interface ErrorAppUI {
     fun getTitleError(): String
     fun getRetryActivity(): Class<*>
     fun getDescriptionError(): String
-    fun getActionRetry(): Unit
+    fun getActionRetry(retryActivity: Class<*>? = null): Unit
+
 
 }
 
@@ -26,12 +27,15 @@ class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
         return context.getString(R.string.description_error_connection)
     }
 
-    override fun getActionRetry() {
-        val intent = Intent(context, getRetryActivity()).apply {
+    override fun getActionRetry(retryActivity: Class<*>?) {
+        val targetActivity = retryActivity ?: getRetryActivity()
+        val intent = Intent(context, targetActivity).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         context.startActivity(intent)
     }
+
+
     override fun getRetryActivity(): Class<*> {
         return edu.iesam.meceiot.MainActivity::class.java
 
@@ -52,12 +56,15 @@ class ServerErrorAppUI(val context: Context) : ErrorAppUI {
         return context.getString(R.string.description_error_server)
     }
 
-    override fun getActionRetry() {
-        val intent = Intent(context, getRetryActivity()).apply {
+    override fun getActionRetry(retryActivity: Class<*>?) {
+        val targetActivity = retryActivity ?: getRetryActivity()
+        val intent = Intent(context, targetActivity).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         context.startActivity(intent)
     }
+
+
     override fun getRetryActivity(): Class<*> {
         return edu.iesam.meceiot.MainActivity::class.java
 }
@@ -75,12 +82,15 @@ class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
         return context.getString(R.string.description_error_unknown)
     }
 
-    override fun getActionRetry() {
-        val intent = Intent(context, getRetryActivity()).apply {
+    override fun getActionRetry(retryActivity: Class<*>?) {
+        val targetActivity = retryActivity ?: getRetryActivity()
+        val intent = Intent(context, targetActivity).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         context.startActivity(intent)
     }
+
+
     override fun getRetryActivity(): Class<*> {
         return edu.iesam.meceiot.MainActivity::class.java
 

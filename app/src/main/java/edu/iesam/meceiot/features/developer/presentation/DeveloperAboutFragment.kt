@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import edu.iesam.meceiot.MainActivity
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentDeveloperListBinding
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
+import edu.iesam.meceiot.features.setting.presentation.SettingAboutFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeveloperAboutFragment : BottomSheetDialogFragment() {
@@ -26,7 +28,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     private val developerAdapter = DeveloperAdapter()
     private val appIntent: AppIntent by lazy { AppIntent(requireContext()) }
     private lateinit var skeleton: Skeleton
-
+    val currentScreen = arguments?.getString("Developer")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,7 +63,15 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
             uiState.errorMessage?.let {
                 val error = ErrorAppFactory(requireContext())
                 val errorAppUI = error.build(it)
+
+                val retryActivity = when (currentScreen) {
+                    "Developer" -> DeveloperAboutFragment::class.java
+                    "Text" -> SettingAboutFragment::class.java
+                    else -> MainActivity::class.java
+                }
+                errorAppUI.getActionRetry(retryActivity)
                 binding.errorAppView.render(errorAppUI)
+
             } ?: run {
                 binding.errorAppView.hide()
             }

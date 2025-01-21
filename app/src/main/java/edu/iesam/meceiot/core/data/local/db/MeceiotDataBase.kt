@@ -21,7 +21,7 @@ import edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity
 
 @Database(
     entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class, QuestionEntity::class, SensorEntity::class, PanelEntity::class],
-    version = 7,
+    version = 8,
     exportSchema = false
 )
 @TypeConverters(DateConverter::class, SensorListConverter::class)

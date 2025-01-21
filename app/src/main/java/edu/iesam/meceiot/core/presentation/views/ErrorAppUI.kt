@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.core.presentation.views
 
 import android.content.Context
+import android.content.Intent
 import edu.iesam.meceiot.R
 
 interface ErrorAppUI {
@@ -26,7 +27,10 @@ class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
     }
 
     override fun getActionRetry() {
-        TODO("Not yet implemented")
+        val intent = Intent(context, getRetryActivity()).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        context.startActivity(intent)
     }
     override fun getRetryActivity(): Class<*> {
         return edu.iesam.meceiot.MainActivity::class.java
@@ -49,7 +53,10 @@ class ServerErrorAppUI(val context: Context) : ErrorAppUI {
     }
 
     override fun getActionRetry() {
-        TODO("Not yet implemented")
+        val intent = Intent(context, getRetryActivity()).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        context.startActivity(intent)
     }
     override fun getRetryActivity(): Class<*> {
         return edu.iesam.meceiot.MainActivity::class.java
@@ -69,10 +76,14 @@ class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
     }
 
     override fun getActionRetry() {
-        TODO("Not yet implemented")
+        val intent = Intent(context, getRetryActivity()).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        context.startActivity(intent)
     }
     override fun getRetryActivity(): Class<*> {
         return edu.iesam.meceiot.MainActivity::class.java
+
 }
 }
 }

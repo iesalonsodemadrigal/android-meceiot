@@ -29,8 +29,12 @@ class ErrorAppView @JvmOverloads constructor(
             buttonRetryError.setOnClickListener {
                     val intent = Intent(context, errorAppUI.getRetryActivity())
                     context.startActivity(intent)
+                    errorAppUI.getActionRetry()
+
+                }
+
             }
             visible()
         }
     }
-}
+

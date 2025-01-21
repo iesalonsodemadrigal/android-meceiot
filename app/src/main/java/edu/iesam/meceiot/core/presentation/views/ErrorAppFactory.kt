@@ -12,7 +12,7 @@ class ErrorAppFactory(val context: Context) {
             ErrorApp.DataExpiredError -> ConnectionErrorAppUI(context)
             ErrorApp.InternetErrorApp -> ConnectionErrorAppUI(context)
             ErrorApp.ServerErrorApp -> ServerErrorAppUI(context)
-            ErrorApp.UnknowErrorApp -> ServerErrorAppUI(context)
+            ErrorApp.UnknowErrorApp -> ServerErrorAppUI.UnknownErrorAppUI(context)
         }
     }
 }

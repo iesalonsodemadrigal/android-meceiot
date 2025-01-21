@@ -80,7 +80,6 @@ class SensorPanelsFragment : Fragment() {
         val skeletonView = LayoutInflater.from(requireContext())
             .inflate(R.layout.view_skeleton_panels, binding.root, false)
         skeleton = skeletonView.createSkeleton()
-        //skeleton = binding.listSensorPanels.applySkeleton(R.layout.fragment_sensor_panels)
     }
 
     private fun setupObservers() {

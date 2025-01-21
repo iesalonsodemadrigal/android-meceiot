@@ -13,15 +13,13 @@
         android:layout_marginBottom="@dimen/spacing_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/icon" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/view_item_title"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginHorizontal="@dimen/margin_medium"
         android:text="@string/title_item"
         style="@style/AppHeadlineListItem"
         app:layout_constraintBottom_toTopOf="@id/view_item_description"
@@ -32,12 +30,13 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/view_item_description"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/image_size_medium"
-        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_width="@dimen/null_value"
+        android:layout_height="wrap_content"
         android:text="@string/description_item"
         android:textSize="@dimen/font_size_extra_small"
         style="@style/AppSupportingTextListItem"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/view_item_image"
         app:layout_constraintTop_toBottomOf="@id/view_item_title" />
 

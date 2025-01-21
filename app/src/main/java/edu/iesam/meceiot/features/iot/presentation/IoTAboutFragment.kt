@@ -23,29 +23,32 @@ class IoTFragment : Fragment() {
         bindData()
 
         setItemText(
-            ItemIotBinding.bind(binding.viewItemIot.root),
-            R.string.title_item_1,
-            R.string.description_item_1
-        )
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemPlanesEducativos.root),
-            R.string.title_item_2,
-            R.string.description_item_2
-        )
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemCalendario.root),
-            R.string.title_item_3,
-            R.string.description_item_3
-        )
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemProgramas.root),
-            R.string.title_item_4,
-            R.string.description_item_4
-        )
-        setItemText(
             ItemIotBinding.bind(binding.viewItemMeceiot.root),
-            R.string.title_item_5,
-            R.string.description_item_5
+            R.string.title_item_meceiot,
+            R.string.description_item_meceiot
+        )
+        setItemImage(
+            ItemIotBinding.bind(binding.viewItemMeceiot.root),
+            R.drawable.ic_logo_meceiot
+        )
+        setItemText(
+            ItemIotBinding.bind(binding.viewItemAlonso.root),
+            R.string.title_item_alonso,
+            R.string.description_item_iot_alonso
+        )
+        setItemImage(
+            ItemIotBinding.bind(binding.viewItemAlonso.root),
+            R.drawable.ic_logo_iesam
+        )
+        setItemText(
+            ItemIotBinding.bind(binding.viewItemInternet.root),
+            R.string.title_item_internet,
+            R.string.description_item_internet
+        )
+        setItemText(
+            ItemIotBinding.bind(binding.viewItemEnergySaving.root),
+            R.string.title_item_energy_saving,
+            R.string.description_item_energy_saving
         )
 
         return binding.root
@@ -54,6 +57,10 @@ class IoTFragment : Fragment() {
     private fun setItemText(itemBinding: ItemIotBinding, titleId: Int, descriptionId: Int) {
         itemBinding.viewItemTitle.setText(titleId)
         itemBinding.viewItemDescription.setText(descriptionId)
+    }
+
+    private fun setItemImage(itemBinding: ItemIotBinding, imageResId: Int) {
+        itemBinding.viewItemImage.setImageResource(imageResId)
     }
 
     private fun bindData() {

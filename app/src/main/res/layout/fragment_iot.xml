@@ -18,27 +18,24 @@
             android:layout_height="@dimen/image_size_back_iot"
             android:layout_gravity="center"
             android:contentDescription="@string/IoT"
-            android:src="@drawable/iotbanner" />
-
-        <include
-            android:id="@+id/view_item_iot"
-            layout="@layout/item_iot" />
-
-        <include
-            android:id="@+id/view_item_planes_educativos"
-            layout="@layout/item_iot" />
-
-        <include
-            android:id="@+id/view_item_calendario"
-            layout="@layout/item_iot" />
-
-        <include
-            android:id="@+id/view_item_programas"
-            layout="@layout/item_iot" />
+            android:src="@drawable/image_media" />
 
         <include
             android:id="@+id/view_item_meceiot"
             layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/view_item_alonso"
+            layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/view_item_internet"
+            layout="@layout/item_iot" />
+
+        <include
+            android:id="@+id/view_item_energy_saving"
+            layout="@layout/item_iot" />
+
 
     </LinearLayout>
 

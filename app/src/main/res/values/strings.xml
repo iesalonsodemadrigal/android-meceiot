@@ -51,10 +51,10 @@
     <!-- Información de la Aplicación -->
     <string name="title_settings">Ajustes</string>
     <string name="settings">Ajustes</string>
-    <string name="proyecto">Proyecto</string>
+    <string name="title_proyect">Proyecto</string>
 
     <!-- Colaboraciones -->
-    <string name="colaboraciones">Colaboraciones</string>
+    <string name="title_collaborations">Colaboraciones</string>
     <string name="colaboradores">Colaboradores</string>
 
     <!-- Desarrolladores -->
@@ -100,6 +100,8 @@
     <string name="question">Question</string>
     <string name="opciones_respuesta">Por favor, complete todas las opciones.</string>
 
+    <!-- Usuario -->
+    <string name="usuario">Usuario</string>
 
 
 </resources>

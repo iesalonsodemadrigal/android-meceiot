@@ -23,7 +23,7 @@
     <item
         android:id="@+id/fragment_sensor_panels"
         android:enabled="true"
-        android:icon="@drawable/baseline_chart_outlined_24"
+        android:icon="@drawable/ic_panels"
         android:title="@string/label_menu_panels" />
 
 </menu>

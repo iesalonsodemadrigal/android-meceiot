@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/panel_name"
-            style="@style/TextAppearance.Material3.BodyLarge"
+            style="@style/AppHeadlineListItem"
             android:layout_width="match_parent"
             android:layout_height="@dimen/font_size_high"
             android:layout_gravity="center_vertical"

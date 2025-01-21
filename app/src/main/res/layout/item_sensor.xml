@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppOutlinedStackedCard"
     android:layout_width="match_parent"
     android:layout_height="@dimen/size_media_listitem"
     app:cardCornerRadius="4dp">
@@ -21,7 +22,7 @@
 
         <TextView
             android:id="@+id/sensor_name"
-            style="@style/TextAppearance.Material3.BodyLarge"
+            style="@style/AppHeadlineListItem"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/font_size_high"
             android:layout_gravity="center_vertical"

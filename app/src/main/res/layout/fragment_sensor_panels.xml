@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
     <edu.iesam.meceiot.core.presentation.views.ErrorAppView
         android:id="@+id/error_app"
         android:layout_width="match_parent"

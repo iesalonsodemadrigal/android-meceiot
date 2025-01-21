@@ -16,10 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_medium"
             android:text="@string/toolbar_Panels"
             android:textColor="?attr/colorTertiary"
-            android:textSize="24sp" />
+            android:textSize="@dimen/font_size_high" />
     </Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView

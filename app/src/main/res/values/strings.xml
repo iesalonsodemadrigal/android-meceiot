@@ -58,11 +58,11 @@
 
     <string name="title_item_iot">IoT</string>
     <string name="description_item_meceiot">Proyecto MeCeIoT para la mejora de centros educativos con Internet de las Cosas (IoT).</string>
-    <string name="title_item_energy_saving">Ahorro energético a través de IoT.</string>
-    <string name="description_item_energy_saving">Información sobre el uso de los sensores IoT para mejorar nuestro centro.</string>
+    <string name="title_item_energy_saving">Ahorro energético con IoT.</string>
+    <string name="description_item_energy_saving">Información sobre el ahorro energético que se puede obtener con IoT</string>
     <string name="description_item_iot_alonso">Información sobre el uso de los sensores IoT para mejorar nuestro centro. .</string>
-    <string name="title_item_internet">Contextos donde más se usa IoT.</string>
-    <string name="description_item_internet">Varios contextos e industrias donde ...</string>
+    <string name="title_item_internet">Internet de las Cosas (IoT).</string>
+    <string name="description_item_internet">Información sobre el Internet de las Cosas y sus aplicaciones.</string>
     <string name="title_item_alonso">IoT en el Alonso</string>
     <string name="description_item_alonso">Implementación y uso de IoT en Alonso.</string>
     <string name="title_item_meceiot">MeceIoT</string>

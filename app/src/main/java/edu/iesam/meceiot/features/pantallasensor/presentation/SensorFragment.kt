@@ -82,14 +82,10 @@ class SensorFragment : Fragment() {
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
                 sensorViewModel.updateChartData(sensor, modelProducer)
-                val minY = sensor.valoresY.min()
-                val maxY = sensor.valoresY.max()
                 val chart = cartesianChartView.chart!!
                 cartesianChartView.chart = chart.copy(
                     bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
-                    startAxis = (chart.startAxis as VerticalAxis).copy(
-                        valueFormatter = valueFormatterYaxis,
-                    ),
+                    startAxis = (chart.startAxis as VerticalAxis).copy(valueFormatter = valueFormatterYaxis),
                 )
             }
             uiState.chartData?.let { chartData ->

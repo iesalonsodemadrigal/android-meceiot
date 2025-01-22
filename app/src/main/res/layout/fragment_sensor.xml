@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:id="@+id/fragment_sensor"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include
@@ -19,13 +18,124 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+    <LinearLayout
+        android:id="@+id/tablaDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nombresensor">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/maxValue"
+                style="@style/AppHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/font_size_extra_small"
+                android:text="12,2"
+                android:textSize="@dimen/Extra_large_font_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_extra_small"
+                android:text="@string/max"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_extra_small" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mediaValue"
+                style="@style/AppHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/font_size_extra_small"
+                android:text="12,2"
+                android:textSize="@dimen/Extra_large_font_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_extra_small"
+                android:text="@string/media"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_extra_small" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/minimunValue"
+                style="@style/AppHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/font_size_extra_small"
+                android:text="12,2"
+                android:textSize="@dimen/Extra_large_font_size" />
+
+            <TextView
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_extra_small"
+                android:text="Mín."
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_extra_small" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/modaValue"
+                style="@style/AppHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/font_size_extra_small"
+                android:text="12,2"
+                android:textSize="@dimen/Extra_large_font_size" />
+
+            <TextView
+                android:id="@+id/tvModa"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_extra_small"
+                android:text="Moda."
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_extra_small" />
+        </LinearLayout>
+    </LinearLayout>
     <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
         android:id="@+id/chart"
+        style="@style/ChartStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        style="@style/ChartStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nombresensor" />
+        app:layout_constraintTop_toBottomOf="@id/tablaDatos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

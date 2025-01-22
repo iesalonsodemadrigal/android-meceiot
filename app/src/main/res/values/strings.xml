@@ -68,6 +68,7 @@
     <string name="title_item_meceiot">MeceIoT</string>
     <string name="title_this_fragment">tu titulo</string>
     <string name="value_null">  </string>
+    <string name="detail_title">titulo</string>
 
 
 </resources>

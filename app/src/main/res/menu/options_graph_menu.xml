@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/fragment_options_graph"
         android:enabled="true"
         android:icon="@drawable/ic_options_graph_24"
-        android:title="@string/opciones_de_grafico" />
+        android:title="@string/opciones_de_grafico"
+        app:showAsAction="always"/>
 </menu>

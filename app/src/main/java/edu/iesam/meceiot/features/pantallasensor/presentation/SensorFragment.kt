@@ -85,23 +85,27 @@ class SensorFragment : Fragment() {
         cartesianChartView = binding.chart
     }
 
+    private fun initializeChart(sensor: Sensor) {
+        val chart = cartesianChartView.chart!!
+        val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
+            y.toLong().formatValue(sensor.dataType)
+        }
+        cartesianChartView.chart = chart.copy(
+            bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
+            startAxis = (chart.startAxis as VerticalAxis).copy(valueFormatter = valueFormatterYaxis),
+        )
+        cartesianChartView.zoomHandler = ZoomHandler(
+            zoomEnabled = true,
+            initialZoom = Zoom.Content,
+        )
+    }
+
     private fun setupObserver() {
         val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
                 sensorViewModel.updateChartData(sensor, modelProducer)
-                val chart = cartesianChartView.chart!!
-                val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
-                    y.toLong().formatValue(sensor.dataType)
-                }
-                cartesianChartView.chart = chart.copy(
-                    bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
-                    startAxis = (chart.startAxis as VerticalAxis).copy(valueFormatter = valueFormatterYaxis),
-                )
-                cartesianChartView.zoomHandler = ZoomHandler(
-                    zoomEnabled = true,
-                    initialZoom = Zoom.Content,
-                )
+                initializeChart(sensor)
             }
             uiState.chartData?.let { chartData ->
                 cartesianChartView.modelProducer = chartData

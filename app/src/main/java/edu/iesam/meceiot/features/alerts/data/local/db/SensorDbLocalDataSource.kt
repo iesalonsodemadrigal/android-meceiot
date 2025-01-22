@@ -5,29 +5,29 @@ import edu.iesam.meceiot.features.alerts.domain.Sensor
 import org.koin.core.annotation.Single
 
 @Single
-class SensorAlertDbLocalDataSource(
-    private val panelAlertDao: PanelAlertDao,
-    private val sensorAlertDao: SensorAlertDao
+class SensorDbLocalDataSource(
+    private val panelDao: PanelDao,
+    private val sensorDao: SensorDao
 ) {
 
     suspend fun getAllPanels(): Result<List<Panel>> {
-        val panelsEntities = panelAlertDao.getPanels()
+        val panelsEntities = panelDao.getPanels()
         return Result.success(panelsEntities.map { it.toDomain() })
     }
 
     suspend fun saveAllPanels(panels: List<Panel>) {
         val panelEntities = panels.map { it.toEntity() }
-        panelAlertDao.savePanels(*panelEntities.toTypedArray())
+        panelDao.savePanels(*panelEntities.toTypedArray())
     }
 
     suspend fun getAllSensors(): Result<List<Sensor>> {
-        val sensorsEntities = sensorAlertDao.getSensors()
+        val sensorsEntities = sensorDao.getSensors()
         return Result.success(sensorsEntities.map { it.toDomain() })
     }
 
     suspend fun saveAllSensors(sensors: List<Sensor>) {
         val sensorsEntities = sensors.map { it.toEntity() }
-        sensorAlertDao.saveSensors(*sensorsEntities.toTypedArray())
+        sensorDao.saveSensors(*sensorsEntities.toTypedArray())
     }
 
 }

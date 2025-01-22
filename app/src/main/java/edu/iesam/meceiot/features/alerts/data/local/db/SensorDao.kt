@@ -6,11 +6,11 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface SensorAlertDao {
+interface SensorDao {
 
-    @Query("SELECT * FROM $SENSOR_ALERT_TABLE")
-    suspend fun getSensors(): List<SensorAlertEntity>
+    @Query("SELECT * FROM $SENSOR_TABLE")
+    suspend fun getSensors(): List<SensorEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveSensors(vararg panels: SensorAlertEntity)
+    suspend fun saveSensors(vararg panels: SensorEntity)
 }

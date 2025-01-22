@@ -3,6 +3,8 @@ package edu.iesam.meceiot.features.pantallasensor.presentation
 import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -54,13 +56,20 @@ class SensorFragment : Fragment() {
         sensorViewModel.viewCreated()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(edu.iesam.meceiot.R.menu.options_graph_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.home -> {
                 findNavController().navigateUp()
                 true
             }
-
+            edu.iesam.meceiot.R.id.fragment_options_graph -> {
+                true
+            }
             else -> {
                 val navController = findNavController()
                 item.onNavDestinationSelected(navController)

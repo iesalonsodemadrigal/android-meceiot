@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import edu.iesam.meceiot.core.data.local.db.converters.DateConverter
+import edu.iesam.meceiot.core.data.local.db.converters.ListConverter
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDao
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperEntity
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesDao
@@ -21,7 +22,7 @@ import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
     version = 7,
     exportSchema = false
 )
-@TypeConverters(DateConverter::class)
+@TypeConverters(DateConverter::class, ListConverter::class)
 abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun loraWanDao(): LoraWanDao
     abstract fun externalResourcesDao(): ExternalResourcesDao

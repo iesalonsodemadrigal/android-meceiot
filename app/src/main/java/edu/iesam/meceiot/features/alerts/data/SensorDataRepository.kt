@@ -8,7 +8,8 @@ import org.koin.core.annotation.Single
 @Single
 class SensorDataRepository(
     private val sensorMockLocalDataSource: SensorMockLocalDataSource,
-    //private val sensorApiRemoteDataSource: SensorApiRemoteDataSource
+    //private val sensorApiRemoteDataSource: SensorApiRemoteDataSource,
+    //private val sensorAlertDbLocalDataSource: SensorAlertDbLocalDataSource
 ) :
     SensorRepository {
     override fun getSensors(): Result<List<Sensor>> {

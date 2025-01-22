@@ -3,7 +3,7 @@ package edu.iesam.meceiot.features.alerts.data.remote
 import com.google.gson.annotations.SerializedName
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 
-data class ZoneApiModel(
+data class PanelApiModel(
     @SerializedName("id") val idZone: String,
     @SerializedName("name") val nameZone: String,
     @SerializedName("sensors") val sensors: List<SensorApiModel>

@@ -1,17 +1,17 @@
 package edu.iesam.meceiot.features.alerts.data.local.mock
 
 import android.content.Context
+import edu.iesam.meceiot.features.alerts.domain.Panel
 import edu.iesam.meceiot.features.alerts.domain.Sensor
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
-import edu.iesam.meceiot.features.alerts.domain.Zone
 import org.koin.core.annotation.Single
 
 @Single
 class SensorMockLocalDataSource(private val context: Context) {
 
     fun getSensor(): Result<List<Sensor>> {
-        val zones = listOf(
-            Zone(
+        val panels = listOf(
+            Panel(
                 id = "1",
                 name = "Meceiot_Alonso_CO2_009 - A16",
                 sensors = listOf(
@@ -52,7 +52,7 @@ class SensorMockLocalDataSource(private val context: Context) {
                     )
                 )
             ),
-            Zone(
+            Panel(
                 id = "2",
                 name = "Meceiot_Alonso_CO2_010 - C22",
                 sensors = listOf(
@@ -93,7 +93,7 @@ class SensorMockLocalDataSource(private val context: Context) {
                     )
                 )
             ),
-            Zone(
+            Panel(
                 id = "3",
                 name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
                 sensors = listOf(
@@ -134,7 +134,7 @@ class SensorMockLocalDataSource(private val context: Context) {
                     )
                 )
             ),
-            Zone(
+            Panel(
                 id = "4",
                 name = "Meceiot_Alonso_Sound_010 - Hall",
                 sensors = listOf(
@@ -176,7 +176,7 @@ class SensorMockLocalDataSource(private val context: Context) {
                 )
             )
         )
-        val allSensors = zones.flatMap { it.sensors }
+        val allSensors = panels.flatMap { it.sensors }
         return Result.success(allSensors)
     }
 }

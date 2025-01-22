@@ -22,8 +22,8 @@ class GetSensorUseCaseTest {
     @Test
     fun `cuando el valor del sensor es 0 o negativo, no detecta movimiento`() {
         // Give: Declaración de variables
-        val mockZone = listOf(
-            Zone(
+        val mockPanel = listOf(
+            Panel(
                 "1", "Meceiot_Alonson_Sound_22", listOf(
                     Sensor(
                         "1",
@@ -38,7 +38,7 @@ class GetSensorUseCaseTest {
                 )
             )
         )
-        val sensor = mockZone.flatMap { it.sensors }
+        val sensor = mockPanel.flatMap { it.sensors }
         coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
 
         // When: Ejecutar el caso de uso
@@ -52,8 +52,8 @@ class GetSensorUseCaseTest {
     @Test
     fun `cuando el sensor detecta movimiento = 1`() {
         //Given
-        val mockZone = listOf(
-            Zone(
+        val mockPanel = listOf(
+            Panel(
                 "1", "Meceiot_Alonson_Co2_45", listOf(
                     Sensor(
                         "1",
@@ -68,7 +68,7 @@ class GetSensorUseCaseTest {
                 )
             )
         )
-        val sensor = mockZone.flatMap { it.sensors }
+        val sensor = mockPanel.flatMap { it.sensors }
         coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
 
 
@@ -86,8 +86,8 @@ class GetSensorUseCaseTest {
     @Test
     fun `cuando el valor de deteccion es mayor a 1`() {
         //Given
-        val mockZone = listOf(
-            Zone(
+        val mockPanel = listOf(
+            Panel(
                 "1", "Meceiot_Alonson_Temp_13", listOf(
                     Sensor(
                         "1",
@@ -102,7 +102,7 @@ class GetSensorUseCaseTest {
                 )
             )
         )
-        val sensor = mockZone.flatMap { it.sensors }
+        val sensor = mockPanel.flatMap { it.sensors }
         coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
 
 

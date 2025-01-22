@@ -126,6 +126,10 @@ class SensorFragment : Fragment() {
         binding.apply {
             nombresensor.text = sensor.nombre
             toolbar.viewToolbarDetail.title = sensor.nombrePanel
+            binding.maxValue.text = sensor.maxValue
+            binding.minValue.text = sensor.minValue
+            binding.avgValue.text = sensor.avgValue
+            binding.modeValue.text = sensor.modeValue
         }
     }
 

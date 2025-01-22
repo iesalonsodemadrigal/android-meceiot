@@ -7,4 +7,8 @@ data class Sensor(
     val dataType : String,
     val valoresX: List<Long>,
     val valoresY: List<Int>,
+    val maxValue: String,
+    val minValue: String,
+    val avgValue: String,
+    val modeValue: String
 )

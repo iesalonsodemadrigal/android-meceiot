@@ -15,6 +15,10 @@ class SensorEntity(
     @ColumnInfo(name = "dataType") val dataType: String,
     @ColumnInfo(name = "values_x") val valoresX: List<Long>,
     @ColumnInfo(name = "values_y") val valoresY: List<Int>,
+    @ColumnInfo(name = "maxValue") val maxValue: String,
+    @ColumnInfo(name = "minValue") val minValue: String,
+    @ColumnInfo(name = "avgValue") val avgValue: String,
+    @ColumnInfo(name = "modeValue") val modeValue: String,
     @ColumnInfo(name = "createdAt") val date: Date
 )
 

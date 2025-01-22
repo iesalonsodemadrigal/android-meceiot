@@ -104,6 +104,6 @@ class SensorRemoteMockDataSource {
     )
 
     fun getSensorData(): Sensor {
-        return Sensor(1, "Sensor CO2", "Panel A16","ppm", dataX, dataY)
+        return Sensor(1, "Sensor CO2", "Panel A16","ppm", dataX, dataY, "1110", "1009", "1056", "1060")
     }
 }

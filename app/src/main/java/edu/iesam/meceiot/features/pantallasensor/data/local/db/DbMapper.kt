@@ -11,6 +11,10 @@ fun Sensor.toEntity(): SensorEntity =
         dataType = this.dataType,
         valoresX = this.valoresX,
         valoresY = this.valoresY,
+        maxValue = this.maxValue,
+        minValue = this.minValue,
+        avgValue = this.avgValue,
+        modeValue = this.modeValue,
         date = Date()
     )
 
@@ -23,6 +27,10 @@ fun SensorEntity?.toDomain(): Sensor? {
             dataType = it.dataType,
             valoresX = it.valoresX,
             valoresY = it.valoresY,
+            maxValue = it.maxValue,
+            minValue = it.minValue,
+            avgValue = it.avgValue,
+            modeValue = it.modeValue
         )
     }
 }

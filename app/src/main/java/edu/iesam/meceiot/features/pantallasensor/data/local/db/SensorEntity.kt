@@ -12,10 +12,9 @@ class SensorEntity(
     @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "sensorName") val nombre: String,
     @ColumnInfo(name = "panelName") val nombrePanel: String,
+    @ColumnInfo(name = "dataType") val dataType: String,
     @ColumnInfo(name = "values_x") val valoresX: List<Long>,
     @ColumnInfo(name = "values_y") val valoresY: List<Int>,
-    @ColumnInfo(name = "leyend_x") val leyendaX: String,
-    @ColumnInfo(name = "leyend_y") val leyendaY: String,
     @ColumnInfo(name = "createdAt") val date: Date
 )
 

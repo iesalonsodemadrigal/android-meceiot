@@ -8,10 +8,9 @@ fun Sensor.toEntity(): SensorEntity =
         id = this.id,
         nombre = this.nombre,
         nombrePanel = this.nombrePanel,
+        dataType = this.dataType,
         valoresX = this.valoresX,
         valoresY = this.valoresY,
-        leyendaX = this.leyendaX,
-        leyendaY = this.leyendaY,
         date = Date()
     )
 
@@ -21,10 +20,9 @@ fun SensorEntity?.toDomain(): Sensor? {
             id = it.id,
             nombre = it.nombre,
             nombrePanel = it.nombrePanel,
+            dataType = it.dataType,
             valoresX = it.valoresX,
             valoresY = it.valoresY,
-            leyendaX = it.leyendaX,
-            leyendaY = it.leyendaY
         )
     }
 }

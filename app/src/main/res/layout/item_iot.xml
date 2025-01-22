@@ -6,11 +6,10 @@
 
     <ImageView
         android:id="@+id/view_item_image"
-        android:layout_width="@dimen/size_media_listitem"
-        android:layout_height="@dimen/size_media_listitem"
         android:layout_marginLeft="@dimen/spacing_horizontal"
         android:layout_marginTop="@dimen/spacing_vertical"
         android:layout_marginBottom="@dimen/spacing_vertical"
+        style="@style/AppImageListItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

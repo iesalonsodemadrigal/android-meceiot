@@ -71,4 +71,12 @@
     <string name="detail_title">titulo</string>
 
 
+    <!--string content meceiot-->
+    <string name="meceiot_title_1">Objetivos 1</string>
+    <string name="meceiot_content_1">Analizar la evolución de parámetros ambientales elegidos en un lugar de interés para el centro, tomando como base datos de sensores IoT, por ejemplo, sensores de ruido, luminosidad, temperatura, o CO2.
+ Tras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT.</string>
+    <string name="meceiot_title_2">Participantes </string>
+    <string name="meceiot_content_2">Podrán presentar una propuesta los centros interesados de la provincia de Ávila en los que se imparta 3º y 4º de ESO.</string>
+
+
 </resources>

@@ -32,8 +32,8 @@
 
     <fragment
         android:id="@+id/testfragment"
-        android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
-        tools:layout="@layout/testfragment">
+        android:name="edu.iesam.meceiot.features.iot.presentation.IotContentScreenAboutFragment"
+        tools:layout="@layout/fragment_iot_content">
     </fragment>
 
     <fragment

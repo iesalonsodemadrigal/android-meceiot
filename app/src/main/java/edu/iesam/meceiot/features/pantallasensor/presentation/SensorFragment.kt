@@ -15,11 +15,13 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.google.android.material.appbar.MaterialToolbar
+import com.patrykandpatrick.vico.core.cartesian.Zoom
 import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
 import com.patrykandpatrick.vico.core.cartesian.axis.VerticalAxis
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,9 +36,6 @@ class SensorFragment : Fragment() {
     private val modelProducer = CartesianChartModelProducer()
     private val valueFormatterXaxis = CartesianValueFormatter { _, x, _ ->
         x.toLong().toHourAndMinute()
-    }
-    private val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
-        y.toLong().toPartPerMillion()
     }
 
 
@@ -92,9 +91,16 @@ class SensorFragment : Fragment() {
                 bindData(sensor)
                 sensorViewModel.updateChartData(sensor, modelProducer)
                 val chart = cartesianChartView.chart!!
+                val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
+                    y.toLong().formatValue(sensor.dataType)
+                }
                 cartesianChartView.chart = chart.copy(
                     bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
                     startAxis = (chart.startAxis as VerticalAxis).copy(valueFormatter = valueFormatterYaxis),
+                )
+                cartesianChartView.zoomHandler = ZoomHandler(
+                    zoomEnabled = true,
+                    initialZoom = Zoom.Content,
                 )
             }
             uiState.chartData?.let { chartData ->
@@ -112,8 +118,8 @@ class SensorFragment : Fragment() {
         return String.format("%02d:%02d", hour, minute)
     }
 
-    private fun Long.toPartPerMillion(): String {
-        return String.format("%d ppm", this)
+    private fun Long.formatValue(dataType: String): String {
+        return String.format("%02d %s", this, dataType)
     }
 
     private fun bindData(sensor: Sensor) {

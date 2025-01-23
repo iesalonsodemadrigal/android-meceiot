@@ -1,13 +1,13 @@
 package edu.iesam.meceiot.features.developer.presentation
 
 import DeveloperAdapter
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
@@ -43,6 +43,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         developerAboutViewModel.viewDevelopers()
+        setupRetryAction()
     }
 
     private fun setupView() {
@@ -62,10 +63,9 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
             uiState.errorMessage?.let {
                 val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it)
+                val errorAppUI = error.build(it, this)
 
                 binding.errorAppView.render(errorAppUI)
-
             } ?: run {
                 binding.errorAppView.hide()
             }
@@ -80,12 +80,25 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     }
 
     private fun bindData(developers: List<DeveloperInfo>) {
-        developerAdapter.submitList( developers.sortedBy { it.id.toIntOrNull() ?: Int.MAX_VALUE })
+        developerAdapter.submitList(developers.sortedBy { it.id.toIntOrNull() ?: Int.MAX_VALUE })
     }
-
 
     private fun openUrl(url: String) {
         appIntent.openUrl(url)
+    }
+
+
+    private fun setupRetryAction() {
+        val retryButton = binding.root.findViewById<Button>(R.id.button_retry_error)
+        retryButton.setOnClickListener {
+            findNavController().run {
+                val currentFragmentId = currentDestination?.id
+                currentFragmentId?.let {
+                    popBackStack()
+                    navigate(it)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

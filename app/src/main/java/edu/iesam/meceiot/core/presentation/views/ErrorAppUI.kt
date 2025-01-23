@@ -1,20 +1,20 @@
 package edu.iesam.meceiot.core.presentation.views
 
 import android.content.Context
-import android.content.Intent
+import androidx.fragment.app.Fragment
 import edu.iesam.meceiot.R
 
 interface ErrorAppUI {
     fun getImageError(): Int
     fun getTitleError(): String
-    fun getRetryActivity(): Class<*>
     fun getDescriptionError(): String
-    fun getActionRetry(retryActivity: Class<*>? = null): Unit
-
-
+    fun getRetryFragment(): Fragment
 }
 
-class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
+class ConnectionErrorAppUI(
+    private val context: Context,
+    private val retryFragment: Fragment
+) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_connection
     }
@@ -27,23 +27,16 @@ class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
         return context.getString(R.string.description_error_connection)
     }
 
-    override fun getActionRetry(retryActivity: Class<*>?) {
-        val targetActivity = retryActivity ?: getRetryActivity()
-        val intent = Intent(context, targetActivity).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        context.startActivity(intent)
-    }
-
-
-    override fun getRetryActivity(): Class<*> {
-        return edu.iesam.meceiot.MainActivity::class.java
-
+    override fun getRetryFragment(): Fragment {
+        return retryFragment
     }
 
 }
 
-class ServerErrorAppUI(val context: Context) : ErrorAppUI {
+class ServerErrorAppUI(
+    private val context: Context,
+    private val retryFragment: Fragment
+) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_server
     }
@@ -56,20 +49,16 @@ class ServerErrorAppUI(val context: Context) : ErrorAppUI {
         return context.getString(R.string.description_error_server)
     }
 
-    override fun getActionRetry(retryActivity: Class<*>?) {
-        val targetActivity = retryActivity ?: getRetryActivity()
-        val intent = Intent(context, targetActivity).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        context.startActivity(intent)
+    override fun getRetryFragment(): Fragment {
+        return retryFragment
     }
 
-
-    override fun getRetryActivity(): Class<*> {
-        return edu.iesam.meceiot.MainActivity::class.java
 }
 
-class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
+class UnknownErrorAppUI(
+    private val context: Context,
+    private val retryFragment: Fragment
+) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_unknown
     }
@@ -82,18 +71,9 @@ class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
         return context.getString(R.string.description_error_unknown)
     }
 
-    override fun getActionRetry(retryActivity: Class<*>?) {
-        val targetActivity = retryActivity ?: getRetryActivity()
-        val intent = Intent(context, targetActivity).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        context.startActivity(intent)
+    override fun getRetryFragment(): Fragment {
+        return retryFragment
     }
 
 
-    override fun getRetryActivity(): Class<*> {
-        return edu.iesam.meceiot.MainActivity::class.java
-
-}
-}
 }

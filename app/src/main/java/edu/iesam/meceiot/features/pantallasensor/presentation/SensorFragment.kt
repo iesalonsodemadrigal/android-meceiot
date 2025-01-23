@@ -121,7 +121,7 @@ class SensorFragment : Fragment() {
 
     private fun bindData(sensor: Sensor) {
         binding.apply {
-            nombresensor.text = sensor.nombre
+            nombreSensor.text = sensor.nombre
             toolbar.viewToolbarDetail.title = sensor.nombrePanel
             binding.maxValue.text = sensor.maxValue
             binding.minValue.text = sensor.minValue

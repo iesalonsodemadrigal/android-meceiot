@@ -42,13 +42,6 @@
                 android:id="@+id/view_paragraph4"
                 layout="@layout/view_content_list" />
 
-            <include
-                android:id="@+id/view_paragraph5"
-                layout="@layout/view_content_list" />
-
-            <include
-                android:id="@+id/view_paragraph6"
-                layout="@layout/view_content_list" />
 
 
         </LinearLayout>

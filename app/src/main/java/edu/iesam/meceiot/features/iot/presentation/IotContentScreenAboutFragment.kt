@@ -26,6 +26,16 @@ class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
             R.string.meceiot_title_2,
             R.string.meceiot_content_2
         )
+        setItemText(
+            ViewContentListBinding.bind(binding.viewParagraph3.root),
+            R.string.meceiot_title_3,
+            R.string.meceiot_content_3
+        )
+        setItemText(
+            ViewContentListBinding.bind(binding.viewParagraph4.root),
+            R.string.meceiot_title_4,
+            R.string.meceiot_content_4
+        )
     }
 
     private fun setItemText(itemBinding: ViewContentListBinding, titleId: Int, descriptionId: Int) {

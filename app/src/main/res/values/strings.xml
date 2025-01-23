@@ -72,11 +72,20 @@
 
 
     <!--string content meceiot-->
-    <string name="meceiot_title_1">Objetivos 1</string>
+    <string name="meceiot_title_1">Objetivos</string>
     <string name="meceiot_content_1">Analizar la evolución de parámetros ambientales elegidos en un lugar de interés para el centro, tomando como base datos de sensores IoT, por ejemplo, sensores de ruido, luminosidad, temperatura, o CO2.
- Tras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT.</string>
+\n\n Tras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT.</string>
     <string name="meceiot_title_2">Participantes </string>
     <string name="meceiot_content_2">Podrán presentar una propuesta los centros interesados de la provincia de Ávila en los que se imparta 3º y 4º de ESO.</string>
-
-
+    <string name="meceiot_title_3">Materiales</string>
+    <string name="meceiot_content_3">Los sensores IoT y el gateway, así como su instalación y formación para acceder a los datos, correrán a cargo de la Universidad. Finalizado el proyecto, sensores y gateway deberán ser devueltos.
+        \n\n en un lugar de interés para el centro, tomando como base datos de sensores IoT, por ejemplo, sensores de ruido, luminosidad, temperatura, o CO2.\n\n
+        Tras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT. </string>
+    <string name="meceiot_title_4">Criterios de valoración</string>
+    <string name="meceiot_content_4">Se otorgarán tres premios:\n
+- Mejor proyecto tecnológico siguiendo los criterios de valoración de proyectos.\n
+- Mejor proyecto con diseño de sensor IoT.\n
+- Centro más activo en redes sociales: centro con mayor número de publicaciones en redes sociales y visualizaciones.\n
+        \n\n Todos los premios consistirán en una Excursión al Museo de la Ciencia de Valladolid (desplazamiento (1 autobús) y entrada para profesores y alumno implicados en el proyecto), en el mes de mayo.
+        \n\n En cualquier caso, todos los proyectos seleccionados tendrán su propio reconocimiento y podrán desplazarse gratuitamente a la Feria que se realizará en la Escuela Politécnica Superior de Ávila (1 autobús por centro). </string>
 </resources>

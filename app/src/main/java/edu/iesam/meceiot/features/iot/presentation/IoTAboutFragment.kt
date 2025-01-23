@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentIotBinding
 
@@ -30,6 +31,10 @@ class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
                 viewItemTitle.setText(R.string.title_item_meceiot)
                 viewItemDescription.setText(R.string.description_item_meceiot)
                 viewItemImage.setImageResource(R.drawable.ic_logo_meceiot)
+                viewIot.setOnClickListener {
+                    findNavController().navigate(R.id.action_meciot_to_meceiotfragment)
+                }
+
             }
 
             viewItemAlonso.apply {

@@ -28,13 +28,23 @@
         android:id="@+id/IoT_Fragment"
         android:name="edu.iesam.meceiot.features.iot.presentation.IoTAboutFragment"
         tools:layout="@layout/fragment_iot">
+
+        <action
+            android:id="@+id/action_meciot_to_meceiotfragment"
+            app:destination="@id/meceiot_fragment" />
+
     </fragment>
 
     <fragment
-        android:id="@+id/testfragment"
+        android:id="@+id/meceiot_fragment"
         android:name="edu.iesam.meceiot.features.iot.presentation.IotContentScreenAboutFragment"
-        tools:layout="@layout/fragment_iot_content">
-    </fragment>
+        tools:layout="@layout/fragment_iot_content"></fragment>
+
+    <!--    <fragment
+            android:id="@+id/testfragment"
+            android:name="edu.iesam.meceiot.features.tes.presentation."
+            tools:layout="@layout/fragment_iot_content">
+        </fragment>-->
 
     <fragment
         android:id="@+id/login_fragment"

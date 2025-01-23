@@ -2,6 +2,7 @@ package edu.iesam.meceiot.core.data.local.db.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 
 class SensorListConverter {
@@ -14,7 +15,8 @@ class SensorListConverter {
 
     @TypeConverter
     fun toSensorList(sensorListString: String): List<Sensor> {
-        return gson.fromJson(sensorListString, Array<Sensor>::class.java).toList()
+        val listType = object : TypeToken<List<Sensor>>() {}.type
+        return gson.fromJson(sensorListString, listType)
     }
 
 }

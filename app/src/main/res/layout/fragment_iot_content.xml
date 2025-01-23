@@ -5,7 +5,7 @@
 
     <include
         android:id="@+id/view_detailed_meceiot"
-        layout="@layout/view_toolbar_detail" />
+        layout="@layout/main_toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,19 +28,19 @@
 
             <include
                 android:id="@+id/view_paragraph"
-                layout="@layout/view_content_list" />
+                layout="@layout/item_content_list" />
 
             <include
                 android:id="@+id/view_paragraph2"
-                layout="@layout/view_content_list" />
+                layout="@layout/item_content_list" />
 
             <include
                 android:id="@+id/view_paragraph3"
-                layout="@layout/view_content_list" />
+                layout="@layout/item_content_list" />
 
             <include
                 android:id="@+id/view_paragraph4"
-                layout="@layout/view_content_list" />
+                layout="@layout/item_content_list" />
 
 
 

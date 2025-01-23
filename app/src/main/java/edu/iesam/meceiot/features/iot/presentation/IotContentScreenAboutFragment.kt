@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentIotContentBinding
-import edu.iesam.meceiot.databinding.ViewContentListBinding
+import edu.iesam.meceiot.databinding.ItemContentListBinding
 
 class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
     private var _binding: FragmentIotContentBinding? = null
@@ -17,35 +17,35 @@ class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
         bindData()
 
         setItemText(
-            ViewContentListBinding.bind(binding.viewParagraph.root),
+            ItemContentListBinding.bind(binding.viewParagraph.root),
             R.string.meceiot_title_1,
             R.string.meceiot_content_1
         )
         setItemText(
-            ViewContentListBinding.bind(binding.viewParagraph2.root),
+            ItemContentListBinding.bind(binding.viewParagraph2.root),
             R.string.meceiot_title_2,
             R.string.meceiot_content_2
         )
         setItemText(
-            ViewContentListBinding.bind(binding.viewParagraph3.root),
+            ItemContentListBinding.bind(binding.viewParagraph3.root),
             R.string.meceiot_title_3,
             R.string.meceiot_content_3
         )
         setItemText(
-            ViewContentListBinding.bind(binding.viewParagraph4.root),
+            ItemContentListBinding.bind(binding.viewParagraph4.root),
             R.string.meceiot_title_4,
             R.string.meceiot_content_4
         )
     }
 
-    private fun setItemText(itemBinding: ViewContentListBinding, titleId: Int, descriptionId: Int) {
+    private fun setItemText(itemBinding: ItemContentListBinding, titleId: Int, descriptionId: Int) {
         itemBinding.titleInfo.setText(titleId)
         itemBinding.textInfo.setText(descriptionId)
     }
 
     private fun bindData() {
         binding.apply {
-            /* view_detailed_meceiot.viewTitle.setText(R.string.title_item_meceiot)*/
+            viewDetailedMeceiot.mainToolbar.title = getString(R.string.iot_title)
         }
 
     }

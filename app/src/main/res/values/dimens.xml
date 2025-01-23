@@ -46,5 +46,7 @@
 
     <dimen name="border_radius_extra_small">30dp</dimen>
     <dimen name="toolbar_height">64dp</dimen>
+    <dimen name="image_size_content_iot_w">412dp</dimen>
+    <dimen name="image_size_content_iot_h">305dp</dimen>
 
 </resources>

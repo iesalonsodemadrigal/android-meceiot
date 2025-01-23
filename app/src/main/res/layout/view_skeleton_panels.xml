@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.faltenreich.skeletonlayout.SkeletonLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/panels_skeleton"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Skeleton layout for panels and sensors -->
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/panels_skeleton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Skeleton layout for panels and sensors -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -44,11 +47,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_1"
-                app:layout_constraintTop_toBottomOf="@+id/panel_1"
-                app:layout_constraintStart_toStartOf="@+id/panel_1"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/panel_1"
+                app:layout_constraintTop_toBottomOf="@+id/panel_1">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -80,11 +83,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_2"
-                app:layout_constraintTop_toBottomOf="@+id/panel_1"
-                app:layout_constraintStart_toEndOf="@+id/sensor_1"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_1"
+                app:layout_constraintTop_toBottomOf="@+id/panel_1">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -117,11 +120,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_3"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_1"
-                app:layout_constraintStart_toStartOf="@+id/sensor_1"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_1"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_1">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -154,11 +157,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_4"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_1"
-                app:layout_constraintStart_toEndOf="@+id/sensor_3"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_3"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_1">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -191,11 +194,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_5"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_3"
-                app:layout_constraintStart_toStartOf="@+id/sensor_3"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_3"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_3">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -228,11 +231,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_6"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_3"
-                app:layout_constraintStart_toEndOf="@+id/sensor_5"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_5"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_3">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -265,11 +268,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/panel_2"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_5"
-                app:layout_constraintStart_toStartOf="@+id/sensor_5"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_5"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -291,11 +294,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_7"
-                app:layout_constraintTop_toBottomOf="@+id/panel_2"
-                app:layout_constraintStart_toStartOf="@+id/panel_2"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/panel_2"
+                app:layout_constraintTop_toBottomOf="@+id/panel_2">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -328,11 +331,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_8"
-                app:layout_constraintTop_toBottomOf="@+id/panel_2"
-                app:layout_constraintStart_toEndOf="@+id/sensor_7"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_7"
+                app:layout_constraintTop_toBottomOf="@+id/panel_2">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -365,11 +368,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_9"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_7"
-                app:layout_constraintStart_toStartOf="@+id/sensor_7"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_7"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_7">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -402,11 +405,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_10"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_7"
-                app:layout_constraintStart_toEndOf="@+id/sensor_9"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_9"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_7">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -439,11 +442,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_11"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_9"
-                app:layout_constraintStart_toStartOf="@+id/sensor_9"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_9"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_9">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -476,11 +479,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_12"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_9"
-                app:layout_constraintStart_toEndOf="@+id/sensor_11"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_11"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_9">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -513,11 +516,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/panel_3"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_11"
-                app:layout_constraintStart_toStartOf="@+id/sensor_11"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_11"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_11">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -538,11 +541,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_13"
-                app:layout_constraintTop_toBottomOf="@+id/panel_3"
-                app:layout_constraintStart_toStartOf="@+id/panel_3"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/panel_3"
+                app:layout_constraintTop_toBottomOf="@+id/panel_3">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -575,11 +578,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_14"
-                app:layout_constraintTop_toBottomOf="@+id/panel_3"
-                app:layout_constraintStart_toEndOf="@+id/sensor_13"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_13"
+                app:layout_constraintTop_toBottomOf="@+id/panel_3">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -612,11 +615,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_15"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_13"
-                app:layout_constraintStart_toStartOf="@+id/sensor_13"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_13"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_13">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -649,11 +652,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_16"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_13"
-                app:layout_constraintStart_toEndOf="@+id/sensor_15"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_15"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_13">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -686,11 +689,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_17"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_15"
-                app:layout_constraintStart_toStartOf="@+id/sensor_15"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toStartOf="@+id/sensor_15"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_15">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -723,11 +726,11 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/sensor_18"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_15"
-                app:layout_constraintStart_toEndOf="@+id/sensor_17"
                 android:layout_width="205dp"
                 android:layout_height="@dimen/size_media_listitem"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                app:layout_constraintStart_toEndOf="@+id/sensor_17"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_15">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -758,5 +761,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.faltenreich.skeletonlayout.SkeletonLayout>
 

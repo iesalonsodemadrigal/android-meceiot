@@ -35,7 +35,7 @@ class SensorDbDataSource(private val sensorDao: SensorDao) {
 
     fun getById(id: Int): Sensor? {
         val sensorEntity = sensorDao.getById(id)
-        return sensorEntity.toDomain() // Ensure toDomain is called only if sensorEntity is not null
+        return sensorEntity?.toDomain()
     }
 
 }

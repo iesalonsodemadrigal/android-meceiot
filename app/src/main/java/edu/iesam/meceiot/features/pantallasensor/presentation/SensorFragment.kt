@@ -49,6 +49,7 @@ class SensorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSensorBinding.inflate(inflater, container, false)
+
         setupView()
         cartesianChartView.modelProducer = modelProducer
         setHasOptionsMenu(true)
@@ -57,8 +58,7 @@ class SensorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setupView()
+        skeleton = binding.root.findViewById(edu.iesam.meceiot.R.id.sensor_skeleton)
         setupObserver()
         sensorViewModel.viewCreated(sensorMockId)
         setupRetryAction()
@@ -89,7 +89,6 @@ class SensorFragment : Fragment() {
 
     private fun setupView() {
         val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
-        skeleton = binding.root.findViewById(edu.iesam.meceiot.R.id.skeletonLayout)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         val actionBar: ActionBar? = (activity as AppCompatActivity).supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)

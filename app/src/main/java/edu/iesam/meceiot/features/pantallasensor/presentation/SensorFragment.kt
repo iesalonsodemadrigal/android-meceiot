@@ -8,12 +8,14 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
+import com.faltenreich.skeletonlayout.Skeleton
 import com.google.android.material.appbar.MaterialToolbar
 import com.patrykandpatrick.vico.core.cartesian.Zoom
 import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
@@ -22,6 +24,8 @@ import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
+import edu.iesam.meceiot.core.presentation.hide
+import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,6 +39,7 @@ class SensorFragment : Fragment() {
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
     private val sensorMockId = 1
+    private lateinit var skeleton: Skeleton
     private val valueFormatterXaxis = CartesianValueFormatter { _, x, _ ->
         x.toLong().toHourAndMinute()
     }
@@ -54,6 +59,7 @@ class SensorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         sensorViewModel.viewCreated(sensorMockId)
+        setupRetryAction()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -81,6 +87,7 @@ class SensorFragment : Fragment() {
 
     private fun setupView() {
         val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
+        skeleton = binding.root.findViewById(edu.iesam.meceiot.R.id.skeletonLayout)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         val actionBar: ActionBar? = (activity as AppCompatActivity).supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
@@ -91,6 +98,16 @@ class SensorFragment : Fragment() {
 
     private fun setupObserver() {
         val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
+            if (uiState.loading) {
+                skeleton.showSkeleton()
+            } else {
+                skeleton.showOriginal()
+            }
+            uiState.errorApp?.let {
+                val error = ErrorAppFactory(requireContext())
+                val errorAppUI = error.build(it)
+                binding.errorAppView.render(errorAppUI)
+            } ?: run { binding.errorAppView.hide() }
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
                 sensorViewModel.updateChartData(sensor, modelProducer)
@@ -146,6 +163,21 @@ class SensorFragment : Fragment() {
 
     private fun Long.formatValue(dataType: String): String {
         return String.format("%02d %s", this, dataType)
+    }
+
+    private fun setupRetryAction() {
+        val retryButton =
+            binding.root.findViewById<Button>(edu.iesam.meceiot.R.id.button_retry_error)
+        retryButton.setOnClickListener {
+            findNavController().run {
+                val currentFragmentId =
+                    currentDestination?.id
+                currentFragmentId?.let {
+                    popBackStack()
+                    navigate(it)
+                }
+            }
+        }
     }
 }
 

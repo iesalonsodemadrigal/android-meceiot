@@ -34,6 +34,7 @@ class SensorFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
+    private val sensorMockId = 1
     private val valueFormatterXaxis = CartesianValueFormatter { _, x, _ ->
         x.toLong().toHourAndMinute()
     }
@@ -41,7 +42,7 @@ class SensorFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSensorBinding.inflate(inflater, container, false)
         setupView()
         cartesianChartView.modelProducer = modelProducer
@@ -52,7 +53,7 @@ class SensorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        sensorViewModel.viewCreated()
+        sensorViewModel.viewCreated(sensorMockId)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -66,9 +67,11 @@ class SensorFragment : Fragment() {
                 findNavController().navigateUp()
                 true
             }
+
             edu.iesam.meceiot.R.id.fragment_options_graph -> {
                 true
             }
+
             else -> {
                 val navController = findNavController()
                 item.onNavDestinationSelected(navController)
@@ -83,6 +86,21 @@ class SensorFragment : Fragment() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setHomeButtonEnabled(true)
         cartesianChartView = binding.chart
+    }
+
+
+    private fun setupObserver() {
+        val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
+            uiState.sensors?.let { sensor ->
+                bindData(sensor)
+                sensorViewModel.updateChartData(sensor, modelProducer)
+                initializeChart(sensor)
+            }
+            uiState.chartData?.let { chartData ->
+                cartesianChartView.modelProducer = chartData
+            }
+        }
+        sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
 
     private fun initializeChart(sensor: Sensor) {
@@ -100,31 +118,6 @@ class SensorFragment : Fragment() {
         )
     }
 
-    private fun setupObserver() {
-        val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
-            uiState.sensors?.let { sensor ->
-                bindData(sensor)
-                sensorViewModel.updateChartData(sensor, modelProducer)
-                initializeChart(sensor)
-            }
-            uiState.chartData?.let { chartData ->
-                cartesianChartView.modelProducer = chartData
-            }
-        }
-        sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
-    }
-
-    private fun Long.toHourAndMinute(): String {
-        val date = Date(this) // Assuming the long value is in milliseconds
-        val calendar = Calendar.getInstance().apply { time = date }
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-        return String.format("%02d:%02d", hour, minute)
-    }
-
-    private fun Long.formatValue(dataType: String): String {
-        return String.format("%02d %s", this, dataType)
-    }
 
     private fun bindData(sensor: Sensor) {
         binding.apply {
@@ -141,6 +134,18 @@ class SensorFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun Long.toHourAndMinute(): String {
+        val date = Date(this) // Assuming the long value is in milliseconds
+        val calendar = Calendar.getInstance().apply { time = date }
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+        return String.format("%02d:%02d", hour, minute)
+    }
+
+    private fun Long.formatValue(dataType: String): String {
+        return String.format("%02d %s", this, dataType)
     }
 }
 

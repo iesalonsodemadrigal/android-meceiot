@@ -9,7 +9,7 @@
         layout="@layout/view_toolbar_detail" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/nombresensor"
+        android:id="@+id/nombre_sensor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -19,14 +19,14 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <LinearLayout
-        android:id="@+id/tablaDatos"
+        android:id="@+id/tabla_datos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/chart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nombresensor">
+        app:layout_constraintTop_toBottomOf="@id/nombre_sensor">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_extra_small"
-                android:text="Mín."
+                android:text="@string/min"
                 android:textAlignment="center"
                 android:textSize="@dimen/font_size_extra_small" />
 
@@ -138,8 +138,8 @@
         style="@style/ChartStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/margin_extra_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tablaDatos" />
+        app:layout_constraintTop_toBottomOf="@id/tabla_datos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

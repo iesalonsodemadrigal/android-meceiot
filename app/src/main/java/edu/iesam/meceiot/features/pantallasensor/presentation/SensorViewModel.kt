@@ -19,10 +19,10 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
     val uiState: LiveData<UiState> = _uiState
 
 
-    fun viewCreated() {
+    fun viewCreated(id: Int) {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            val sensor = getSensorDataUseCase.invoke(1)
+            val sensor = getSensorDataUseCase.invoke(id)
             _uiState.postValue(
                 UiState(
                     loading = false,
@@ -51,7 +51,7 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
 
 
     data class UiState(
-        val loading: Boolean = false,
+        val loading: Boolean = true,
         val errorApp: ErrorApp? = null,
         val sensors: Sensor? = null,
         val chartData: CartesianChartModelProducer? = null

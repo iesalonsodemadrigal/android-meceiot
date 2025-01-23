@@ -18,8 +18,8 @@ fun Sensor.toEntity(): SensorEntity =
         date = Date()
     )
 
-fun SensorEntity?.toDomain(): Sensor? {
-    return this?.let {
+fun SensorEntity.toDomain(): Sensor {
+    return this.let {
         Sensor(
             id = it.id,
             nombre = it.nombre,

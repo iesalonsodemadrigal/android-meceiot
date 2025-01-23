@@ -69,6 +69,14 @@ class SensorPanelsFragment : Fragment() {
         }
     }
 
+    private fun navigateToDetail(sensorId: Int) {
+        /*findNavController().navigate(
+            SensorPanelsFragmentDirections
+                .actionSensorPanelsFragmentToSensorPanelDetailFragment(sensorId
+            )
+        )*/
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupSkeleton()
@@ -113,14 +121,6 @@ class SensorPanelsFragment : Fragment() {
             }
         }
         return list
-    }
-
-    private fun navigateToDetail(sensorId: Int) {
-        /*findNavController().navigate(
-            SensorPanelsFragmentDirections
-                .actionSensorPanelsFragmentToSensorPanelDetailFragment(sensorId
-            )
-        )*/
     }
 
     override fun onDestroyView() {

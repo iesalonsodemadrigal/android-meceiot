@@ -31,7 +31,6 @@
     <dimen name="image_size_back_iot">200dp</dimen>
 
 
-
     <dimen name="margin_extra_small">5dp</dimen>
     <dimen name="margin_small">10dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
@@ -46,9 +45,6 @@
 
 
     <dimen name="border_radius_extra_small">30dp</dimen>
-
-    <dimen name="image_size_content_iot_w">412dp</dimen>
-    <dimen name="image_size_content_iot_h">305dp</dimen>
-
+    <dimen name="toolbar_height">64dp</dimen>
 
 </resources>

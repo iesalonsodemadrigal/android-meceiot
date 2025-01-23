@@ -64,7 +64,7 @@ class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
 
     private fun bindData() {
         binding.apply {
-            viewToolbar.viewToolbarTitle.title = getString(R.string.iot_title)
+            viewToolbar.mainToolbar.title = getString(R.string.iot_title)
         }
     }
 

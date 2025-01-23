@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentIotContentBinding
 import edu.iesam.meceiot.databinding.ItemContentListBinding
@@ -25,7 +26,14 @@ class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
 
     private fun setupView() {
         binding.apply {
-            viewDetailedMeceiot.mainToolbar.title = getString(R.string.iot_title)
+            viewDetailedMeceiot.mainToolbarDetail.setNavigationOnClickListener {
+                // Handle navigation icon press
+                findNavController().navigateUp()
+
+
+            }
+
+            viewDetailedMeceiot.mainToolbarDetail.title = getString(R.string.iot_title)
 
             setItemText(
                 ItemContentListBinding.bind(viewParagraph.root),

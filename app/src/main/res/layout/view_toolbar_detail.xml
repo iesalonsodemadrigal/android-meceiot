@@ -1,13 +1,15 @@
-<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/view_toolbar_detail"
-    style="@style/AppHeadlineHeader"
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_extra_small"
-    android:padding="@dimen/image_size_small"
-    android:paddingTop="@dimen/padding_extra_small"
-    android:paddingBottom="@dimen/padding_extra_small"
-    android:textSize="@dimen/font_size_medium"
-    android:background="@color/white"
-    app:title="@string/detail_title" />
+    android:layout_height="@dimen/toolbar_height"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/design_default_color_surface">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/main_toolbar_detail"
+        style="@style/AppmainToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        app:navigationIcon="@drawable/ic_arrow_back_24" />
+
+</com.google.android.material.appbar.AppBarLayout>

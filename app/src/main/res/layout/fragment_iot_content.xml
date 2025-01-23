@@ -5,7 +5,7 @@
 
     <include
         android:id="@+id/view_detailed_meceiot"
-        layout="@layout/main_toolbar"
+        layout="@layout/view_toolbar_detail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

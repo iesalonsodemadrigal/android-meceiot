@@ -10,25 +10,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/null_value"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_detailed_meceiot">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="@dimen/image_size_content_iot_w"
-                android:layout_height="@dimen/image_size_content_iot_h"
-            <ImageView
-                android:id="@+id/view_top_image_iot"
-                android:layout_width=""
-                android:layout_height=""
-                android:contentDescription="descripcion"
-                android:src="@drawable/ic_logo_meceiot" />
+                android:id="@+id/view_top_image"
+                android:layout_width="412dp"
+                android:layout_height="305dp"
+                app:layout_constraintTop_toBottomOf="@id/view_detailed_meceiot">
+
+                <ImageView
+                    android:id="@+id/view_top_image_iot"
+                    android:layout_width="@dimen/image_size_content_iot_w"
+                    android:layout_height="@dimen/image_size_content_iot_h"
+                    android:contentDescription="descripcion"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_logo_meceiot" />
+            </LinearLayout>
 
             <include
                 android:id="@+id/view_paragraph"
@@ -45,8 +51,6 @@
             <include
                 android:id="@+id/view_paragraph4"
                 layout="@layout/item_content_list" />
-
-
 
         </LinearLayout>
     </ScrollView>

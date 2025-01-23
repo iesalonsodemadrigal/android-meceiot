@@ -45,6 +45,6 @@
 
 
     <dimen name="border_radius_extra_small">30dp</dimen>
-
+    <dimen name="toolbar_height">64dp</dimen>
 
 </resources>

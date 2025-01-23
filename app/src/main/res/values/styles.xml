@@ -77,4 +77,10 @@
         <item name="cornerSize">50%</item>
 
     </style>
+
+    //toolbar
+
+    <style name="AppmainToolbar" parent="Widget.Material3.Toolbar.Surface">
+        <item name="titleCentered">true</item>
+    </style>
 </resources>

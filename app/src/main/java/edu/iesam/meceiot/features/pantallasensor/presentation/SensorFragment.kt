@@ -57,6 +57,8 @@ class SensorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setupView()
         setupObserver()
         sensorViewModel.viewCreated(sensorMockId)
         setupRetryAction()
@@ -98,11 +100,6 @@ class SensorFragment : Fragment() {
 
     private fun setupObserver() {
         val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
-            if (uiState.loading) {
-                skeleton.showSkeleton()
-            } else {
-                skeleton.showOriginal()
-            }
             uiState.errorApp?.let {
                 val error = ErrorAppFactory(requireContext())
                 val errorAppUI = error.build(it)
@@ -115,6 +112,11 @@ class SensorFragment : Fragment() {
             }
             uiState.chartData?.let { chartData ->
                 cartesianChartView.modelProducer = chartData
+            }
+            if (uiState.loading) {
+                skeleton.showSkeleton()
+            } else {
+                skeleton.showOriginal()
             }
         }
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)

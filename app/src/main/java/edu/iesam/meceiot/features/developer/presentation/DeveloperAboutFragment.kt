@@ -63,7 +63,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
 
             uiState.errorMessage?.let {
                 val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it, this)
+                val errorAppUI = error.build(it)
 
                 binding.errorAppView.render(errorAppUI)
             } ?: run {

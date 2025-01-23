@@ -1,20 +1,16 @@
 package edu.iesam.meceiot.core.presentation.views
 
 import android.content.Context
-import androidx.fragment.app.Fragment
 import edu.iesam.meceiot.R
 
 interface ErrorAppUI {
     fun getImageError(): Int
     fun getTitleError(): String
     fun getDescriptionError(): String
-    fun getRetryFragment(): Fragment
+    fun getActionRetry(): Unit
 }
 
-class ConnectionErrorAppUI(
-    private val context: Context,
-    private val retryFragment: Fragment
-) : ErrorAppUI {
+class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_connection
     }
@@ -27,16 +23,12 @@ class ConnectionErrorAppUI(
         return context.getString(R.string.description_error_connection)
     }
 
-    override fun getRetryFragment(): Fragment {
-        return retryFragment
+    override fun getActionRetry() {
+        TODO("Not yet implemented")
     }
-
 }
 
-class ServerErrorAppUI(
-    private val context: Context,
-    private val retryFragment: Fragment
-) : ErrorAppUI {
+class ServerErrorAppUI(val context: Context) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_server
     }
@@ -49,16 +41,12 @@ class ServerErrorAppUI(
         return context.getString(R.string.description_error_server)
     }
 
-    override fun getRetryFragment(): Fragment {
-        return retryFragment
+    override fun getActionRetry() {
+        TODO("Not yet implemented")
     }
-
 }
 
-class UnknownErrorAppUI(
-    private val context: Context,
-    private val retryFragment: Fragment
-) : ErrorAppUI {
+class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_unknown
     }
@@ -71,9 +59,7 @@ class UnknownErrorAppUI(
         return context.getString(R.string.description_error_unknown)
     }
 
-    override fun getRetryFragment(): Fragment {
-        return retryFragment
+    override fun getActionRetry() {
+        TODO("Not yet implemented")
     }
-
-
 }

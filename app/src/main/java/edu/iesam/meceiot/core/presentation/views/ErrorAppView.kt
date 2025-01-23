@@ -12,6 +12,7 @@ class ErrorAppView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
 
+
     private val binding = ViewErrorBinding
         .inflate(LayoutInflater.from(context), this, true)
 
@@ -24,7 +25,8 @@ class ErrorAppView @JvmOverloads constructor(
             imageError.setImageResource(errorAppUI.getImageError())
             titleError.text = errorAppUI.getTitleError()
             descriptionError.text = errorAppUI.getDescriptionError()
+            //button action...
+            visible()
         }
-        visible()
     }
 }

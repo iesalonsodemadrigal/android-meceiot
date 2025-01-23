@@ -63,7 +63,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
 
             uiState.errorApp?.let {
                 val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it, this)
+                val errorAppUI = error.build(it)
 
                 binding.errorAppViewResources.render(errorAppUI)
             } ?: run {

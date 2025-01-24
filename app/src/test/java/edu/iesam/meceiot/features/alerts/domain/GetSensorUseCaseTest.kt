@@ -27,13 +27,11 @@ class GetSensorUseCaseTest {
                 "1", "Meceiot_Alonson_Sound_22", listOf(
                     Sensor(
                         "1",
-                        "Sensor-22-Hall",
-                        "Sensor princial", TypeSensor.Movement, "-1"
+                        "Sensor-22-Hall", TypeSensor.Movement, "-1"
                     ),
                     Sensor(
                         "2",
-                        "Sensor-Puerta-Salida",
-                        "Sensor Patio", TypeSensor.Movement, "0"
+                        "Sensor-Puerta-Salida", TypeSensor.Movement, "0"
                     )
                 )
             )
@@ -57,13 +55,11 @@ class GetSensorUseCaseTest {
                 "1", "Meceiot_Alonson_Co2_45", listOf(
                     Sensor(
                         "1",
-                        "Sensor-43-Pasillo",
-                        "Sensor Pabellón A", TypeSensor.Movement, "1"
+                        "Sensor-43-Pasillo", TypeSensor.Movement, "1"
                     ),
                     Sensor(
                         "2",
-                        "Sensor-Entrada",
-                        "Sensor Hall", TypeSensor.Movement, "1"
+                        "Sensor-Entrada", TypeSensor.Movement, "1"
                     )
                 )
             )
@@ -91,13 +87,11 @@ class GetSensorUseCaseTest {
                 "1", "Meceiot_Alonson_Temp_13", listOf(
                     Sensor(
                         "1",
-                        "Sensor-22-Hall",
-                        "Sensor princial", TypeSensor.Movement, "7"
+                        "Sensor-22-Hall", TypeSensor.Movement, "7"
                     ),
                     Sensor(
                         "2",
-                        "Sensor-Puerta-Salida",
-                        "Sensor Patio", TypeSensor.Movement, "12"
+                        "Sensor-Puerta-Salida", TypeSensor.Movement, "12"
                     )
                 )
             )

@@ -5,21 +5,23 @@
         android:enabled="true"
         android:icon="@drawable/icon_wifi"
         android:title="@string/label_menu_a" />
+
     <item
-        android:id="@+id/fragment_b"
+        android:id="@+id/IoT_Fragment"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/label_menu_b" />
+        android:icon="@drawable/ic_logo_iot"
+        android:title="@string/IoT" />
     <item
         android:id="@+id/testfragment"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Test" />
+        android:title="@string/test" />
+
     <item
-        android:id="@+id/fragment_external_resources"
+        android:id="@+id/fragment_settings"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/label_menu_d" />
+        android:icon="@drawable/ic_setting"
+        android:title="@string/settings" />
     <item
         android:id="@+id/fragment_sensor_panels"
         android:enabled="true"

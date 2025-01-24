@@ -6,13 +6,13 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 
 class ErrorAppFactory(val context: Context) {
 
-    fun build(errorApp: ErrorApp): ErrorAppUI {
+    fun build(errorApp: ErrorApp, onClick: (() -> Unit)): ErrorAppUI {
         return when (errorApp) {
-            ErrorApp.DataErrorApp -> ServerErrorAppUI(context)
-            ErrorApp.DataExpiredError -> ConnectionErrorAppUI(context)
-            ErrorApp.InternetErrorApp -> ConnectionErrorAppUI(context)
-            ErrorApp.ServerErrorApp -> ServerErrorAppUI(context)
-            ErrorApp.UnknowErrorApp -> UnknownErrorAppUI(context)
+            ErrorApp.DataErrorApp -> ServerErrorAppUI(context, onClick)
+            ErrorApp.DataExpiredError -> ConnectionErrorAppUI(context, onClick)
+            ErrorApp.InternetErrorApp -> ConnectionErrorAppUI(context, onClick)
+            ErrorApp.ServerErrorApp -> ServerErrorAppUI(context, onClick)
+            ErrorApp.UnknowErrorApp -> UnknownErrorAppUI(context, onClick)
         }
     }
 }

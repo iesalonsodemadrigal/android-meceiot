@@ -18,7 +18,7 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
     val uiState: LiveData<UiState> = _uiState
 
 
-    fun viewCreated() {
+    fun fetchInfoLoraWan() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val infoLoraWan = getInfoLoraWanUseCase()
@@ -31,7 +31,6 @@ class LoraWanViewModel(private val getInfoLoraWanUseCase: GetInfoLoraWanUseCase)
             )
         }
     }
-
 
     data class UiState(
         val isLoading: Boolean = false,

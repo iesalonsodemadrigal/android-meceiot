@@ -10,7 +10,7 @@ interface ErrorAppUI {
     fun getActionRetry(): Unit
 }
 
-class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
+class ConnectionErrorAppUI(val context: Context, val onClick: (() -> Unit)?) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_connection
     }
@@ -24,11 +24,11 @@ class ConnectionErrorAppUI(val context: Context) : ErrorAppUI {
     }
 
     override fun getActionRetry() {
-        TODO("Not yet implemented")
+        onClick?.invoke()
     }
 }
 
-class ServerErrorAppUI(val context: Context) : ErrorAppUI {
+class ServerErrorAppUI(val context: Context, val onClick: (() -> Unit)?) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_server
     }
@@ -42,11 +42,11 @@ class ServerErrorAppUI(val context: Context) : ErrorAppUI {
     }
 
     override fun getActionRetry() {
-        TODO("Not yet implemented")
+        onClick?.invoke()
     }
 }
 
-class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
+class UnknownErrorAppUI(val context: Context, val onClick: (() -> Unit)?) : ErrorAppUI {
     override fun getImageError(): Int {
         return R.drawable.image_error_unknown
     }
@@ -60,6 +60,6 @@ class UnknownErrorAppUI(val context: Context) : ErrorAppUI {
     }
 
     override fun getActionRetry() {
-        TODO("Not yet implemented")
+        onClick?.invoke()
     }
 }

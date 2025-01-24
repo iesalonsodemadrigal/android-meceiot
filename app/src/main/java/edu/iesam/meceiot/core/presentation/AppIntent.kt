@@ -44,7 +44,7 @@ class AppIntent(private val context: Context) {
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:$recipient")
         }
-        context.startActivity(Intent.createChooser(intent, "Accediendo a correo electrónico"))
+        context.startActivity(Intent.createChooser(intent, ""))
     }
 }
 

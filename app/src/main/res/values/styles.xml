@@ -42,14 +42,6 @@
     </style>
     <!-- End StackedCard Component -->
 
-    <!-- ListItem Component -->
-    <style name="AppImageListItem">
-        <item name="android:height">@dimen/size_media_listitem</item>
-        <item name="android:width">@dimen/size_media_listitem</item>
-    </style>
-
-    <!-- End ListItem Component -->
-
     <!-- Settings -->
     <style name="AppTitleSectionSettings" parent="TextAppearance.Material3.TitleSmall">
         <item name="android:textColor">@color/md_theme_primary</item>
@@ -62,9 +54,30 @@
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
     <!-- End Settings -->
+
+    <!-- ListItem Component -->
+    <style name="AppImageListItem">
+        <item name="android:layout_height">@dimen/size_media_listitem</item>
+        <item name="android:layout_width">@dimen/size_media_listitem</item>
+    </style>
+
+    <style name="AppHeadlineListItem" parent="AppHeadline">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+    </style>
+
+    <style name="AppSupportingTextListItem" parent="AppSupportingText">
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+    </style>
+    <!-- End ListItem Component -->
     <style name="CircularImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
 
+    </style>
+
+    //toolbar
+
+    <style name="AppmainToolbar" parent="Widget.Material3.Toolbar.Surface">
+        <item name="titleCentered">true</item>
     </style>
 </resources>

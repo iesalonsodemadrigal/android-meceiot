@@ -39,6 +39,12 @@
         android:label="Developer About Fragment" />
 
     <fragment
+        android:id="@+id/IoT_Fragment"
+        android:name="edu.iesam.meceiot.features.iot.presentation.IoTAboutFragment"
+        tools:layout="@layout/fragment_iot">
+    </fragment>
+
+    <fragment
         android:id="@+id/testfragment"
         android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
         tools:layout="@layout/testfragment" />

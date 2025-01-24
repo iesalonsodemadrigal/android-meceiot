@@ -5,10 +5,10 @@ import edu.iesam.meceiot.features.alerts.domain.Panel
 import org.koin.core.annotation.Single
 
 @Single
-class SensorApiRemoteDataSource(private val sensorAlertService: SensorAlertService) {
+class SensorApiRemoteDataSource(private val sensorService: SensorService) {
 
     suspend fun getSensors(): Result<List<Panel>> {
-        return apiCall { sensorAlertService.getSensors() }.map { sensorApiModel ->
+        return apiCall { sensorService.getSensors() }.map { sensorApiModel ->
             sensorApiModel.map { it.toModel() }
         }
     }

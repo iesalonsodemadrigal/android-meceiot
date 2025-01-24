@@ -1,6 +1,12 @@
 package edu.iesam.meceiot.features.alerts.data.local.mock
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParseException
+import com.google.gson.reflect.TypeToken
+import edu.iesam.meceiot.R
+import edu.iesam.meceiot.features.alerts.data.local.mock.adapters.TypeSensorAdapter
 import edu.iesam.meceiot.features.alerts.domain.Panel
 import edu.iesam.meceiot.features.alerts.domain.Sensor
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
@@ -9,174 +15,26 @@ import org.koin.core.annotation.Single
 @Single
 class SensorMockLocalDataSource(private val context: Context) {
 
+    private fun myGson(): Gson {
+        return GsonBuilder()
+            .registerTypeAdapter(TypeSensor::class.java, TypeSensorAdapter())
+            .create()
+    }
     fun getSensor(): Result<List<Sensor>> {
-        val panels = listOf(
-            Panel(
-                id = "1",
-                name = "Meceiot_Alonso_CO2_009 - A16",
-                sensors = listOf(
-                    Sensor(
-                        id = "1",
-                        name = "Meceiot_Alonso_CO2_009 - A16",
-                        description = "Sensor CO2 - clase A16",
-                        type = TypeSensor.Co2,
-                        value = "420"
-                    ),
-                    Sensor(
-                        id = "2",
-                        name = "Meceiot_Alonso_CO2_009 - A16",
-                        description = "Temperatura crítica",
-                        type = TypeSensor.Temperature,
-                        value = "10"
-                    ),
-                    Sensor(
-                        id = "3",
-                        name = "Meceiot_Alonso_CO2_009 - A16",
-                        description = "Luz encendida",
-                        type = TypeSensor.Light,
-                        value = "1000"
-                    ),
-                    Sensor(
-                        id = "4",
-                        name = "Meceiot_Alonso_CO2_009 - A16",
-                        description = "Sensor humedad - clase A16",
-                        type = TypeSensor.Humidity,
-                        value = "31"
-                    ),
-                    Sensor(
-                        id = "5",
-                        name = "Meceiot_Alonso_CO2_009 - A16",
-                        description = "Posible presencia de movimiento",
-                        type = TypeSensor.Movement,
-                        value = "10"
-                    )
-                )
-            ),
-            Panel(
-                id = "2",
-                name = "Meceiot_Alonso_CO2_010 - C22",
-                sensors = listOf(
-                    Sensor(
-                        id = "6",
-                        name = "Meceiot_Alonso_CO2_010 - C22",
-                        description = "Niveles críticos de Co2",
-                        type = TypeSensor.Co2,
-                        value = "100"
-                    ),
-                    Sensor(
-                        id = "7",
-                        name = "Meceiot_Alonso_CO2_010 - C22",
-                        description = "Temperatura crítica",
-                        type = TypeSensor.Temperature,
-                        value = "15"
-                    ),
-                    Sensor(
-                        id = "8",
-                        name = "Meceiot_Alonso_CO2_010 - C22",
-                        description = "Luz encendida",
-                        type = TypeSensor.Light,
-                        value = "1000"
-                    ),
-                    Sensor(
-                        id = "9",
-                        name = "Meceiot_Alonso_CO2_010 - C22",
-                        description = "Sensor humedad - clase C22",
-                        type = TypeSensor.Humidity,
-                        value = "33"
-                    ),
-                    Sensor(
-                        id = "10",
-                        name = "Meceiot_Alonso_CO2_010 - C22",
-                        description = "Posible presencia de movimiento",
-                        type = TypeSensor.Movement,
-                        value = "1"
-                    )
-                )
-            ),
-            Panel(
-                id = "3",
-                name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-                sensors = listOf(
-                    Sensor(
-                        id = "11",
-                        name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-                        description = "Sensor sonido - Pab A",
-                        type = TypeSensor.Sound,
-                        value = "60"
-                    ),
-                    Sensor(
-                        id = "12",
-                        name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-                        description = "Sensor temperatura - Pab A",
-                        type = TypeSensor.Temperature,
-                        value = "20.45"
-                    ),
-                    Sensor(
-                        id = "13",
-                        name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-                        description = "Luz encendida",
-                        type = TypeSensor.Light,
-                        value = "1000"
-                    ),
-                    Sensor(
-                        id = "14",
-                        name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-                        description = "Sensor humedad - Pab A",
-                        type = TypeSensor.Humidity,
-                        value = "40"
-                    ),
-                    Sensor(
-                        id = "15",
-                        name = "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-                        description = "Posible presencia de movimiento",
-                        type = TypeSensor.Movement,
-                        value = "0"
-                    )
-                )
-            ),
-            Panel(
-                id = "4",
-                name = "Meceiot_Alonso_Sound_010 - Hall",
-                sensors = listOf(
-                    Sensor(
-                        id = "16",
-                        name = "Meceiot_Alonso_Sound_010 - Hall",
-                        description = "Sensor sonido - Hall",
-                        type = TypeSensor.Sound,
-                        value = "30"
-                    ),
-                    Sensor(
-                        id = "17",
-                        name = "Meceiot_Alonso_Sound_010 - Hall",
-                        description = "Sensor temperatura - Hall",
-                        type = TypeSensor.Temperature,
-                        value = "20.45"
-                    ),
-                    Sensor(
-                        id = "18",
-                        name = "Meceiot_Alonso_Sound_010 - Hall",
-                        description = "Luz encendida",
-                        type = TypeSensor.Light,
-                        value = "500"
-                    ),
-                    Sensor(
-                        id = "19",
-                        name = "Meceiot_Alonso_Sound_010 - Hall",
-                        description = "Sensor humedad - Hall",
-                        type = TypeSensor.Humidity,
-                        value = "32"
-                    ),
-                    Sensor(
-                        id = "20",
-                        name = "Meceiot_Alonso_Sound_010 - Hall",
-                        description = "Posible presencia de movimiento",
-                        type = TypeSensor.Movement,
-                        value = "1"
-                    )
-                )
-            )
-        )
-        val allSensors = panels.flatMap { it.sensors }
-        return Result.success(allSensors)
+        val inputStream = context.resources.openRawResource(R.raw.panels)
+        val json = inputStream.bufferedReader().use { it.readText() }
+
+        val gson = myGson()
+
+        return try {
+            val type = object : TypeToken<List<Panel>>() {}.type
+            val panels: List<Panel> = gson.fromJson(json, type)
+
+            val sensors = panels.flatMap { it.sensors }
+
+            Result.success(sensors)
+        } catch (e: JsonParseException) {
+            Result.failure(e)
+        }
     }
 }

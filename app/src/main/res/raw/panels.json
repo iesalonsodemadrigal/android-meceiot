@@ -1,168 +1,166 @@
-{
-  "panels": {
-    "panel1": {
-      "id": "1",
-      "name": "Meceiot_Alonso_CO2_009 - A16",
-      "sensor": [
-        {
-          "id": "1",
-          "name": "CO2_009",
-          "description": "Sensor  CO2 - clase A16",
-          "type": "co2",
-          "value": "420"
-        },
-        {
-          "id": "2",
-          "name": "CO2_009",
-          "description": "Sensor temperatua - clase A16",
-          "type": "temp",
-          "value": "20.45"
-        },
-        {
-          "id": "3",
-          "name": "CO2_009",
-          "description": "Sensor lux - clase A16",
-          "type": "light",
-          "value": "1000"
-        },
-        {
-          "id": "4",
-          "name": "CO2_009",
-          "description": "Sensor humedad - clase A16",
-          "type": "hum",
-          "value": "32"
-        },
-        {
-          "id": "5",
-          "name": "CO2_009",
-          "description": "Sensor movimiento - clase A16",
-          "type": "mov",
-          "value": "1"
-        }
-      ]
-    },
-    "panel2": {
-      "id": "2",
-      "name": "Meceiot_Alonso_CO2_010 - C22",
-      "sensor": [
-        {
-          "id": "6",
-          "name": "CO2_010",
-          "description": "Sensor  CO2 - clase C22",
-          "type": "co2",
-          "value": "420"
-        },
-        {
-          "id": "7",
-          "name": "CO2_010",
-          "description": "Sensor temperatua - clase C22",
-          "type": "temp",
-          "value": "3"
-        },
-        {
-          "id": "8",
-          "name": "CO2_010",
-          "description": "Sensor lux - clase C22",
-          "type": "light",
-          "value": "1000"
-        },
-        {
-          "id": "9",
-          "name": "CO2_010",
-          "description": "Sensor humedad - clase C22",
-          "type": "hum",
-          "value": "32"
-        },
-        {
-          "id": "10",
-          "name": "CO2_010",
-          "description": "Sensor movimiento - clase C22",
-          "type": "mov",
-          "value": "1"
-        }
-      ]
-    },
-    "panel3": {
-      "id": "3",
-      "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
-      "sensor": [
-        {
-          "id": "11",
-          "name": "Sound_009",
-          "description": "Sensor  sonido - Pab A",
-          "type": "sound",
-          "value": "60"
-        },
-        {
-          "id": "12",
-          "name": "Sound_009",
-          "description": "Sensor temperatua - Pab A",
-          "type": "temp",
-          "value": "20"
-        },
-        {
-          "id": "13",
-          "name": "Sound_009",
-          "description": "Sensor lux - Pab A",
-          "type": "light",
-          "value": "1000"
-        },
-        {
-          "id": "14",
-          "name": "Sound_009",
-          "description": "Sensor humedad - Pab A",
-          "type": "hum",
-          "value": "32"
-        },
-        {
-          "id": "15",
-          "name": "Sound_009",
-          "description": "Sensor movimiento - Pab A",
-          "type": "mov",
-          "value": "0"
-        }
-      ]
-    },
-    "panel4": {
-      "id": "4",
-      "name": "Meceiot_Alonso_Sound_010 - Hall",
-      "sensor": [
-        {
-          "id": "16",
-          "name": "Sound_010",
-          "description": "Sensor  sonido - Hall",
-          "type": "sound",
-          "value": "60"
-        },
-        {
-          "id": "17",
-          "name": "Sound_010",
-          "description": "Sensor temperatua - Hall",
-          "type": "temp",
-          "value": "20.45"
-        },
-        {
-          "id": "18",
-          "name": "Sound_010",
-          "description": "Sensor lux - Hall",
-          "type": "light",
-          "value": "1000"
-        },
-        {
-          "id": "19",
-          "name": "Sound_010",
-          "description": "Sensor humedad - Hall",
-          "type": "hum",
-          "value": "32"
-        },
-        {
-          "id": "20",
-          "name": "Sound_010",
-          "description": "Sensor movimiento - Hall",
-          "type": "mov",
-          "value": "1"
-        }
-      ]
-    }
+[
+  {
+    "id": "1",
+    "name": "Meceiot_Alonso_CO2_009 - A16",
+    "sensors": [
+      {
+        "id": "1",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "description": "Niveles elevados de Co2",
+        "type": "co2",
+        "value": "420"
+      },
+      {
+        "id": "2",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "description": "Temperatura crítica",
+        "type": "temp",
+        "value": "10"
+      },
+      {
+        "id": "3",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "description": "Luz encendida",
+        "type": "light",
+        "value": "1000"
+      },
+      {
+        "id": "4",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "description": "Niveles altos de humedad",
+        "type": "hum",
+        "value": "31"
+      },
+      {
+        "id": "5",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "description": "Posible presencia de movimiento",
+        "type": "mov",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Meceiot_Alonso_CO2_010 - C22",
+    "sensors": [
+      {
+        "id": "6",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "description": "Niveles elevados de Co2",
+        "type": "co2",
+        "value": "100"
+      },
+      {
+        "id": "7",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "description": "Temperatura crítica",
+        "type": "temp",
+        "value": "15"
+      },
+      {
+        "id": "8",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "description": "Luz encendida",
+        "type": "light",
+        "value": "1000"
+      },
+      {
+        "id": "9",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "description": "Niveles altos de humedad",
+        "type": "hum",
+        "value": "33"
+      },
+      {
+        "id": "10",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "description": "Posible presencia de movimiento",
+        "type": "mov",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+    "sensors": [
+      {
+        "id": "11",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "description": "Sonido elevado",
+        "type": "sound",
+        "value": "60"
+      },
+      {
+        "id": "12",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "description": "Temperatura crítica",
+        "type": "temp",
+        "value": "20.45"
+      },
+      {
+        "id": "13",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "description": "Luz encendida",
+        "type": "light",
+        "value": "1000"
+      },
+      {
+        "id": "14",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "description": "Niveles altos de humedad",
+        "type": "hum",
+        "value": "40"
+      },
+      {
+        "id": "15",
+        "name": "Posible presencia de movimiento",
+        "description": "Posible presencia de movimiento",
+        "type": "mov",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Meceiot_Alonso_Sound_010 - Hall",
+    "sensors": [
+      {
+        "id": "16",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "description": "Sonido elevado",
+        "type": "sound",
+        "value": "30"
+      },
+      {
+        "id": "17",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "description": "Temperatura crítica",
+        "type": "temp",
+        "value": "20.45"
+      },
+      {
+        "id": "18",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "description": "Luz encendida",
+        "type": "light",
+        "value": "500"
+      },
+      {
+        "id": "19",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "description": "Niveles altos de humedad",
+        "type": "hum",
+        "value": "32"
+      },
+      {
+        "id": "20",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "description": "Posible presencia de movimiento",
+        "type": "mov",
+        "value": "1"
+      }
+    ]
   }
-}
+]

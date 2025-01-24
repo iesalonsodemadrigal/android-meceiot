@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/padding_medium"
     tools:context="edu.iesam.meceiot.features.alerts.presentation.adapter.AlertViewHolder">
 
 
     <ImageView
         android:id="@+id/icon_sensor"
         style="@style/AppImageListItem"
-        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_margin="@dimen/spacing_horizontal"
         android:src="@drawable/ic_alert_sensor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,11 +18,11 @@
     <TextView
         android:id="@+id/title_alert"
         style="@style/AppHeadlineListItem"
-        android:layout_height="wrap_content"
         android:layout_width="@dimen/null_value"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_horizontal"
         android:text="@string/detection_movement"
         android:textSize="@dimen/font_size_medium"
-        android:layout_marginHorizontal="@dimen/spacing_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_sensor"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,11 +30,11 @@
     <TextView
         android:id="@+id/description_sensor"
         style="@style/AppSupportingTextListItem"
-        android:layout_height="wrap_content"
         android:layout_width="@dimen/null_value"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/description_panel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_sensor"
         app:layout_constraintTop_toBottomOf="@+id/title_alert" />
 

@@ -5,7 +5,6 @@ import com.google.gson.Gson
 import edu.iesam.meceiot.features.alerts.domain.Sensor
 
 class SensorListConverter {
-
     private val gson = Gson()
 
     @TypeConverter

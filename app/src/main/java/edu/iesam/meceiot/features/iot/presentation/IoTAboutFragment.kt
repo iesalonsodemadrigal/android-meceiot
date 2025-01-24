@@ -48,13 +48,13 @@ class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
             viewItemInternet.apply {
                 viewItemTitle.setText(R.string.title_item_internet)
                 viewItemDescription.setText(R.string.description_item_internet)
-                //viewItemImage.setImageResource(R.drawable.ic_logo_internet)
+
             }
 
             viewItemEnergySaving.apply {
                 viewItemTitle.setText(R.string.title_item_energy_saving)
                 viewItemDescription.setText(R.string.description_item_energy_saving)
-                // viewItemImage.setImageResource(R.drawable.ic_logo_energy_saving)
+
             }
         }
     }
@@ -65,54 +65,5 @@ class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
     }
 }
 
-/*        _binding = FragmentIotBinding.inflate(inflater, container, false)
-        bindData()
 
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemMeceiot.root),
-            R.string.title_item_meceiot,
-            R.string.description_item_meceiot
-        )
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemAlonso.root),
-            R.string.title_item_alonso,
-            R.string.description_item_iot_alonso
-        )
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemInternet.root),
-            R.string.title_item_internet,
-            R.string.description_item_internet
-        )
-        setItemText(
-            ItemIotBinding.bind(binding.viewItemEnergySaving.root),
-            R.string.title_item_energy_saving,
-            R.string.description_item_energy_saving
-        )
-
-        setItemImage(
-            ItemIotBinding.bind(binding.viewItemMeceiot.root),
-            R.drawable.ic_logo_meceiot
-        )
-        setItemImage(
-            ItemIotBinding.bind(binding.viewItemAlonso.root),
-            R.drawable.ic_logo_iesam
-        )
-
-        return binding.root*/
-
-
-/*    private fun setItemText(itemBinding: ItemIotBinding, titleId: Int, descriptionId: Int) {
-        itemBinding.viewItemTitle.setText(titleId)
-        itemBinding.viewItemDescription.setText(descriptionId)
-    }
-
-    private fun setItemImage(itemBinding: ItemIotBinding, imageResId: Int) {
-        itemBinding.viewItemImage.setImageResource(imageResId)
-    }*/
-
-/*    private fun bindData() {
-        binding.apply {
-            viewToolbar.mainToolbar.title = getString(R.string.iot_title)
-        }
-    }*/
 

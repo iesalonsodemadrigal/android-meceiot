@@ -40,7 +40,7 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray"
+        android:background="@color/cardview_dark_background"
         android:layout_marginVertical="@dimen/margin_medium"
         app:layout_constraintTop_toBottomOf="@+id/external_resources_item_description"
         />

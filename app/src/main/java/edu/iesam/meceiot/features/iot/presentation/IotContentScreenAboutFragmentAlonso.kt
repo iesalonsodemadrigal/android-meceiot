@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
-import edu.iesam.meceiot.databinding.FragmentIotContentBinding
+import edu.iesam.meceiot.databinding.FragmentIotContentAlonsoBinding
 import edu.iesam.meceiot.databinding.ItemContentListBinding
 import edu.iesam.meceiot.databinding.ItemContentListP2Binding
-import edu.iesam.meceiot.databinding.ItemContentListP3Binding
 
-class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
-    private var _binding: FragmentIotContentBinding? = null
+
+class IotContentScreenAboutFragmentAlonso : Fragment(R.layout.fragment_iot_content_alonso) {
+    private var _binding: FragmentIotContentAlonsoBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentIotContentBinding.inflate(inflater, container, false)
+        _binding = FragmentIotContentAlonsoBinding.inflate(inflater, container, false)
         setupView()
         return binding.root
     }
@@ -32,33 +32,20 @@ class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
                 findNavController().navigateUp()
             }
 
-            viewDetailedMeceiot.mainToolbarDetail.title = getString(R.string.iot_title)
+            viewDetailedMeceiot.mainToolbarDetail.title = getString(R.string.title_item_alonso)
 
             setItemTextP2(
                 ItemContentListP2Binding.bind(viewTextContainer1.root),
-                R.string.meceiot_title_1,
-                R.string.meceiot_content_1,
-                R.string.meceiot_comtent_1_1
+                R.string.alonso_title_1,
+                R.string.alonso_content_1,
+                R.string.alonso_content_1_1
             )
             setItemText(
                 ItemContentListBinding.bind(viewTextContainer2.root),
-                R.string.meceiot_title_2,
-                R.string.meceiot_content_2
+                R.string.alonso_title_2,
+                R.string.alonso_content_2
             )
-            setItemTextP3(
-                ItemContentListP3Binding.bind(viewTextContainer3.root),
-                R.string.meceiot_title_3,
-                R.string.meceiot_content_3,
-                R.string.meceiot_content_3_1,
-                R.string.meceiot_content_3_2
-            )
-            setItemTextP3(
-                ItemContentListP3Binding.bind(viewTextContainer4.root),
-                R.string.meceiot_title_4,
-                R.string.meceiot_content_4,
-                R.string.meceiot_content_4_1,
-                R.string.meceiot_content_4_2
-            )
+
         }
     }
 
@@ -73,13 +60,7 @@ class IotContentScreenAboutFragment : Fragment(R.layout.fragment_iot_content) {
         itemBinding.textInfoP2.setText(descriptionId2)
 
     }
-    private fun setItemTextP3(itemBinding: ItemContentListP3Binding, titleId: Int, descriptionId: Int, descriptionId2: Int,descriptionId3: Int) {
-        itemBinding.titleInfo.setText(titleId)
-        itemBinding.textInfoP1.setText(descriptionId)
-        itemBinding.textInfoP2.setText(descriptionId2)
-        itemBinding.textInfoP3.setText(descriptionId3)
 
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

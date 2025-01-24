@@ -32,27 +32,17 @@
                     android:layout_width="@dimen/image_size_content_iot_w"
                     android:layout_height="@dimen/image_size_content_iot_h"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_logo_meceiot" />
+                    android:src="@drawable/ic_logo_iesam" />
             </LinearLayout>
-
 
             <include
                 android:id="@+id/view_text_container_1"
-                layout="@layout/item_content_list_p2"
-
-                />
+                layout="@layout/item_content_list_p2" />
 
             <include
                 android:id="@+id/view_text_container_2"
                 layout="@layout/item_content_list" />
 
-            <include
-                android:id="@+id/view_text_container_3"
-                layout="@layout/item_content_list_p3" />
-
-            <include
-                android:id="@+id/view_text_container_4"
-                layout="@layout/item_content_list_p3" />
 
         </LinearLayout>
     </ScrollView>

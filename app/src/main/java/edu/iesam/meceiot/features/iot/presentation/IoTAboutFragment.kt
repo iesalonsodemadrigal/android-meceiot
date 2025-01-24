@@ -31,16 +31,18 @@ class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
                 viewItemTitle.setText(R.string.title_item_meceiot)
                 viewItemDescription.setText(R.string.description_item_meceiot)
                 viewItemImage.setImageResource(R.drawable.ic_logo_meceiot)
-                viewIot.setOnClickListener {
+                root.setOnClickListener {
                     findNavController().navigate(R.id.action_meciot_to_meceiotfragment)
                 }
-
             }
 
             viewItemAlonso.apply {
                 viewItemTitle.setText(R.string.title_item_alonso)
                 viewItemDescription.setText(R.string.description_item_iot_alonso)
                 viewItemImage.setImageResource(R.drawable.ic_logo_iesam)
+                root.setOnClickListener {
+                    findNavController().navigate(R.id.action_meciot_to_alonsofragment)
+                }
             }
 
             viewItemInternet.apply {

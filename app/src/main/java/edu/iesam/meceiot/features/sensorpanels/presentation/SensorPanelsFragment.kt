@@ -44,6 +44,7 @@ class SensorPanelsFragment : Fragment() {
     private fun setupView() {
         sensorPanelsAdapter = SensorPanelsAdapter()
         binding.apply {
+            viewToolbar.mainToolbar.title = getString(R.string.label_menu_panels)
             listSensorPanels.apply {
                 layoutManager = GridLayoutManager(
                     context,
@@ -97,7 +98,9 @@ class SensorPanelsFragment : Fragment() {
                 binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
-                val errorAppUi = errorFactory?.build(errorApp)
+                val errorAppUi = errorFactory?.build(errorApp, {
+                    viewModel.fetchSensorPanels()
+                })
                 binding.errorApp.render(errorAppUi!!)
             } ?: run {
                 binding.errorApp.hide()

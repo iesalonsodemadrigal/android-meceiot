@@ -6,21 +6,9 @@
     android:orientation="vertical"
     tools:context=".features.sensorpanels.presentation.SensorPanelsFragment">
 
-    <!-- Si ves esto es que no estaba implementada la Toolbar del proyecto todavía -->
-    <Toolbar
-        android:id="@+id/panels_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_medium"
-            android:text="@string/toolbar_Panels"
-            android:textColor="?attr/colorTertiary"
-            android:textSize="@dimen/font_size_high" />
-    </Toolbar>
+    <include
+        android:id="@+id/view_toolbar"
+        layout="@layout/main_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_sensor_panels"

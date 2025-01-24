@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/null_value">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewIoT"
+            style="@style/AppHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/settings"
+            android:paddingTop="@dimen/padding_extra_small"
+            android:paddingBottom="@dimen/padding_extra_small"
+            android:textSize="@dimen/font_size_medium" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/colaboraciones_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/AppTitleSectionSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colaboradores"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+
+                <include
+                    android:id="@+id/item_developer"
+                    layout="@layout/item_setting" />
+
+                <include
+                    android:id="@+id/item_resources"
+                    layout="@layout/item_setting" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/app_title"
+                    style="@style/AppTitleSectionSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/proyecto"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+
+                <include
+                    android:id="@+id/item_web"
+                    layout="@layout/item_setting" />
+
+                <include
+                    android:id="@+id/item_email"
+                    layout="@layout/item_setting" />
+
+                <include
+                    android:id="@+id/item_playstore"
+                    layout="@layout/item_setting" />
+
+                <include
+                    android:id="@+id/item_legal_warning"
+                    layout="@layout/item_setting" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/app_version_title"
+                    style="@style/AppTitleSectionSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_version"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+
+                <include
+                    android:id="@+id/item_version"
+                    layout="@layout/item_setting" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -30,7 +30,7 @@
         android:id="@+id/selectedOptionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Opciones seleccionadas"
+        android:text="@string/opciones_seleccionadas"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/submitButton" />
@@ -39,7 +39,7 @@
         android:id="@+id/errorMessageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Por favor, complete todas las opciones."
+        android:text="@string/opciones_respuesta"
         android:textColor="@android:color/holo_red_dark"
         android:visibility="gone"
         app:layout_constraintBaseline_toBottomOf="parent"

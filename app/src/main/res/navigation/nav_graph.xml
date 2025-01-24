@@ -11,12 +11,16 @@
 
 
     <fragment
-        android:id="@+id/fragment_b"
-        android:name="edu.iesam.meceiot.features.presentation.FragmentB"
-        tools:layout="@layout/fragment_b">
+        android:id="@+id/fragment_settings"
+        android:name="edu.iesam.meceiot.features.setting.presentation.SettingAboutFragment"
+        tools:layout="@layout/fragment_settings">
         <action
-            android:id="@+id/action_fragmentB_to_developerAboutFragment"
+            android:id="@+id/action_settings_to_developerAboutFragment"
             app:destination="@id/fragment_developer_list" />
+        <action
+            android:id="@+id/action_settings_to_externalResourcesFragment"
+            app:destination="@+id/fragment_external_resources" />
+
     </fragment>
 
     <dialog
@@ -24,27 +28,25 @@
         android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
         tools:layout="@layout/fragment_developer_list" />
 
+    <dialog
+        android:id="@+id/fragment_external_resources"
+        android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
+        tools:layout="@layout/fragment_external_resources" />
+
+    <dialog
+        android:id="@+id/developerAboutFragment"
+        android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
+        android:label="Developer About Fragment" />
+
     <fragment
         android:id="@+id/testfragment"
         android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
-        tools:layout="@layout/testfragment">
-    </fragment>
+        tools:layout="@layout/testfragment" />
 
     <fragment
         android:id="@+id/login_fragment"
         android:name="edu.iesam.meceiot.features.login.presentation.LoginFragment"
-        tools:layout="@layout/fragment_login">
-    </fragment>
+        tools:layout="@layout/fragment_login" />
 
-    <dialog
-        android:id="@+id/fragment_external_resources"
-        android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
-        tools:layout="@layout/fragment_external_resources">
-    </dialog>
-    <dialog
-        android:id="@+id/developerAboutFragment"
-        android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
-        android:label="Developer About Fragment"
-       />
 
 </navigation>

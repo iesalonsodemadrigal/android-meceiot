@@ -80,11 +80,9 @@
     <style name="AppmainToolbar" parent="Widget.Material3.Toolbar.Surface">
         <item name="titleCentered">true</item>
     </style>
-
     <style name="ChartStyle">
         <item name="layers">line</item>
         <item name="showBottomAxis">true</item>
         <item name="showStartAxis">true</item>
     </style>
-
 </resources>

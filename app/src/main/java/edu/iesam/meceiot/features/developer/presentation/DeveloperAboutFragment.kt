@@ -43,7 +43,7 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         developerAboutViewModel.viewDevelopers()
-        setupRetryAction()
+
     }
 
     private fun setupView() {
@@ -62,14 +62,13 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
             uiState.infoDeveloper?.let { bindData(it) }
 
             uiState.errorMessage?.let {
-                val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it)
-
+                val errorAppUI = ErrorAppFactory(requireContext()).build(it, {
+                    developerAboutViewModel.viewDevelopers()
+                })
                 binding.errorAppView.render(errorAppUI)
             } ?: run {
                 binding.errorAppView.hide()
             }
-
             if (uiState.isLoading) {
                 skeleton.showSkeleton()
             } else {
@@ -88,18 +87,6 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     }
 
 
-    private fun setupRetryAction() {
-        val retryButton = binding.root.findViewById<Button>(R.id.button_retry_error)
-        retryButton.setOnClickListener {
-            findNavController().run {
-                val currentFragmentId = currentDestination?.id
-                currentFragmentId?.let {
-                    popBackStack()
-                    navigate(it)
-                }
-            }
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

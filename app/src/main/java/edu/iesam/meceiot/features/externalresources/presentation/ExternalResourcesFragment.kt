@@ -43,7 +43,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         externalResourcesViewModel.viewCreated()
-        setupRetryAction()
+
     }
 
     private fun setupView() {
@@ -62,14 +62,13 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
             uiState.externalResources?.let { bindData(it) }
 
             uiState.errorApp?.let {
-                val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it)
-
+                val errorAppUI = ErrorAppFactory(requireContext()).build(it, {
+                    externalResourcesViewModel.viewCreated()
+                })
                 binding.errorAppViewResources.render(errorAppUI)
             } ?: run {
                 binding.errorAppViewResources.hide()
             }
-
             if (uiState.loading) {
                 skeleton.showSkeleton()
             } else {
@@ -83,18 +82,6 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
         externalResourcesAdapter.submitList(externalResources.sortedBy { it.author })
     }
 
-    private fun setupRetryAction() {
-        val retryButton = binding.root.findViewById<Button>(R.id.button_retry_error)
-        retryButton.setOnClickListener {
-            findNavController().run {
-                val currentFragmentId = currentDestination?.id
-                currentFragmentId?.let {
-                    popBackStack()
-                    navigate(it)
-                }
-            }
-        }
-    }
 
     private fun openUrl(url: String) {
         appIntent.openUrl(url)

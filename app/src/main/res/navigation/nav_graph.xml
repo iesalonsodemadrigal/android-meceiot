@@ -33,6 +33,16 @@
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources" />
 
+    <dialog
+        android:id="@+id/developerAboutFragment"
+        android:name="edu.iesam.meceiot.features.developer.presentation.DeveloperAboutFragment"
+        android:label="Developer About Fragment" />
+
+    <fragment
+        android:id="@+id/IoT_Fragment"
+        android:name="edu.iesam.meceiot.features.iot.presentation.IoTAboutFragment"
+        tools:layout="@layout/fragment_iot">
+    </fragment>
 
     <fragment
         android:id="@+id/testfragment"

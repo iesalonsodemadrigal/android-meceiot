@@ -16,6 +16,12 @@
     <string name="lorawan_info_file_xml">lorawan</string>
 
     <!-- Desarrolladores -->
+    <string name="label_menu_b">fragmentB</string>
+    <string name="IoT">IoT</string>
+    <string name="label_menu_c">fragmentC</string>
+    <string name="fragmentoa">fragmentoA</string>
+
+    <!-- Desarrolladores -->
     <string name="developer_name">Developer Name</string>
     <string name="developer_filer_xml">developer_filer_xml</string>
     <string name="developer_list">developer_list</string>
@@ -51,10 +57,10 @@
     <!-- Información de la Aplicación -->
     <string name="title_settings">Ajustes</string>
     <string name="settings">Ajustes</string>
-    <string name="title_proyect">Proyecto</string>
+    <string name="proyecto">Proyecto</string>
 
     <!-- Colaboraciones -->
-    <string name="title_collaborations">Colaboraciones</string>
+    <string name="colaboraciones">Colaboraciones</string>
     <string name="colaboradores">Colaboradores</string>
 
     <!-- Desarrolladores -->
@@ -100,8 +106,26 @@
     <string name="question">Question</string>
     <string name="opciones_respuesta">Por favor, complete todas las opciones.</string>
 
-    <!-- Usuario -->
-    <string name="usuario">Usuario</string>
+
+
+    //strings Iot
+    <string name="iot_title">IoT</string>
+    <string name="iot_description">Descripción de IoT</string>
+    <string name="title_item">Titulo</string>
+    <string name="description_item">Descripción</string>
+
+    <string name="title_item_iot">IoT</string>
+    <string name="description_item_meceiot">Proyecto MeCeIoT para la mejora de centros educativos con Internet de las Cosas (IoT).</string>
+    <string name="title_item_energy_saving">Ahorro energético con IoT.</string>
+    <string name="description_item_energy_saving">Información sobre el ahorro energético que se puede obtener con IoT</string>
+    <string name="description_item_iot_alonso">Información sobre el uso de los sensores IoT para mejorar nuestro centro. .</string>
+    <string name="title_item_internet">Internet de las Cosas (IoT).</string>
+    <string name="description_item_internet">Información sobre el Internet de las Cosas y sus aplicaciones.</string>
+    <string name="title_item_alonso">IoT en el Alonso</string>
+    <string name="description_item_alonso">Implementación y uso de IoT en Alonso.</string>
+    <string name="title_item_meceiot">MeceIoT</string>
+    <string name="title_this_fragment">tu titulo</string>
+    <string name="value_null">  </string>
 
 
 </resources>

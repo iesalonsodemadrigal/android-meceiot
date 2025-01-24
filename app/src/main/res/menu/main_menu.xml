@@ -7,6 +7,11 @@
         android:title="@string/label_menu_a" />
 
     <item
+        android:id="@+id/IoT_Fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_logo_iot"
+        android:title="@string/IoT" />
+    <item
         android:id="@+id/testfragment"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"

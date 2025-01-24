@@ -1,57 +1,134 @@
 <resources>
+    <!-- App General -->
     <string name="app_name">android-meceiot</string>
+    <string name="title">Title</string>
+    <string name="imageItem">ImageItem</string>
+
+    <!-- Login -->
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+
+    <!-- Menú -->
     <string name="label_menu_a">LoraWan</string>
+
+    <!-- LoraWan -->
     <string name="lorawan_info_file_xml">lorawan</string>
-    <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes
-        dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla
-        iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus
-        quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora
-        dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum
-        neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet
-        mattis id hac, orci phasellus varius gravida curae cum cras sapien.
-    </string>
-    <string name="title">Title</string>
-    <string name="imageItem">ImageItem</string>
     <string name="label_menu_b">fragmentB</string>
+    <string name="IoT">IoT</string>
     <string name="label_menu_c">fragmentC</string>
     <string name="fragmentoa">fragmentoA</string>
+
+    <!-- Desarrolladores -->
     <string name="developer_name">Developer Name</string>
     <string name="developer_filer_xml">developer_filer_xml</string>
     <string name="developer_list">developer_list</string>
-    <string name="Fragmentoa">FragmentoA</string>
-    <string name="action_button">action_button</string>
-    <string name="fragmentob">Fragmentob</string>
-    <string name="label_menu_d">External Resources</string>
+
+    <!-- Recursos Externos -->
     <string name="ResourceDescription">Description of the resource</string>
     <string name="ResourceName">Name of the resource</string>
-    <string name="fragmentoc">fragmentoC</string>
-    <string name="ResourceButton" />
+    <string name="ResourceButton"/>
+    <string name="recursos_text">Recursos de terceros que se han usado en la aplicación</string>
+    <string name="recursos_externos">Recursos Externos</string>
 
-    <!-- Errors App -->
-    <string name="title_error">Titulo error</string>
+    <!-- Textos de Ejemplo -->
+    <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet mattis id hac, orci phasellus varius gravida curae cum cras sapien.</string>
+
+    <!-- Errores Generales -->
+    <string name="title_error">Título del error</string>
     <string name="description_error">Descripción del error</string>
     <string name="button_retry">Reintentar</string>
 
+    <!-- Error de Conexión -->
     <string name="title_error_connection">Error en la conexión</string>
-    <string name="description_error_connection">Error en la conexión a internet.
-    Verifique y vuelva a intentarlo más tarde</string>
+    <string name="description_error_connection">Error en la conexión a internet. Verifique y vuelva a intentarlo más tarde</string>
     <string name="button_retry_connection">Reintentar</string>
 
+    <!-- Error del Servidor -->
     <string name="title_error_server">Error en el servidor</string>
-    <string name="description_error_server">Ocurrió un error relacionado con
-    la conexión del servidor</string>
+    <string name="description_error_server">Ocurrió un error relacionado con la conexión del servidor</string>
 
+    <!-- Error Desconocido -->
     <string name="title_error_unknown">Error desconocido</string>
-    <string name="description_error_unknown">Se está produciendo un error desconocido
-    en el sistema</string>
     <string name="max">Máx.</string>
     <string name="media">Media.</string>
     <string name="opciones_de_grafico">Opciones de Grafico</string>
     <string name="min">Mín.</string>
     <string name="moda">Moda.</string>
+    <string name="description_error_unknown">Se está produciendo un error desconocido en el sistema</string>
+
+    <!-- Información de la Aplicación -->
+    <string name="title_settings">Ajustes</string>
+    <string name="settings">Ajustes</string>
+    <string name="proyecto">Proyecto</string>
+
+    <!-- Colaboraciones -->
+    <string name="colaboraciones">Colaboraciones</string>
+    <string name="colaboradores">Colaboradores</string>
+
+    <!-- Desarrolladores -->
+    <string name="title_developers">Desarrolladores</string>
+    <string name="text_developers">Alumnos que han desarrollado la aplicación</string>
+
+    <!-- Recursos -->
+    <string name="title_resources">Recursos</string>
+    <string name="text_resources">Recursos de terceros que se han utilizado en la aplicación</string>
+
+    <!-- Página Web -->
+    <string name="text_sharing_message">Preparando para compartir...</string>
+    <string name="text_share_title">Selecciona una app para compartir</string>
+    <string name="title_web">Página Web</string>
+    <string name="text_web">Pulsa para ir a la web del centro</string>
+    <string name="link_web">https://siadenlab.iesalonsodemadrigal.es/meceiot</string>
+
+    <!-- Contacto -->
+    <string name="title_email">Email de Contacto</string>
+    <string name="text_email">siadenlab@aulapragmatica.es</string>
+
+    <!-- Play Store -->
+    <string name="title_store">Link a Play Store</string>
+    <string name="text_appstore">Compartir Aplicación</string>
+    <string name="link_appstore">https://play.google.com/store/apps/details?id=edu.iesam.meceiot</string>
+
+    <!-- Aviso Legal -->
+    <string name="title_legal_warning">Aviso Legal</string>
+    <string name="legal_warning_text">Pulse para ver la política de privacidad</string>
+    <string name="link_legal_warning">https://siadenlab.iesalonsodemadrigal.es/meceiot/legal.html</string>
+
+    <!-- Información de la Versión -->
+    <string name="title_version">App instalada</string>
+    <string name="text_version">Versión</string>
+
+    <!-- Genéricos -->
+    <string name="action_button">Botón de Acción</string>
+    <string name="test">Prueba</string>
+
+    <!--Text de App Meceiot -->
+    <string name="opciones_seleccionadas">Opciones seleccionadas</string>
+    <string name="aciertos">Aciertos</string>
+    <string name="question">Question</string>
+    <string name="opciones_respuesta">Por favor, complete todas las opciones.</string>
+
+
+
+    //strings Iot
+    <string name="iot_title">IoT</string>
+    <string name="iot_description">Descripción de IoT</string>
+    <string name="title_item">Titulo</string>
+    <string name="description_item">Descripción</string>
+
+    <string name="title_item_iot">IoT</string>
+    <string name="description_item_meceiot">Proyecto MeCeIoT para la mejora de centros educativos con Internet de las Cosas (IoT).</string>
+    <string name="title_item_energy_saving">Ahorro energético con IoT.</string>
+    <string name="description_item_energy_saving">Información sobre el ahorro energético que se puede obtener con IoT</string>
+    <string name="description_item_iot_alonso">Información sobre el uso de los sensores IoT para mejorar nuestro centro. .</string>
+    <string name="title_item_internet">Internet de las Cosas (IoT).</string>
+    <string name="description_item_internet">Información sobre el Internet de las Cosas y sus aplicaciones.</string>
+    <string name="title_item_alonso">IoT en el Alonso</string>
+    <string name="description_item_alonso">Implementación y uso de IoT en Alonso.</string>
+    <string name="title_item_meceiot">MeceIoT</string>
+    <string name="title_this_fragment">tu titulo</string>
+    <string name="value_null">  </string>
 
 
 </resources>

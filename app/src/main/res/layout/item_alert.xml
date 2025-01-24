@@ -8,9 +8,10 @@
 
 
     <ImageView
-        android:id="@+id/icon_sensor"
+        android:id="@+id/image_item"
         style="@style/AppImageListItem"
         android:layout_margin="@dimen/spacing_horizontal"
+        app:tint="@color/md_theme_onSurface_highContrast"
         android:src="@drawable/ic_alert_sensor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,21 +22,21 @@
         android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_horizontal"
-        android:text="@string/detection_movement"
+        android:text="@string/alert_title"
         android:textSize="@dimen/font_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icon_sensor"
+        app:layout_constraintStart_toEndOf="@+id/image_item"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/description_sensor"
+        android:id="@+id/sensor_name"
         style="@style/AppSupportingTextListItem"
         android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_horizontal"
         android:text="@string/description_panel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icon_sensor"
+        app:layout_constraintStart_toEndOf="@+id/image_item"
         app:layout_constraintTop_toBottomOf="@+id/title_alert" />
 
     <com.google.android.material.divider.MaterialDivider
@@ -43,6 +44,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
-        app:layout_constraintTop_toBottomOf="@+id/description_sensor" />
+        app:layout_constraintTop_toBottomOf="@+id/sensor_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

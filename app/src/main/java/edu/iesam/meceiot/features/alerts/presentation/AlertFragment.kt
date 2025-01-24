@@ -59,9 +59,10 @@ class AlertFragment : Fragment() {
                 binData(it)
             }
             uiState.errorApp?.let {
-                val error = ErrorAppFactory(requireContext())
-                val errorAppUi = error.build(it)
-                binding.errorAppView.render(errorAppUi)
+                val error = ErrorAppFactory(requireContext()).build(it, {
+                    alertViewModel.viewCreated()
+                })
+                binding.errorAppView.render(error)
             } ?: run {
                 binding.errorAppView.hide()
             }

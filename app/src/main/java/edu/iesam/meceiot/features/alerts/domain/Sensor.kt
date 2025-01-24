@@ -10,7 +10,6 @@ data class Panel(
 data class Sensor(
     val id: String,
     val name: String,
-    val description: String,
     val type: TypeSensor,
     val value: String
 )

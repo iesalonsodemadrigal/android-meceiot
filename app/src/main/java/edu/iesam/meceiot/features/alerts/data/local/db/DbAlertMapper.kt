@@ -10,7 +10,7 @@ fun PanelEntity.toDomain(): Panel =
     Panel(this.id, this.name, this.sensors)
 
 fun Sensor.toEntity(): SensorEntity =
-    SensorEntity(this.id, this.name, this.description, this.type, this.value)
+    SensorEntity(this.id, this.name, this.type, this.value)
 
 fun SensorEntity.toDomain(): Sensor =
-    Sensor(this.id, this.name, this.description, this.type, this.value)
+    Sensor(this.id, this.name, this.type, this.value)

@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_alerts"
         android:title="@string/label_menu_alerts" />
     <item
-        android:id="@+id/IoT_Fragment"
+        android:id="@+id/iot_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_logo_iot"
         android:title="@string/IoT" />

@@ -12,7 +12,6 @@ const val SENSOR_ID = "idSensor"
 class SensorEntity(
     @PrimaryKey @ColumnInfo(name = SENSOR_ID) val id: String,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "type") val type: TypeSensor,
     @ColumnInfo(name = "value") val value: String,
 )

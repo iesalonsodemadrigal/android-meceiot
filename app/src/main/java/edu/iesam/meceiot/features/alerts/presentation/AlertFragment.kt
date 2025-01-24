@@ -45,6 +45,7 @@ class AlertFragment : Fragment() {
 
     private fun setupView() {
         binding.apply {
+            mainToolbarAlerts.mainToolbar.title = getString(R.string.alerts_title)
             alertsRecyclerview.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter

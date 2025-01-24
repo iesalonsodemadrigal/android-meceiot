@@ -126,7 +126,7 @@
     <string name="value_null">  </string>
 
     <!-- View alerts -->
-    <string name="alerts_title">Alertas de sensores</string>
+    <string name="alerts_title">Alertas</string>
     <string name="detection_movement">Detección de movimiento</string>
     <string name="description_panel">Nombre del panel, localicación</string>
     <string name="label_menu_alerts">Alertas</string>

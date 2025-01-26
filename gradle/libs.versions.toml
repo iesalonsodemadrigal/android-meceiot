@@ -25,7 +25,7 @@ junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
 skeletonlayout = "5.0.0"
-
+swipeFresh = "1.2.0-alpha01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -62,6 +62,7 @@ koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref =
 skeletonlayout = { module = "com.faltenreich:skeletonlayout", version.ref = "skeletonlayout" }
 views = { module = "com.patrykandpatrick.vico:views", version.ref = "core" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+swipe-fresh = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeFresh" }
 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }

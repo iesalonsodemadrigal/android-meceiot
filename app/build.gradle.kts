@@ -86,4 +86,6 @@ dependencies {
     implementation(libs.coil)
     //Skeleton
     implementation (libs.skeletonlayout)
+    //SwipeRefresh
+    implementation(libs.swipe.fresh)
 }

@@ -33,7 +33,6 @@ class AlertFragment : Fragment() {
         _binding = FragmentAlertBinding.inflate(inflater, container, false)
         setupView()
         return binding.root
-
     }
 
 
@@ -50,6 +49,9 @@ class AlertFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter
             skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 5)
+            swipeRefresh.setOnRefreshListener {
+                alertViewModel.viewCreated()
+            }
         }
     }
 
@@ -67,21 +69,27 @@ class AlertFragment : Fragment() {
                 binding.errorAppView.hide()
             }
             if (uiState.isLoading) {
-                skeleton.showSkeleton()
+                if (binding.swipeRefresh.isRefreshing) {
+                    //binding.swipeRefresh.setProgressViewOffset(false,0,250)
+                    //binding.swipeRefresh.isRefreshing = true
+                    skeleton.showOriginal()
+                } else {
+                    skeleton.showSkeleton()
+                }
             } else {
                 skeleton.showOriginal()
+                binding.swipeRefresh.isRefreshing = false
             }
         }
         alertViewModel.uiState.observe(viewLifecycleOwner, alertObserver)
-
     }
 
     private fun binData(alert: List<Sensor>) {
         alertAdapter.submitList(alert)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }

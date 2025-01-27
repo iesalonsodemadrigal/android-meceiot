@@ -14,10 +14,7 @@
 
     <!-- LoraWan -->
     <string name="lorawan_info_file_xml">lorawan</string>
-    <string name="label_menu_b">fragmentB</string>
     <string name="IoT">IoT</string>
-    <string name="label_menu_c">fragmentC</string>
-    <string name="fragmentoa">fragmentoA</string>
 
     <!-- Desarrolladores -->
     <string name="developer_name">Developer Name</string>
@@ -106,7 +103,7 @@
 
 
 
-    //strings Iot
+    <!-- View Iot -->
     <string name="iot_title">IoT</string>
     <string name="iot_description">Descripción de IoT</string>
     <string name="title_item">Titulo</string>
@@ -125,5 +122,15 @@
     <string name="title_this_fragment">tu titulo</string>
     <string name="value_null">  </string>
 
-
+    <!-- View alerts -->
+    <string name="alerts_title">Alertas</string>
+    <string name="label_menu_alerts">Alertas</string>
+    <string name="alert_title">Alerta de sensor</string>
+    <string name="description_panel">Nombre del panel, localicación</string>
+    <string name="alert_co2">Niveles elevados de Co2</string>
+    <string name="alert_temperature">Temperatura crítica</string>
+    <string name="alert_light">Luz encendida</string>
+    <string name="alert_humidity">Niveles altos de humedad</string>
+    <string name="alert_movement">Posible presencia de movimiento</string>
+    <string name="alert_sound">Sonido elevado</string>
 </resources>

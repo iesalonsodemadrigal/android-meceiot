@@ -1,0 +1,146 @@
+[
+  {
+    "id": "1",
+    "name": "Meceiot_Alonso_CO2_009 - A16",
+    "sensors": [
+      {
+        "id": "1",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "type": "co2",
+        "value": "420"
+      },
+      {
+        "id": "2",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "type": "temp",
+        "value": "10"
+      },
+      {
+        "id": "3",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "type": "light",
+        "value": "1000"
+      },
+      {
+        "id": "4",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "type": "hum",
+        "value": "31"
+      },
+      {
+        "id": "5",
+        "name": "Meceiot_Alonso_CO2_009 - A16",
+        "type": "mov",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Meceiot_Alonso_CO2_010 - C22",
+    "sensors": [
+      {
+        "id": "6",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "type": "co2",
+        "value": "100"
+      },
+      {
+        "id": "7",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "type": "temp",
+        "value": "15"
+      },
+      {
+        "id": "8",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "type": "light",
+        "value": "1000"
+      },
+      {
+        "id": "9",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "type": "hum",
+        "value": "33"
+      },
+      {
+        "id": "10",
+        "name": "Meceiot_Alonso_CO2_010 - C22",
+        "type": "mov",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+    "sensors": [
+      {
+        "id": "11",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "type": "sound",
+        "value": "60"
+      },
+      {
+        "id": "12",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "type": "temp",
+        "value": "20.45"
+      },
+      {
+        "id": "13",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "type": "light",
+        "value": "1000"
+      },
+      {
+        "id": "14",
+        "name": "Meceiot_Alonso_Sound_009 - Pasillo Pab A",
+        "type": "hum",
+        "value": "40"
+      },
+      {
+        "id": "15",
+        "name": "Posible presencia de movimiento",
+        "type": "mov",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Meceiot_Alonso_Sound_010 - Hall",
+    "sensors": [
+      {
+        "id": "16",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "type": "sound",
+        "value": "30"
+      },
+      {
+        "id": "17",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "type": "temp",
+        "value": "20.45"
+      },
+      {
+        "id": "18",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "type": "light",
+        "value": "500"
+      },
+      {
+        "id": "19",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "type": "hum",
+        "value": "32"
+      },
+      {
+        "id": "20",
+        "name": "Meceiot_Alonso_Sound_010 - Hall",
+        "type": "mov",
+        "value": "1"
+      }
+    ]
+  }
+]

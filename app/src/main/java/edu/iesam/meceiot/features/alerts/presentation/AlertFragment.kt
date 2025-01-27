@@ -66,13 +66,14 @@ class AlertFragment : Fragment() {
 
     private fun checkLoading(isLoading: Boolean) {
         if (isLoading) {
-            if(binding.swipeRefresh.isRefreshing){
-            skeleton.showOriginal()
-                }else{
-                    skeleton.showSkeleton()
+            if (binding.swipeRefresh.isRefreshing) {
+                skeleton.showOriginal()
+            } else {
+                skeleton.showSkeleton()
             }
         } else {
             skeleton.showOriginal()
+            binding.swipeRefresh.isRefreshing = false
         }
     }
 

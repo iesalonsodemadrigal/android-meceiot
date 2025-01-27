@@ -6,18 +6,24 @@
     android:orientation="vertical"
     tools:context="edu.iesam.meceiot.features.alerts.presentation.AlertFragment">
 
-    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
-        android:id="@+id/error_app_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <include
         android:id="@+id/main_toolbar_alerts"
         layout="@layout/main_toolbar" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/alerts_recyclerview"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_alert" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/alerts_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_alert" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
+        android:id="@+id/error_app_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

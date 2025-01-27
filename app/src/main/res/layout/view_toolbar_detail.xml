@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_extra_small"
     android:padding="@dimen/image_size_small"
-    android:paddingTop="@dimen/padding_extra_small"
-    android:paddingBottom="@dimen/padding_extra_small"
     android:textSize="@dimen/font_size_medium"
+    app:navigationIconTint="@color/md_theme_onSurface_highContrast"
     app:title="Generic Title" />

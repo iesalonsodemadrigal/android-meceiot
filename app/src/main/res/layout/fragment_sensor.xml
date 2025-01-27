@@ -4,14 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
-        android:id="@+id/error_app_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <include
         android:id="@+id/toolbar"
@@ -32,24 +25,24 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/nombre_sensor"
+                android:id="@+id/sensor_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:text="Nombre del Sensor"
-                android:textSize="18sp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:text="@string/sensor_name"
+                android:textSize="@dimen/font_size_small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/tabla_datos"
+                android:id="@+id/data_table"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@id/chart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nombre_sensor">
+                app:layout_constraintTop_toBottomOf="@id/sensor_name">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -57,7 +50,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/maxValue"
+                        android:id="@+id/max_value"
                         style="@style/AppHeadline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,13 +68,13 @@
                         android:textAlignment="center"
                         android:textSize="@dimen/font_size_extra_small" />
 
-                    <View
+                    <com.google.android.material.divider.MaterialDivider
                         android:layout_width="200dp"
                         android:layout_height="1dp"
                         android:background="@android:color/darker_gray" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/avgValue"
+                        android:id="@+id/avg_value"
                         style="@style/AppHeadline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -101,7 +94,7 @@
 
                 </LinearLayout>
 
-                <View
+                <com.google.android.material.divider.MaterialDivider
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@android:color/darker_gray" />
@@ -112,7 +105,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/minValue"
+                        android:id="@+id/min_value"
                         style="@style/AppHeadline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -130,13 +123,13 @@
                         android:textAlignment="center"
                         android:textSize="@dimen/font_size_extra_small" />
 
-                    <View
+                    <com.google.android.material.divider.MaterialDivider
                         android:layout_width="200dp"
                         android:layout_height="1dp"
                         android:background="@android:color/darker_gray" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/modeValue"
+                        android:id="@+id/mode_value"
                         style="@style/AppHeadline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -146,7 +139,6 @@
                         android:textSize="@dimen/Extra_large_font_size" />
 
                     <TextView
-                        android:id="@+id/tvModa"
                         style="@style/AppSupportingText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -165,7 +157,16 @@
                 android:layout_margin="@dimen/margin_extra_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tabla_datos" />
+                app:layout_constraintTop_toBottomOf="@id/data_table" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.faltenreich.skeletonlayout.SkeletonLayout>
+
+    <edu.iesam.meceiot.core.presentation.views.ErrorAppView
+        android:id="@+id/error_app_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

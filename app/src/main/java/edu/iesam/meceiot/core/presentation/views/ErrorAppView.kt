@@ -25,7 +25,9 @@ class ErrorAppView @JvmOverloads constructor(
             imageError.setImageResource(errorAppUI.getImageError())
             titleError.text = errorAppUI.getTitleError()
             descriptionError.text = errorAppUI.getDescriptionError()
-            //button action...
+            buttonRetryError.setOnClickListener {
+                errorAppUI.getActionRetry()
+            }
             visible()
         }
     }

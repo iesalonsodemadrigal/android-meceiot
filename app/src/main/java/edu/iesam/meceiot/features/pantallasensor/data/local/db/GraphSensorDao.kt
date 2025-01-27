@@ -6,16 +6,16 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface SensorDao {
+interface GraphSensorDao {
     @Query("SELECT * FROM $SENSOR_TABLE")
-    fun getAll(): List<SensorEntity>
+    fun getAll(): List<GraphSensorEntity>
 
     @Query("SELECT * FROM $SENSOR_TABLE WHERE id = :id")
-    fun getById(id: Int): SensorEntity
+    fun getById(id: Int): GraphSensorEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg sensorEntity: SensorEntity)
+    fun insertAll(vararg sensorEntity: GraphSensorEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(sensorEntity: SensorEntity)
+    fun insert(sensorEntity: GraphSensorEntity)
 }

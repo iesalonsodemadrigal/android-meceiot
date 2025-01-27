@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
-import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.pantallasensor.domain.GetSensorDataUseCase
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
@@ -26,24 +24,8 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
             _uiState.postValue(
                 UiState(
                     loading = false,
-                    sensors = sensor
-                )
-            )
-        }
-    }
-
-    fun updateChartData(sensor: Sensor, modelProducer: CartesianChartModelProducer) {
-        viewModelScope.launch(Dispatchers.IO) {
-            modelProducer.runTransaction {
-                lineSeries {
-                    series(sensor.valoresX, sensor.valoresY)
-                }
-            }
-            _uiState.postValue(
-                UiState(
-                    loading = false,
-                    sensors = sensor,
-                    chartData = modelProducer
+                    sensors = sensor.getOrNull(),
+                    errorApp = sensor.exceptionOrNull() as? ErrorApp
                 )
             )
         }
@@ -54,6 +36,5 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
         val loading: Boolean = true,
         val errorApp: ErrorApp? = null,
         val sensors: Sensor? = null,
-        val chartData: CartesianChartModelProducer? = null
     )
 }

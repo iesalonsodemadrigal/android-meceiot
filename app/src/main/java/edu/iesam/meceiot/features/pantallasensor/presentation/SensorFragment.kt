@@ -8,7 +8,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -22,12 +21,15 @@ import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
 import com.patrykandpatrick.vico.core.cartesian.axis.VerticalAxis
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
+import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Calendar
 import java.util.Date
@@ -61,7 +63,6 @@ class SensorFragment : Fragment() {
         skeleton = binding.root.findViewById(edu.iesam.meceiot.R.id.sensor_skeleton)
         setupObserver()
         sensorViewModel.viewCreated(sensorMockId)
-        setupRetryAction()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -99,18 +100,17 @@ class SensorFragment : Fragment() {
 
     private fun setupObserver() {
         val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
-            uiState.errorApp?.let {
-                val error = ErrorAppFactory(requireContext())
-                val errorAppUI = error.build(it)
-                binding.errorAppView.render(errorAppUI)
-            } ?: run { binding.errorAppView.hide() }
+
             uiState.sensors?.let { sensor ->
                 bindData(sensor)
-                sensorViewModel.updateChartData(sensor, modelProducer)
-                initializeChart(sensor)
             }
-            uiState.chartData?.let { chartData ->
-                cartesianChartView.modelProducer = chartData
+            uiState.errorApp?.let {
+                val errorAppUI = ErrorAppFactory(requireContext()).build(it, {
+                    sensorViewModel.viewCreated(sensorMockId)
+                })
+                binding.errorAppView.render(errorAppUI)
+            } ?: run {
+                binding.errorAppView.hide()
             }
             if (uiState.loading) {
                 skeleton.showSkeleton()
@@ -121,8 +121,27 @@ class SensorFragment : Fragment() {
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
 
+    private fun bindData(sensor: Sensor) {
+        binding.apply {
+            initializeChart(sensor)
+            sensorName.text = sensor.nombre
+            toolbar.viewToolbarDetail.title = sensor.nombrePanel
+            maxValue.text = sensor.maxValue
+            minValue.text = sensor.minValue
+            avgValue.text = sensor.avgValue
+            modeValue.text = sensor.modeValue
+        }
+    }
+
     private fun initializeChart(sensor: Sensor) {
         val chart = cartesianChartView.chart!!
+        GlobalScope.launch {
+            modelProducer.runTransaction {
+                lineSeries {
+                    series(sensor.valoresX, sensor.valoresY)
+                }
+            }
+        }
         val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
             y.toLong().formatValue(sensor.dataType)
         }
@@ -134,18 +153,6 @@ class SensorFragment : Fragment() {
             zoomEnabled = true,
             initialZoom = Zoom.Content,
         )
-    }
-
-
-    private fun bindData(sensor: Sensor) {
-        binding.apply {
-            nombreSensor.text = sensor.nombre
-            toolbar.viewToolbarDetail.title = sensor.nombrePanel
-            binding.maxValue.text = sensor.maxValue
-            binding.minValue.text = sensor.minValue
-            binding.avgValue.text = sensor.avgValue
-            binding.modeValue.text = sensor.modeValue
-        }
     }
 
 
@@ -166,19 +173,5 @@ class SensorFragment : Fragment() {
         return String.format("%02d %s", this, dataType)
     }
 
-    private fun setupRetryAction() {
-        val retryButton =
-            binding.root.findViewById<Button>(edu.iesam.meceiot.R.id.button_retry_error)
-        retryButton.setOnClickListener {
-            findNavController().run {
-                val currentFragmentId =
-                    currentDestination?.id
-                currentFragmentId?.let {
-                    popBackStack()
-                    navigate(it)
-                }
-            }
-        }
-    }
 }
 

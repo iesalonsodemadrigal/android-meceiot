@@ -5,10 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-const val SENSOR_TABLE = "sensor"
+const val SENSOR_TABLE = "graph_sensor"
 
 @Entity(tableName = SENSOR_TABLE)
-class SensorEntity(
+class GraphSensorEntity(
     @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "sensorName") val nombre: String,
     @ColumnInfo(name = "panelName") val nombrePanel: String,

@@ -8,7 +8,7 @@ import org.koin.core.annotation.Single
 const val TIME_SENSOR = 60000L
 
 @Single
-class SensorDbDataSource(private val sensorDao: SensorDao) {
+class SensorDbDataSource(private val sensorDao: GraphSensorDao) {
 
     fun getAll(): Result<List<Sensor>> {
         val sensorEntities = sensorDao.getAll()
@@ -33,9 +33,13 @@ class SensorDbDataSource(private val sensorDao: SensorDao) {
         sensorDao.insert(sensorEntity)
     }
 
-    fun getById(id: Int): Sensor? {
+    fun getById(id: Int): Result<Sensor> {
         val sensorEntity = sensorDao.getById(id)
-        return sensorEntity?.toDomain()
+        return if (sensorEntity != null) {
+            Result.success(sensorEntity.toDomain())
+        } else {
+            Result.failure(ErrorApp.DataErrorApp)
+        }
     }
 
 }

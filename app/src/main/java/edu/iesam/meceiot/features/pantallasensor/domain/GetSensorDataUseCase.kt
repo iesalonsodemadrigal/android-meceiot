@@ -4,7 +4,7 @@ import org.koin.core.annotation.Single
 
 @Single
 class GetSensorDataUseCase(private val sensorRepository: SensorRepository) {
-    suspend operator fun invoke(id: Int): Sensor {
+    suspend operator fun invoke(id: Int): Result<Sensor> {
         return sensorRepository.getSensorDataById(id)
     }
 }

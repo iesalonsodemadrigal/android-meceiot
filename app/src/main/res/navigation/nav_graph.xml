@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/fragment_about_lorawan">
+    app:startDestination="@+id/alert_fragment">
     <fragment
         android:id="@+id/fragment_about_lorawan"
         android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"
@@ -39,7 +39,7 @@
         android:label="Developer About Fragment" />
 
     <fragment
-        android:id="@+id/IoT_Fragment"
+        android:id="@+id/iot_fragment"
         android:name="edu.iesam.meceiot.features.iot.presentation.IoTAboutFragment"
         tools:layout="@layout/fragment_iot">
     </fragment>
@@ -57,5 +57,10 @@
         android:id="@+id/fragment_sensor"
         android:name="edu.iesam.meceiot.features.pantallasensor.presentation.SensorFragment"
         tools:layout="@layout/fragment_sensor" />
+
+    <fragment
+        android:id="@+id/alert_fragment"
+        android:name="edu.iesam.meceiot.features.alerts.presentation.AlertFragment"
+        tools:layout="@layout/fragment_alert" />
 
 </navigation>

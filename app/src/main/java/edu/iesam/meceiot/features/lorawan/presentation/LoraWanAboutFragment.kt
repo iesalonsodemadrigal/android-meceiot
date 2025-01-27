@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentAboutLorawanBinding
 import edu.iesam.meceiot.features.lorawan.domain.LoraWanInfo
 import edu.iesam.meceiot.features.lorawan.presentation.adapter.LoraWanAdapter
@@ -36,7 +37,7 @@ class LoraWanAboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        loraWanViewModel.viewCreated()
+        loraWanViewModel.fetchInfoLoraWan()
     }
 
     private fun setupObserver() {
@@ -45,7 +46,11 @@ class LoraWanAboutFragment : Fragment() {
                 bindData(it)
             }
             uiState.errorApp?.let {
-                //print error
+                val errorUI =
+                    ErrorAppFactory(requireContext()).build(it, {
+                        loraWanViewModel.fetchInfoLoraWan()
+                    })
+                binding.errorAppView.render(errorUI)
             } ?: run {
                 // hide error
             }

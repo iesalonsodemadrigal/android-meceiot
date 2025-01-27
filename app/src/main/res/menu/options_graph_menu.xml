@@ -6,5 +6,6 @@
         android:enabled="true"
         android:icon="@drawable/ic_options_graph_24"
         android:title="@string/opciones_de_grafico"
+        app:iconTint="@color/md_theme_onBackground_highContrast"
         app:showAsAction="always"/>
 </menu>

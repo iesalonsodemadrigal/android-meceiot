@@ -1,9 +1,10 @@
 package edu.iesam.meceiot.core.presentation
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import edu.iesam.meceiot.R
 import org.koin.core.annotation.Single
 
@@ -20,10 +21,10 @@ class AppIntent(private val context: Context) {
     }
 
     fun shareApp(shareText: String) {
-        Toast.makeText(
-            context,
-            context.getString(R.string.text_sharing_message),
-            Toast.LENGTH_SHORT
+        Snackbar.make(
+            (context as Activity).findViewById(android.R.id.content),  // Usamos el contenedor raíz de la actividad
+            context.getString(R.string.text_sharing_message),  // Mensaje a mostrar
+            Snackbar.LENGTH_SHORT  // Duración del Snackbar
         ).show()
 
         val intent = Intent(Intent.ACTION_SEND).apply {

@@ -24,16 +24,17 @@ class DeveloperAboutFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentDeveloperListBinding? = null
     private val binding get() = _binding!!
     private val developerAdapter = DeveloperAdapter()
-    private val appIntent: AppIntent by lazy { AppIntent(requireContext()) }
+    private lateinit var appIntent: AppIntent
     private lateinit var skeleton: Skeleton
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentDeveloperListBinding.inflate(inflater, container, false)
         setupView()
+        appIntent = AppIntent(requireContext())
         return binding.root
     }
 

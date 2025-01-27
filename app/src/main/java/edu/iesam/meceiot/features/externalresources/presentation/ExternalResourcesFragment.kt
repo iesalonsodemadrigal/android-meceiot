@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
@@ -26,7 +24,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentExternalResourcesBinding? = null
     private val binding get() = _binding!!
     private val externalResourcesAdapter = ExternalResourcesAdapter()
-    private val appIntent: AppIntent by lazy { AppIntent(requireContext()) }
+    private lateinit var appIntent: AppIntent
     private lateinit var skeleton: Skeleton
 
     override fun onCreateView(
@@ -36,6 +34,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
     ): View? {
         _binding = FragmentExternalResourcesBinding.inflate(inflater, container, false)
         setupView()
+        appIntent = AppIntent(requireContext())
         return binding.root
     }
 

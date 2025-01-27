@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
 import edu.iesam.meceiot.R
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentAlertBinding
@@ -33,14 +34,12 @@ class AlertFragment : Fragment() {
         _binding = FragmentAlertBinding.inflate(inflater, container, false)
         setupView()
         return binding.root
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        alertViewModel.viewCreated()
+        alertViewModel.fetchAlerts()
     }
 
     private fun setupView() {
@@ -49,35 +48,42 @@ class AlertFragment : Fragment() {
             alertsRecyclerview.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter
-            skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 5)
+            skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 10)
         }
     }
 
     private fun setupObserver() {
         val alertObserver = Observer<AlertViewModel.UiState> { uiState ->
-            uiState.alert?.let {
-                binData(it)
-            }
-            uiState.errorApp?.let {
-                val error = ErrorAppFactory(requireContext()).build(it, {
-                    alertViewModel.viewCreated()
-                })
-                binding.errorAppView.render(error)
-            } ?: run {
-                binding.errorAppView.hide()
-            }
-            if (uiState.isLoading) {
-                skeleton.showSkeleton()
-            } else {
-                skeleton.showOriginal()
-            }
+            checkLoading(uiState.isLoading)
+            checkError(uiState.errorApp)
+            bindData(uiState.alert)
         }
         alertViewModel.uiState.observe(viewLifecycleOwner, alertObserver)
-
     }
 
-    private fun binData(alert: List<Sensor>) {
-        alertAdapter.submitList(alert)
+    private fun checkLoading(isLoading: Boolean) {
+        if (isLoading) {
+            skeleton.showSkeleton()
+        } else {
+            skeleton.showOriginal()
+        }
+    }
+
+    private fun checkError(errorApp: ErrorApp?) {
+        errorApp?.let {
+            val error = ErrorAppFactory(requireContext()).build(it, {
+                alertViewModel.fetchAlerts()
+            })
+            binding.errorAppView.render(error)
+        } ?: run {
+            binding.errorAppView.hide()
+        }
+    }
+
+    private fun bindData(alerts: List<Sensor>?) {
+        alerts?.let {
+            alertAdapter.submitList(it)
+        }
     }
 
     override fun onDestroy() {

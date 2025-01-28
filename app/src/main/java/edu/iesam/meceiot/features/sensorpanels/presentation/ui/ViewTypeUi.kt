@@ -1,10 +1,9 @@
-package edu.iesam.meceiot.features.sensorpanels.domain
+package edu.iesam.meceiot.features.sensorpanels.presentation.ui
 
-interface PanelUiModel {
+interface ViewTypeUi {
     enum class Type(val value: Int) {
         PanelUI(0),
         SensorUi(1)
     }
-
     fun getType(): Int
 }

@@ -13,9 +13,9 @@ import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorPanelsBinding
-import edu.iesam.meceiot.features.sensorpanels.domain.Panel
-import edu.iesam.meceiot.features.sensorpanels.domain.PanelUiModel
 import edu.iesam.meceiot.features.sensorpanels.presentation.adapter.SensorPanelsAdapter
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.PanelUiModel
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.ViewTypeUi
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -64,8 +64,8 @@ class SensorPanelsFragment : Fragment() {
                     spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                         override fun getSpanSize(position: Int): Int {
                             return when (sensorPanelsAdapter.getItemViewType(position)) {
-                                PanelUiModel.Type.PanelUI.value -> 2
-                                PanelUiModel.Type.SensorUi.value -> 1
+                                ViewTypeUi.Type.PanelUI.value -> 2
+                                ViewTypeUi.Type.SensorUi.value -> 1
                                 else -> 1
                             }
                         }
@@ -92,8 +92,8 @@ class SensorPanelsFragment : Fragment() {
 
     private fun setupObservers() {
         val sensorPanelsObserver = Observer<SensorPanelsViewModel.UiState> { uiState ->
-            uiState.sensorPanels?.let { sensorPanels ->
-                sensorPanelsAdapter.updateItems(generateListItem(sensorPanels))
+            uiState.sensorPanels?.let { sensorPanelsUi ->
+                sensorPanelsAdapter.updateItems(generateListItem(sensorPanelsUi))
                 binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
@@ -114,8 +114,8 @@ class SensorPanelsFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)
     }
 
-    private fun generateListItem(panelList: List<Panel>): List<PanelUiModel> {
-        return panelList.map { panel ->
+    private fun generateListItem(panelUiList: List<PanelUiModel>): List<ViewTypeUi> {
+        return panelUiList.map { panel ->
             listOf(panel) + panel.sensors
         }.flatten()
     }

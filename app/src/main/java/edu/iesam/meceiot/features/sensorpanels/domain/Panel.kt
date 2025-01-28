@@ -4,6 +4,4 @@ data class Panel(
     val id: Int,
     val name: String,
     val sensors: List<Sensor>
-) : PanelUiModel {
-    override fun getType(): Int = PanelUiModel.Type.PanelUI.value
-}
+)

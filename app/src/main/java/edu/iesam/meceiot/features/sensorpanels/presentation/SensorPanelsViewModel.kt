@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.sensorpanels.domain.GetSensorPanelsUseCase
-import edu.iesam.meceiot.features.sensorpanels.domain.Panel
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.PanelUiModel
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.toUiModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
@@ -23,13 +24,25 @@ class SensorPanelsViewModel(
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val sensorPanels = getSensorPanelsUseCase.invoke()
-
-            _uiState.postValue(
-                UiState(
-                    sensorPanels = sensorPanels.getOrNull(),
-                    isLoading = false,
-                    errorApp = sensorPanels.exceptionOrNull() as ErrorApp?
-                )
+            sensorPanels.fold(
+                onSuccess = { sensorPanels ->
+                    val sensorPanelsUi = sensorPanels.map { it.toUiModel() }
+                    _uiState.postValue(
+                        UiState(
+                            sensorPanels = sensorPanelsUi,
+                            isLoading = false
+                        )
+                    )
+                },
+                onFailure = { error ->
+                    _uiState.postValue(
+                        UiState(
+                            sensorPanels = null,
+                            isLoading = false,
+                            errorApp = error as ErrorApp
+                        )
+                    )
+                }
             )
         }
     }
@@ -37,7 +50,7 @@ class SensorPanelsViewModel(
     data class UiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val sensorPanels: List<Panel>? = null
+        val sensorPanels: List<PanelUiModel>? = null
     )
 }
 

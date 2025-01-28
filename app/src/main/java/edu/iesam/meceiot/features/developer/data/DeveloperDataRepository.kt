@@ -1,29 +1,35 @@
 package edu.iesam.meceiot.features.developer.data
 
+import edu.iesam.meceiot.features.developer.data.remote.DeveloperApiRemoteDataSource
 import edu.iesam.meceiot.features.developer.data.remote.firestore.DeveloperFirestoreDataSource
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import edu.iesam.meceiot.features.developer.domain.usecase.DeveloperRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.koin.core.annotation.Single
 
 @Single
 class DeveloperDataRepository(
-    private val developerFirestoreDataSource: DeveloperFirestoreDataSource
+    private val developerFirestoreDataSource: DeveloperFirestoreDataSource,
+    private val developerApiRemoteDataSource: DeveloperApiRemoteDataSource
 ) : DeveloperRepository {
 
     override suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
-        return try {
-            val developers = developerFirestoreDataSource.getAll()
-            Result.success(developers)
-        } catch (e: Exception) {
-            Result.failure(e)
+        return withContext(Dispatchers.IO) {
+            try {
+                val localDevelopers = developerFirestoreDataSource.getAll()
+                if (localDevelopers.isEmpty()) {
+                    val remoteDevelopers = developerApiRemoteDataSource.getDevelopers()
+                    remoteDevelopers.onSuccess { developers ->
+                        developerFirestoreDataSource.saveAll(developers)
+                    }
+                    remoteDevelopers
+                } else {
+                    Result.success(localDevelopers)
+                }
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
         }
-    }
-
-    suspend fun saveDevelopers(developers: List<DeveloperInfo>) {
-        developerFirestoreDataSource.saveAll(developers)
-    }
-
-    suspend fun deleteDeveloperById(id: String) {
-        developerFirestoreDataSource.deleteById(id)
     }
 }

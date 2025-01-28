@@ -10,14 +10,17 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentLoginBinding
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
-    private lateinit var viewModel: LoginViewModel
-    private lateinit var loginFactory: LoginFactory
+    val viewModel: LoginViewModel by viewModel()
+    //private lateinit var loginFactory: LoginFactory
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -32,16 +35,14 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginFactory = LoginFactory(requireContext())
-        viewModel = loginFactory.buildViewModel()
 
         setupObservers()
         setLoginForm()
-
     }
 
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
+            //DEBUG
             uiState.loginCredentials?.let { loginCredentials ->
                 //DEBUG: muestra el los credenciales por pantalla
                 Log.d("@dev", "Login credentials: $loginCredentials")
@@ -52,12 +53,12 @@ class LoginFragment : Fragment() {
                 ).show()
             }
             uiState.errorApp?.let {
-                //Pintar el error
+                //Pintar el error? O mostrar un toast de que no hay conexion quizá
             } ?: run {
-                //Ocultar el error
+                //Ocultar el error a los 3 segundos o asi
             }
-
             if (uiState.isLoading) {
+                //Mostrar un loading o algo? Quiza no
                 Log.d("@dev", "Cargando...")
             } else {
                 Log.d("@dev", "Cargando...")
@@ -71,12 +72,21 @@ class LoginFragment : Fragment() {
                     "$loginSuccess",
                     Toast.LENGTH_LONG,
                 ).show()
+                //Pasamos a la siguiente pantalla y guardamos los credenciales
+                if (loginSuccess) {
+                    findNavController().navigate(
+                        LoginFragmentDirections.actionLoginFragmentToMainFragment(),
+                        NavOptions.Builder().setPopUpTo(R.id.login_fragment, true)
+                            .build()
+                    )
+                }
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, loginObserver)
     }
 
     private fun setLoginForm() {
+        //cambiar a binding
         val usernameEditText: EditText = requireView().findViewById(R.id.username)
         val passwordEditText: EditText = requireView().findViewById(R.id.password)
         val loginButton: Button = requireView().findViewById(R.id.loginButton)
@@ -86,6 +96,12 @@ class LoginFragment : Fragment() {
                 LoginCredentials(usernameEditText.text.toString(), passwordEditText.text.toString())
             viewModel.postLoginCredentials(loginCredentials)
         }
+    }
+
+    override fun onDestroyView() {
+        //Poner la vista principal a otra vista
+        super.onDestroyView()
+        _binding = null
     }
 
 }

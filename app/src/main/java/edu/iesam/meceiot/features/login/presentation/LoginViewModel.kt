@@ -9,7 +9,9 @@ import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import edu.iesam.meceiot.features.login.domain.LoginUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class LoginViewModel(
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
@@ -20,26 +22,17 @@ class LoginViewModel(
     fun postLoginCredentials(loginCredentials: LoginCredentials) {
         viewModelScope.launch(Dispatchers.IO) {
             _uiState.postValue(LoginUiState(isLoading = true))
-            val isLoginSuccessful: Boolean = loginUseCase.invoke(loginCredentials)
-            if (isLoginSuccessful) {
-                _uiState.postValue(
-                    LoginUiState(
-                        isLoading = false,
-                        loginCredentials = loginCredentials, //Solo para pruebas
-                        loginSuccessful = true
-                    )
+
+            val isLoginSuccessful = loginUseCase.invoke(loginCredentials)
+            _uiState.postValue(
+                LoginUiState(
+                    isLoading = false,
+                    loginCredentials = loginCredentials, //Solo para pruebas
+                    errorApp = isLoginSuccessful.exceptionOrNull() as ErrorApp?,
+                    loginSuccessful = isLoginSuccessful.getOrElse { false }
                 )
-            } else {
-                //El error que devuelve es un placeholder
-                _uiState.postValue(
-                    LoginUiState(
-                        isLoading = false,
-                        errorApp = ErrorApp.UnknowErrorApp,
-                        loginSuccessful = false,
-                        loginCredentials = loginCredentials
-                    )
-                )
-            }
+            )
+
         }
     }
 

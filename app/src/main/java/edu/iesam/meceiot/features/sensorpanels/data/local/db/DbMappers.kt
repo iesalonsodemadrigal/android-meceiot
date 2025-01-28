@@ -2,7 +2,6 @@ package edu.iesam.meceiot.features.sensorpanels.data.local.db
 
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
-import java.util.Date
 
 fun Sensor.toEntity(): SensorEntity {
     return SensorEntity(
@@ -18,7 +17,7 @@ fun SensorEntity.toDomain(): Sensor {
     )
 }
 
-fun Panel.toEntity(date: Date): PanelEntity {
+fun Panel.toEntity(date: Long): PanelEntity {
     return PanelEntity(
         id = id,
         name = name,

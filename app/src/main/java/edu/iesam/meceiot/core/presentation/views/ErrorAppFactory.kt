@@ -2,8 +2,9 @@ package edu.iesam.meceiot.core.presentation.views
 
 import android.content.Context
 import edu.iesam.meceiot.core.domain.ErrorApp
+import org.koin.core.annotation.Single
 
-
+@Single
 class ErrorAppFactory(val context: Context) {
 
     fun build(errorApp: ErrorApp, onClick: (() -> Unit)): ErrorAppUI {

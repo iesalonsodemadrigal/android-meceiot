@@ -20,6 +20,7 @@ class SensorPanelsViewModel(
     val uiState: LiveData<UiState> = _uiState
 
     fun fetchSensorPanels() {
+        _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val sensorPanels = getSensorPanelsUseCase.invoke()
 
@@ -34,7 +35,7 @@ class SensorPanelsViewModel(
     }
 
     data class UiState(
-        val isLoading: Boolean = true,
+        val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
         val sensorPanels: List<Panel>? = null
     )

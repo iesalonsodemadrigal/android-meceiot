@@ -14,8 +14,9 @@ import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorPanelsBinding
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
-import edu.iesam.meceiot.features.sensorpanels.presentation.adapter.ListItem
+import edu.iesam.meceiot.features.sensorpanels.domain.PanelUiModel
 import edu.iesam.meceiot.features.sensorpanels.presentation.adapter.SensorPanelsAdapter
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SensorPanelsFragment : Fragment() {
@@ -23,11 +24,12 @@ class SensorPanelsFragment : Fragment() {
     private var _binding: FragmentSensorPanelsBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var sensorPanelsAdapter: SensorPanelsAdapter
+    private lateinit var sensorPanelsAdapter: SensorPanelsAdapter
     val viewModel: SensorPanelsViewModel by viewModel()
-    private var errorFactory: ErrorAppFactory? = null
 
     private lateinit var skeleton: Skeleton
+
+    private val errorFactory: ErrorAppFactory by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,14 +37,21 @@ class SensorPanelsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSensorPanelsBinding.inflate(inflater, container, false)
-
+        setupSkeleton()
         setupView()
-
         return binding.root
     }
 
+    private fun setupSkeleton() {
+        val skeletonView = LayoutInflater.from(requireContext())
+            .inflate(R.layout.view_skeleton_panels, binding.root, false)
+        skeleton = skeletonView.createSkeleton()
+    }
+
     private fun setupView() {
-        sensorPanelsAdapter = SensorPanelsAdapter()
+        sensorPanelsAdapter = SensorPanelsAdapter { sensorId ->
+            navigateToDetail(sensorId.toInt())
+        }
         binding.apply {
             viewToolbar.mainToolbar.title = getString(R.string.label_menu_panels)
             listSensorPanels.apply {
@@ -55,15 +64,12 @@ class SensorPanelsFragment : Fragment() {
                     spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                         override fun getSpanSize(position: Int): Int {
                             return when (sensorPanelsAdapter.getItemViewType(position)) {
-                                ListItem.Type.PANEL.value -> 2
-                                ListItem.Type.SENSOR.value -> 1
+                                PanelUiModel.Type.PanelUI.value -> 2
+                                PanelUiModel.Type.SensorUi.value -> 1
                                 else -> 1
                             }
                         }
                     }
-                }
-                sensorPanelsAdapter.setOnClickListener { sensorId ->
-                    navigateToDetail(sensorId.toInt())
                 }
                 adapter = sensorPanelsAdapter
             }
@@ -80,15 +86,8 @@ class SensorPanelsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupSkeleton()
         setupObservers()
         viewModel.fetchSensorPanels()
-    }
-
-    private fun setupSkeleton() {
-        val skeletonView = LayoutInflater.from(requireContext())
-            .inflate(R.layout.view_skeleton_panels, binding.root, false)
-        skeleton = skeletonView.createSkeleton()
     }
 
     private fun setupObservers() {
@@ -98,10 +97,10 @@ class SensorPanelsFragment : Fragment() {
                 binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
-                val errorAppUi = errorFactory?.build(errorApp, {
+                val errorAppUi = errorFactory.build(errorApp, {
                     viewModel.fetchSensorPanels()
                 })
-                binding.errorApp.render(errorAppUi!!)
+                binding.errorApp.render(errorAppUi)
             } ?: run {
                 binding.errorApp.hide()
             }
@@ -115,15 +114,10 @@ class SensorPanelsFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)
     }
 
-    private fun generateListItem(panelList: List<Panel>): List<ListItem> {
-        val list = mutableListOf<ListItem>()
-        panelList.forEach { panel ->
-            list.add(panel)
-            panel.sensors.forEach { sensor ->
-                list.add(sensor)
-            }
-        }
-        return list
+    private fun generateListItem(panelList: List<Panel>): List<PanelUiModel> {
+        return panelList.map { panel ->
+            listOf(panel) + panel.sensors
+        }.flatten()
     }
 
     override fun onDestroyView() {

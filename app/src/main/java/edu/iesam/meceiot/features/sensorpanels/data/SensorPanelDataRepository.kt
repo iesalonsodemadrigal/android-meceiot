@@ -13,7 +13,7 @@ class SensorPanelsDataRepository(
 ) : SensorPanelRepository {
     override suspend fun getSensorPanels(): Result<List<Panel>> {
         val sensorPanelsFromLocal = local.getAllPanels()
-        return if (sensorPanelsFromLocal.isEmpty()) {
+        return if (sensorPanelsFromLocal.isFailure) {
             val sensorPanelsFromRemote = remote.getSensorPanels()
             sensorPanelsFromRemote.apply {
                 onSuccess {
@@ -21,7 +21,7 @@ class SensorPanelsDataRepository(
                 }
             }
         } else {
-            Result.success(sensorPanelsFromLocal)
+            return sensorPanelsFromLocal
         }
     }
 }

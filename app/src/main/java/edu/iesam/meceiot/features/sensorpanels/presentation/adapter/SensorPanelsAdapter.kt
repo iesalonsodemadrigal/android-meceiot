@@ -6,16 +6,20 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemPanelBinding
 import edu.iesam.meceiot.databinding.ItemSensorBinding
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
+import edu.iesam.meceiot.features.sensorpanels.domain.PanelUiModel
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 
-class SensorPanelsAdapter() :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SensorPanelsAdapter(
+    private val onClickListener: (String) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val items: MutableList<ListItem> = mutableListOf()
+    //private var onClickListener: (String) -> Unit = {}
+
+    private val items: MutableList<PanelUiModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            ListItem.Type.PANEL.value -> {
+            PanelUiModel.Type.PanelUI.value -> {
                 val view = ItemPanelBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
@@ -24,7 +28,7 @@ class SensorPanelsAdapter() :
                 PanelViewHolder(view)
             }
 
-            ListItem.Type.SENSOR.value -> {
+            PanelUiModel.Type.SensorUi.value -> {
                 val view = ItemSensorBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
@@ -52,13 +56,7 @@ class SensorPanelsAdapter() :
         return items.size
     }
 
-    private var onClickListener: (String) -> Unit = {}
-
-    fun setOnClickListener(onClickListener: (String) -> Unit) {
-        this.onClickListener = onClickListener
-    }
-
-    fun updateItems(newItems: List<ListItem>) {
+    fun updateItems(newItems: List<PanelUiModel>) {
         items.clear()
         items.addAll(newItems)
     }

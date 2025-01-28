@@ -19,4 +19,17 @@ class SensorListConverter {
         return gson.fromJson(sensorListString, listType)
     }
 
+    //hacer el sensoralertconverter
+    /*
+    @TypeConverter
+    fun fromSensorList(sensorList: List<Sensor>): String {
+        return gson.toJson(sensorList)
+    }
+
+    @TypeConverter
+    fun toSensorList(sensorListString: String): List<Sensor> {
+        return gson.fromJson(sensorListString, Array<Sensor>::class.java).toList()
+    }
+     */
+
 }

@@ -1,53 +1,36 @@
-package edu.iesam.meceiot.features.developer.data.local.xml
-
-
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import android.content.Context
+import com.google.gson.Gson
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
-import org.koin.core.annotation.Single
 
-@Single
-class DeveloperFirestoreDataSource {
-    private val db = Firebase.firestore
 
-    /**
-     * Guarda todos los desarrolladores en la colección "developers" de Firestore.
-     * Sobrescribe los datos si ya existen.
-     */
-    fun saveAll(
-        developerInfo: List<DeveloperInfo>,
-        onSuccess: () -> Unit,
-        onFailure: (Exception) -> Unit
-    ) {
-        val batch = db.batch() // Usamos un batch para operaciones en lote.
+class DeveloperXmlLocalDataSource(private val context: Context) {
+    private val gson = Gson()
 
-        developerInfo.forEach { developer ->
-            val documentRef = db.collection("developers").document(developer.id)
-            batch.set(
-                documentRef,
-                developer
-            ) // Sobrescribe el documento con los datos del desarrollador.
+    private val sharedPreferences =
+        context.getSharedPreferences(
+            context.getString(R.string.developer_filer_xml),
+            Context.MODE_PRIVATE
+        )
+
+    fun saveAll(developerInfo: List<DeveloperInfo>) {
+        val editor = sharedPreferences.edit()
+        developerInfo.forEach { developerInfo ->
+            editor.putString(developerInfo.id, gson.toJson(developerInfo))
         }
-
-        batch.commit()
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { exception -> onFailure(exception) }
+        editor.apply()
     }
 
-    /**
-     * Obtiene todos los desarrolladores desde la colección "developers".
-     */
-    fun getDevelopers(onSuccess: (List<DeveloperInfo>) -> Unit, onFailure: (Exception) -> Unit) {
-        db.collection("developers")
-            .get()
-            .addOnSuccessListener { result ->
-                val developers = result.map { document ->
-                    document.toObject(DeveloperInfo::class.java) // Convierte cada documento en un objeto DeveloperInfo.
-                }
-                onSuccess(developers)
-            }
-            .addOnFailureListener { exception ->
-                onFailure(exception)
-            }
+    fun getDevelopers(): List<DeveloperInfo> {
+        val developerInfo = mutableListOf<DeveloperInfo>()
+        val mapDeveloperInfo = sharedPreferences.all
+        mapDeveloperInfo.values.forEach { developerInfoJson ->
+            val developerInfoConf =
+                gson.fromJson(developerInfoJson as String, DeveloperInfo::class.java)
+            developerInfo.add(developerInfoConf)
+        }
+        return developerInfo
+
+
     }
 }

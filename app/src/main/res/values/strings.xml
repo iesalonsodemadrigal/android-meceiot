@@ -2,7 +2,7 @@
     <!-- App General -->
     <string name="app_name">android-meceiot</string>
     <string name="title">Title</string>
-    <string name="imageItem">ImageItem</string>
+    <string name="image_item">ImageItem</string>
 
     <!-- Login -->
     <string name="login">Login</string>
@@ -17,7 +17,7 @@
 
     <!-- Desarrolladores -->
     <string name="label_menu_b">fragmentB</string>
-    <string name="IoT">IoT</string>
+    <string name="iot">IoT</string>
 
     <!-- Desarrolladores -->
     <string name="developer_name">Developer Name</string>
@@ -25,9 +25,8 @@
     <string name="developer_list">developer_list</string>
 
     <!-- Recursos Externos -->
-    <string name="ResourceDescription">Description of the resource</string>
-    <string name="ResourceName">Name of the resource</string>
-    <string name="ResourceButton"/>
+    <string name="resource_description">Description of the resource</string>
+    <string name="resource_name">Name of the resource</string>
     <string name="recursos_text">Recursos de terceros que se han usado en la aplicación</string>
     <string name="recursos_externos">Recursos Externos</string>
 
@@ -58,8 +57,7 @@
     <string name="proyecto">Proyecto</string>
 
     <!-- Colaboraciones -->
-    <string name="colaboraciones">Colaboraciones</string>
-    <string name="colaboradores">Colaboradores</string>
+    <string name="collaborators">Colaboradores</string>
 
     <!-- Desarrolladores -->
     <string name="title_developers">Desarrolladores</string>

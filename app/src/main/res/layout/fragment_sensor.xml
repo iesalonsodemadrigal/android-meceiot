@@ -1,5 +1,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_sensor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -56,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/font_size_extra_small"
                         android:textAlignment="center"
-                        android:text="12,2"
+                        tools:text="12,2"
                         android:textSize="@dimen/Extra_large_font_size" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -80,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/font_size_extra_small"
                         android:textAlignment="center"
-                        android:text="12,2"
+                        tools:text="12,2"
                         android:textSize="@dimen/Extra_large_font_size" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -111,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/font_size_extra_small"
                         android:textAlignment="center"
-                        android:text="12,2"
+                        tools:text="12,2"
                         android:textSize="@dimen/Extra_large_font_size" />
 
                     <TextView
@@ -135,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/font_size_extra_small"
                         android:textAlignment="center"
-                        android:text="12,2"
+                        tools:text="12,2"
                         android:textSize="@dimen/Extra_large_font_size" />
 
                     <TextView

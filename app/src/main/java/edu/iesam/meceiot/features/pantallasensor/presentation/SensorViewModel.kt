@@ -17,7 +17,7 @@ class SensorViewModel(private val getSensorDataUseCase: GetSensorDataUseCase) : 
     val uiState: LiveData<UiState> = _uiState
 
 
-    fun viewCreated(id: Int) {
+    fun fetchSensorData(id: Int) {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val sensor = getSensorDataUseCase.invoke(id)

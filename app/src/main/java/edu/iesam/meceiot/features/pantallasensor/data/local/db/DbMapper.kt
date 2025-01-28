@@ -6,11 +6,11 @@ import java.util.Date
 fun Sensor.toEntity(): GraphSensorEntity =
     GraphSensorEntity(
         id = this.id,
-        nombre = this.nombre,
-        nombrePanel = this.nombrePanel,
+        nombre = this.name,
+        nombrePanel = this.panelName,
         dataType = this.dataType,
-        valoresX = this.valoresX,
-        valoresY = this.valoresY,
+        valoresX = this.xValues,
+        valoresY = this.yValues,
         maxValue = this.maxValue,
         minValue = this.minValue,
         avgValue = this.avgValue,
@@ -21,11 +21,11 @@ fun Sensor.toEntity(): GraphSensorEntity =
 fun GraphSensorEntity.toDomain(): Sensor {
     return Sensor(
         id = this.id,
-        nombre = this.nombre,
-        nombrePanel = this.nombrePanel,
+        name = this.nombre,
+        panelName = this.nombrePanel,
         dataType = this.dataType,
-        valoresX = this.valoresX,
-        valoresY = this.valoresY,
+        xValues = this.valoresX,
+        yValues = this.valoresY,
         maxValue = this.maxValue,
         minValue = this.minValue,
         avgValue = this.avgValue,

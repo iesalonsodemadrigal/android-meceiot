@@ -5,7 +5,7 @@
         android:id="@+id/fragment_options_graph"
         android:enabled="true"
         android:icon="@drawable/ic_options_graph_24"
-        android:title="@string/opciones_de_grafico"
+        android:title="@string/chart_options"
         app:iconTint="@color/md_theme_onBackground_highContrast"
         app:showAsAction="always"/>
 </menu>

@@ -40,7 +40,6 @@ class SensorFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
-    private val sensorMockId = 1
     private lateinit var skeleton: Skeleton
     private val valueFormatterXaxis = CartesianValueFormatter { _, x, _ ->
         x.toLong().toHourAndMinute()
@@ -51,18 +50,28 @@ class SensorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSensorBinding.inflate(inflater, container, false)
-
         setupView()
         cartesianChartView.modelProducer = modelProducer
         setHasOptionsMenu(true)
         return binding.root
     }
 
+    private fun setupView() {
+        val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        val actionBar: ActionBar? = (activity as AppCompatActivity).supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setHomeButtonEnabled(true)
+        cartesianChartView = binding.chart
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        skeleton = binding.root.findViewById(edu.iesam.meceiot.R.id.sensor_skeleton)
+        skeleton = binding.sensorSkeleton
         setupObserver()
-        sensorViewModel.viewCreated(sensorMockId)
+        getArgs()?.let {
+            sensorViewModel.fetchSensorData(it)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -88,15 +97,6 @@ class SensorFragment : Fragment() {
         }
     }
 
-    private fun setupView() {
-        val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-        val actionBar: ActionBar? = (activity as AppCompatActivity).supportActionBar
-        actionBar?.setDisplayHomeAsUpEnabled(true)
-        actionBar?.setHomeButtonEnabled(true)
-        cartesianChartView = binding.chart
-    }
-
 
     private fun setupObserver() {
         val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
@@ -105,9 +105,9 @@ class SensorFragment : Fragment() {
                 bindData(sensor)
             }
             uiState.errorApp?.let {
-                val errorAppUI = ErrorAppFactory(requireContext()).build(it, {
-                    sensorViewModel.viewCreated(sensorMockId)
-                })
+                val errorAppUI = ErrorAppFactory(requireContext()).build(it) {
+                    getArgs()?.let { sensorId -> sensorViewModel.fetchSensorData(sensorId) }
+                }
                 binding.errorAppView.render(errorAppUI)
             } ?: run {
                 binding.errorAppView.hide()
@@ -121,11 +121,16 @@ class SensorFragment : Fragment() {
         sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
 
+    private fun getArgs(): Int? {
+        //Implement the logic to get the sensor id from the arguments
+        return 1
+    }
+
     private fun bindData(sensor: Sensor) {
         binding.apply {
             initializeChart(sensor)
-            sensorName.text = sensor.nombre
-            toolbar.viewToolbarDetail.title = sensor.nombrePanel
+            sensorName.text = sensor.name
+            toolbar.viewToolbarDetail.title = sensor.panelName
             maxValue.text = sensor.maxValue
             minValue.text = sensor.minValue
             avgValue.text = sensor.avgValue
@@ -138,7 +143,7 @@ class SensorFragment : Fragment() {
         GlobalScope.launch {
             modelProducer.runTransaction {
                 lineSeries {
-                    series(sensor.valoresX, sensor.valoresY)
+                    series(sensor.xValues, sensor.yValues)
                 }
             }
         }

@@ -86,4 +86,7 @@ dependencies {
     implementation(libs.coil)
     //Skeleton
     implementation (libs.skeletonlayout)
+    //Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
 }

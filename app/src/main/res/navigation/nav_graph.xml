@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_about_lorawan">
+    app:startDestination="@+id/alert_fragment">
     <fragment
         android:id="@+id/fragment_about_lorawan"
         android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"

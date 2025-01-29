@@ -4,7 +4,6 @@ import android.app.Application
 import edu.iesam.meceiot.core.di.AppModule
 import edu.iesam.meceiot.core.di.LocalModule
 import edu.iesam.meceiot.core.di.RemoteModule
-import edu.iesam.meceiot.features.alerts.di.SensorAlertModule
 import edu.iesam.meceiot.features.developer.di.DeveloperModule
 import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
 import edu.iesam.meceiot.features.lorawan.di.LoraWanModule
@@ -26,7 +25,6 @@ class MeceiotApp : Application() {
                 LocalModule().module,
                 LoraWanModule().module,
                 DeveloperModule().module,
-                SensorAlertModule().module
             )
         }
     }

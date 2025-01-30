@@ -14,7 +14,6 @@ import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorPanelsBinding
 import edu.iesam.meceiot.features.sensorpanels.presentation.adapter.SensorPanelsAdapter
-import edu.iesam.meceiot.features.sensorpanels.presentation.ui.PanelUiModel
 import edu.iesam.meceiot.features.sensorpanels.presentation.ui.ViewTypeUi
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -92,8 +91,8 @@ class SensorPanelsFragment : Fragment() {
 
     private fun setupObservers() {
         val sensorPanelsObserver = Observer<SensorPanelsViewModel.UiState> { uiState ->
-            uiState.sensorPanels?.let { sensorPanelsUi ->
-                sensorPanelsAdapter.updateItems(generateListItem(sensorPanelsUi))
+            uiState.sensorPanels?.let { listItems ->
+                sensorPanelsAdapter.updateItems(listItems)
                 binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
@@ -112,12 +111,6 @@ class SensorPanelsFragment : Fragment() {
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)
-    }
-
-    private fun generateListItem(panelUiList: List<PanelUiModel>): List<ViewTypeUi> {
-        return panelUiList.map { panel ->
-            listOf(panel) + panel.sensors
-        }.flatten()
     }
 
     override fun onDestroyView() {

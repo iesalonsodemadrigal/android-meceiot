@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.sensorpanels.domain.GetSensorPanelsUseCase
-import edu.iesam.meceiot.features.sensorpanels.presentation.ui.PanelUiModel
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.ViewTypeUi
 import edu.iesam.meceiot.features.sensorpanels.presentation.ui.toUiModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,10 +26,14 @@ class SensorPanelsViewModel(
             val sensorPanels = getSensorPanelsUseCase.invoke()
             sensorPanels.fold(
                 onSuccess = { sensorPanels ->
-                    val sensorPanelsUi = sensorPanels.map { it.toUiModel() }
+                    val listItems = sensorPanels.map { panel ->
+                        listOf<ViewTypeUi>(
+                            panel.toUiModel()
+                        ) + panel.sensors.map { it.toUiModel() }
+                    }.flatten()
                     _uiState.postValue(
                         UiState(
-                            sensorPanels = sensorPanelsUi,
+                            sensorPanels = listItems,
                             isLoading = false
                         )
                     )
@@ -39,7 +43,7 @@ class SensorPanelsViewModel(
                         UiState(
                             sensorPanels = null,
                             isLoading = false,
-                            errorApp = error as ErrorApp
+                            errorApp = error as ErrorApp?
                         )
                     )
                 }
@@ -50,7 +54,7 @@ class SensorPanelsViewModel(
     data class UiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val sensorPanels: List<PanelUiModel>? = null
+        val sensorPanels: List<ViewTypeUi>? = null
     )
 }
 

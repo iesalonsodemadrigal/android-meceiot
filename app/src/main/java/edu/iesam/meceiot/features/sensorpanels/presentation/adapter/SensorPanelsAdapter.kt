@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.databinding.ItemPanelBinding
 import edu.iesam.meceiot.databinding.ItemSensorBinding
-import edu.iesam.meceiot.features.sensorpanels.domain.Panel
-import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.PanelUiModel
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.SensorUiModel
 import edu.iesam.meceiot.features.sensorpanels.presentation.ui.ViewTypeUi
 
 class SensorPanelsAdapter(
@@ -41,8 +41,8 @@ class SensorPanelsAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is PanelViewHolder -> holder.bind(items[position] as Panel, onClickListener)
-            is SensorViewHolder -> holder.bind(items[position] as Sensor, onClickListener)
+            is PanelViewHolder -> holder.bind(items[position] as PanelUiModel)
+            is SensorViewHolder -> holder.bind(items[position] as SensorUiModel, onClickListener)
         }
     }
 

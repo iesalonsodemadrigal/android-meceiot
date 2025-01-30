@@ -4,12 +4,12 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.ItemSensorBinding
-import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
+import edu.iesam.meceiot.features.sensorpanels.presentation.ui.SensorUiModel
 
 class SensorViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private val itemSensor = ItemSensorBinding.bind(view)
 
-    fun bind(result: Sensor, onClickListener: (String) -> Unit) {
+    fun bind(result: SensorUiModel, onClickListener: (String) -> Unit) {
         itemSensor.apply {
             sensorName.text = result.name
             when (result.name) {

@@ -20,7 +20,7 @@ class SensorMockLocalDataSource(private val context: Context) {
             .registerTypeAdapter(TypeSensor::class.java, TypeSensorAdapter())
             .create()
     }
-    fun getSensor(): Result<List<Sensor>> {
+    fun getSensors(): Result<List<Sensor>> {
         val inputStream = context.resources.openRawResource(R.raw.panels)
         val json = inputStream.bufferedReader().use { it.readText() }
 

@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface SensorService {
 
     @GET("/alerts.json")
-    suspend fun getSensors(): Response<List<PanelApiModel>>
+    suspend fun getSensors(): Response<List<SensorApiModel>>
 }

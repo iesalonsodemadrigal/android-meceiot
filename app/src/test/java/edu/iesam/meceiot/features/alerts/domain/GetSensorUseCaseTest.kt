@@ -3,6 +3,7 @@ package edu.iesam.meceiot.features.alerts.domain
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -20,7 +21,7 @@ class GetSensorUseCaseTest {
     }
 
     @Test
-    fun `cuando el valor del sensor es 0 o negativo, no detecta movimiento`() {
+    fun `cuando el valor del sensor es 0 o negativo, no detecta movimiento`() = runBlocking {
         // Give: Declaración de variables
         val mockPanel = listOf(
             Panel(
@@ -48,7 +49,7 @@ class GetSensorUseCaseTest {
     }
 
     @Test
-    fun `cuando el sensor detecta movimiento = 1`() {
+    fun `cuando el sensor detecta movimiento = 1`(): Unit = runBlocking {
         //Given
         val mockPanel = listOf(
             Panel(
@@ -80,7 +81,7 @@ class GetSensorUseCaseTest {
     }
 
     @Test
-    fun `cuando el valor de deteccion es mayor a 1`() {
+    fun `cuando el valor de deteccion es mayor a 1`(): Unit = runBlocking {
         //Given
         val mockPanel = listOf(
             Panel(

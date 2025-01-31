@@ -46,10 +46,12 @@
     <style name="AppTitleSectionSettings" parent="TextAppearance.Material3.TitleSmall">
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
+
     <style name="AppTitleOptionSettings" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/md_theme_onSurface</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="AppDescriptionOptionSettings" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
@@ -75,7 +77,14 @@
     </style>
 
     <!-- toolbar -->
-    <style name="app_main_toolbar" parent="Widget.Material3.Toolbar.Surface">
+    <style name="AppMainToolbar" parent="Widget.Material3.Toolbar.OnSurface">
         <item name="titleCentered">true</item>
+        <item name="android:background">@color/md_theme_surface</item>
+        <item name="titleTextColor">@color/md_theme_primary</item>
+    </style>
+
+    <style name="AppBottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemBackground">@color/md_theme_primaryContainer</item>
+        <item name="itemTextColor">@color/md_theme_primary</item>
     </style>
 </resources>

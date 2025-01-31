@@ -22,9 +22,9 @@ class AppIntent(private val context: Context) {
 
     fun shareApp(shareText: String) {
         Snackbar.make(
-            (context as Activity).findViewById(android.R.id.content),  // Usamos el contenedor raíz de la actividad
-            context.getString(R.string.text_sharing_message),  // Mensaje a mostrar
-            Snackbar.LENGTH_SHORT  // Duración del Snackbar
+            (context as Activity).findViewById(android.R.id.content),
+            context.getString(R.string.text_sharing_message),
+            Snackbar.LENGTH_SHORT
         ).show()
 
         val intent = Intent(Intent.ACTION_SEND).apply {

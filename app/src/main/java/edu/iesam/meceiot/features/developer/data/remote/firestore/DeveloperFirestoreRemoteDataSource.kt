@@ -1,29 +1,26 @@
 package edu.iesam.meceiot.features.developer.data.remote.firestore
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.toObjects
+import edu.iesam.meceiot.features.developer.data.firestore.DeveloperFirestoreModel
+import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import kotlinx.coroutines.tasks.await
-import org.koin.core.annotation.Single
+import javax.inject.Inject
 
-@Single
-class DeveloperFirestoreRemoteDataSource {
+class DeveloperFirestoreRemoteDataSource @Inject constructor() {
 
-    private val firestore = FirebaseFirestore.getInstance()
-    private val developersCollection = firestore.collection("developers")
-
-    suspend fun getDevelopers(): Result<List<DeveloperFirestore>> {
+    private val db = FirebaseFirestore.getInstance()
+    private val collection = db.collection("developers")
+    suspend fun getDevelopers(): List<DeveloperInfo> {
         return try {
-            val snapshot = developersCollection.get().await()
-            val developers = snapshot.toObjects<DeveloperFirestore>()
-            Result.success(developers)
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
+            val querySnapshot = collection.get().await()
+            querySnapshot.documents.mapNotNull { document ->
 
-    suspend fun saveAll(developers: List<DeveloperFirestore>) {
-        developers.forEach { developer ->
-            developersCollection.document(developer.id).set(developer).await()
+                document.toObject(DeveloperFirestoreModel::class.java)?.let { firestoreModel ->
+                    DeveloperFirestoreMappers.toDomainModel(firestoreModel)
+                }
+            }
+        } catch (e: Exception) {
+            emptyList()
         }
     }
 }

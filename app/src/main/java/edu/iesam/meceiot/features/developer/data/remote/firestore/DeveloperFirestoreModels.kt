@@ -1,11 +1,9 @@
-package edu.iesam.meceiot.features.developer.data.remote.firestore
+package edu.iesam.meceiot.features.developer.data.firestore
 
-import com.google.firebase.firestore.PropertyName
-
-data class DeveloperFirestore(
-    @get:PropertyName("id") var id: String = "",
-    @get:PropertyName("name") var name: String = "",
-    @get:PropertyName("url_avatar") var urlAvatar: String = "",
-    @get:PropertyName("url_source") var urlSource: String = "",
-    @get:PropertyName("college_degree") var collegeDegree: String = ""
+data class DeveloperFirestoreModel(
+    val id: String = "",
+    val fullName: String = "",
+    val collegeDegree: String = "",
+    val urlAvatar: String = "",
+    val urlSource: String = ""
 )

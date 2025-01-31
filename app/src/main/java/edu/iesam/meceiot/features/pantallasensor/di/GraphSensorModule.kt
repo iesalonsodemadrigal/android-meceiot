@@ -8,7 +8,7 @@ import org.koin.core.annotation.Single
 
 @Module
 @ComponentScan
-class SensorModule {
+class GraphSensorModule {
 
     @Single
     fun provideSensorDao(db: MeceiotDataBase): GraphSensorDao {

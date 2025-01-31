@@ -1,6 +1,6 @@
-package edu.iesam.meceiot.features.pantallasensor.data.remote
+package edu.iesam.meceiot.features.pantallasensor.data.remote.mock
 
-import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import org.koin.core.annotation.Single
 
 @Single
@@ -103,8 +103,8 @@ class SensorRemoteMockDataSource {
         1056
     )
 
-    fun getSensorData(): Result<Sensor> {
-        val sensor = Sensor(
+    fun getSensorData(): Result<GraphSensor> {
+        val graphSensor = GraphSensor(
             1,
             "Sensor CO2",
             "Panel A16",
@@ -116,6 +116,6 @@ class SensorRemoteMockDataSource {
             "1056",
             "1060"
         )
-        return Result.success(sensor)
+        return Result.success(graphSensor)
     }
 }

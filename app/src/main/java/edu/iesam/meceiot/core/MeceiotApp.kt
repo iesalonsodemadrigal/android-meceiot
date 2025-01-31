@@ -8,7 +8,7 @@ import edu.iesam.meceiot.features.alerts.di.SensorAlertModule
 import edu.iesam.meceiot.features.developer.di.DeveloperModule
 import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
 import edu.iesam.meceiot.features.lorawan.di.LoraWanModule
-import edu.iesam.meceiot.features.pantallasensor.di.SensorModule
+import edu.iesam.meceiot.features.pantallasensor.di.GraphSensorModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.ksp.generated.module
@@ -28,7 +28,7 @@ class MeceiotApp : Application() {
                 LoraWanModule().module,
                 DeveloperModule().module,
                 SensorAlertModule().module,
-                SensorModule().module
+                GraphSensorModule().module
             )
         }
     }

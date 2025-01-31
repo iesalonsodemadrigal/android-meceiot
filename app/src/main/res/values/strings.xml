@@ -140,5 +140,5 @@
     <string name="media">Media.</string>
     <string name="chart_options">Opciones de Grafico</string>
     <string name="min">Mín.</string>
-    <string name="moda">Moda.</string>
+    <string name="mode">Moda.</string>
 </resources>

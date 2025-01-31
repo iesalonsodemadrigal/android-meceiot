@@ -1,6 +1,6 @@
 package edu.iesam.meceiot.features.pantallasensor.domain
 
-data class Sensor(
+data class GraphSensor(
     val id: Int,
     val name: String,
     val panelName: String,

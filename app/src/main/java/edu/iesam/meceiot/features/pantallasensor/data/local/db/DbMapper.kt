@@ -1,9 +1,9 @@
 package edu.iesam.meceiot.features.pantallasensor.data.local.db
 
-import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import java.util.Date
 
-fun Sensor.toEntity(): GraphSensorEntity =
+fun GraphSensor.toEntity(): GraphSensorEntity =
     GraphSensorEntity(
         id = this.id,
         nombre = this.name,
@@ -18,8 +18,8 @@ fun Sensor.toEntity(): GraphSensorEntity =
         date = Date()
     )
 
-fun GraphSensorEntity.toDomain(): Sensor {
-    return Sensor(
+fun GraphSensorEntity.toDomain(): GraphSensor {
+    return GraphSensor(
         id = this.id,
         name = this.nombre,
         panelName = this.nombrePanel,

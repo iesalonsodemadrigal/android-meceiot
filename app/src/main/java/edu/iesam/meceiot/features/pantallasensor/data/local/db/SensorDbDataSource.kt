@@ -1,8 +1,7 @@
 package edu.iesam.meceiot.features.pantallasensor.data.local.db
 
 import edu.iesam.meceiot.core.domain.ErrorApp
-import edu.iesam.meceiot.features.externalresources.data.local.db.TIME_EXTERNAL_RESOURCES
-import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import org.koin.core.annotation.Single
 
 const val TIME_SENSOR = 60000L
@@ -10,11 +9,11 @@ const val TIME_SENSOR = 60000L
 @Single
 class SensorDbDataSource(private val sensorDao: GraphSensorDao) {
 
-    fun getAll(): Result<List<Sensor>> {
+    fun getAll(): Result<List<GraphSensor>> {
         val sensorEntities = sensorDao.getAll()
         val validEntities = sensorEntities.filter { entity ->
             val timeDifference = System.currentTimeMillis() - entity.date.time
-            timeDifference <= TIME_EXTERNAL_RESOURCES
+            timeDifference <= TIME_SENSOR
         }
         return if (validEntities.isEmpty()) {
             Result.failure(ErrorApp.DataExpiredError)
@@ -23,17 +22,17 @@ class SensorDbDataSource(private val sensorDao: GraphSensorDao) {
         }
     }
 
-    fun saveAll(sensors: List<Sensor>) {
-        val sensorEntities = sensors.map { it.toEntity() }
+    fun saveAll(graphSensors: List<GraphSensor>) {
+        val sensorEntities = graphSensors.map { it.toEntity() }
         sensorDao.insertAll(*sensorEntities.toTypedArray())
     }
 
-    fun save(sensor: Sensor) {
-        val sensorEntity = sensor.toEntity()
+    fun save(graphSensor: GraphSensor) {
+        val sensorEntity = graphSensor.toEntity()
         sensorDao.insert(sensorEntity)
     }
 
-    fun getById(id: Int): Result<Sensor> {
+    fun getById(id: Int): Result<GraphSensor> {
         val sensorEntity = sensorDao.getById(id)
         return if (sensorEntity != null) {
             Result.success(sensorEntity.toDomain())

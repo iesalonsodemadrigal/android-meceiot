@@ -23,14 +23,14 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
-import edu.iesam.meceiot.features.pantallasensor.domain.Sensor
+import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Calendar
 import java.util.Date
 
-class SensorFragment : Fragment() {
-    private val sensorViewModel: SensorViewModel by viewModel()
+class GraphSensorFragment : Fragment() {
+    private val graphSensorViewModel: GraphSensorViewModel by viewModel()
     private var _binding: FragmentSensorBinding? = null
     private val binding get() = _binding!!
     private lateinit var cartesianChartView: CartesianChartView
@@ -79,17 +79,17 @@ class SensorFragment : Fragment() {
         skeleton = binding.sensorSkeleton
         setupObserver()
         getArgs()?.let {
-            sensorViewModel.fetchSensorData(it)
+            graphSensorViewModel.fetchSensorData(it)
         }
     }
 
     private fun setupObserver() {
-        val sensorObserver = Observer<SensorViewModel.UiState> { uiState ->
+        val sensorObserver = Observer<GraphSensorViewModel.UiState> { uiState ->
             checkLoading(uiState.loading)
             bindError(uiState.errorApp)
             bindData(uiState.sensors)
         }
-        sensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
+        graphSensorViewModel.uiState.observe(viewLifecycleOwner, sensorObserver)
     }
 
     private fun checkLoading(isLoading: Boolean) {
@@ -103,7 +103,7 @@ class SensorFragment : Fragment() {
     private fun bindError(errorApp: ErrorApp?) {
         errorApp?.let {
             val errorAppUI = ErrorAppFactory(requireContext()).build(it) {
-                sensorViewModel.fetchSensorData(getArgs())
+                graphSensorViewModel.fetchSensorData(getArgs())
             }
             binding.errorAppView.render(errorAppUI)
         } ?: run {
@@ -111,8 +111,8 @@ class SensorFragment : Fragment() {
         }
     }
 
-    private fun bindData(sensor: Sensor?) {
-        sensor?.let {
+    private fun bindData(graphSensor: GraphSensor?) {
+        graphSensor?.let {
             binding.apply {
                 initializeChart(it)
                 sensorName.text = it.name
@@ -130,17 +130,17 @@ class SensorFragment : Fragment() {
         return 1
     }
 
-    private fun initializeChart(sensor: Sensor) {
+    private fun initializeChart(graphSensor: GraphSensor) {
         val chart = cartesianChartView.chart!!
         lifecycleScope.launch {
             modelProducer.runTransaction {
                 lineSeries {
-                    series(sensor.xValues, sensor.yValues)
+                    series(graphSensor.xValues, graphSensor.yValues)
                 }
             }
         }
         val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
-            y.toLong().formatValue(sensor.dataType)
+            y.toLong().formatValue(graphSensor.dataType)
         }
         cartesianChartView.chart = chart.copy(
             bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),

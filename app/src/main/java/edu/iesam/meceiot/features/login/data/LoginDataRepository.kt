@@ -20,4 +20,8 @@ class LoginDataRepository(
             Result.failure(response.exceptionOrNull()!!)
         }
     }
+
+    override fun logout() {
+        local.deleteCredentials()
+    }
 }

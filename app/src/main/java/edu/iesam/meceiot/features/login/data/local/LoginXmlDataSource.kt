@@ -23,4 +23,8 @@ class LoginXmlDataSource(context: Context) {
             gson.fromJson(jsonCredentials, LoginCredentials::class.java)
         }
     }
+
+    fun deleteCredentials() {
+        sharedPref.edit().remove("credentials").apply()
+    }
 }

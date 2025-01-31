@@ -20,7 +20,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginFragment : Fragment() {
 
     val viewModel: LoginViewModel by viewModel()
-    //private lateinit var loginFactory: LoginFactory
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -35,7 +34,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupObservers()
         setLoginForm()
     }
@@ -72,6 +70,7 @@ class LoginFragment : Fragment() {
                     "$loginSuccess",
                     Toast.LENGTH_LONG,
                 ).show()
+
                 //Pasamos a la siguiente pantalla y guardamos los credenciales
                 if (loginSuccess) {
                     findNavController().navigate(
@@ -86,10 +85,9 @@ class LoginFragment : Fragment() {
     }
 
     private fun setLoginForm() {
-        //cambiar a binding
-        val usernameEditText: EditText = requireView().findViewById(R.id.username)
-        val passwordEditText: EditText = requireView().findViewById(R.id.password)
-        val loginButton: Button = requireView().findViewById(R.id.loginButton)
+        val usernameEditText: EditText = binding.username
+        val passwordEditText: EditText = binding.password
+        val loginButton: Button = binding.loginButton
 
         loginButton.setOnClickListener {
             val loginCredentials =
@@ -99,7 +97,6 @@ class LoginFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        //Poner la vista principal a otra vista
         super.onDestroyView()
         _binding = null
     }

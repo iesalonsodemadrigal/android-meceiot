@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.developer.data.remote
+package edu.iesam.meceiot.features.developer.data.remote.api
 
 
 import retrofit2.Response

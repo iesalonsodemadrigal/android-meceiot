@@ -7,7 +7,7 @@
     tools:context="edu.iesam.meceiot.features.alerts.presentation.adapter.AlertViewHolder">
 
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image_item"
         style="@style/AppImageListItem"
         android:layout_margin="@dimen/spacing_horizontal"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title_alert"
         style="@style/AppHeadlineListItem"
         android:layout_width="@dimen/null_value"
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toEndOf="@+id/image_item"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_name"
         style="@style/AppSupportingTextListItem"
         android:layout_width="@dimen/null_value"

@@ -14,12 +14,15 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentLoginBinding
+import edu.iesam.meceiot.features.login.data.local.SessionManager
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
     val viewModel: LoginViewModel by viewModel()
+    private val sessionManager: SessionManager by inject()
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -28,6 +31,13 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        if (sessionManager.isLoggedIn()) {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToMainFragment(),
+                NavOptions.Builder().setPopUpTo(R.id.login_fragment, true)
+                    .build()
+            )
+        }
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }

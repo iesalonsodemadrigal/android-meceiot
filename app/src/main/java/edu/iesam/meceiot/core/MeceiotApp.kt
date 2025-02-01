@@ -31,6 +31,7 @@ class MeceiotApp : Application() {
             )
         }
         FirebaseApp.initializeApp(this)
+
     }
 }
 

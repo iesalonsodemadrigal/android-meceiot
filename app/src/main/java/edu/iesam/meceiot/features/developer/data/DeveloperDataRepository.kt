@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.developer.data
 
-
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDbLocalDataSource
 import edu.iesam.meceiot.features.developer.data.remote.api.DeveloperApiRemoteDataSource
 import edu.iesam.meceiot.features.developer.data.remote.firestore.DeveloperFirestoreRemoteDataSource
@@ -16,38 +15,24 @@ class DeveloperDataRepository(
 ) : DeveloperRepository {
 
     override suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
-        return try {
-            val developersFromDbLocal = developerDbLocalDataSource.getAll()
-
-            if (developersFromDbLocal.isSuccess && developersFromDbLocal.getOrNull()
-                    ?.isNotEmpty() == true
-            ) {
-
-                Result.success(developersFromDbLocal.getOrNull() ?: emptyList())
-            } else {
-
-                val developersFromFirestore = developerFirestoreRemoteDataSource.getDevelopers()
-                if (developersFromFirestore.isNotEmpty()) {
-
-                    developerDbLocalDataSource.saveAll(developersFromFirestore)
-                    Result.success(developersFromFirestore)
-                } else {
-
-                    val developersFromApi = developerApiRemoteDataSource.getDevelopers()
-                    if (developersFromApi.isSuccess) {
-                        developerDbLocalDataSource.saveAll(
-                            developersFromApi.getOrNull() ?: emptyList()
-                        )
-                        Result.success(developersFromApi.getOrNull() ?: emptyList())
-                    } else {
-                        Result.failure(
-                            developersFromApi.exceptionOrNull() ?: Exception("No data available")
-                        )
+        val localDeveloperResult = developerDbLocalDataSource.getAll()
+        return localDeveloperResult.apply {
+            onSuccess { localDevelopers ->
+                Result.success(localDevelopers)
+            }
+            onFailure { localError ->
+                if (localError is Exception) {
+                    val remoteDeveloperResult = developerFirestoreRemoteDataSource.getDevelopers()
+                    remoteDeveloperResult.onSuccess { remoteDevelopers ->
+                        developerDbLocalDataSource.saveAll(remoteDevelopers)
+                        return remoteDeveloperResult
                     }
+
+                } else {
+                    return Result.failure(localError)
                 }
             }
-        } catch (e: Exception) {
-            Result.failure(e)
         }
     }
+
 }

@@ -4,23 +4,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 import edu.iesam.meceiot.features.developer.data.firestore.DeveloperFirestoreModel
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 import kotlinx.coroutines.tasks.await
-import javax.inject.Inject
+import org.koin.core.annotation.Single
 
-class DeveloperFirestoreRemoteDataSource @Inject constructor() {
 
-    private val db = FirebaseFirestore.getInstance()
-    private val collection = db.collection("developers")
-    suspend fun getDevelopers(): List<DeveloperInfo> {
-        return try {
-            val querySnapshot = collection.get().await()
-            querySnapshot.documents.mapNotNull { document ->
+@Single
+class DeveloperFirestoreRemoteDataSource(private val firestore: FirebaseFirestore) {
 
-                document.toObject(DeveloperFirestoreModel::class.java)?.let { firestoreModel ->
-                    DeveloperFirestoreMappers.toDomainModel(firestoreModel)
-                }
+    suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
+        val developers = firestore
+            .collection("developers")
+            .get()
+            .await()
+            .map {
+                it.toObject(DeveloperFirestoreModel::class.java).toModel()
             }
-        } catch (e: Exception) {
-            emptyList()
-        }
+        return Result.success(developers)
+
     }
 }

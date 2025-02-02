@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.developer.data.remote.firestore
 
-import edu.iesam.meceiot.features.developer.data.firestore.DeveloperFirestoreModel
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 
 

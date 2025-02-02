@@ -18,6 +18,7 @@ class MeceiotApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         startKoin {
             androidContext(this@MeceiotApp)
             modules(
@@ -30,8 +31,6 @@ class MeceiotApp : Application() {
                 SensorAlertModule().module
             )
         }
-        FirebaseApp.initializeApp(this)
-
     }
 }
 

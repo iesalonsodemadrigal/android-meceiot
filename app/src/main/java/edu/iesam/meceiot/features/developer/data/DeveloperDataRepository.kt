@@ -15,24 +15,48 @@ class DeveloperDataRepository(
 ) : DeveloperRepository {
 
     override suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
-        val localDeveloperResult = developerDbLocalDataSource.getAll()
-        return localDeveloperResult.apply {
-            onSuccess { localDevelopers ->
-                Result.success(localDevelopers)
-            }
-            onFailure { localError ->
-                if (localError is Exception) {
-                    val remoteDeveloperResult = developerFirestoreRemoteDataSource.getDevelopers()
-                    remoteDeveloperResult.onSuccess { remoteDevelopers ->
-                        developerDbLocalDataSource.saveAll(remoteDevelopers)
-                        return remoteDeveloperResult
-                    }
+        // 1. Intenta obtener los datos locales
+        return try {
+            val localDevelopers = developerDbLocalDataSource.getAll().getOrThrow()
+            if (localDevelopers.isNotEmpty()) {
+                Result.success(localDevelopers) // Devuelve los datos locales si existen
+            } else {
+                // 2. Si no hay datos locales, intenta obtener los datos de la API
+                try {
+                    val apiDevelopers = developerApiRemoteDataSource.getDevelopers().getOrThrow()
+                    developerDbLocalDataSource.saveAll(apiDevelopers) // Guarda los datos de la API localmente
+                    Result.success(apiDevelopers)
+                } catch (apiError: Exception) {
+                    // 3. Si la API falla, intenta obtener los datos de Firestore
+                    try {
+                        val firestoreDevelopers =
+                            developerFirestoreRemoteDataSource.getDevelopers().getOrThrow()
+                        developerDbLocalDataSource.saveAll(firestoreDevelopers) // Guarda los datos de Firestore localmente
+                        Result.success(firestoreDevelopers)
+                    } catch (firestoreError: Exception) {
 
-                } else {
-                    return Result.failure(localError)
+                        Result.failure(firestoreError)
+                    }
+                }
+            }
+        } catch (localError: Exception) {
+
+            try {
+                val apiDevelopers = developerApiRemoteDataSource.getDevelopers().getOrThrow()
+                developerDbLocalDataSource.saveAll(apiDevelopers) // Guarda los datos de la API localmente
+                Result.success(apiDevelopers)
+            } catch (apiError: Exception) {
+
+                try {
+                    val firestoreDevelopers =
+                        developerFirestoreRemoteDataSource.getDevelopers().getOrThrow()
+                    developerDbLocalDataSource.saveAll(firestoreDevelopers) // Guarda los datos de Firestore localmente
+                    Result.success(firestoreDevelopers)
+                } catch (firestoreError: Exception) {
+
+                    Result.failure(firestoreError)
                 }
             }
         }
     }
-
 }

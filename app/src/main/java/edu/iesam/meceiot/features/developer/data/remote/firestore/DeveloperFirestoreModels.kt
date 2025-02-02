@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.developer.data.firestore
+package edu.iesam.meceiot.features.developer.data.remote.firestore
 
 data class DeveloperFirestoreModel(
     val id: String = "",

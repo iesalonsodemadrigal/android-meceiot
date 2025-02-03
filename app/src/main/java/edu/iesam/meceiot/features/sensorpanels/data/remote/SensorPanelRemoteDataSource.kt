@@ -11,6 +11,6 @@ class SensorPanelRemoteDataSource(
     suspend fun getSensorPanels(): Result<List<Panel>> {
         return apiCall {
             apiClient.getSensorPanels()
-        }
+        }.map { it.map { it.toDomain() } }
     }
 }

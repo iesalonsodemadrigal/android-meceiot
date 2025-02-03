@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.BuildConfig
 import edu.iesam.meceiot.R
@@ -105,8 +104,7 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
 
     private fun navigateToLogin() {
         findNavController().navigate(
-            SettingAboutFragmentDirections.actionSettingsToLoginFragment(),
-            NavOptions.Builder().setPopUpTo(R.id.fragment_settings, true).build()
+            SettingAboutFragmentDirections.actionSettingsToLoginFragment()
         )
     }
 

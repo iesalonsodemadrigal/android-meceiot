@@ -22,7 +22,9 @@
             app:destination="@+id/fragment_external_resources" />
         <action
             android:id="@+id/action_settings_to_login_fragment"
-            app:destination="@id/login_fragment" />
+            app:destination="@id/login_fragment"
+            app:popUpTo="@id/fragment_settings"
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -58,7 +60,9 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_fragment_to_main_fragment"
-            app:destination="@id/fragment_about_lorawan" />
+            app:destination="@id/fragment_about_lorawan"
+            app:popUpTo="@id/fragment_about_lorawan"
+            app:popUpToInclusive="true" />
     </fragment>
 
 

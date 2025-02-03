@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.databinding.FragmentLoginBinding
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,7 +39,9 @@ class LoginFragment : Fragment() {
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
             if (uiState.userLoggedIn) {
-                LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                findNavController().navigate(
+                    LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                )
             }
             uiState.errorApp?.let {
                 //Pintar el error? O mostrar un toast de que no hay conexion quizá

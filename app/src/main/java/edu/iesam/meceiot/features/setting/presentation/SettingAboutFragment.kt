@@ -1,14 +1,13 @@
 package edu.iesam.meceiot.features.setting.presentation
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.BuildConfig
-import edu.iesam.meceiot.MainActivity
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentSettingsBinding
@@ -22,7 +21,7 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
     private val binding get() = _binding!!
     private lateinit var intent: AppIntent
 
-    private val viewModel: SettingsViewModel by viewModel()
+    val viewModel: SettingsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -31,25 +30,6 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
         intent = AppIntent(requireContext())
 
         return binding.root
-    }
-
-    private fun showLogoutConfirmationDialog() {
-        LogoutDialog().apply {
-            setListener(object : LogoutDialog.LogoutListener {
-                override fun onLogoutConfirmed() {
-                    viewModel.logout()
-                    navigateToLogin()
-                }
-            })
-        }.show(parentFragmentManager, "LogoutDialog")
-    }
-
-    private fun navigateToLogin() {
-        val intent = Intent(requireContext(), MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        startActivity(intent)
-        requireActivity().finish()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -111,6 +91,25 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
         item.textSubtitle.text = getString(subtitleRes)
         item.settingItem.setOnClickListener { onClick() }
     }
+
+    private fun showLogoutConfirmationDialog() {
+        LogoutDialog().apply {
+            setListener(object : LogoutDialog.LogoutListener {
+                override fun onLogoutConfirmed() {
+                    viewModel.logout()
+                    navigateToLogin()
+                }
+            })
+        }.show(parentFragmentManager, "LogoutDialog")
+    }
+
+    private fun navigateToLogin() {
+        findNavController().navigate(
+            SettingAboutFragmentDirections.actionSettingsToLoginFragment(),
+            NavOptions.Builder().setPopUpTo(R.id.fragment_settings, true).build()
+        )
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

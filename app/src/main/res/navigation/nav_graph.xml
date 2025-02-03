@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_settings_to_externalResourcesFragment"
             app:destination="@+id/fragment_external_resources" />
+        <action
+            android:id="@+id/action_settings_to_login_fragment"
+            app:destination="@id/login_fragment" />
 
     </fragment>
 

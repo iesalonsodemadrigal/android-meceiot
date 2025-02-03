@@ -24,4 +24,8 @@ class LoginDataRepository(
     override fun logout() {
         local.deleteCredentials()
     }
+
+    override fun isUserLoggedIn(): Boolean {
+        return local.getCredentials() != null
+    }
 }

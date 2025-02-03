@@ -7,22 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentLoginBinding
-import edu.iesam.meceiot.features.login.data.local.SessionManager
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
     val viewModel: LoginViewModel by viewModel()
-    private val sessionManager: SessionManager by inject()
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -31,13 +27,6 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (sessionManager.isLoggedIn()) {
-            findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToMainFragment(),
-                NavOptions.Builder().setPopUpTo(R.id.login_fragment, true)
-                    .build()
-            )
-        }
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,50 +34,28 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
+        viewModel.checkUserLoggedIn()
         setLoginForm()
     }
 
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
-            //DEBUG
-            uiState.loginCredentials?.let { loginCredentials ->
-                //DEBUG: muestra el los credenciales por pantalla
-                Log.d("@dev", "Login credentials: $loginCredentials")
-                Toast.makeText(
-                    requireContext(),
-                    "$loginCredentials",
-                    Toast.LENGTH_LONG,
-                ).show()
+            if (uiState.userLoggedIn) {
+                findNavController().navigate(
+                    R.id.action_login_fragment_to_main_fragment,
+                    null,
+                    NavOptions.Builder().setPopUpTo(R.id.login_fragment, true).build()
+                )
             }
             uiState.errorApp?.let {
                 //Pintar el error? O mostrar un toast de que no hay conexion quizá
             } ?: run {
-                //Ocultar el error a los 3 segundos o asi
             }
             if (uiState.isLoading) {
-                //Mostrar un loading o algo? Quiza no
+                //Mostrar un loading o algo?
                 Log.d("@dev", "Cargando...")
             } else {
                 Log.d("@dev", "Cargando...")
-            }
-
-            uiState.loginSuccessful.let { loginSuccess ->
-                //DEBUG: muestra el response por pantalla
-                Log.d("@dev", "Login: $loginSuccess")
-                Toast.makeText(
-                    requireContext(),
-                    "$loginSuccess",
-                    Toast.LENGTH_LONG,
-                ).show()
-
-                //Pasamos a la siguiente pantalla y guardamos los credenciales
-                if (loginSuccess) {
-                    findNavController().navigate(
-                        LoginFragmentDirections.actionLoginFragmentToMainFragment(),
-                        NavOptions.Builder().setPopUpTo(R.id.login_fragment, true)
-                            .build()
-                    )
-                }
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, loginObserver)

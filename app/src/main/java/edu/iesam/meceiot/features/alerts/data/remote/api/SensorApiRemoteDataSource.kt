@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.alerts.data.remote
+package edu.iesam.meceiot.features.alerts.data.remote.api
 
 import edu.iesam.meceiot.core.data.remote.apiCall
 import edu.iesam.meceiot.features.alerts.domain.Sensor

@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.core
 
 import android.app.Application
+import com.google.firebase.FirebaseApp
 import edu.iesam.meceiot.core.di.AppModule
 import edu.iesam.meceiot.core.di.LocalModule
 import edu.iesam.meceiot.core.di.RemoteModule
@@ -17,6 +18,7 @@ class MeceiotApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         startKoin {
             androidContext(this@MeceiotApp)
             modules(

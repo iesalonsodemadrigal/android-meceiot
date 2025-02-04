@@ -1,17 +1,17 @@
-package edu.iesam.meceiot.features.alerts.data.remote
+package edu.iesam.meceiot.features.alerts.data.remote.api
 
 import com.google.gson.annotations.SerializedName
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 
 data class PanelApiModel(
-    @SerializedName("id") val idZone: String,
-    @SerializedName("name") val nameZone: String,
+    @SerializedName("id") val id: String,
+    @SerializedName("name") val name: String,
     @SerializedName("sensors") val sensors: List<SensorApiModel>
 )
 
 data class SensorApiModel(
-    @SerializedName("id") val idSensor: String,
-    @SerializedName("name") val nameSensor: String,
+    @SerializedName("id") val id: String,
+    @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
     @SerializedName("type") val type: TypeSensorApiModel,
     @SerializedName("value") val value: String

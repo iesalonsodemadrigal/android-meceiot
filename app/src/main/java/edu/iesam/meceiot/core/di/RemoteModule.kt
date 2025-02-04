@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.core.di
 
+import com.google.firebase.firestore.FirebaseFirestore
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.annotation.ComponentScan
@@ -13,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RemoteModule {
 
     private val url = "https://sandbox.aulapragmatica.es/"
+
     @Single
     fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
@@ -36,5 +38,10 @@ class RemoteModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         return retrofit
+    }
+
+    @Single
+    fun provideFirebase(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 }

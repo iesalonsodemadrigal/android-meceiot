@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.alerts.data.remote
+package edu.iesam.meceiot.features.alerts.data.remote.api
 
 import retrofit2.Response
 import retrofit2.http.GET

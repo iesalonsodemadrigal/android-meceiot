@@ -91,6 +91,6 @@ dependencies {
     implementation(libs.swipe.fresh)
     //Firebase
     implementation(project.dependencies.platform(libs.firebaseBom))
-    //Firestore: creo que esta librería me sobra
+    //Firestore
     implementation(libs.firebase.firestore)
 }

@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.externalresources.data.remote
+package edu.iesam.meceiot.features.externalresources.data.remote.api
 
 
 import edu.iesam.meceiot.core.data.remote.apiCall

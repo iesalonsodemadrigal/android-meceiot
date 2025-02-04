@@ -23,7 +23,7 @@ import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
 @Database(
     entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class,
         QuestionEntity::class, PanelEntity::class, SensorEntity::class],
-    version = 8,
+    version = 9,
     exportSchema = false
 )
 @TypeConverters(DateConverter::class, TypeSensorConverter::class, SensorListConverter::class)

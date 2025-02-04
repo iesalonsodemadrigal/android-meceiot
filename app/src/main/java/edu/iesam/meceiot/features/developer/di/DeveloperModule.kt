@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.developer.di
 
-import com.google.firebase.firestore.FirebaseFirestore
 import edu.iesam.meceiot.core.data.local.db.MeceiotDataBase
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDao
 import edu.iesam.meceiot.features.developer.data.remote.api.DeveloperApiService
@@ -20,11 +19,6 @@ class DeveloperModule {
     @Single
         fun provideDeveloperDao(db: MeceiotDataBase): DeveloperDao {
         return db.developerDao()
-    }
-
-    @Single
-    fun provideFirestore(): FirebaseFirestore {
-        return FirebaseFirestore.getInstance()
     }
 
 }

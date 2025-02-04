@@ -9,17 +9,14 @@ import org.koin.core.annotation.Single
 class DeveloperFirestoreRemoteDataSource(private val firestore: FirebaseFirestore) {
 
     suspend fun getDevelopers(): Result<List<DeveloperInfo>> {
-        return try {
-            val developers = firestore
+        return runCatching {
+            firestore
                 .collection("developers")
                 .get()
                 .await()
-                .map {
-                    it.toObject(DeveloperFirestoreModel::class.java).toModel()
-                }
-            Result.success(developers)
-        } catch (e: Exception) {
-            Result.failure(e)
+                .map { it.toObject(DeveloperFirestoreModel::class.java).toModel() }
+
         }
+
     }
 }

@@ -9,7 +9,8 @@ fun ExternalResources.toEntity(): ExternalResourcesEntity =
         author = this.author,
         description = this.description,
         image = this.image,
-        url = this.url
+        url = this.url,
+        idExternalResources = this.idExternalResources
     )
 
 fun ExternalResourcesEntity.toDomain(): ExternalResources =
@@ -17,5 +18,6 @@ fun ExternalResourcesEntity.toDomain(): ExternalResources =
         author = this.author,
         description = this.description,
         image = this.image,
-        url = this.url
+        url = this.url,
+        idExternalResources = this.idExternalResources
     )

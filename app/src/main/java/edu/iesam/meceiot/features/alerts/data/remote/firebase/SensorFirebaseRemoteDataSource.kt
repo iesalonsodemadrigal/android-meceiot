@@ -9,13 +9,13 @@ import org.koin.core.annotation.Single
 class SensorFirebaseRemoteDataSource(private val firestore: FirebaseFirestore) {
 
     suspend fun getSensors(): Result<List<Sensor>> {
-        val alertsSensor = firestore.collection("alerts")
+        val alertsSensors = firestore.collection("alerts")
             .get()
             .await()
 
         val sensorsList = mutableListOf<Sensor>()
 
-        for (document in alertsSensor.documents) {
+        for (document in alertsSensors.documents) {
             val panels = document.toObject(PanelAlertFirebaseModel::class.java)
 
             panels?.sensors?.values?.map { it.toDomain() }?.let { sensorsList.addAll(it) }

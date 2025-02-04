@@ -11,6 +11,5 @@ fun PanelAlertFirebaseModel.toDomain(): Panel {
 }
 
 fun SensorAlertFirebaseModel.toDomain(): Sensor {
-    //val typeSensor = type.toTypeSensor()
     return Sensor(this.id, this.name, TypeSensor.fromType(type), this.value)
 }

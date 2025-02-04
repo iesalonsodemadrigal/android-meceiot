@@ -14,14 +14,10 @@ class SensorDataRepository(
     SensorRepository {
     override suspend fun getSensors(): Result<List<Sensor>> {
         val remoteData = sensorFirebaseRemoteDataSource.getSensors()
-        /*
         return if(remoteData.isFailure){
             sensorMockLocalDataSource.getSensors()
         } else{
             remoteData
         }
-
-         */
-        return remoteData
     }
 }

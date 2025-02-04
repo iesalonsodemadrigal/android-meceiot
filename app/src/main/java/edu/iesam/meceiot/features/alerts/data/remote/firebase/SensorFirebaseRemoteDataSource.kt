@@ -13,13 +13,13 @@ class SensorFirebaseRemoteDataSource(private val firestore: FirebaseFirestore) {
             .get()
             .await()
 
-        val sensorsList = mutableListOf<Sensor>()
+        val sensors = mutableListOf<Sensor>()
 
         for (document in alertsSensors.documents) {
             val panels = document.toObject(PanelAlertFirebaseModel::class.java)
 
-            panels?.sensors?.values?.map { it.toDomain() }?.let { sensorsList.addAll(it) }
+            panels?.sensors?.values?.map { it.toDomain() }?.let { sensors.addAll(it) }
         }
-        return Result.success(sensorsList)
+        return Result.success(sensors)
     }
 }

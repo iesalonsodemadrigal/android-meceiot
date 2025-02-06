@@ -16,19 +16,24 @@ data class MetaGrafanaModelUid(
 
 
 data class DashboardGrafanaModel(
-    @SerializedName("panels") val panels: PanelsDashboardGrafanaModel, //lista de paneles del Alonso?
+    @SerializedName("panels") val panels: List<SensorDashboardGrafanaModel>, //lista de paneles del Alonso?
 )
 
-data class PanelsDashboardGrafanaModel(
-    @SerializedName("id") val id: String,
-    @SerializedName("targets") val targets: TargetsDashboardGrafanaModel,
-    @SerializedName("from") val dataFrom: String
+data class SensorDashboardGrafanaModel(
+    @SerializedName("id") val id: Int,
+    @SerializedName("targets") val targets: List<TargetsDashboardGrafanaModel>,
 )
 
 data class TargetsDashboardGrafanaModel(
-    @SerializedName("query") val query: QueryResultsDashboardGrafanaModel, //la consulta del sensor?
+    @SerializedName("query") val query: String, //la consulta del sensor?
     @SerializedName("refId") val nameSensor: String, //nombre del sensor
 )
+
+
+data class QuerySensor(
+    @SerializedName("refId") val refId: FrameQueryResultDashboardGrafanaModel
+)
+
 
 // De aquí abajo saco el dato que se mide (value) que necesito
 data class QueryResultsDashboardGrafanaModel(
@@ -50,5 +55,14 @@ data class MetaSchemaFrameQueryResultDashboardGrafanaModel(
 )
 
 data class DataFrameQueryResultDashboardGrafanaModel(
-    @SerializedName("values") val values: String //o debería ser un List?? o necesito el último dato para mostrar o no alerta
+    @SerializedName("values") val values: List<Double> //o debería ser un List?? o necesito el último dato para mostrar o no alerta
+) {
+    fun getLastValue(): Double? = values.lastOrNull()
+
+}
+
+// Esta es la ÚNICA consulta que la hacemos nosotros directamente a Grafana
+data class BodyQueryModel(
+    val frames: FrameQueryResultDashboardGrafanaModel,
+    val from: FrameQueryResultDashboardGrafanaModel
 )

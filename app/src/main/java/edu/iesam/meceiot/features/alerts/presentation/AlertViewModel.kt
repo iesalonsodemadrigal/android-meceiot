@@ -16,11 +16,14 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
 
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
+    // private val grafanaService = GrafanaService
 
     fun fetchAlerts() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             val alert = getSensorUseCase()
+
+            //val panelGrafana = GrafanaApiRemoteDataSource(grafanaService).getSensorsGrafana()
             _uiState.postValue(
                 UiState(
                     isLoading = false,

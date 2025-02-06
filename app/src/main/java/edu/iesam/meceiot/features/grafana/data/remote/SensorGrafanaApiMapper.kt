@@ -1,12 +1,18 @@
 package edu.iesam.meceiot.features.grafana.data.remote
 
-import edu.iesam.meceiot.features.alerts.domain.Panel
-import edu.iesam.meceiot.features.alerts.domain.Sensor
+fun PanelGrafanaModel.toModel(): PanelModel {
 
-fun PanelGrafanaModel.toModel(): Panel {
-    val sensors = TargetsDashboardGrafanaModel :List<Sensor>
-    return Panel(this.id.toString(), this.title, sensors)
+    return PanelModel(this.id.toString(), this.uid, this.title)
 }
+
+data class PanelModel(
+    val id: String,
+    val uid: String,
+    val name: String,
+
+    )
+
+/*
 
 fun TargetsDashboardGrafanaModel.toModel(): Sensor {
     //No entiendo nada JAJJA, mañana pregunto a Miguel
@@ -18,4 +24,5 @@ fun PanelGrafanaModel.toPanel(sensors: List<Sensor>): Panel {
         name = this.title,
         sensors = sensors
     )
-}
+
+ */

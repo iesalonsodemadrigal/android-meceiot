@@ -8,4 +8,7 @@ interface GrafanaService {
 
     @GET("api/search?type=dash-db")
     suspend fun getPanels(): Response<List<PanelGrafanaModel>>
+
+    @GET("api/search?type=dash-db")
+    suspend fun getSensorsPanel(): Response<MetaGrafanaModelUid>
 }

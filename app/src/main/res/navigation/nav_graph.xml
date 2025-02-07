@@ -53,7 +53,10 @@
         android:id="@+id/login_fragment"
         android:name="edu.iesam.meceiot.features.login.presentation.LoginFragment"
         tools:layout="@layout/fragment_login" />
-
+    <fragment
+        android:id="@+id/fragment_sensor"
+        android:name="edu.iesam.meceiot.features.pantallasensor.presentation.GraphSensorFragment"
+        tools:layout="@layout/fragment_sensor" />
 
     <fragment
         android:id="@+id/alert_fragment"

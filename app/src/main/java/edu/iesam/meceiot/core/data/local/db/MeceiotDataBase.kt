@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import edu.iesam.meceiot.core.data.local.db.converters.DateConverter
+import edu.iesam.meceiot.core.data.local.db.converters.LongListConverter
 import edu.iesam.meceiot.core.data.local.db.converters.SensorListConverter
 import edu.iesam.meceiot.features.alerts.data.local.db.PanelDao
 import edu.iesam.meceiot.features.alerts.data.local.db.PanelEntity
@@ -16,22 +17,29 @@ import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResour
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesEntity
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
+import edu.iesam.meceiot.features.pantallasensor.data.local.db.GraphSensorDao
+import edu.iesam.meceiot.features.pantallasensor.data.local.db.GraphSensorEntity
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDao
 import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
 
 
 @Database(
-    entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class,
-        QuestionEntity::class, PanelEntity::class, SensorEntity::class],
+    entities = [LoraWanEntity::class, ExternalResourcesEntity::class, DeveloperEntity::class, QuestionEntity::class, PanelEntity::class, SensorEntity::class, GraphSensorEntity::class],
     version = 8,
     exportSchema = false
 )
-@TypeConverters(DateConverter::class, TypeSensorConverter::class, SensorListConverter::class)
+@TypeConverters(
+    DateConverter::class,
+    TypeSensorConverter::class,
+    SensorListConverter::class,
+    LongListConverter::class
+)
 abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun loraWanDao(): LoraWanDao
     abstract fun externalResourcesDao(): ExternalResourcesDao
     abstract fun developerDao(): DeveloperDao
     abstract fun questionDao(): QuestionDao
+    abstract fun graphSensorDao(): GraphSensorDao
     abstract fun panelAlertDao(): PanelDao
     abstract fun sensorAlertDao(): SensorDao
 }

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.navigation.safeargs.kotlin)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -89,5 +90,8 @@ dependencies {
     implementation (libs.skeletonlayout)
     //Kotlin Coroutines Test
     testImplementation(libs.kotlinx.coroutines.test)
-
+    //Firebase
+    implementation(project.dependencies.platform(libs.firebaseBom))
+    //Firestore
+    implementation(libs.firebase.firestore)
 }

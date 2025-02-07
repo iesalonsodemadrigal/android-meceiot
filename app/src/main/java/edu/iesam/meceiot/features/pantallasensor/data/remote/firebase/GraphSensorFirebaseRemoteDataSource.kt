@@ -8,19 +8,21 @@ import org.koin.core.annotation.Single
 @Single
 class GraphSensorFirebaseRemoteDataSource(private val firestore: FirebaseFirestore) {
 
-    suspend fun getSensorData(): Result<List<GraphSensor>> {
+    suspend fun getSensorData(): Result<GraphSensor> {
         return try {
-            val graphSensorCollection = firestore.collection("graphSensor")
+            val document = firestore.collection("graphSensor")
+                .limit(1)
                 .get()
                 .await()
+                .documents
+                .firstOrNull()
 
-            val sensors = mutableListOf<GraphSensor>()
-
-            for (document in graphSensorCollection.documents) {
-                val sensor = document.toObject(GraphSensor::class.java)
-                sensor?.let { sensors.add(it) }
+            val sensor = document?.toObject(GraphSensor::class.java)
+            if (sensor != null) {
+                Result.success(sensor)
+            } else {
+                Result.failure(Exception("No sensor data found"))
             }
-            Result.success(sensors)
         } catch (e: Exception) {
             Result.failure(e)
         }

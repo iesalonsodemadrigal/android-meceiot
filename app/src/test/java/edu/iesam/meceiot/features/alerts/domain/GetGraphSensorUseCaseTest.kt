@@ -8,7 +8,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class GetSensorUseCaseTest {
+class GetGraphSensorUseCaseTest {
 
     @RelaxedMockK
     private lateinit var sensorRepository: SensorRepository

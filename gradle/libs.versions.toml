@@ -25,7 +25,9 @@ junitJupiter = "5.11.3"
 junitJupiterEngine = "5.11.3"
 room-version = "2.6.1"
 skeletonlayout = "5.0.0"
-swipeFresh = "1.2.0-alpha01"
+firebaseBom = "33.8.0"
+googleServices = "4.4.2"
+swiperefreshlayoutVersion = "1.2.0-alpha01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -62,11 +64,14 @@ koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref =
 skeletonlayout = { module = "com.faltenreich:skeletonlayout", version.ref = "skeletonlayout" }
 views = { module = "com.patrykandpatrick.vico:views", version.ref = "core" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
-swipe-fresh = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeFresh" }
 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
+
+firebaseBom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayoutVersion" }
 
 
 
@@ -75,4 +80,4 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragment" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
-
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.navigation.safeargs.kotlin)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -86,6 +87,10 @@ dependencies {
     implementation(libs.coil)
     //Skeleton
     implementation (libs.skeletonlayout)
+    //Firebase
+    implementation(project.dependencies.platform(libs.firebaseBom))
+    //Firestore
+    implementation(libs.firebase.firestore)
     //SwipeRefresh
-    implementation(libs.swipe.fresh)
+    implementation(libs.swipeRefreshLayout)
 }

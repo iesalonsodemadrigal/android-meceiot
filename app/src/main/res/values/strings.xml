@@ -133,4 +133,12 @@
     <string name="alert_humidity">Niveles altos de humedad</string>
     <string name="alert_movement">Posible presencia de movimiento</string>
     <string name="alert_sound">Sonido elevado</string>
+    <string name="sensor_name">Nombre del Sensor</string>
+
+    <!-- View sensorScreen -->
+    <string name="max">Máx.</string>
+    <string name="media">Media.</string>
+    <string name="chart_options">Opciones de Grafico</string>
+    <string name="min">Mín.</string>
+    <string name="mode">Moda.</string>
 </resources>

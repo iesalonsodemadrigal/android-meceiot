@@ -27,7 +27,7 @@ room-version = "2.6.1"
 skeletonlayout = "5.0.0"
 firebaseBom = "33.8.0"
 googleServices = "4.4.2"
-swiperefreshlayoutVersion = "1.2.0-alpha01"
+swipeRefreshLayoutVersion = "1.2.0-alpha01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -71,7 +71,7 @@ room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "r
 
 firebaseBom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayoutVersion" }
+swipe-refresh-layout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeRefreshLayoutVersion" }
 
 
 

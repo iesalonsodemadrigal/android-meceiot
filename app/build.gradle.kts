@@ -92,5 +92,5 @@ dependencies {
     //Firestore
     implementation(libs.firebase.firestore)
     //SwipeRefresh
-    implementation(libs.swipeRefreshLayout)
+    implementation(libs.swipe.refresh.layout)
 }

@@ -47,7 +47,12 @@
 
     <!-- Error Desconocido -->
     <string name="title_error_unknown">Error desconocido</string>
-    <string name="description_error_unknown">Se está produciendo un error desconocido en el sistema</string>
+    <string name="description_error_unknown">Se está produciendo un error desconocido
+    en el sistema</string>
+
+    <!-- Panels View-->
+    <string name="label_menu_panels">Panels</string>
+    <string name="toolbar_Panels">Panels</string>
 
     <!-- Información de la Aplicación -->
     <string name="title_settings">Ajustes</string>
@@ -100,8 +105,6 @@
     <string name="aciertos">Aciertos</string>
     <string name="question">Question</string>
     <string name="opciones_respuesta">Por favor, complete todas las opciones.</string>
-
-
 
     <!-- View Iot -->
     <string name="iot_title">IoT</string>

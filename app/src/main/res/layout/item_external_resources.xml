@@ -5,44 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ExternalResourcesItemImage"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/external_resources_item_image"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:scaleType="centerCrop"
+        style="@style/AppImageListItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CircularImageView"
         tools:src="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/ExternalResourcesItemName"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/external_resources_item_name"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/ResourceName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ExternalResourcesItemImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        style="@style/AppHeadlineListItem"
+        android:text="@string/resource_name"
+        app:layout_constraintStart_toEndOf="@+id/external_resources_item_image"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/ExternalResourcesItemDescription"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/external_resources_item_description"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/ResourceDescription"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ExternalResourcesItemImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        style="@style/AppSupportingTextListItem"
+        android:text="@string/resource_description"
+        app:layout_constraintStart_toEndOf="@+id/external_resources_item_image"
+        app:layout_constraintTop_toBottomOf="@+id/external_resources_item_name" />
 
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background"
+        android:layout_marginVertical="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@+id/external_resources_item_description"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

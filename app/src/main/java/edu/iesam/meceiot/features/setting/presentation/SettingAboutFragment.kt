@@ -31,6 +31,9 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
     }
 
     private fun setUpView() {
+
+        binding.viewToolbar.mainToolbar.title = getString(R.string.title_settings)
+
         configureItem(
             binding.itemDeveloper, R.string.title_developers, R.string.text_developers
         ) {

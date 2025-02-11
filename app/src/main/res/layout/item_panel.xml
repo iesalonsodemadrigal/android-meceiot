@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppFilledStackedCard"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_media_listitem"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/panel_name"
+            style="@style/AppHeadlineListItem"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/font_size_high"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/padding_medium"
+            tools:text="Panel 1" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

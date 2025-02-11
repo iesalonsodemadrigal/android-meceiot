@@ -21,4 +21,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_setting"
         android:title="@string/settings" />
+    <item
+        android:id="@+id/fragment_sensor_panels"
+        android:enabled="true"
+        android:icon="@drawable/ic_panels"
+        android:title="@string/label_menu_panels" />
+
 </menu>

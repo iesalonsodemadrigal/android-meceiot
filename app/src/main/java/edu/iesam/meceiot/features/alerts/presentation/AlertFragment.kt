@@ -57,9 +57,9 @@ class AlertFragment : Fragment() {
 
     private fun setupObserver() {
         val alertObserver = Observer<AlertViewModel.UiState> { uiState ->
+            bindData(uiState.alert)
             checkLoading(uiState.isLoading)
             checkError(uiState.errorApp)
-            bindData(uiState.alert)
         }
         alertViewModel.uiState.observe(viewLifecycleOwner, alertObserver)
     }
@@ -71,6 +71,7 @@ class AlertFragment : Fragment() {
             } else {
                 skeleton.showSkeleton()
             }
+            binding.noAlerts.visibility = View.GONE
         } else {
             skeleton.showOriginal()
             binding.swipeRefresh.isRefreshing = false
@@ -79,9 +80,9 @@ class AlertFragment : Fragment() {
 
     private fun checkError(errorApp: ErrorApp?) {
         errorApp?.let {
-            val error = ErrorAppFactory(requireContext()).build(it, {
+            val error = ErrorAppFactory(requireContext()).build(it) {
                 alertViewModel.fetchAlerts()
-            })
+            }
             binding.errorAppView.render(error)
         } ?: run {
             binding.errorAppView.hide()
@@ -89,8 +90,11 @@ class AlertFragment : Fragment() {
     }
 
     private fun bindData(alerts: List<Sensor>?) {
-        alerts?.let {
-            alertAdapter.submitList(it)
+        if (alerts.isNullOrEmpty()) {
+            binding.noAlerts.visibility = View.VISIBLE
+        } else {
+            binding.noAlerts.visibility = View.GONE
+            alertAdapter.submitList(alerts)
         }
     }
 

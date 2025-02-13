@@ -10,13 +10,15 @@ class GetSensorUseCase(private val sensorAlertRepository: SensorAlertRepository)
         val result = sensorAlertRepository.getSensors()
 
         val filteredSensor = result.getOrNull()?.filter { sensor ->
-            sensor.type == TypeSensor.Co2 && sensor.value > "300" ||
-                    sensor.type == TypeSensor.Temperature && sensor.value <= "15" ||
-                    sensor.type == TypeSensor.Light && sensor.value >= "500" ||
-                    sensor.type == TypeSensor.Humidity && sensor.value >= "32" ||
-                    sensor.type == TypeSensor.Movement && sensor.value != "0" && sensor.value >= "1" ||
-                    sensor.type == TypeSensor.Sound && sensor.value >= "40"
-
+            when (sensor.type) {
+                TypeSensor.Co2 -> sensor.value.toDouble().let { it > 1800 }
+                TypeSensor.Humidity -> sensor.value.toDouble().let { it <= 30 || it >= 60 }
+                TypeSensor.Light -> sensor.value.toDouble().let { it > 1000 }
+                TypeSensor.Movement -> sensor.value.toDouble().let { it >= 1 }
+                TypeSensor.Sound -> sensor.value.toDouble().let { it >= 80 }
+                TypeSensor.Temperature -> sensor.value.toDouble().let { it <= 18 || it >= 30 }
+                TypeSensor.UnknownSensor -> false
+            }
         } ?: emptyList()
 
         return Result.success(filteredSensor)

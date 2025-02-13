@@ -138,6 +138,7 @@
     <string name="alert_movement">Posible presencia de movimiento</string>
     <string name="alert_sound">Sonido elevado</string>
     <string name="sensor_name">Nombre del Sensor</string>
+    <string name="no_sensor_alerts">No hay alertas a la vista</string>
 
     <!-- View sensorScreen -->
     <string name="max">Máx.</string>

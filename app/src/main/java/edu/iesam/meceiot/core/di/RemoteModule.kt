@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @ComponentScan
 class RemoteModule {
 
-    private val url = "https://sandbox.aulapragmatica.es/"
+    private val url = "https://meceiot.usal.es/g/"
     @Single
     fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

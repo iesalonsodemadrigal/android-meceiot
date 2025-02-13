@@ -3,24 +3,25 @@ package edu.iesam.meceiot.features.alerts.domain
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class GetGraphSensorUseCaseTest {
+class GetAlertSensorUseCaseTest {
 
     @RelaxedMockK
-    private lateinit var sensorRepository: SensorRepository
+    private lateinit var sensorAlertRepository: SensorAlertRepository
     private lateinit var getSensorUseCase: GetSensorUseCase
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        getSensorUseCase = GetSensorUseCase(sensorRepository)
+        getSensorUseCase = GetSensorUseCase(sensorAlertRepository)
     }
 
     @Test
-    fun `cuando el valor del sensor es 0 o negativo, no detecta movimiento`() {
+    fun `cuando el valor del sensor es 0 o negativo, no detecta movimiento`() = runBlocking {
         // Give: Declaración de variables
         val mockPanel = listOf(
             Panel(
@@ -37,7 +38,7 @@ class GetGraphSensorUseCaseTest {
             )
         )
         val sensor = mockPanel.flatMap { it.sensors }
-        coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
+        coEvery { sensorAlertRepository.getSensors() } returns Result.success(sensor)
 
         // When: Ejecutar el caso de uso
         val result = getSensorUseCase()
@@ -48,7 +49,7 @@ class GetGraphSensorUseCaseTest {
     }
 
     @Test
-    fun `cuando el sensor detecta movimiento = 1`() {
+    fun `cuando el sensor detecta movimiento = 1`(): Unit = runBlocking {
         //Given
         val mockPanel = listOf(
             Panel(
@@ -65,7 +66,7 @@ class GetGraphSensorUseCaseTest {
             )
         )
         val sensor = mockPanel.flatMap { it.sensors }
-        coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
+        coEvery { sensorAlertRepository.getSensors() } returns Result.success(sensor)
 
 
         //When
@@ -80,7 +81,7 @@ class GetGraphSensorUseCaseTest {
     }
 
     @Test
-    fun `cuando el valor de deteccion es mayor a 1`() {
+    fun `cuando el valor de deteccion es mayor a 1`(): Unit = runBlocking {
         //Given
         val mockPanel = listOf(
             Panel(
@@ -97,7 +98,7 @@ class GetGraphSensorUseCaseTest {
             )
         )
         val sensor = mockPanel.flatMap { it.sensors }
-        coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
+        coEvery { sensorAlertRepository.getSensors() } returns Result.success(sensor)
 
 
         //When

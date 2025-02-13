@@ -49,6 +49,9 @@ class AlertFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter
             skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 10)
+            swipeRefresh.setOnRefreshListener {
+                alertViewModel.fetchAlerts()
+            }
         }
     }
 
@@ -63,9 +66,14 @@ class AlertFragment : Fragment() {
 
     private fun checkLoading(isLoading: Boolean) {
         if (isLoading) {
-            skeleton.showSkeleton()
+            if (binding.swipeRefresh.isRefreshing) {
+                skeleton.showOriginal()
+            } else {
+                skeleton.showSkeleton()
+            }
         } else {
             skeleton.showOriginal()
+            binding.swipeRefresh.isRefreshing = false
         }
     }
 
@@ -86,8 +94,8 @@ class AlertFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }

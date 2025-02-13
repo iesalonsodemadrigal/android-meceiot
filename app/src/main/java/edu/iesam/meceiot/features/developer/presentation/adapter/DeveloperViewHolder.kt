@@ -1,3 +1,4 @@
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -6,20 +7,18 @@ import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 
 class DeveloperViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
-    private val binding: ItemDeveloperBinding = ItemDeveloperBinding.bind(view)
+   private  val itemDeveloper : ItemDeveloperBinding = ItemDeveloperBinding.bind(view)
 
-    fun bind(developerInfo: DeveloperInfo, onUrlClick: (String) -> Unit) {
-        binding.apply {
+    fun bind(developerInfo: DeveloperInfo, onClick: (String) -> Unit) {
+        itemDeveloper.apply {
+            developerImage.load(developerInfo.urlAvatar) {}
+            developerTextName.text = developerInfo.fullName
+            developerDescprition.text = developerInfo.collegeDegree
 
-            developerImage.load(developerInfo.urlAvatar)
-            developerName.text = developerInfo.fullName
-            collegeDegree.text = developerInfo.collegeDegree
-
-            buttonOpenUrl.setOnClickListener {
-                developerInfo.urlSource?.let { url ->
-                    onUrlClick(url)
-                }
-            }
         }
+        view.setOnClickListener {
+        onClick(developerInfo.urlSource)
     }
 }
+    }
+

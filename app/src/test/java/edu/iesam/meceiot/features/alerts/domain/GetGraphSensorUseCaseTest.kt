@@ -8,16 +8,16 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class GetGraphSensorUseCaseTest {
+class GetAlertSensorUseCaseTest {
 
     @RelaxedMockK
-    private lateinit var sensorRepository: SensorRepository
+    private lateinit var sensorAlertRepository: SensorAlertRepository
     private lateinit var getSensorUseCase: GetSensorUseCase
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        getSensorUseCase = GetSensorUseCase(sensorRepository)
+        getSensorUseCase = GetSensorUseCase(sensorAlertRepository)
     }
 
     @Test
@@ -38,7 +38,7 @@ class GetGraphSensorUseCaseTest {
             )
         )
         val sensor = mockPanel.flatMap { it.sensors }
-        coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
+        coEvery { sensorAlertRepository.getSensors() } returns Result.success(sensor)
 
         // When: Ejecutar el caso de uso
         val result = getSensorUseCase()
@@ -66,7 +66,7 @@ class GetGraphSensorUseCaseTest {
             )
         )
         val sensor = mockPanel.flatMap { it.sensors }
-        coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
+        coEvery { sensorAlertRepository.getSensors() } returns Result.success(sensor)
 
 
         //When
@@ -98,7 +98,7 @@ class GetGraphSensorUseCaseTest {
             )
         )
         val sensor = mockPanel.flatMap { it.sensors }
-        coEvery { sensorRepository.getSensors() } returns Result.success(sensor)
+        coEvery { sensorAlertRepository.getSensors() } returns Result.success(sensor)
 
 
         //When

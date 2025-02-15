@@ -1,6 +1,8 @@
 package edu.iesam.meceiot.features.alerts.data.remote
 
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.alerts.data.remote.mappers.extractTypeFromRefId
+import edu.iesam.meceiot.features.alerts.data.remote.mappers.sensorToDomain
 import edu.iesam.meceiot.features.alerts.data.remote.mappers.toDomain
 import edu.iesam.meceiot.features.alerts.data.remote.models.BodyQueryModel
 import edu.iesam.meceiot.features.alerts.data.remote.models.QueriesBodyQueryModel
@@ -10,33 +12,32 @@ import org.koin.core.annotation.Single
 @Single
 class SensorGrafanaRemoteDataSource(private val sensorGrafanaService: SensorGrafanaService) {
     suspend fun getSensors(): Result<List<Sensor>> {
-        val panelsGrafana = sensorGrafanaService.getPanels()
-
-        val panels =
-            panelsGrafana.body() ?: return Result.failure(Exception("No hay paneles disponibles"))
+        val panelsGrafana = sensorGrafanaService.getPanels().body()
+            ?: return Result.failure(ErrorApp.ServerErrorApp)
         val sensorsList = mutableListOf<Sensor>()
 
-        for (panel in panels) {
-            val panelDetailGrafana = sensorGrafanaService.getPanelDetail(panel.uid)
-            val panelDetail = panelDetailGrafana.body() ?: continue
+        for (panel in panelsGrafana) {
+            val panelDetailGrafana =
+                sensorGrafanaService.getPanelDetail(panel.uid).body() ?: continue
 
-            val updatedSensors = panelDetail.dashboard.panels.flatMap { sensorDashboard ->
-                sensorDashboard.targets.map { target ->
-                    val sensor = Sensor(
-                        id = target.refId,
-                        name = panel.title,
-                        type = extractTypeFromRefId(target.refId),
-                        value = ""
-                    )
-
+            val newSensor = panelDetailGrafana.dashboard.panels.flatMap { sensorDashboard ->
+                sensorDashboard.targets.firstOrNull()?.let { target ->
                     val bodyQuery = creteBodyQuery(target.query, target.refId)
                     val sensorQueryResult = sensorGrafanaService.getQuerySensor(bodyQuery)
-                    val newValueSensor =
-                        sensorQueryResult.body()?.toDomain(target.refId)?.value ?: ""
-                    sensor.copy(value = newValueSensor)
-                }
+                    val lastValue = sensorQueryResult.body()?.toDomain(target.refId)?.value
+                        ?: "No data"
+
+                    listOf(
+                        sensorToDomain(
+                            target.refId,
+                            panel.title,
+                            extractTypeFromRefId(target.refId),
+                            lastValue
+                        )
+                    )
+                } ?: emptyList()
             }
-            sensorsList.addAll(updatedSensors)
+            sensorsList.addAll(newSensor)
         }
         return Result.success(sensorsList)
     }
@@ -51,9 +52,7 @@ class SensorGrafanaRemoteDataSource(private val sensorGrafanaService: SensorGraf
                     intervalMs = 20000,
                     maxDataPoints = 935
                 )
-            ),
-            from = "now-10m",
-            to = "now"
+            ), from = "now-10m", to = "now"
         )
     }
 }

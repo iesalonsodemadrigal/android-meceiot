@@ -13,5 +13,7 @@ class ExternalResourcesEntity(
     @ColumnInfo(name = "author") val author: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "image") val image: String,
-    @PrimaryKey @ColumnInfo(name = "url") val url: String
+    @ColumnInfo(name = "url") val url: String,
+    @PrimaryKey @ColumnInfo(name = "id") val idExternalResources: String
+
 )

@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.externalresources.data.remote
+package edu.iesam.meceiot.features.externalresources.data.remote.api
 
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 
@@ -7,7 +7,8 @@ fun ExternalResourcesApiModel.toModel(): ExternalResources {
         author = author,
         description = nameResource,
         image = iconSource,
-        url = linkResource
+        url = linkResource,
+        idExternalResources = idExternalResources
     )
 
 }

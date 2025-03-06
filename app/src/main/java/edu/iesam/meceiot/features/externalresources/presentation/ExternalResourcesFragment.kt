@@ -73,6 +73,7 @@ class ExternalResourcesFragment : BottomSheetDialogFragment() {
             } else {
                 skeleton.showOriginal()
             }
+
         }
         externalResourcesViewModel.uiState.observe(viewLifecycleOwner, externalResourcesObserver)
     }

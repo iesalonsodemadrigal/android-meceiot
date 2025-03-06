@@ -65,6 +65,7 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
+    implementation(libs.androidx.fragment.ktx)
     ksp(libs.koin.ksp)
     //MockK
     testImplementation(libs.mockk)
@@ -87,7 +88,10 @@ dependencies {
     implementation(libs.coil)
     //Skeleton
     implementation (libs.skeletonlayout)
+    //Kotlin Coroutines Test
+    testImplementation(libs.kotlinx.coroutines.test)
     //Firebase
-    implementation(platform(libs.firebase.bom))
+    implementation(project.dependencies.platform(libs.firebaseBom))
+    //Firestore
     implementation(libs.firebase.firestore)
 }

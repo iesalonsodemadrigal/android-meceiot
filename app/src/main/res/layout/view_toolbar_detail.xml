@@ -1,0 +1,12 @@
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_toolbar_detail"
+    style="@style/AppHeadline"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_extra_small"
+    android:padding="@dimen/padding_medium"
+    android:textSize="@dimen/font_size_medium"
+    app:navigationIconTint="@color/md_theme_onSurface_highContrast"
+    tools:title="Generic Title" />

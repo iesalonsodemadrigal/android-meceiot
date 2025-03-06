@@ -17,6 +17,5 @@ class ExternalResourcesFirestoreRemoteDataSource(private val firestore: Firebase
                 .map { it.toObject(ExternalResourcesFirestoreModel::class.java).toModel() }
 
         }
-
     }
 }

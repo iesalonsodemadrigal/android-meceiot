@@ -1,7 +1,6 @@
 package edu.iesam.meceiot.features.externalresources.data
 
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesDbDataSource
-import edu.iesam.meceiot.features.externalresources.data.remote.api.ExternalResourcesRemoteDataSource
 import edu.iesam.meceiot.features.externalresources.data.remote.firestore.ExternalResourcesFirestoreRemoteDataSource
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResources
 import edu.iesam.meceiot.features.externalresources.domain.ExternalResourcesRepository
@@ -9,23 +8,18 @@ import org.koin.core.annotation.Single
 
 @Single
 class ExternalResourcesDataRepository(
-    private val remoteDataSource: ExternalResourcesRemoteDataSource,
-    private val localDataSource: ExternalResourcesDbDataSource,
-    private val externalResourcesFirestoreRemoteDataSource: ExternalResourcesFirestoreRemoteDataSource
-
+    private val local: ExternalResourcesDbDataSource,
+    private val remote: ExternalResourcesFirestoreRemoteDataSource
 ) : ExternalResourcesRepository {
     override suspend fun getAllExternalResources(): Result<List<ExternalResources>> {
-        val localExternalResourcesResult = localDataSource.getAll()
-        return if (localExternalResourcesResult.isFailure || localExternalResourcesResult.getOrNull()
-                .isNullOrEmpty()
-        ) {
-            externalResourcesFirestoreRemoteDataSource.getExternalResources().onSuccess {
-                localDataSource.saveAll(it)
+        val externalResourcesFromLocal = local.getAll()
+        return if (externalResourcesFromLocal.isFailure) {
+            remote.getExternalResources().onSuccess {
+                local.saveAll(it)
             }
         } else {
-            localExternalResourcesResult
+            externalResourcesFromLocal
         }
-
     }
 }
 

@@ -18,7 +18,7 @@
         android:id="@+id/title_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_extra_high"
+        android:layout_marginTop="@dimen/margin_small"
         android:text="@string/title_error"
         android:textSize="@dimen/font_size_extra_high"
         android:textStyle="bold"
@@ -30,7 +30,7 @@
         android:id="@+id/description_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_extra_high"
+        android:layout_marginTop="@dimen/margin_small"
         android:text="@string/description_error"
         android:textSize="@dimen/font_size_high"
         android:textStyle="bold"
@@ -41,11 +41,14 @@
 
     <Button
         android:id="@+id/button_retry_error"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/button_retry"
         android:textSize="@dimen/font_size_extra_high"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@+id/description_error"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

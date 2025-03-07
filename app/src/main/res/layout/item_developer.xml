@@ -3,58 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_extra_high">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/developer_image"
-        android:layout_width="@dimen/image_size_extra_extra_high"
-        android:layout_height="@dimen/image_size_extra_extra_high"
-        android:layout_margin="1dp"
         android:layout_marginEnd="@dimen/margin_medium"
         android:scaleType="centerCrop"
+        style="@style/AppImageListItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/CircularImageView"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <LinearLayout
-        android:layout_width="@dimen/null_value"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/developer_text_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_extra_small"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/developer_image"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="@dimen/margin_medium"
+        android:text="@string/developer_name"
+        style="@style/AppHeadlineListItem"
+        app:layout_constraintStart_toEndOf="@+id/developer_image"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/developer_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_small"
-            android:textStyle="bold"
-            tools:text="Nombre del Desarrollador" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/developer_descprition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        android:text="@string/text_developers"
+        style="@style/AppSupportingTextListItem"
+        app:layout_constraintStart_toEndOf="@+id/developer_image"
+        app:layout_constraintTop_toBottomOf="@+id/developer_text_name" />
 
-        <TextView
-            android:id="@+id/college_degree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_extra_small"
-            tools:text="Descripción del Desarrollador" />
-    </LinearLayout>
-
-    <ImageButton
-        android:id="@+id/buttonOpenUrl"
-        android:layout_width="@dimen/image_size_extra_extra_high"
-        android:layout_height="@dimen/image_size_extra_extra_high"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="@string/action_button"
-        android:src="@drawable/ic_arrow_forward"
-        app:layout_constraintBottom_toBottomOf="@+id/developer_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/developer_image" />
-
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background"
+        android:layout_marginVertical="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@+id/developer_descprition"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

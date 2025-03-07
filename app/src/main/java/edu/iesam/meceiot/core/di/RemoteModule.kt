@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.core.di
 
+import com.google.firebase.firestore.FirebaseFirestore
 import edu.iesam.meceiot.core.api.retrofit.AuthInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,5 +42,10 @@ class RemoteModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         return retrofit
+    }
+
+    @Single
+    fun provideFirestore(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 }

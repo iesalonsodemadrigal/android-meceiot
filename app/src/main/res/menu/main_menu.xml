@@ -9,7 +9,7 @@
         android:id="@+id/iot_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_logo_iot"
-        android:title="@string/IoT" />
+        android:title="@string/iot" />
     <item
         android:id="@+id/testfragment"
         android:enabled="true"
@@ -21,4 +21,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_setting"
         android:title="@string/settings" />
+    <item
+        android:id="@+id/fragment_sensor_panels"
+        android:enabled="true"
+        android:icon="@drawable/ic_panels"
+        android:title="@string/label_menu_panels" />
+
 </menu>

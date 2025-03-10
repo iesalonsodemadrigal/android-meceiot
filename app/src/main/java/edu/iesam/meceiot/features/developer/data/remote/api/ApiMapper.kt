@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.developer.data.remote
+package edu.iesam.meceiot.features.developer.data.remote.api
 
 import edu.iesam.meceiot.features.developer.domain.models.DeveloperInfo
 

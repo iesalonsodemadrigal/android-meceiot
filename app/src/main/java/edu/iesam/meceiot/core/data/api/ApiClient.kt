@@ -1,6 +1,6 @@
 package edu.iesam.meceiot.core.data.api
 
-import edu.iesam.meceiot.features.developer.data.remote.DeveloperApiService
+import edu.iesam.meceiot.features.developer.data.remote.api.DeveloperApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

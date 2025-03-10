@@ -14,7 +14,6 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class DeveloperAboutViewModel(private val getDevelopersUseCase: GetDevelopersUseCase) :
     ViewModel() {
-
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 

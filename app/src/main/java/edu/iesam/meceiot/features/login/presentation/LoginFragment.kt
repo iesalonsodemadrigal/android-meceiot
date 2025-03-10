@@ -39,9 +39,12 @@ class LoginFragment : Fragment() {
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
             if (uiState.userLoggedIn) {
-                findNavController().navigate(
-                    LoginFragmentDirections.actionLoginFragmentToMainFragment()
-                )
+                // Check if we're on the login fragment before navigating
+                if (findNavController().currentDestination?.id == edu.iesam.meceiot.R.id.login_fragment) {
+                    findNavController().navigate(
+                        LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                    )
+                }
             }
             uiState.errorApp?.let {
                 //Pintar el error? O mostrar un toast de que no hay conexion quizá

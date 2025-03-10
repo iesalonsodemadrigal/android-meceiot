@@ -8,7 +8,6 @@ import org.koin.core.annotation.Single
 @Module
 @ComponentScan("edu.iesam.meceiot")
 class AppModule {
-
     @Single
     fun provideGson() = Gson()
 }

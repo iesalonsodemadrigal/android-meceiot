@@ -11,23 +11,32 @@ import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.AppIntent
 import edu.iesam.meceiot.databinding.FragmentSettingsBinding
 import edu.iesam.meceiot.databinding.ItemSettingBinding
+import edu.iesam.meceiot.features.setting.presentation.logout.LogoutDialog
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
     private lateinit var intent: AppIntent
 
+    val viewModel: SettingsViewModel by viewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         intent = AppIntent(requireContext())
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpView()
+        binding.logoutButton.setOnClickListener {
+            showLogoutConfirmationDialog()
+        }
     }
 
     private fun setUpView() {
@@ -84,6 +93,24 @@ class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
         item.textSubtitle.text = getString(subtitleRes)
         item.settingItem.setOnClickListener { onClick() }
     }
+
+    private fun showLogoutConfirmationDialog() {
+        LogoutDialog().apply {
+            setListener(object : LogoutDialog.LogoutListener {
+                override fun onLogoutConfirmed() {
+                    viewModel.logout()
+                    navigateToLogin()
+                }
+            })
+        }.show(parentFragmentManager, "LogoutDialog")
+    }
+
+    private fun navigateToLogin() {
+        findNavController().navigate(
+            SettingAboutFragmentDirections.actionSettingsToLoginFragment()
+        )
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -60,6 +60,10 @@
     <string name="title_settings">Ajustes</string>
     <string name="settings">Ajustes</string>
     <string name="proyecto">Proyecto</string>
+    <string name="logout">Cerrar sesion</string>
+    <string name="logout_confirmation">¿Está seguro de cerrar sesión?</string>
+    <string name="logout_confirmation_affirmative">Si</string>
+    <string name="logout_confirmation_negative">No</string>
 
     <!-- Colaboraciones -->
     <string name="collaborators">Colaboradores</string>
@@ -73,7 +77,7 @@
     <string name="text_resources">Recursos de terceros que se han utilizado en la aplicación</string>
 
     <!-- Página Web -->
-    <string name="text_sharing_message">Preparando para compartir...</string>
+    <string name="text_sharing_message">Preparando para compartir…</string>
     <string name="text_share_title">Selecciona una app para compartir</string>
     <string name="title_web">Página Web</string>
     <string name="text_web">Pulsa para ir a la web del centro</string>
@@ -137,7 +141,6 @@
     <string name="alert_humidity">Niveles altos de humedad</string>
     <string name="alert_movement">Posible presencia de movimiento</string>
     <string name="alert_sound">Sonido elevado</string>
-    <string name="sensor_name">Nombre del Sensor</string>
 
     <!-- View sensorScreen -->
     <string name="max">Máx.</string>
@@ -145,4 +148,5 @@
     <string name="chart_options">Opciones de Grafico</string>
     <string name="min">Mín.</string>
     <string name="mode">Moda.</string>
+    <string name="sensor_name">Nombre del Sensor</string>
 </resources>

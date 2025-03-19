@@ -8,6 +8,7 @@ import edu.iesam.meceiot.core.di.RemoteModule
 import edu.iesam.meceiot.features.alerts.di.SensorAlertModule
 import edu.iesam.meceiot.features.developer.di.DeveloperModule
 import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
+import edu.iesam.meceiot.features.grafana.di.GrafanaModule
 import edu.iesam.meceiot.features.login.di.LoginModule
 import edu.iesam.meceiot.features.lorawan.di.LoraWanModule
 import edu.iesam.meceiot.features.pantallasensor.di.GraphSensorModule
@@ -34,7 +35,8 @@ class MeceiotApp : Application() {
                 SensorPanelsModule().module,
                 SensorAlertModule().module,
                 GraphSensorModule().module,
-                LoginModule().module
+                LoginModule().module,
+                GrafanaModule().module
             )
         }
     }

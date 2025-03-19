@@ -21,7 +21,7 @@ interface LoginApiService {
         "Pragma: no-cache",
         "Cache-Control: no-cache"
     )
-    @POST("g/login")
+    @POST("login")
     suspend fun login(@Body loginCredentials: LoginCredentials): Response<LoginResponse>
 
 }

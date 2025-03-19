@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.grafana.data.models
+package edu.iesam.meceiot.features.grafana.data.models.dashboard
 
 import edu.iesam.meceiot.features.sensorpanels.domain.Panel
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
@@ -27,7 +27,8 @@ data class PanelDetailDto(
 )
 
 data class TargetDto(
-    val refId: String
+    val refId: String,
+    val query: String
 )
 
 fun DashboardDetailResponseDto.toPanel(): Panel {
@@ -38,7 +39,9 @@ fun DashboardDetailResponseDto.toPanel(): Panel {
             panelDetail.targets.mapIndexed { index, target ->
                 Sensor(
                     id = panelDetail.id * 100 + index, //unique id for more targets
-                    name = target.refId              // Se usa el refId del target como nombre
+                    name = target.refId, // Se usa el refId del target como nombre
+                    panelName = dashboard.title,
+                    query = target.query
                 )
             }
         }

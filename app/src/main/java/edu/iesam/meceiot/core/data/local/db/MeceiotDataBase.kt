@@ -30,7 +30,7 @@ import edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity
         SensorEntity::class,
         PanelEntity::class,
         GraphSensorEntity::class],
-    version = 12,
+    version = 13,
     exportSchema = false
 )
 @TypeConverters(

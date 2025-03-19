@@ -10,5 +10,7 @@ const val SENSOR_ID = "idSensor"
 @Entity(tableName = SENSOR_TABLE)
 class SensorEntity(
     @PrimaryKey @ColumnInfo(name = SENSOR_ID) val id: Int,
-    @ColumnInfo(name = "name") val name: String
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "panelName") val panelName: String,
+    @ColumnInfo(name = "query") val query: String
 )

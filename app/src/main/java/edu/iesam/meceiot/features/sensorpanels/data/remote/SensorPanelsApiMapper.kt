@@ -15,6 +15,8 @@ fun PanelApiModel.toDomain(): Panel {
 fun SensorApiModel.toDomain(): Sensor {
     return Sensor(
         id = id,
-        name = name
+        name = name,
+        panelName = "panelName",
+        query = "query"
     )
 }

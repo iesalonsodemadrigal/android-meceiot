@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.grafana.data.models
+package edu.iesam.meceiot.features.grafana.data.models.search
 
 // Clase interna para conservar el uid y demás datos del dashboard
 data class DashboardSummary(

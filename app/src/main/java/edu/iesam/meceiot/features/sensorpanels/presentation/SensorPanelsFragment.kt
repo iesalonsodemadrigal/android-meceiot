@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.createSkeleton
@@ -48,8 +49,13 @@ class SensorPanelsFragment : Fragment() {
     }
 
     private fun setupView() {
-        sensorPanelsAdapter = SensorPanelsAdapter { sensorId ->
-            navigateToDetail(sensorId.toInt())
+        sensorPanelsAdapter = SensorPanelsAdapter { sensorName, panelName, query, sensorId ->
+            navigateToDetail(
+                sensorName = sensorName,
+                panelName = panelName,
+                query = query,
+                sensorId = sensorId
+            )
         }
         binding.apply {
             viewToolbar.mainToolbar.title = getString(R.string.label_menu_panels)
@@ -75,12 +81,21 @@ class SensorPanelsFragment : Fragment() {
         }
     }
 
-    private fun navigateToDetail(sensorId: Int) {
-        /*findNavController().navigate(
+    private fun navigateToDetail(
+        sensorName: String,
+        panelName: String,
+        query: String,
+        sensorId: Int
+    ) {
+        findNavController().navigate(
             SensorPanelsFragmentDirections
-                .actionSensorPanelsFragmentToSensorPanelDetailFragment(sensorId
-            )
-        )*/
+                .actionSensorPanelsFragmentToSensorFragment(
+                    sensorName = sensorName,
+                    panelName = panelName,
+                    query = query,
+                    sensorId = sensorId.toString()
+                )
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

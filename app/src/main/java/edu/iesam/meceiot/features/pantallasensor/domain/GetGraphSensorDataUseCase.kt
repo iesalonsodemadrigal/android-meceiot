@@ -4,7 +4,7 @@ import org.koin.core.annotation.Single
 
 @Single
 class GetGraphSensorDataUseCase(private val graphSensorRepository: GraphSensorRepository) {
-    suspend operator fun invoke(id: Int): Result<GraphSensor> {
-        return graphSensorRepository.getSensorDataById(id)
+    suspend operator fun invoke(id: Int, query: String): Result<GraphSensor> {
+        return graphSensorRepository.getSensorDataById(id, query)
     }
 }

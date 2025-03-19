@@ -1,7 +1,8 @@
 package edu.iesam.meceiot.core.di
 
 import com.google.firebase.firestore.FirebaseFirestore
-import edu.iesam.meceiot.core.api.retrofit.AuthInterceptor
+import edu.iesam.meceiot.core.data.remote.retrofit.AuthInterceptor
+import edu.iesam.meceiot.features.login.data.local.LoginXmlDataSource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.annotation.ComponentScan
@@ -10,13 +11,11 @@ import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL_API = "https://meceiot.usal.es/"
+private const val BASE_URL_API = "https://meceiot.usal.es/g/"
 
 @Module
 @ComponentScan
 class RemoteModule {
-
-    private val url = "https://sandbox.aulapragmatica.es/"
 
     @Single
     fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
@@ -24,11 +23,19 @@ class RemoteModule {
     }
 
     @Single
-    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun provideAuthInterceptor(loginXmlDataSource: LoginXmlDataSource): AuthInterceptor {
+        return AuthInterceptor(loginXmlDataSource)
+    }
+
+    @Single
+    fun provideOkHttpClient(
+        loggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
+    ): OkHttpClient {
         val okHttpClient = OkHttpClient
             .Builder()
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(AuthInterceptor("placeHolder", "placeHolder"))
+            .addInterceptor(authInterceptor)
             .build()
         return okHttpClient
     }

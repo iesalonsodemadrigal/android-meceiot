@@ -23,7 +23,6 @@ class GrafanaRemoteDataSource(
         return apiCall { grafana.searchDashboards() }
             .fold(
                 onSuccess = { dashboardDtos ->
-                    // Convertir a resumen para conservar el uid
                     Result.success(dashboardDtos.map { it.toDashboardSummary() })
                 },
                 onFailure = { error ->
@@ -108,8 +107,8 @@ class GrafanaRemoteDataSource(
                 InfluxQueryDto(
                     query = query,
                     refId = "A",
-                    datasourceId = 1, // Default datasource ID for InfluxDB
-                    intervalMs = 60000, // 1 minute interval
+                    datasourceId = 4, // Default datasource ID for InfluxDB
+                    intervalMs = 20000, // 1 minute interval
                     maxDataPoints = 1000
                 )
             ),
@@ -155,14 +154,19 @@ class GrafanaRemoteDataSource(
                         .maxByOrNull { it.value.size }?.key ?: 0
 
                     // Determine data type from query
-                    val dataType = when {
-                        query.contains("temperature", ignoreCase = true) -> "°C"
-                        query.contains("humidity", ignoreCase = true) -> "%"
-                        query.contains("co2", ignoreCase = true) -> "ppm"
-                        query.contains("light", ignoreCase = true) -> "lux"
-                        query.contains("motion", ignoreCase = true) -> "events"
-                        query.contains("battery", ignoreCase = true) -> "%"
-                        query.contains("sound", ignoreCase = true) -> "dB"
+                    val fieldPattern = Regex("""r\[["']_field["']\]\s*==\s*["']([^"']+)["']""")
+                    val fieldMatch = fieldPattern.find(query)
+                    val fieldName = fieldMatch?.groupValues?.getOrNull(1)
+
+                    val dataType = when (fieldName) {
+                        "temperature" -> "°C"
+                        "humidity" -> "%"
+                        "co2" -> "ppm"
+                        "light" -> "lux"
+                        "motion" -> "events"
+                        "vdd" -> "mV"
+                        "soundAvg" -> "dB"
+                        "soundPeak" -> "dB"
                         else -> "units"
                     }
 

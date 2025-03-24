@@ -20,7 +20,7 @@ class GraphGraphSensorDataRepository(
             if (remoteResult.isSuccess) {
                 localDataSource.save(remoteResult.getOrThrow())
             }
-            remoteResult  // Return remote result instead of localResult
+            remoteResult
         }
     }
 }

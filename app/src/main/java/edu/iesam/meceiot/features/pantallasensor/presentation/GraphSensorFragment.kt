@@ -113,11 +113,12 @@ class GraphSensorFragment : Fragment() {
     }
 
     private fun bindData(graphSensor: GraphSensor?) {
+        val sensor = getArgs()
         graphSensor?.let {
             binding.apply {
                 initializeChart(it)
-                sensorName.text = it.name
-                toolbar.viewToolbarDetail.title = it.panelName
+                sensorName.text = sensor?.name
+                toolbar.viewToolbarDetail.title = sensor?.panelName
                 maxValue.text = it.maxValue
                 minValue.text = it.minValue
                 avgValue.text = it.avgValue

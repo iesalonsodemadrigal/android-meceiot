@@ -7,16 +7,33 @@ import okhttp3.Response
 
 class AuthInterceptor(private val loginXmlDataSource: LoginXmlDataSource) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
-        val authenticatedRequest = request.newBuilder()
-            .header(
-                "Authorization",
-                Credentials.basic(
-                    loginXmlDataSource.getCredentials()!!.user,
-                    loginXmlDataSource.getCredentials()!!.password
+        val originalRequest = chain.request()
+        val requestUrl = originalRequest.url.toString()
+
+        // Skip authentication for login endpoints or when credentials aren't available
+        if (requestUrl.contains("/login") ||
+            requestUrl.contains("login.php")
+        ) {
+            return chain.proceed(originalRequest)
+        }
+
+        // Only authenticate requests that need it
+        val authenticatedRequest = if (requestUrl.contains("/api/") ||
+            requestUrl.contains("/g/") ||
+            requestUrl.contains("grafana")
+        ) {
+            originalRequest.newBuilder()
+                .header(
+                    "Authorization", Credentials.basic(
+                        loginXmlDataSource.getCredentials()?.user ?: "",
+                        loginXmlDataSource.getCredentials()?.password ?: ""
+                    )
                 )
-            )
-            .build()
+                .build()
+        } else {
+            originalRequest
+        }
+
         return chain.proceed(authenticatedRequest)
     }
 }

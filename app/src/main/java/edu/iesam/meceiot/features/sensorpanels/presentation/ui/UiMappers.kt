@@ -6,7 +6,9 @@ import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 fun Sensor.toUiModel(): SensorUiModel {
     return SensorUiModel(
         id = id,
-        name = name
+        name = name,
+        panelName = panelName,
+        query = query
     )
 }
 

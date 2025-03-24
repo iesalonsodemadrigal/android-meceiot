@@ -24,6 +24,7 @@ import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
+import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Calendar
@@ -78,8 +79,8 @@ class GraphSensorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         skeleton = binding.sensorSkeleton
         setupObserver()
-        getArgs()?.let {
-            graphSensorViewModel.fetchSensorData(it)
+        getArgs()?.let { sensor ->
+            graphSensorViewModel.fetchSensorData(sensor.id, sensor.query)
         }
     }
 
@@ -103,7 +104,7 @@ class GraphSensorFragment : Fragment() {
     private fun bindError(errorApp: ErrorApp?) {
         errorApp?.let {
             val errorAppUI = ErrorAppFactory(requireContext()).build(it) {
-                graphSensorViewModel.fetchSensorData(getArgs())
+                //graphSensorViewModel.fetchSensorData(getArgs())
             }
             binding.errorAppView.render(errorAppUI)
         } ?: run {
@@ -112,11 +113,12 @@ class GraphSensorFragment : Fragment() {
     }
 
     private fun bindData(graphSensor: GraphSensor?) {
+        val sensor = getArgs()
         graphSensor?.let {
             binding.apply {
                 initializeChart(it)
-                sensorName.text = it.name
-                toolbar.viewToolbarDetail.title = it.panelName
+                sensorName.text = sensor?.name
+                toolbar.viewToolbarDetail.title = sensor?.panelName
                 maxValue.text = it.maxValue
                 minValue.text = it.minValue
                 avgValue.text = it.avgValue
@@ -125,9 +127,14 @@ class GraphSensorFragment : Fragment() {
         }
     }
 
-    private fun getArgs(): Int {
-        //Implement the logic to get the sensor id from the arguments
-        return 1
+    private fun getArgs(): Sensor? {
+        return arguments?.let {
+            val sensorName = GraphSensorFragmentArgs.fromBundle(it).sensorName
+            val panelName = GraphSensorFragmentArgs.fromBundle(it).panelName
+            val query = GraphSensorFragmentArgs.fromBundle(it).query
+            val sensorId = GraphSensorFragmentArgs.fromBundle(it).sensorId
+            Sensor(sensorId.toInt(), sensorName, panelName, query)
+        }
     }
 
     private fun initializeChart(graphSensor: GraphSensor) {

@@ -6,14 +6,18 @@ import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 fun Sensor.toEntity(): SensorEntity {
     return SensorEntity(
         id = id,
-        name = name
+        name = name,
+        panelName = panelName,
+        query = query
     )
 }
 
 fun SensorEntity.toDomain(): Sensor {
     return Sensor(
         id = id,
-        name = name
+        name = name,
+        panelName = panelName,
+        query = query
     )
 }
 

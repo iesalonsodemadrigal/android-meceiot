@@ -68,12 +68,29 @@
     <fragment
         android:id="@+id/fragment_sensor_panels"
         android:name="edu.iesam.meceiot.features.sensorpanels.presentation.SensorPanelsFragment"
-        tools:layout="@layout/fragment_sensor_panels"/>
+        tools:layout="@layout/fragment_sensor_panels">
+        <action
+            android:id="@+id/action_sensorPanelsFragment_to_sensorFragment"
+            app:destination="@id/fragment_sensor" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_sensor"
         android:name="edu.iesam.meceiot.features.pantallasensor.presentation.GraphSensorFragment"
-        tools:layout="@layout/fragment_sensor" />
+        tools:layout="@layout/fragment_sensor">
+        <argument
+            android:name="sensorId"
+            app:argType="string" />
+        <argument
+            android:name="sensorName"
+            app:argType="string" />
+        <argument
+            android:name="panelName"
+            app:argType="string" />
+        <argument
+            android:name="query"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/alert_fragment"

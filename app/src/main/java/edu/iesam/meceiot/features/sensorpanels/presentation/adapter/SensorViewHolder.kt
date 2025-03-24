@@ -9,7 +9,7 @@ import edu.iesam.meceiot.features.sensorpanels.presentation.ui.SensorUiModel
 class SensorViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private val itemSensor = ItemSensorBinding.bind(view)
 
-    fun bind(result: SensorUiModel, onClickListener: (String) -> Unit) {
+    fun bind(result: SensorUiModel, onClickListener: (String, String, String, Int) -> Unit) {
         itemSensor.apply {
             sensorName.text = result.name
             when (result.name) {
@@ -23,7 +23,12 @@ class SensorViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 else -> sensorIcon.setImageResource(R.drawable.ic_generic_sensor)
             }
             view.setOnClickListener {
-                onClickListener(result.id.toString())
+                onClickListener(
+                    result.name,
+                    result.panelName,
+                    result.query,
+                    result.id
+                )
             }
         }
     }

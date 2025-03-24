@@ -10,7 +10,7 @@ import edu.iesam.meceiot.features.sensorpanels.presentation.ui.SensorUiModel
 import edu.iesam.meceiot.features.sensorpanels.presentation.ui.ViewTypeUi
 
 class SensorPanelsAdapter(
-    private val onClickListener: (String) -> Unit
+    private val onClickListener: (sensorName: String, panelName: String, query: String, sensorId: Int) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val items: MutableList<ViewTypeUi> = mutableListOf()
@@ -42,7 +42,10 @@ class SensorPanelsAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is PanelViewHolder -> holder.bind(items[position] as PanelUiModel)
-            is SensorViewHolder -> holder.bind(items[position] as SensorUiModel, onClickListener)
+            is SensorViewHolder -> {
+                val sensor = items[position] as SensorUiModel
+                holder.bind(sensor, onClickListener)
+            }
         }
     }
 

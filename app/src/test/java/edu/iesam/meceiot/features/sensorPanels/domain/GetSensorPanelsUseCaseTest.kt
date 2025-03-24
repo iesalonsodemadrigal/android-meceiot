@@ -39,23 +39,33 @@ class GetSensorPanelsUseCaseTest {
                 sensors = listOf(
                     Sensor(
                         id = 1,
-                        name = "Temperature"
+                        name = "Temperature",
+                        panelName = "Panel 1",
+                        query = "query 1"
                     ),
                     Sensor(
                         id = 2,
-                        name = "Humidity"
+                        name = "Humidity",
+                        panelName = "Panel 1",
+                        query = "query 2"
                     ),
                     Sensor(
                         id = 3,
-                        name = "CO2"
+                        name = "CO2",
+                        panelName = "Panel 1",
+                        query = "query 3"
                     ),
                     Sensor(
                         id = 4,
-                        name = "Motion"
+                        name = "Motion",
+                        panelName = "Panel 1",
+                        query = "query 4"
                     ),
                     Sensor(
                         id = 5,
-                        name = "Sensor 5"
+                        name = "Sensor 5",
+                        panelName = "Panel 1",
+                        query = "query 5"
                     )
                 )
             ),
@@ -65,15 +75,21 @@ class GetSensorPanelsUseCaseTest {
                 sensors = listOf(
                     Sensor(
                         id = 3,
-                        name = "Humidity"
+                        name = "Humidity",
+                        panelName = "Panel 2",
+                        query = "query 3"
                     ),
                     Sensor(
                         id = 4,
-                        name = "CO2"
+                        name = "CO2",
+                        panelName = "Panel 2",
+                        query = "query 4"
                     ),
                     Sensor(
                         id = 5,
-                        name = "Sensor 5"
+                        name = "Sensor 5",
+                        panelName = "Panel 2",
+                        query = "query 5"
                     ),
                 )
             ),
@@ -83,7 +99,9 @@ class GetSensorPanelsUseCaseTest {
                 sensors = listOf(
                     Sensor(
                         id = 1,
-                        name = "Temperature"
+                        name = "Temperature",
+                        panelName = "Panel 3",
+                        query = "query 1"
                     )
                 )
             ),

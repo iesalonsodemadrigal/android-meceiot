@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.grafana.data.remote
 
 import edu.iesam.meceiot.core.data.remote.apiCall
+import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 import edu.iesam.meceiot.features.grafana.data.models.dashboard.toPanel
 import edu.iesam.meceiot.features.grafana.data.models.search.DashboardSummary
 import edu.iesam.meceiot.features.grafana.data.models.search.toDashboardSummary
@@ -186,6 +187,111 @@ class GrafanaRemoteDataSource(
 
                     Result.success(graphSensor)
                 }
+            },
+            onFailure = { error ->
+                Result.failure(error)
+            }
+        )
+    }
+
+    override suspend fun getSensorAlerts(): Result<List<edu.iesam.meceiot.features.alerts.domain.Sensor>> {
+        // First, get all panels with their sensors
+        return getSensorPanels().fold(
+            onSuccess = { panels ->
+                try {
+                    coroutineScope {
+                        // For each panel, get its sensors and transform them to alert sensors
+                        val alertSensors = panels.flatMap { panel ->
+                            panel.sensors.map { sensor ->
+                                async {
+                                    try {
+                                        // Query data for this sensor
+                                        val sensorDataResult = getSensorData(sensor.query)
+
+                                        sensorDataResult.fold(
+                                            onSuccess = { graphSensor ->
+                                                // Helper function to determine sensor type from name and query
+                                                fun determineSensorType(
+                                                    name: String,
+                                                    query: String
+                                                ): TypeSensor {
+                                                    // Try to extract type from field filter pattern
+                                                    val fieldPattern =
+                                                        Regex("""r\[["']_field["']\]\s*==\s*["']([^"']+)["']""")
+                                                    val fieldMatch = fieldPattern.find(query)
+                                                    val fieldName =
+                                                        fieldMatch?.groupValues?.getOrNull(1)
+                                                            ?.lowercase()
+
+                                                    return when {
+                                                        fieldName == "temperature" || name.lowercase()
+                                                            .contains("temp") -> TypeSensor.Temperature
+
+                                                        fieldName == "humidity" || name.lowercase()
+                                                            .contains("hum") -> TypeSensor.Humidity
+
+                                                        fieldName == "co2" || name.lowercase()
+                                                            .contains("co2") -> TypeSensor.Co2
+
+                                                        fieldName == "light" || name.lowercase()
+                                                            .contains("light") -> TypeSensor.Light
+
+                                                        fieldName == "motion" || name.lowercase()
+                                                            .contains("motion") -> TypeSensor.Movement
+
+                                                        fieldName == "sound" || name.lowercase()
+                                                            .contains("sound") -> TypeSensor.Sound
+
+                                                        else -> TypeSensor.UnknownSensor
+                                                    }
+                                                }
+                                                // Determine the sensor type based on the dataType
+                                                val sensorType =
+                                                    when (graphSensor.dataType.lowercase()) {
+                                                        "°c" -> TypeSensor.Temperature
+                                                        "%" -> TypeSensor.Humidity
+                                                        "ppm" -> TypeSensor.Co2
+                                                        "lux" -> TypeSensor.Light
+                                                        "events" -> TypeSensor.Movement
+                                                        "db" -> TypeSensor.Sound
+                                                        else -> determineSensorType(
+                                                            sensor.name,
+                                                            sensor.query
+                                                        )
+                                                    }
+
+                                                // Get the latest value
+                                                val latestValue =
+                                                    if (graphSensor.yValues.isNotEmpty()) {
+                                                        graphSensor.yValues.last().toString()
+                                                    } else "0"
+
+                                                // Create the alert sensor
+                                                edu.iesam.meceiot.features.alerts.domain.Sensor(
+                                                    id = sensor.id.toString(),
+                                                    name = sensor.name,
+                                                    type = sensorType,
+                                                    value = latestValue
+                                                )
+                                            },
+                                            onFailure = { null } // Skip sensors that fail to load
+                                        )
+                                    } catch (e: Exception) {
+                                        null // Skip sensors that throw exceptions
+                                    }
+                                }
+                            }
+                        }
+
+                        // Filter out nulls and return valid sensors
+                        val results = alertSensors.awaitAll().filterNotNull()
+                        Result.success(results)
+                    }
+                } catch (e: Exception) {
+                    Result.failure(e)
+                }
+
+
             },
             onFailure = { error ->
                 Result.failure(error)

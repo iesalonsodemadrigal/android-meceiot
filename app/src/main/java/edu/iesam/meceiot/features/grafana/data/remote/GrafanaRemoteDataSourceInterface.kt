@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.grafana.data.remote
 
+import edu.iesam.meceiot.features.alerts.domain.Sensor
 import edu.iesam.meceiot.features.grafana.data.models.search.DashboardSummary
 import edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxQueryRequestDto
 import edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxQueryResponseDto
@@ -12,4 +13,5 @@ interface GrafanaRemoteDataSourceInterface {
     suspend fun queryData(body: InfluxQueryRequestDto): Result<List<InfluxQueryResponseDto>>
     suspend fun getSensorPanels(): Result<List<Panel>>
     suspend fun getSensorData(query: String): Result<GraphSensor>
+    suspend fun getSensorAlerts(): Result<List<Sensor>>
 }

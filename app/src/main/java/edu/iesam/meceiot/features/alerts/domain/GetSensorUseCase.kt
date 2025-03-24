@@ -6,8 +6,8 @@ import org.koin.core.annotation.Single
 @Single
 class GetSensorUseCase(private val sensorRepository: SensorRepository) {
 
-    operator fun invoke(): Result<List<Sensor>> {
-        val result = sensorRepository.getSensors()
+    suspend operator fun invoke(): Result<List<Sensor>> {
+        val result = sensorRepository.getSensorAlerts()
 
         val filteredSensor = result.getOrNull()?.filter { sensor ->
             sensor.type == TypeSensor.Co2 && sensor.value < "200" ||

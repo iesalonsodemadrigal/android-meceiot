@@ -8,7 +8,6 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.login.domain.CheckUserLogedInUseCase
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import edu.iesam.meceiot.features.login.domain.LoginUseCase
-import edu.iesam.meceiot.features.login.presentation.LoginViewModel.LoginUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
@@ -53,7 +52,8 @@ class LoginViewModel(
             _uiState.postValue(
                 LoginUiState(
                     isLoading = false,
-                    errorApp = isLoginSuccessful.exceptionOrNull() as ErrorApp?,
+                    errorApp = isLoginSuccessful.exceptionOrNull() as? ErrorApp
+                        ?: ErrorApp.UnknowErrorApp,
                     userLoggedIn = isLoginSuccessful.isSuccess
                 )
             )

@@ -111,9 +111,9 @@ class SensorPanelsFragment : Fragment() {
                 binding.listSensorPanels.adapter = sensorPanelsAdapter
             }
             uiState.errorApp?.let { errorApp ->
-                val errorAppUi = errorFactory.build(errorApp, {
+                val errorAppUi = errorFactory.build(errorApp) {
                     viewModel.fetchSensorPanels()
-                })
+                }
                 binding.errorApp.render(errorAppUi)
             } ?: run {
                 binding.errorApp.hide()

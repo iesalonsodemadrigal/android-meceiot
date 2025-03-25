@@ -43,7 +43,7 @@ class SensorPanelsViewModel(
                         UiState(
                             sensorPanels = null,
                             isLoading = false,
-                            errorApp = error as ErrorApp?
+                            errorApp = error as? ErrorApp ?: ErrorApp.UnknowErrorApp
                         )
                     )
                 }

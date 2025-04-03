@@ -9,26 +9,56 @@
         android:id="@+id/view_toolbar"
         layout="@layout/main_toolbar" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/logout_button"
-        style="@style/Widget.Material3.Button.TonalButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="@dimen/padding_extra_small"
-        android:paddingBottom="@dimen/padding_extra_small"
-        android:text="@string/logout"
-        android:textSize="@dimen/font_size_medium" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/AppTitleSectionSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:text="@string/user" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_medium" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/logout_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:paddingTop="@dimen/padding_extra_small"
+                    android:paddingBottom="@dimen/padding_extra_small"
+                    android:text="@string/logout"
+                    android:textSize="@dimen/font_size_medium" />
+
+            </LinearLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_medium"
+                android:background="@color/cardview_dark_background"
+                app:layout_constraintTop_toBottomOf="@+id/item_user" />
 
             <LinearLayout
                 android:id="@+id/collaborators_container"

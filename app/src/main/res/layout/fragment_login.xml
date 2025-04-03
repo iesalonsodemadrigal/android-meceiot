@@ -41,7 +41,7 @@
             android:layout_height="wrap_content">
 
             <!-- Login Form -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 app:layout_constraintTop_toTopOf="parent"
                 android:id="@+id/login_text"
                 android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:textSize="@dimen/font_size_high"
                 android:textStyle="bold" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 app:layout_constraintTop_toBottomOf="@+id/login_text"
                 android:id="@+id/username"
                 android:layout_width="match_parent"
@@ -64,8 +64,7 @@
                 android:inputType="text" />
 
 
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 app:layout_constraintTop_toBottomOf="@+id/username"
                 android:id="@+id/password"
                 android:layout_width="match_parent"
@@ -78,7 +77,7 @@
                 android:hint="@string/password"
                 android:inputType="textPassword" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_button"
                 app:layout_constraintTop_toBottomOf="@+id/password"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,9 +90,7 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/login_button"
                 android:textSize="@dimen/font_size_small"
-                android:textStyle="bold"
-
-                />
+                android:textStyle="bold" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

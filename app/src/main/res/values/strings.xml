@@ -66,10 +66,13 @@
     <string name="title_settings">Ajustes</string>
     <string name="settings">Ajustes</string>
     <string name="proyecto">Proyecto</string>
-    <string name="logout">Cerrar sesion</string>
-    <string name="logout_confirmation">¿Está seguro de cerrar sesión?</string>
-    <string name="logout_confirmation_affirmative">Si</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="logout_confirmation">¿Está seguro de cerrar sesión?\nSe volverá a la pantalla de login…</string>
+    <string name="logout_confirmation_affirmative">Sí</string>
     <string name="logout_confirmation_negative">No</string>
+
+    <!-- User in Settings -->
+    <string name="user">Usuario</string>
 
     <!-- Colaboraciones -->
     <string name="collaborators">Colaboradores</string>

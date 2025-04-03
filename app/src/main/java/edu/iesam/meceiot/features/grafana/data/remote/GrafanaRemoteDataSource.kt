@@ -207,7 +207,6 @@ class GrafanaRemoteDataSource(
                                     try {
                                         // Query data for this sensor
                                         val sensorDataResult = getSensorData(sensor.query)
-
                                         sensorDataResult.fold(
                                             onSuccess = { graphSensor ->
                                                 // Helper function to determine sensor type from name and query
@@ -222,7 +221,6 @@ class GrafanaRemoteDataSource(
                                                     val fieldName =
                                                         fieldMatch?.groupValues?.getOrNull(1)
                                                             ?.lowercase()
-
                                                     return when {
                                                         fieldName == "temperature" || name.lowercase()
                                                             .contains("temp") -> TypeSensor.Temperature
@@ -259,13 +257,11 @@ class GrafanaRemoteDataSource(
                                                             sensor.query
                                                         )
                                                     }
-
                                                 // Get the latest value
                                                 val latestValue =
                                                     if (graphSensor.yValues.isNotEmpty()) {
                                                         graphSensor.yValues.last().toString()
                                                     } else "0"
-
                                                 // Create the alert sensor
                                                 edu.iesam.meceiot.features.alerts.domain.Sensor(
                                                     id = sensor.id.toString(),
@@ -283,8 +279,6 @@ class GrafanaRemoteDataSource(
                                 }
                             }
                         }
-
-                        // Filter out nulls and return valid sensors
                         val results = alertSensors.awaitAll().filterNotNull()
                         Result.success(results)
                     }

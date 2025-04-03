@@ -59,8 +59,8 @@
     <string name="login_access_error">Error al intentar acceder</string>
 
     <!-- Panels View-->
-    <string name="label_menu_panels">Panels</string>
-    <string name="toolbar_Panels">Panels</string>
+    <string name="label_menu_panels">Paneles</string>
+    <string name="toolbar_Panels">Paneles</string>
 
     <!-- Información de la Aplicación -->
     <string name="title_settings">Ajustes</string>

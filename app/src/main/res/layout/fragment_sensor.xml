@@ -1,12 +1,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:id="@+id/fragment_sensor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/view_toolbar_detail"
@@ -22,6 +20,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginHorizontal="@dimen/margin_medium"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -29,9 +28,9 @@
                 android:id="@+id/sensor_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/TextAppearance.Material3.TitleLarge"
                 android:layout_margin="@dimen/margin_extra_small"
                 android:text="@string/sensor_name"
-                android:textSize="@dimen/font_size_small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

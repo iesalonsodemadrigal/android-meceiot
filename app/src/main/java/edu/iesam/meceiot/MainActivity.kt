@@ -31,6 +31,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.login_fragment -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
                     BottomNavigationView.GONE
 
+                R.id.fragment_sensor -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
+                    BottomNavigationView.GONE
+
                 else -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
                     BottomNavigationView.VISIBLE
             }

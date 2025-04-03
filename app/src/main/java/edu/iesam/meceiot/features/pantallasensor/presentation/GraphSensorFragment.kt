@@ -18,7 +18,6 @@ import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
-import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
@@ -59,20 +58,24 @@ class GraphSensorFragment : Fragment() {
 
     private fun setupToolbar() {
         val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
-        toolbar.inflateMenu(R.menu.options_graph_menu)
         toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
-        toolbar.setOnMenuItemClickListener {
+
+        val collapsingToolbar = binding.toolbar.collapsingToolbar
+        collapsingToolbar.title = getArgs()?.panelName
+
+        //Sin menu de momento...
+        //toolbar.inflateMenu(R.menu.options_graph_menu)
+        /*toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.fragment_options_graph -> {
                     //findNavController().navigate(R.id.action_sensorFragment_to_optionsGraphFragment)
                     true
                 }
-
                 else -> false
             }
-        }
+        }*/
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

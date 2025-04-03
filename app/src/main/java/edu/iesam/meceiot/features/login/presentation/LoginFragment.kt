@@ -1,15 +1,17 @@
 package edu.iesam.meceiot.features.login.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import edu.iesam.meceiot.R
+import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.databinding.FragmentLoginBinding
 import edu.iesam.meceiot.features.login.domain.LoginCredentials
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,22 +41,25 @@ class LoginFragment : Fragment() {
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
             if (uiState.userLoggedIn) {
-                // Check if we're on the login fragment before navigating
                 if (findNavController().currentDestination?.id == edu.iesam.meceiot.R.id.login_fragment) {
                     findNavController().navigate(
                         LoginFragmentDirections.actionLoginFragmentToMainFragment()
                     )
                 }
             }
-            uiState.errorApp?.let {
-                //Pintar el error? O mostrar un toast de que no hay conexion quizá
-            } ?: run {
+            uiState.errorApp?.let { error ->
+                val errorMessage = when (error) {
+                    is ErrorApp.ServerErrorApp -> R.string.title_error_connection
+                    is ErrorApp.InvalidCredentialsError -> R.string.title_error_invalid_credentials
+                    else -> R.string.login_access_error
+
+                }
+                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
             }
             if (uiState.isLoading) {
-                //Mostrar un loading o algo?
-                Log.d("@dev", "Cargando...")
+                binding.loginProgressIndicator.show()
             } else {
-                Log.d("@dev", "Cargando...")
+                binding.loginProgressIndicator.hide()
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, loginObserver)

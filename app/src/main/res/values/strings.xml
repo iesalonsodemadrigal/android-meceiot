@@ -5,7 +5,8 @@
     <string name="image_item">ImageItem</string>
 
     <!-- Login -->
-    <string name="login">Login</string>
+    <string name="login_title">Identificación en MeCeIoT</string>
+    <string name="login_button">Acceder</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
 
@@ -51,6 +52,11 @@
     <string name="title_error_unknown">Error desconocido</string>
     <string name="description_error_unknown">Se está produciendo un error desconocido
     en el sistema</string>
+
+    <!-- Error de Credenciales -->
+    <string name="title_error_invalid_credentials">Usuario o contraseña incorrectos</string>
+    <string name="description_error_invalid_credentials">Credenciales erroneos, compruébelos y vuelva a intentarlo</string>
+    <string name="login_access_error">Error al intentar acceder</string>
 
     <!-- Panels View-->
     <string name="label_menu_panels">Panels</string>

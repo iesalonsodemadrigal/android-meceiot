@@ -11,7 +11,8 @@ data class Sensor(
     val id: String,
     val name: String,
     val type: TypeSensor,
-    val value: String
+    val value: String,
+    val location: String
 )
 
 sealed class TypeSensor(val type: String) {

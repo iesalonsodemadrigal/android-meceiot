@@ -271,7 +271,8 @@ class GrafanaRemoteDataSource(
                                                     id = sensor.id.toString(),
                                                     name = sensor.name,
                                                     type = sensorType,
-                                                    value = latestValue
+                                                    value = latestValue,
+                                                    location = sensor.panelName
                                                 )
                                             },
                                             onFailure = { null } // Skip sensors that fail to load
@@ -290,8 +291,6 @@ class GrafanaRemoteDataSource(
                 } catch (e: Exception) {
                     Result.failure(e)
                 }
-
-
             },
             onFailure = { error ->
                 Result.failure(error)
@@ -299,3 +298,4 @@ class GrafanaRemoteDataSource(
         )
     }
 }
+                                                   

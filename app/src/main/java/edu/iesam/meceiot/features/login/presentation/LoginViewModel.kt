@@ -52,8 +52,7 @@ class LoginViewModel(
             _uiState.postValue(
                 LoginUiState(
                     isLoading = false,
-                    errorApp = isLoginSuccessful.exceptionOrNull() as? ErrorApp
-                        ?: ErrorApp.UnknowErrorApp,
+                    errorApp = isLoginSuccessful.exceptionOrNull() as? ErrorApp,
                     userLoggedIn = isLoginSuccessful.isSuccess
                 )
             )

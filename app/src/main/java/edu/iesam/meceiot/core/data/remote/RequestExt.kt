@@ -21,6 +21,9 @@ suspend fun <T : Any> apiCall(call: suspend () -> Response<T>): Result<T> {
     return if (response.isSuccessful && response.body() != null) {
         Result.success(response.body()!!)
     } else {
-        Result.failure(ErrorApp.UnknowErrorApp)
+        when (response.code()) {
+            401, 403 -> Result.failure(ErrorApp.InvalidCredentialsError)
+            else -> Result.failure(ErrorApp.UnknowErrorApp)
+        }
     }
 }

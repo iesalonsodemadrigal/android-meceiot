@@ -39,11 +39,22 @@
         app:layout_constraintStart_toEndOf="@+id/image_item"
         app:layout_constraintTop_toBottomOf="@+id/title_alert" />
 
+    <TextView
+        android:id="@+id/sensor_location"
+        style="@style/AppSupportingTextListItem"
+        android:layout_width="@dimen/null_value"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_horizontal"
+        android:text="@string/description_panel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_item"
+        app:layout_constraintTop_toBottomOf="@+id/sensor_name" />
+
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
-        app:layout_constraintTop_toBottomOf="@+id/sensor_name" />
+        app:layout_constraintTop_toBottomOf="@+id/sensor_location" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

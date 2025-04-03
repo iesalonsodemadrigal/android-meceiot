@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.faltenreich.skeletonlayout.Skeleton
-import com.faltenreich.skeletonlayout.createSkeleton
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
@@ -27,8 +25,6 @@ class SensorPanelsFragment : Fragment() {
     private lateinit var sensorPanelsAdapter: SensorPanelsAdapter
     val viewModel: SensorPanelsViewModel by viewModel()
 
-    private lateinit var skeleton: Skeleton
-
     private val errorFactory: ErrorAppFactory by inject()
 
     override fun onCreateView(
@@ -37,15 +33,8 @@ class SensorPanelsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSensorPanelsBinding.inflate(inflater, container, false)
-        setupSkeleton()
         setupView()
         return binding.root
-    }
-
-    private fun setupSkeleton() {
-        val skeletonView = LayoutInflater.from(requireContext())
-            .inflate(R.layout.view_skeleton_panels, binding.root, false)
-        skeleton = skeletonView.createSkeleton()
     }
 
     private fun setupView() {
@@ -120,9 +109,9 @@ class SensorPanelsFragment : Fragment() {
             }
 
             if (uiState.isLoading) {
-                skeleton.showSkeleton()
+                binding.panelsProgressIndicator.show()
             } else {
-                skeleton.showOriginal()
+                binding.panelsProgressIndicator.hide()
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)

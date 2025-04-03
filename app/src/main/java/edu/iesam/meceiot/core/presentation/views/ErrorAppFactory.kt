@@ -14,6 +14,7 @@ class ErrorAppFactory(val context: Context) {
             ErrorApp.InternetErrorApp -> ConnectionErrorAppUI(context, onClick)
             ErrorApp.ServerErrorApp -> ServerErrorAppUI(context, onClick)
             ErrorApp.UnknowErrorApp -> UnknownErrorAppUI(context, onClick)
+            ErrorApp.InvalidCredentialsError -> InvalidCredentialsErrorAppUI(context, onClick)
         }
     }
 }

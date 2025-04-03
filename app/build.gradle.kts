@@ -94,4 +94,7 @@ dependencies {
     implementation(project.dependencies.platform(libs.firebaseBom))
     //Firestore
     implementation(libs.firebase.firestore)
+    //SwipeToRefresh
+    implementation(libs.androidx.swiperefreshlayout)
+
 }

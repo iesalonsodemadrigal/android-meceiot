@@ -1,12 +1,26 @@
-<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/view_toolbar_detail"
-    style="@style/AppHeadline"
+    android:id="@+id/appbar_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_extra_small"
-    android:padding="@dimen/padding_medium"
-    android:textSize="@dimen/font_size_medium"
-    app:navigationIconTint="@color/md_theme_onSurface_highContrast"
-    tools:title="Generic Title" />
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsing_toolbar"
+        style="?attr/collapsingToolbarLayoutMediumStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
+        app:expandedTitleGravity="bottom|start">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/view_toolbar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="0dp"
+            app:layout_collapseMode="pin"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            tools:title="Generic Title" />
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+</com.google.android.material.appbar.AppBarLayout>

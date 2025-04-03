@@ -45,10 +45,23 @@ class AlertFragment : Fragment() {
     private fun setupView() {
         binding.apply {
             mainToolbarAlerts.mainToolbar.title = getString(R.string.alerts_title)
+
+            // Configure RecyclerView
             alertsRecyclerview.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter
             skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 10)
+
+            // Configure SwipeRefreshLayout
+            swipeRefreshLayout.setColorSchemeResources(
+                R.color.md_theme_primary,
+                R.color.md_theme_secondary,
+                R.color.md_theme_tertiary
+            )
+            // Fetch alerts when user swipes down to refresh
+            swipeRefreshLayout.setOnRefreshListener {
+                alertViewModel.fetchAlerts()
+            }
         }
     }
 
@@ -66,6 +79,8 @@ class AlertFragment : Fragment() {
             skeleton.showSkeleton()
         } else {
             skeleton.showOriginal()
+            // Make sure to stop the refresh animation when loading is complete
+            binding.swipeRefreshLayout.isRefreshing = false
         }
     }
 

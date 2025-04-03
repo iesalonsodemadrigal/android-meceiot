@@ -39,6 +39,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 }
             )
             sensorName.text = sensor.name
+            sensorLocation.text = sensor.location
         }
     }
 }

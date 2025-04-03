@@ -5,7 +5,8 @@
     <string name="image_item">ImageItem</string>
 
     <!-- Login -->
-    <string name="login">Login</string>
+    <string name="login_title">Identificación en MeCeIoT</string>
+    <string name="login_button">Acceder</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
 
@@ -52,18 +53,26 @@
     <string name="description_error_unknown">Se está produciendo un error desconocido
     en el sistema</string>
 
+    <!-- Error de Credenciales -->
+    <string name="title_error_invalid_credentials">Usuario o contraseña incorrectos</string>
+    <string name="description_error_invalid_credentials">Credenciales erroneos, compruébelos y vuelva a intentarlo</string>
+    <string name="login_access_error">Error al intentar acceder</string>
+
     <!-- Panels View-->
-    <string name="label_menu_panels">Panels</string>
-    <string name="toolbar_Panels">Panels</string>
+    <string name="label_menu_panels">Paneles</string>
+    <string name="toolbar_Panels">Paneles</string>
 
     <!-- Información de la Aplicación -->
     <string name="title_settings">Ajustes</string>
     <string name="settings">Ajustes</string>
     <string name="proyecto">Proyecto</string>
-    <string name="logout">Cerrar sesion</string>
-    <string name="logout_confirmation">¿Está seguro de cerrar sesión?</string>
-    <string name="logout_confirmation_affirmative">Si</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="logout_confirmation">¿Está seguro de cerrar sesión?\nSe volverá a la pantalla de login…</string>
+    <string name="logout_confirmation_affirmative">Sí</string>
     <string name="logout_confirmation_negative">No</string>
+
+    <!-- User in Settings -->
+    <string name="user">Usuario</string>
 
     <!-- Colaboraciones -->
     <string name="collaborators">Colaboradores</string>

@@ -63,3 +63,21 @@ class UnknownErrorAppUI(val context: Context, val onClick: (() -> Unit)?) : Erro
         onClick?.invoke()
     }
 }
+
+class InvalidCredentialsErrorAppUI(val context: Context, val onClick: (() -> Unit)?) : ErrorAppUI {
+    override fun getImageError(): Int {
+        return R.drawable.image_error_unknown
+    }
+
+    override fun getTitleError(): String {
+        return context.getString(R.string.title_error_invalid_credentials)
+    }
+
+    override fun getDescriptionError(): String {
+        return context.getString(R.string.description_error_invalid_credentials)
+    }
+
+    override fun getActionRetry() {
+        onClick?.invoke()
+    }
+}

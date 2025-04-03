@@ -2,6 +2,7 @@ package edu.iesam.meceiot
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -27,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.login_fragment -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
+                    BottomNavigationView.GONE
+
+                R.id.fragment_sensor -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
                     BottomNavigationView.GONE
 
                 else -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =

@@ -10,5 +10,5 @@ fun PanelApiModel.toModel(): Panel {
 
 fun SensorApiModel.toModel(): Sensor {
     val typeSensor = type.toTypeSensor()
-    return Sensor(idSensor, nameSensor, typeSensor, value)
+    return Sensor(idSensor, nameSensor, typeSensor, value, description)
 }

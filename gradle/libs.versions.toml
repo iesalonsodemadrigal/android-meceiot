@@ -29,6 +29,7 @@ skeletonlayout = "5.0.0"
 fragmentKtx = "1.8.5"
 firebaseBom = "33.8.0"
 googleServices = "4.4.2"
+swiperefreshlayout = "1.2.0-beta01"
 
 
 
@@ -36,6 +37,7 @@ googleServices = "4.4.2"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragment" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 core = { module = "com.patrykandpatrick.vico:core", version.ref = "core" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }

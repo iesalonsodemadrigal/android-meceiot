@@ -11,7 +11,7 @@
 
     <!-- Progress Circular -->
     <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/loginProgressIndicator"
+        android:id="@+id/login_progress_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
@@ -23,7 +23,7 @@
 
     <!-- Login card -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/loginCard"
+        android:id="@+id/login_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
@@ -43,7 +43,7 @@
             <!-- Login Form -->
             <TextView
                 app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/loginText"
+                android:id="@+id/login_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -52,7 +52,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                app:layout_constraintTop_toBottomOf="@+id/loginText"
+                app:layout_constraintTop_toBottomOf="@+id/login_text"
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/login_button"
                 app:layout_constraintTop_toBottomOf="@+id/password"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

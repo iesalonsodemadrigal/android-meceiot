@@ -143,19 +143,19 @@
     <string name="alerts_title">Alertas</string>
     <string name="label_menu_alerts">Alertas</string>
     <string name="alert_title">Alerta de sensor</string>
-    <string name="description_panel">Nombre del panel, localicación</string>
-    <string name="alert_co2">Niveles elevados de Co2</string>
-    <string name="alert_temperature">Temperatura crítica</string>
-    <string name="alert_light">Luz encendida</string>
-    <string name="alert_humidity">Niveles altos de humedad</string>
+    <string name="description_panel">Nombre del panel, localización</string>
+    <string name="alert_co2">Niveles de CO2 elevados</string>
+    <string name="alert_temperature">Temperatura ambiente no confortable</string>
+    <string name="alert_light">Intensidad lumínica no confortable</string>
+    <string name="alert_humidity">Humedad ambiente no confortable</string>
     <string name="alert_movement">Posible presencia de movimiento</string>
-    <string name="alert_sound">Sonido elevado</string>
+    <string name="alert_sound">Sonido ambiente elevado</string>
 
     <!-- View sensorScreen -->
     <string name="max">Máx.</string>
-    <string name="media">Media.</string>
+    <string name="media">Media</string>
     <string name="chart_options">Opciones de Grafico</string>
     <string name="min">Mín.</string>
-    <string name="mode">Moda.</string>
+    <string name="mode">Moda</string>
     <string name="sensor_name">Nombre del Sensor</string>
 </resources>

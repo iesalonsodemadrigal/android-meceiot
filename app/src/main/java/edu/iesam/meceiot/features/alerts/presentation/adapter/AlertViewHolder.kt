@@ -38,7 +38,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                     else -> R.string.description_panel
                 }
             )
-            sensorName.text = sensor.name
+            sensorName.visibility = View.GONE
             sensorLocation.text = sensor.location
         }
     }

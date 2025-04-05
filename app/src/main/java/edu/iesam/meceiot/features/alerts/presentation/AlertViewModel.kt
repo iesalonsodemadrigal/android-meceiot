@@ -20,15 +20,45 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
     fun fetchAlerts() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            val alert = getSensorUseCase()
-            _uiState.postValue(
-                UiState(
-                    isLoading = false,
-                    alert = alert.getOrNull(),
-                    errorApp = alert.exceptionOrNull() as? ErrorApp
-                )
+            val alertResult = getSensorUseCase()
+            alertResult.fold(
+                onSuccess = { sensors ->
+                    // Agrupar sensores por tipo y concatenar ubicaciones
+                    val groupedSensors = groupSensorsByType(sensors)
+                    _uiState.postValue(
+                        UiState(
+                            isLoading = false,
+                            alert = groupedSensors,
+                            errorApp = null
+                        )
+                    )
+                },
+                onFailure = { error ->
+                    _uiState.postValue(
+                        UiState(
+                            isLoading = false,
+                            alert = emptyList(),
+                            errorApp = error as? ErrorApp
+                        )
+                    )
+                }
             )
         }
+    }
+
+    private fun groupSensorsByType(sensors: List<Sensor>): List<Sensor> {
+        return sensors
+            .groupBy { it.type }
+            .map { (type, sensorsOfType) ->
+                // Crear un único sensor por cada tipo con ubicaciones concatenadas
+                Sensor(
+                    id = type.type,
+                    name = sensorsOfType.first().name,
+                    type = type,
+                    value = sensorsOfType.first().value,
+                    location = sensorsOfType.joinToString("\n") { "${it.name} - ${it.location}" }
+                )
+            }
     }
 
 

@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.databinding.FragmentLoginBinding
@@ -54,7 +54,7 @@ class LoginFragment : Fragment() {
                     else -> R.string.login_access_error
 
                 }
-                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(errorMessage), Snackbar.LENGTH_LONG).show()
             }
             if (uiState.isLoading) {
                 binding.loginProgressIndicator.show()

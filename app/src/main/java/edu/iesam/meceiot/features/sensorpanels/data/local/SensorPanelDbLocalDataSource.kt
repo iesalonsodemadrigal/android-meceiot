@@ -11,7 +11,7 @@ import org.koin.core.annotation.Single
 class SensorPanelDbLocalDataSource(
     private val panelDao: PanelDao
 ) {
-    private val cache = 60000
+    private val cache = 900000L // 15 minutes
 
     suspend fun getAllPanels(): Result<List<Panel>> {
         val panels = panelDao.getPanels()

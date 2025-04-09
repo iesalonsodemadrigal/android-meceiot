@@ -6,6 +6,8 @@ import androidx.room.TypeConverters
 import edu.iesam.meceiot.core.data.local.db.converters.DateConverter
 import edu.iesam.meceiot.core.data.local.db.converters.LongListConverter
 import edu.iesam.meceiot.core.data.local.db.converters.SensorListConverter
+import edu.iesam.meceiot.features.alerts.data.local.db.AlertDao
+import edu.iesam.meceiot.features.alerts.data.local.db.AlertEntity
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperDao
 import edu.iesam.meceiot.features.developer.data.local.db.DeveloperEntity
 import edu.iesam.meceiot.features.externalresources.data.local.db.ExternalResourcesDao
@@ -29,8 +31,9 @@ import edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity
         QuestionEntity::class,
         SensorEntity::class,
         PanelEntity::class,
-        GraphSensorEntity::class],
-    version = 13,
+        GraphSensorEntity::class,
+        AlertEntity::class],
+    version = 14,
     exportSchema = false
 )
 @TypeConverters(
@@ -46,4 +49,5 @@ abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun panelDao(): PanelDao
     abstract fun sensorDao(): SensorDao
     abstract fun graphSensorDao(): GraphSensorDao
+    abstract fun alertDao(): AlertDao
 }

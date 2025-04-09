@@ -14,7 +14,7 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentAlertBinding
-import edu.iesam.meceiot.features.alerts.domain.Sensor
+import edu.iesam.meceiot.features.alerts.domain.Alert
 import edu.iesam.meceiot.features.alerts.presentation.adapter.AlertAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -46,19 +46,17 @@ class AlertFragment : Fragment() {
         binding.apply {
             mainToolbarAlerts.mainToolbar.title = getString(R.string.alerts_title)
 
-            // Configure RecyclerView
             alertsRecyclerview.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             alertsRecyclerview.adapter = alertAdapter
             skeleton = alertsRecyclerview.applySkeleton(R.layout.item_alert, 10)
 
-            // Configure SwipeRefreshLayout
             swipeRefreshLayout.setColorSchemeResources(
                 R.color.md_theme_primary,
                 R.color.md_theme_secondary,
                 R.color.md_theme_tertiary
             )
-            // Fetch alerts when user swipes down to refresh
+
             swipeRefreshLayout.setOnRefreshListener {
                 alertViewModel.fetchAlerts()
             }
@@ -79,7 +77,7 @@ class AlertFragment : Fragment() {
             skeleton.showSkeleton()
         } else {
             skeleton.showOriginal()
-            // Make sure to stop the refresh animation when loading is complete
+
             binding.swipeRefreshLayout.isRefreshing = false
         }
     }
@@ -95,7 +93,7 @@ class AlertFragment : Fragment() {
         }
     }
 
-    private fun bindData(alerts: List<Sensor>?) {
+    private fun bindData(alerts: List<Alert>?) {
         alerts?.let {
             alertAdapter.submitList(it)
         }

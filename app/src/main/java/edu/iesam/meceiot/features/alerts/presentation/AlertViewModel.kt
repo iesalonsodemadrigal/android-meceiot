@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.meceiot.core.domain.ErrorApp
-import edu.iesam.meceiot.features.alerts.domain.GetSensorUseCase
-import edu.iesam.meceiot.features.alerts.domain.Sensor
+import edu.iesam.meceiot.features.alerts.domain.Alert
+import edu.iesam.meceiot.features.alerts.domain.GetAlertsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel() {
+class AlertViewModel(private val getAlertsUseCase: GetAlertsUseCase) : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
@@ -20,7 +20,7 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
     fun fetchAlerts() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            val alertResult = getSensorUseCase()
+            val alertResult = getAlertsUseCase()
             alertResult.fold(
                 onSuccess = { sensors ->
                     // Agrupar sensores por tipo y concatenar ubicaciones
@@ -46,12 +46,12 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
         }
     }
 
-    private fun groupSensorsByType(sensors: List<Sensor>): List<Sensor> {
-        return sensors
+    private fun groupSensorsByType(alerts: List<Alert>): List<Alert> {
+        return alerts
             .groupBy { it.type }
             .map { (type, sensorsOfType) ->
                 // Crear un único sensor por cada tipo con ubicaciones concatenadas
-                Sensor(
+                Alert(
                     id = type.type,
                     name = sensorsOfType.first().name,
                     type = type,
@@ -65,6 +65,6 @@ class AlertViewModel(private val getSensorUseCase: GetSensorUseCase) : ViewModel
     data class UiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null, //ErrorApp.UnknowErrorApp
-        val alert: List<Sensor>? = emptyList()
+        val alert: List<Alert>? = emptyList()
     )
 }

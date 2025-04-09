@@ -4,10 +4,10 @@ package edu.iesam.meceiot.features.alerts.domain
 import org.koin.core.annotation.Single
 
 @Single
-class GetSensorUseCase(private val sensorRepository: SensorRepository) {
+class GetAlertsUseCase(private val sensorRepository: AlertRepository) {
 
-    suspend operator fun invoke(): Result<List<Sensor>> {
-        val result = sensorRepository.getSensorAlerts()
+    suspend operator fun invoke(): Result<List<Alert>> {
+        val result = sensorRepository.getAlerts()
 
         val filteredSensor = result.getOrNull()?.filter { sensor ->
             when (sensor.type) {

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/appbar_layout_lora"
+        layout="@layout/view_toolbar_iot" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium">
+
+            <!-- ¿Qué es LoRa? -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/what_is_lora"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/what_is_lora"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/what_is_lora_description"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/what_is_lora_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/what_is_lora" />
+
+            <!-- ¿Qué es LoRaWAN? -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/what_is_lorawan"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/what_is_lorawan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/what_is_lora_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/what_is_lorawan_description"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/what_is_lorawan_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/what_is_lorawan" />
+
+            <!-- ¿Cómo funciona LoRaWAN? -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/how_lorawan_works"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/how_lorawan_works"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/what_is_lorawan_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/how_lorawan_works_description"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/how_lorawan_works_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/how_lorawan_works" />
+
+            <!-- Ventajas -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lora_advantages"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/lora_advantages"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/how_lorawan_works_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lora_advantages_description"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/lora_advantages_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lora_advantages" />
+
+            <!-- Limitaciones -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lora_limitations"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/lora_limitations"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lora_advantages_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lora_limitations_description"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/lora_limitations_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lora_limitations" />
+
+            <!-- Ejemplos de uso -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lora_use_examples"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/lora_use_examples"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lora_limitations_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lora_use_examples_description"
+                style="@style/AppSupportingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/lora_use_examples_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lora_use_examples" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

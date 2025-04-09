@@ -16,6 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_extra_high"
             android:layout_margin="@dimen/margin_medium">
 
             <!-- ¿Qué es? -->

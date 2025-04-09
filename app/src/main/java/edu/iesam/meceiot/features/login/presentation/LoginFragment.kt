@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
     private fun setupObservers() {
         val loginObserver = Observer<LoginViewModel.LoginUiState> { uiState ->
             if (uiState.userLoggedIn) {
-                if (findNavController().currentDestination?.id == edu.iesam.meceiot.R.id.login_fragment) {
+                if (findNavController().currentDestination?.id == R.id.login_fragment) {
                     findNavController().navigate(
                         LoginFragmentDirections.actionLoginFragmentToMainFragment()
                     )
@@ -61,6 +61,12 @@ class LoginFragment : Fragment() {
             } else {
                 binding.loginProgressIndicator.hide()
             }
+            with(binding) {
+                listOf(username, password, loginButton).forEach { state ->
+                    state.isEnabled = uiState.isFormEnabled
+                }
+            }
+
         }
         viewModel.uiState.observe(viewLifecycleOwner, loginObserver)
     }

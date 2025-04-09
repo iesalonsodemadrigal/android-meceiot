@@ -90,6 +90,7 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/login_button"
                 android:textSize="@dimen/font_size_small"
+                android:enabled="false"
                 android:textStyle="bold" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

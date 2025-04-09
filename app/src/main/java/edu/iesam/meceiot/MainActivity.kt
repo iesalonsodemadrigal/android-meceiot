@@ -34,6 +34,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_sensor -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
                     BottomNavigationView.GONE
 
+                R.id.iot_detail_fragment -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
+                    BottomNavigationView.GONE
+
                 else -> findViewById<BottomNavigationView>(R.id.main_menu).visibility =
                     BottomNavigationView.VISIBLE
             }

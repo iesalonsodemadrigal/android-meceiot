@@ -158,6 +158,8 @@
     <string name="min">Mín.</string>
     <string name="mode">Moda</string>
     <string name="sensor_name">Nombre del Sensor</string>
+
+    <!-- View Iot and Detail-->
     <string name="objectives">Objetivos</string>
     <string name="objectives_description">Analizar la evolución de parámetros ambientales elegidos en un lugar de interés para el centro, tomando como base datos de sensores IoT, por ejemplo, sensores de ruido, luminosidad, temperatura, o CO2.\n Tras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT.</string>
     <string name="participants">Participantes</string>
@@ -194,4 +196,6 @@
     <string name="lora_limitations_description">- Velocidad de transmisión muy baja (~0.3 kbps a 50 kbps).\n- Ancho de banda limitado y restricción en número de mensajes por día.\n- No sirve para tiempo real o multimedia.\n- Necesita gateway o cobertura LoRaWAN en la zona.</string>
     <string name="lora_use_examples">Ejemplo de uso</string>
     <string name="lora_use_examples_description">Un sensor de humedad en un viñedo envía datos cada 30 minutos. Usa LoRa para comunicarse con un gateway a 5 km de distancia. Este gateway manda los datos por 4G al servidor en la nube, que los muestra en un dashboard para agricultores.</string>
+    <string name="title_item_lora">Lora</string>
+    <string name="description_item_lora">Información sobre esta tecnología de radiofrecuencia.</string>
 </resources>

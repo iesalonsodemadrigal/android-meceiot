@@ -2,13 +2,13 @@
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/appbar_layout_meceiot"
+    android:id="@+id/topAppBar_iot"
     style="@style/Widget.Material3.AppBarLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
+        android:id="@+id/toolbar_iot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"

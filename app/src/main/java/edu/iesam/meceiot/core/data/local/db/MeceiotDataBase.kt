@@ -14,8 +14,6 @@ import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanDao
 import edu.iesam.meceiot.features.lorawan.data.local.db.LoraWanEntity
 import edu.iesam.meceiot.features.pantallasensor.data.local.db.GraphSensorDao
 import edu.iesam.meceiot.features.pantallasensor.data.local.db.GraphSensorEntity
-import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDao
-import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionEntity
 import edu.iesam.meceiot.features.sensorpanels.data.local.db.PanelDao
 import edu.iesam.meceiot.features.sensorpanels.data.local.db.PanelEntity
 import edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorDao
@@ -26,7 +24,6 @@ import edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity
     entities = [LoraWanEntity::class,
         ExternalResourcesEntity::class,
         DeveloperEntity::class,
-        QuestionEntity::class,
         SensorEntity::class,
         PanelEntity::class,
         GraphSensorEntity::class],
@@ -42,7 +39,6 @@ abstract class MeceiotDataBase : RoomDatabase() {
     abstract fun loraWanDao(): LoraWanDao
     abstract fun externalResourcesDao(): ExternalResourcesDao
     abstract fun developerDao(): DeveloperDao
-    abstract fun questionDao(): QuestionDao
     abstract fun panelDao(): PanelDao
     abstract fun sensorDao(): SensorDao
     abstract fun graphSensorDao(): GraphSensorDao

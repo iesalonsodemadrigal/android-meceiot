@@ -3,8 +3,6 @@ package edu.iesam.meceiot.core.data.local.db.converters
 import android.content.Context
 import androidx.room.Room
 import edu.iesam.meceiot.core.data.local.db.MeceiotDataBase
-import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDao
-import edu.iesam.meceiot.features.pantallatest.data.local.db.QuestionDblocalDataSource
 
 object DatabaseProvider {
 
@@ -21,13 +19,5 @@ object DatabaseProvider {
                 .build()
         }
         return database!!
-    }
-
-    fun provideQuestionDao(context: Context): QuestionDao {
-        return provideDatabase(context).questionDao()
-    }
-
-    fun provideQuestionDblocalDataSource(context: Context): QuestionDblocalDataSource {
-        return QuestionDblocalDataSource(provideQuestionDao(context))
     }
 }

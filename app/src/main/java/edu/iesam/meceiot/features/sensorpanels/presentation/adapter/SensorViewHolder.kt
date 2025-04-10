@@ -13,13 +13,14 @@ class SensorViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         itemSensor.apply {
             sensorName.text = result.name
             when (result.name) {
-                "Temperature" -> sensorName.setIconResource(R.drawable.ic_thermostat)
-                "Humidity" -> sensorName.setIconResource(R.drawable.ic_humidity)
-                "CO2" -> sensorName.setIconResource(R.drawable.ic_co2)
-                "Light" -> sensorName.setIconResource(R.drawable.ic_light)
-                "Motion" -> sensorName.setIconResource(R.drawable.ic_motion)
-                "Battery" -> sensorName.setIconResource(R.drawable.ic_battery)
-                "Sound" -> sensorName.setIconResource(R.drawable.ic_sound)
+                "Temp [ºC]" -> sensorName.setIconResource(R.drawable.ic_thermostat)
+                "Hum [%]" -> sensorName.setIconResource(R.drawable.ic_humidity)
+                "CO2 [ppm]" -> sensorName.setIconResource(R.drawable.ic_co2)
+                "Luz [lux]" -> sensorName.setIconResource(R.drawable.ic_light)
+                "Movimiento" -> sensorName.setIconResource(R.drawable.ic_motion)
+                "Bat [mV]" -> sensorName.setIconResource(R.drawable.ic_battery)
+                "Sound Avg [dB]" -> sensorName.setIconResource(R.drawable.ic_sound)
+                "Sound Max [dB]" -> sensorName.setIconResource(R.drawable.ic_sound)
                 else -> sensorName.setIconResource(R.drawable.ic_generic_sensor)
             }
             sensorName.setOnClickListener {

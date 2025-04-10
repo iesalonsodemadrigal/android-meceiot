@@ -83,9 +83,16 @@
         <item name="titleTextColor">@color/md_theme_primary</item>
     </style>
 
+    <style name="AppDetailToolbar" parent="Widget.Material3.CollapsingToolbar.Medium">
+        <item name="collapsedTitleTextColor">@color/md_theme_primary</item>
+        <item name="expandedTitleTextColor">@color/md_theme_primary</item>
+        <item name="android:background">@color/md_theme_surface</item>
+        <item name="contentScrim">@color/md_theme_surface</item>
+    </style>
+
     <style name="AppBottomNavigationView" parent="Widget.Material3.BottomNavigationView">
-        <item name="itemBackground">@color/md_theme_primaryContainer</item>
         <item name="itemTextColor">@color/md_theme_primary</item>
+        <item name="itemIconTint">@color/md_theme_primary</item>
     </style>
     <style name="ChartStyle">
         <item name="layers">line</item>

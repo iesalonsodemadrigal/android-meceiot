@@ -119,7 +119,7 @@
                             android:textSize="@dimen/Extra_large_font_size"
                             tools:text="12,2" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             style="@style/AppSupportingText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                             android:textSize="@dimen/Extra_large_font_size"
                             tools:text="12,2" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             style="@style/AppSupportingText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

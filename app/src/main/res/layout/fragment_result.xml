@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ResultFragment">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/selectedOptionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/correctCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

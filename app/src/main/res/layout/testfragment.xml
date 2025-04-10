@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/recyclerView"
         app:layout_constraintVertical_bias="0.293" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/selectedOptionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/submitButton" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/errorMessageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

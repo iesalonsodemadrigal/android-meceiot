@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/font_size_high"
@@ -65,7 +65,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -101,7 +101,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -138,7 +138,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -175,7 +175,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -212,7 +212,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -249,7 +249,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -278,7 +278,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/font_size_high"
@@ -312,7 +312,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -349,7 +349,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -386,7 +386,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -423,7 +423,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -460,7 +460,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"
@@ -497,7 +497,7 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/font_size_high"

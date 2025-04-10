@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.faltenreich.skeletonlayout.SkeletonLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/skeleton_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -54,8 +55,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/panel_1">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -67,7 +69,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -90,8 +93,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/panel_1">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -103,7 +107,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -127,8 +132,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_1">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -140,7 +146,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -164,8 +171,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_1">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -177,7 +185,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -201,8 +210,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_3">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -214,7 +224,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -238,8 +249,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_3">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -251,7 +263,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -284,7 +297,7 @@
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        tools:text="Panel 2" />
+                        tools:text="Panel 1" />
 
                 </LinearLayout>
 
@@ -301,8 +314,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/panel_2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -314,7 +328,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -338,8 +353,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/panel_2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -351,7 +367,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -375,8 +392,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_7">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -388,7 +406,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -412,8 +431,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_7">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -425,7 +445,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -449,8 +470,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_9">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -462,7 +484,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -486,8 +509,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_9">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -499,7 +523,8 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -526,15 +551,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        tools:text="Panel 3" />
+                        tools:text="Panel 1" />
 
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Sensor 1 of panel 3-->
@@ -548,8 +574,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/panel_3">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -559,9 +586,10 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -585,8 +613,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/panel_3">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -596,9 +625,10 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -622,8 +652,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_13">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -633,9 +664,10 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -659,8 +691,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_13">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -670,9 +703,10 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -733,8 +767,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_15">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -744,9 +779,10 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"

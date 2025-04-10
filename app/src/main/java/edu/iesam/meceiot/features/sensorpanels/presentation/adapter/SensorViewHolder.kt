@@ -22,7 +22,7 @@ class SensorViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 "Sound" -> sensorName.setIconResource(R.drawable.ic_sound)
                 else -> sensorName.setIconResource(R.drawable.ic_generic_sensor)
             }
-            view.setOnClickListener {
+            sensorName.setOnClickListener {
                 onClickListener(
                     result.name,
                     result.panelName,

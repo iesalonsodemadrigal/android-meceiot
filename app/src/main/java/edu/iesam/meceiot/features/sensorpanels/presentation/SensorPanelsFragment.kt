@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
-import com.faltenreich.skeletonlayout.applySkeleton
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
@@ -74,10 +73,8 @@ class SensorPanelsFragment : Fragment() {
                 setupRecyclerView()
                 adapter = sensorPanelsAdapter
             }
-            skeleton = skeletonSensorPanels.applySkeleton(R.layout.view_skeleton_panels, 6)
+            skeleton = skeletonPanels.skeletonLayout
         }
-
-
     }
 
     private fun setupRecyclerView() {
@@ -133,11 +130,10 @@ class SensorPanelsFragment : Fragment() {
             }
 
             if (uiState.isLoading) {
-                binding.skeletonSensorPanels.visibility = View.VISIBLE
+                binding.skeletonPanels.skeletonLayout.visibility = View.VISIBLE
                 skeleton.showSkeleton()
             } else {
-                binding.skeletonSensorPanels.visibility = View.GONE
-                skeleton.showOriginal()
+                binding.skeletonPanels.skeletonLayout.visibility = View.GONE
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)

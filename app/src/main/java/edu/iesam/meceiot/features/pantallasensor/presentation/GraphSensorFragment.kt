@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.faltenreich.skeletonlayout.Skeleton
-import com.google.android.material.appbar.MaterialToolbar
 import com.patrykandpatrick.vico.core.cartesian.Zoom
 import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
 import com.patrykandpatrick.vico.core.cartesian.axis.VerticalAxis
@@ -57,13 +56,11 @@ class GraphSensorFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        val toolbar: MaterialToolbar = binding.toolbar.viewToolbarDetail
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.viewToolbarDetail.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
 
-        val collapsingToolbar = binding.toolbar.collapsingToolbar
-        collapsingToolbar.title = getArgs()?.panelName
+        binding.toolbar.collapsingToolbar.title = getArgs()?.panelName
 
         //Sin menu de momento...
         //toolbar.inflateMenu(R.menu.options_graph_menu)

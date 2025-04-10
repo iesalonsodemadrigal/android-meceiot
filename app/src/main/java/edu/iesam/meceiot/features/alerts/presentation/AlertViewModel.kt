@@ -64,7 +64,7 @@ class AlertViewModel(private val getAlertsUseCase: GetAlertsUseCase) : ViewModel
 
     data class UiState(
         val isLoading: Boolean = false,
-        val errorApp: ErrorApp? = null, //ErrorApp.UnknowErrorApp
+        val errorApp: ErrorApp? = null,
         val alert: List<Alert>? = emptyList()
     )
 }

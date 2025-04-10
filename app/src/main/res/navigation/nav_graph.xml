@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_fragment_to_main_fragment"
-            app:destination="@id/fragment_sensor_panels"
+            app:destination="@id/iot_fragment"
             app:popUpTo="@id/login_fragment"
             app:popUpToInclusive="true" />
     </fragment>

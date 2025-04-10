@@ -22,7 +22,11 @@
         tools:layout="@layout/fragment_sensor_panels">
         <action
             android:id="@+id/action_sensorPanelsFragment_to_sensorFragment"
-            app:destination="@id/fragment_sensor" />
+            app:destination="@id/fragment_sensor"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -85,17 +89,9 @@
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources" />
 
-
-    <fragment
-        android:id="@+id/testfragment"
-        android:name="edu.iesam.meceiot.features.pantallatest.presentation.TestFragment"
-        tools:layout="@layout/testfragment" />
-
-
     <fragment
         android:id="@+id/fragment_about_lorawan"
         android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"
         tools:layout="@layout/fragment_about_lorawan" />
-
 
 </navigation>

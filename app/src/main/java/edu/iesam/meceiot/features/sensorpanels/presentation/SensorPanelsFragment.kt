@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
@@ -69,11 +71,27 @@ class SensorPanelsFragment : Fragment() {
                         }
                     }
                 }
+                setupRecyclerView()
                 adapter = sensorPanelsAdapter
             }
             skeleton = skeletonSensorPanels.applySkeleton(R.layout.view_skeleton_panels, 6)
         }
 
+
+    }
+
+    private fun setupRecyclerView() {
+        val verticalDecorator =
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        val horizontalDecorator =
+            DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL)
+
+        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.dividers)!!
+        verticalDecorator.setDrawable(drawable)
+        horizontalDecorator.setDrawable(drawable)
+
+        binding.listSensorPanels.addItemDecoration(verticalDecorator);
+        binding.listSensorPanels.addItemDecoration(horizontalDecorator);
     }
 
     private fun navigateToDetail(

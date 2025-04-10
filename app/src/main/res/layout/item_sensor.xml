@@ -1,36 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppOutlinedStackedCard"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/size_media_listitem"
-    app:cardCornerRadius="4dp">
+    android:layout_height="wrap_content"
+    android:gravity="center">
 
-    <LinearLayout
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sensor_name"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-        <ImageView
-            android:id="@+id/sensor_icon"
-            android:layout_width="@dimen/image_size_high"
-            android:layout_height="@dimen/image_size_high"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/margin_medium"
-            app:tint="@color/md_theme_onSurface"
-            tools:src="@drawable/ic_thermostat" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/sensor_name"
-            style="@style/AppHeadlineListItem"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/font_size_high"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:paddingHorizontal="@dimen/padding_medium"
-            android:textSize="@dimen/font_size_small"
-            app:tint="@color/md_theme_onSurfaceVariant"
-            tools:text="Sensor name" />
-
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

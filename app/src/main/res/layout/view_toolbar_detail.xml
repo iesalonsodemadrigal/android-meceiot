@@ -11,7 +11,8 @@
         style="@style/AppDetailToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:maxLines="2">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/view_toolbar_detail"

@@ -730,8 +730,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/sensor_15">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/image_size_high"
@@ -741,9 +742,10 @@
                         app:tint="@color/md_theme_onSurface"
                         tools:src="@drawable/ic_thermostat" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodyLarge"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_horizontal"
+                        android:layout_width="92dp"
                         android:layout_height="@dimen/font_size_high"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"

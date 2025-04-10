@@ -13,8 +13,8 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
         android:layout_gravity="fill_vertical"
+        android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.faltenreich.skeletonlayout.SkeletonLayout
@@ -39,130 +39,139 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:id="@+id/data_table"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/label_avg_value"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@id/chart"
+                    android:layout_marginTop="@dimen/spacing_vertical"
+                    android:layout_marginBottom="@dimen/spacing_text"
+                    android:text="@string/sensor_graph_title_details_values"
+                    app:layout_constraintBottom_toTopOf="@id/data_table"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sensor_name">
+                    app:layout_constraintTop_toBottomOf="@id/sensor_name" />
+
+                <LinearLayout
+                    android:id="@+id/data_table"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_container_rounded_borders"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_vertical"
+                    android:weightSum="2"
+                    app:layout_constraintBottom_toTopOf="@id/label_graph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_avg_value">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_end"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/max_value"
-                            style="@style/AppHeadline"
-                            android:layout_width="match_parent"
+                            style="@style/AppDisplay"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/font_size_extra_small"
                             android:textAlignment="center"
-                            android:textSize="@dimen/Extra_large_font_size"
                             tools:text="12,2" />
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/AppSupportingText"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/padding_extra_small"
                             android:text="@string/max"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/font_size_extra_small" />
+                            android:textAlignment="center" />
 
                         <com.google.android.material.divider.MaterialDivider
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="1dp"
-                            android:background="@android:color/darker_gray" />
+                            android:layout_marginVertical="@dimen/spacing_vertical" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/avg_value"
-                            style="@style/AppHeadline"
+                            style="@style/AppDisplay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/font_size_extra_small"
                             android:textAlignment="center"
-                            android:textSize="@dimen/Extra_large_font_size"
                             tools:text="12,2" />
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/AppSupportingText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/padding_extra_small"
                             android:text="@string/media"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/font_size_extra_small" />
+                            android:textAlignment="center" />
 
                     </LinearLayout>
 
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/darker_gray" />
-
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/min_value"
-                            style="@style/AppHeadline"
-                            android:layout_width="match_parent"
+                            style="@style/AppDisplay"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/font_size_extra_small"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/Extra_large_font_size"
                             tools:text="12,2" />
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/AppSupportingText"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/padding_extra_small"
-                            android:text="@string/min"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/font_size_extra_small" />
+                            android:text="@string/min" />
 
                         <com.google.android.material.divider.MaterialDivider
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="1dp"
-                            android:background="@android:color/darker_gray" />
+                            android:layout_marginVertical="@dimen/spacing_vertical" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/mode_value"
-                            style="@style/AppHeadline"
-                            android:layout_width="match_parent"
+                            style="@style/AppDisplay"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/font_size_extra_small"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/Extra_large_font_size"
                             tools:text="12,2" />
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/AppSupportingText"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/padding_extra_small"
-                            android:text="@string/mode"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/font_size_extra_small" />
+                            android:text="@string/mode" />
                     </LinearLayout>
                 </LinearLayout>
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/label_graph"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_vertical"
+                    android:layout_marginBottom="@dimen/spacing_text"
+                    android:text="@string/sensor_graph_title_values"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/data_table" />
 
                 <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
                     android:id="@+id/chart"
                     style="@style/ChartStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_extra_small"
+                    android:layout_marginTop="@dimen/spacing_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/data_table" />
+                    app:layout_constraintTop_toBottomOf="@id/label_graph" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.faltenreich.skeletonlayout.SkeletonLayout>
 

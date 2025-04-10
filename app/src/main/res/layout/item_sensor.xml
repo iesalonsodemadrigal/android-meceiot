@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center">
+    android:background="@drawable/bg_ripple_effect"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:padding="@dimen/spacing_vertical"
+    android:orientation="horizontal">
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sensor_icon"
+        android:layout_width="@dimen/image_size_high"
+        android:layout_height="@dimen/image_size_high"
+        app:tint="@color/md_theme_primary"
+        tools:src="@drawable/ic_thermostat" />
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_name"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
+        style="@style/AppHeadline"
+        android:layout_marginStart="@dimen/spacing_text"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/md_theme_primary"
+        tools:text="Sensor name" />
 
 </LinearLayout>

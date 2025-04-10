@@ -16,6 +16,7 @@ import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.databinding.FragmentAlertBinding
 import edu.iesam.meceiot.features.alerts.domain.Alert
 import edu.iesam.meceiot.features.alerts.presentation.adapter.AlertAdapter
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlertFragment : Fragment() {
@@ -25,6 +26,7 @@ class AlertFragment : Fragment() {
     private val alertViewModel: AlertViewModel by viewModel()
     private val alertAdapter = AlertAdapter()
     private lateinit var skeleton: Skeleton
+    private val errorFactory: ErrorAppFactory by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -83,11 +85,11 @@ class AlertFragment : Fragment() {
     }
 
     private fun checkError(errorApp: ErrorApp?) {
-        errorApp?.let {
-            val error = ErrorAppFactory(requireContext()).build(it, {
+        errorApp?.let { errorApp ->
+            val errorAppUi = errorFactory.build(errorApp) {
                 alertViewModel.fetchAlerts()
-            })
-            binding.errorAppView.render(error)
+            }
+            binding.errorAppView.render(errorAppUi)
         } ?: run {
             binding.errorAppView.hide()
         }

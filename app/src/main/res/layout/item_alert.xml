@@ -11,19 +11,17 @@
         android:id="@+id/image_item"
         style="@style/AppImageListItem"
         android:layout_margin="@dimen/spacing_horizontal"
-        app:tint="@color/md_theme_onSurface_highContrast"
         android:src="@drawable/ic_alarm"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title_alert"
-        style="@style/AppHeadlineListItem"
+        style="@style/AppTitle"
         android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_horizontal"
         android:text="@string/alert_title"
-        android:textSize="@dimen/font_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_item"
         app:layout_constraintTop_toTopOf="parent" />

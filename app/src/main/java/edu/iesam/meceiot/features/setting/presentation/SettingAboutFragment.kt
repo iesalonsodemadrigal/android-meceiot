@@ -15,7 +15,7 @@ import edu.iesam.meceiot.databinding.ItemSettingBinding
 import edu.iesam.meceiot.features.setting.presentation.logout.LogoutDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SettingAboutFragment : Fragment(R.layout.fragment_settings) {
+class SettingAboutFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!

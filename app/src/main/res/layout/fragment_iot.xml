@@ -33,9 +33,8 @@
             layout="@layout/item_iot" />
 
         <include
-            android:id="@+id/view_item_energy_saving"
+            android:id="@+id/view_item_lora"
             layout="@layout/item_iot" />
-
 
     </LinearLayout>
 

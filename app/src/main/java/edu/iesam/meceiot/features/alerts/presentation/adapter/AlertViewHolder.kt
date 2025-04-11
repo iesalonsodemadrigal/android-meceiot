@@ -4,19 +4,19 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.ItemAlertBinding
-import edu.iesam.meceiot.features.alerts.domain.Sensor
+import edu.iesam.meceiot.features.alerts.domain.Alert
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 
 class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
     private lateinit var binding: ItemAlertBinding
 
-    fun bind(sensor: Sensor) {
+    fun bind(alert: Alert) {
         binding = ItemAlertBinding.bind(view)
         binding.apply {
 
             imageItem.setImageResource(
-                when (sensor.type) {
+                when (alert.type) {
                     TypeSensor.Co2 -> R.drawable.ic_co2
                     TypeSensor.Temperature -> R.drawable.ic_temperature
                     TypeSensor.Light -> R.drawable.ic_light
@@ -28,7 +28,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             )
 
             titleAlert.setText(
-                when (sensor.type) {
+                when (alert.type) {
                     TypeSensor.Co2 -> R.string.alert_co2
                     TypeSensor.Temperature -> R.string.alert_temperature
                     TypeSensor.Light -> R.string.alert_light
@@ -39,7 +39,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 }
             )
             sensorName.visibility = View.GONE
-            sensorLocation.text = sensor.location
+            sensorLocation.text = alert.location
         }
     }
 }

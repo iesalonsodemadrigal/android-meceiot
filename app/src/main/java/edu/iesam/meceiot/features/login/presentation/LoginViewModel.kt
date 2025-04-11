@@ -23,21 +23,23 @@ class LoginViewModel(
 
     fun checkUserLoggedIn() {
         viewModelScope.launch(Dispatchers.IO) {
-            _uiState.postValue(LoginUiState(isLoading = true))
+            _uiState.postValue(LoginUiState(isLoading = true, isFormEnabled = false))
 
             val isUserLoggedIn = checkLoginUseCase.invoke()
             if (isUserLoggedIn) {
                 _uiState.postValue(
                     LoginUiState(
                         userLoggedIn = true,
-                        isLoading = false
+                        isLoading = false,
+                        isFormEnabled = false
                     )
                 )
             } else {
                 _uiState.postValue(
                     LoginUiState(
                         userLoggedIn = false,
-                        isLoading = false
+                        isLoading = false,
+                        isFormEnabled = true
                     )
                 )
             }
@@ -46,14 +48,15 @@ class LoginViewModel(
 
     fun postLoginCredentials(loginCredentials: LoginCredentials) {
         viewModelScope.launch(Dispatchers.IO) {
-            _uiState.postValue(LoginUiState(isLoading = true))
+            _uiState.postValue(LoginUiState(isLoading = true, isFormEnabled = false))
 
-            val isLoginSuccessful = loginUseCase.invoke(loginCredentials)
+            val loginResult = loginUseCase.invoke(loginCredentials)
             _uiState.postValue(
                 LoginUiState(
                     isLoading = false,
-                    errorApp = isLoginSuccessful.exceptionOrNull() as? ErrorApp,
-                    userLoggedIn = isLoginSuccessful.isSuccess
+                    errorApp = loginResult.exceptionOrNull() as? ErrorApp,
+                    userLoggedIn = loginResult.isSuccess,
+                    isFormEnabled = !loginResult.isSuccess
                 )
             )
         }
@@ -62,7 +65,8 @@ class LoginViewModel(
     data class LoginUiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val userLoggedIn: Boolean = false
+        val userLoggedIn: Boolean = false,
+        val isFormEnabled: Boolean = false
     )
 }
 

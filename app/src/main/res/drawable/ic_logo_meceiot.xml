@@ -142,28 +142,5 @@
         android:strokeColor="#ffffff"
         android:strokeLineCap="round"
         android:strokeLineJoin="round" />
-    <path
-        android:pathData="M-0,1020.2a552.8,74.1 0,1 0,1105.6 0a552.8,74.1 0,1 0,-1105.6 0z"
-        android:strokeWidth="8.57702"
-        android:strokeColor="#00000000"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round">
-        <aapt:attr name="android:fillColor">
-            <gradient
-                android:centerX="552.8"
-                android:centerY="1020.2"
-                android:gradientRadius="552.8"
-                android:type="radial">
-                <item
-                    android:color="#FF928B81"
-                    android:offset="0" />
-                <item
-                    android:color="#FFA39D94"
-                    android:offset="0.3" />
-                <item
-                    android:color="#008F8A7A"
-                    android:offset="1" />
-            </gradient>
-        </aapt:attr>
-    </path>
+
 </vector>

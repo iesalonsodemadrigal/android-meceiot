@@ -1,6 +1,7 @@
 package edu.iesam.meceiot.features.grafana.data.remote
 
 import edu.iesam.meceiot.core.data.remote.apiCall
+import edu.iesam.meceiot.features.alerts.domain.Alert
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 import edu.iesam.meceiot.features.grafana.data.models.dashboard.toPanel
 import edu.iesam.meceiot.features.grafana.data.models.search.DashboardSummary
@@ -194,7 +195,7 @@ class GrafanaRemoteDataSource(
         )
     }
 
-    override suspend fun getSensorAlerts(): Result<List<edu.iesam.meceiot.features.alerts.domain.Sensor>> {
+    override suspend fun getSensorAlerts(): Result<List<Alert>> {
         // First, get all panels with their sensors
         return getSensorPanels().fold(
             onSuccess = { panels ->
@@ -263,7 +264,7 @@ class GrafanaRemoteDataSource(
                                                         graphSensor.yValues.last().toString()
                                                     } else "0"
                                                 // Create the alert sensor
-                                                edu.iesam.meceiot.features.alerts.domain.Sensor(
+                                                Alert(
                                                     id = sensor.id.toString(),
                                                     name = sensor.name,
                                                     type = sensorType,

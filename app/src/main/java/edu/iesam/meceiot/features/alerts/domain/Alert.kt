@@ -3,11 +3,11 @@ package edu.iesam.meceiot.features.alerts.domain
 data class Panel(
     val id: String,
     val name: String,
-    val sensors: List<Sensor>
+    val alerts: List<Alert>
 )
 
 
-data class Sensor(
+data class Alert(
     val id: String,
     val name: String,
     val type: TypeSensor,

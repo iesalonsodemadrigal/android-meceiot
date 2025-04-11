@@ -55,7 +55,24 @@
     <fragment
         android:id="@+id/iot_fragment"
         android:name="edu.iesam.meceiot.features.iot.presentation.IoTAboutFragment"
-        tools:layout="@layout/fragment_iot" />
+        tools:layout="@layout/fragment_iot">
+        <action
+            android:id="@+id/action_iot_fragment_to_iot_detail_fragment"
+            app:destination="@id/iot_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/iot_detail_fragment"
+        android:name="edu.iesam.meceiot.features.iot.presentation.IotDetailFragment"
+        android:label="IoT Detail"
+        tools:layout="@layout/view_iot_meceiot">
+        <argument
+            android:name="layoutResId"
+            app:argType="integer" />
+        <argument
+            android:name="titleResId"
+            app:argType="integer" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_settings"

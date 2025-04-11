@@ -7,8 +7,8 @@ import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.features.alerts.data.local.mock.adapters.TypeSensorAdapter
+import edu.iesam.meceiot.features.alerts.domain.Alert
 import edu.iesam.meceiot.features.alerts.domain.Panel
-import edu.iesam.meceiot.features.alerts.domain.Sensor
 import edu.iesam.meceiot.features.alerts.domain.TypeSensor
 import org.koin.core.annotation.Single
 
@@ -20,7 +20,7 @@ class SensorMockLocalDataSource(private val context: Context) {
             .registerTypeAdapter(TypeSensor::class.java, TypeSensorAdapter())
             .create()
     }
-    fun getSensor(): Result<List<Sensor>> {
+    fun getSensor(): Result<List<Alert>> {
         val inputStream = context.resources.openRawResource(R.raw.panels)
         val json = inputStream.bufferedReader().use { it.readText() }
 
@@ -30,7 +30,7 @@ class SensorMockLocalDataSource(private val context: Context) {
             val type = object : TypeToken<List<Panel>>() {}.type
             val panels: List<Panel> = gson.fromJson(json, type)
 
-            val sensors = panels.flatMap { it.sensors }
+            val sensors = panels.flatMap { it.alerts }
 
             Result.success(sensors)
         } catch (e: JsonParseException) {

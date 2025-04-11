@@ -25,6 +25,7 @@ import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Calendar
 import java.util.Date
@@ -35,6 +36,7 @@ class GraphSensorFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var cartesianChartView: CartesianChartView
     private val modelProducer = CartesianChartModelProducer()
+    private val errorFactory: ErrorAppFactory by inject()
     private lateinit var skeleton: Skeleton
     private val valueFormatterXaxis = CartesianValueFormatter { _, x, _ ->
         x.toLong().toHourAndMinute()
@@ -103,9 +105,11 @@ class GraphSensorFragment : Fragment() {
     }
 
     private fun bindError(errorApp: ErrorApp?) {
-        errorApp?.let {
-            val errorAppUI = ErrorAppFactory(requireContext()).build(it) {
-                //graphSensorViewModel.fetchSensorData(getArgs())
+        errorApp?.let { errorApp ->
+            val errorAppUI = errorFactory.build(errorApp) {
+                getArgs()?.let {
+                    graphSensorViewModel.fetchSensorData(it.id, it.query)
+                }
             }
             binding.errorAppView.render(errorAppUI)
         } ?: run {

@@ -6,37 +6,43 @@
 
     <ImageView
         android:id="@+id/view_item_image"
-        android:layout_marginLeft="@dimen/spacing_horizontal"
+        style="@style/AppImageListItem"
+        android:layout_marginStart="@dimen/spacing_horizontal"
         android:layout_marginTop="@dimen/spacing_vertical"
         android:layout_marginBottom="@dimen/spacing_vertical"
-        style="@style/AppImageListItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/view_item_title"
+        style="@style/AppHeadlineListItem"
         android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:text="@string/title_item"
-        style="@style/AppHeadlineListItem"
-        app:layout_constraintBottom_toTopOf="@id/view_item_description"
+        app:layout_constraintEnd_toStartOf="@id/arrow_next"
         app:layout_constraintStart_toEndOf="@id/view_item_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toTopOf="@id/view_item_image" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/view_item_description"
+        style="@style/AppSupportingTextListItem"
         android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
         android:text="@string/description_item"
-        android:textSize="@dimen/font_size_extra_small"
-        style="@style/AppSupportingTextListItem"
-        android:layout_marginHorizontal="@dimen/margin_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_item_image"
+        app:layout_constraintEnd_toStartOf="@id/arrow_next"
+        app:layout_constraintStart_toStartOf="@id/view_item_title"
         app:layout_constraintTop_toBottomOf="@id/view_item_title" />
+
+    <ImageView
+        android:id="@+id/arrow_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_vertical"
+        android:src="@drawable/ic_arrow_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

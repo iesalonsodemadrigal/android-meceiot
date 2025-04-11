@@ -106,9 +106,4 @@
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources" />
 
-    <fragment
-        android:id="@+id/fragment_about_lorawan"
-        android:name="edu.iesam.meceiot.features.lorawan.presentation.LoraWanAboutFragment"
-        tools:layout="@layout/fragment_about_lorawan" />
-
 </navigation>

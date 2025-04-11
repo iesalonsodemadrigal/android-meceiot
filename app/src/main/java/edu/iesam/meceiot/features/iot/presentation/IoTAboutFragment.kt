@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.FragmentIotBinding
 
-class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
+class IoTAboutFragment : Fragment() {
     private var _binding: FragmentIotBinding? = null
     private val binding get() = _binding!!
 
@@ -25,7 +25,7 @@ class IoTAboutFragment : Fragment(R.layout.fragment_iot) {
 
     private fun setupView() {
         binding.apply {
-            viewToolbar.mainToolbar.title = getString(R.string.iot_title)
+            viewCollapseToolbar.viewToolbar.title = getString(R.string.iot_title)
 
             viewItemMeceiot.apply {
                 viewItemTitle.setText(R.string.title_item_meceiot)

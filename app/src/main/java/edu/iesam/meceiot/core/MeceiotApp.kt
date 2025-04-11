@@ -10,7 +10,6 @@ import edu.iesam.meceiot.features.developer.di.DeveloperModule
 import edu.iesam.meceiot.features.externalresources.di.ExternalResourceModule
 import edu.iesam.meceiot.features.grafana.di.GrafanaModule
 import edu.iesam.meceiot.features.login.di.LoginModule
-import edu.iesam.meceiot.features.lorawan.di.LoraWanModule
 import edu.iesam.meceiot.features.pantallasensor.di.GraphSensorModule
 import edu.iesam.meceiot.features.sensorpanels.di.SensorPanelsModule
 import org.koin.android.ext.koin.androidContext
@@ -30,7 +29,6 @@ class MeceiotApp : Application() {
                 RemoteModule().module,
                 ExternalResourceModule().module,
                 LocalModule().module,
-                LoraWanModule().module,
                 DeveloperModule().module,
                 SensorPanelsModule().module,
                 SensorAlertModule().module,

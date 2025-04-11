@@ -2,25 +2,40 @@
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.Material3.AppBarLayout"
     android:id="@+id/appbar_layout"
+    style="@style/Widget.Material3.AppBarLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:id="@+id/collapsing_toolbar"
         style="@style/AppCollapseDetailToolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         app:layout_scrollFlags="scroll|exitUntilCollapsed"
-        app:maxLines="2">
+        app:titleEnabled="false"
+        app:toolbarId="@id/view_toolbar">
+
+        <ImageView
+            android:id="@+id/img_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="43dp"
+            android:adjustViewBounds="true"
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_iot"
+            app:layout_collapseMode="parallax" />
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/view_toolbar_detail"
+            android:id="@+id/view_toolbar"
+            style="@style/AppMainToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_collapseMode="pin"
-            app:navigationIcon="@drawable/ic_arrow_back"
             tools:title="Generic Title" />
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>

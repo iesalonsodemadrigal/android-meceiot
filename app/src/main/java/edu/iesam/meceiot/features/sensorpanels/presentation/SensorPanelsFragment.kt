@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import com.faltenreich.skeletonlayout.Skeleton
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
@@ -26,6 +29,8 @@ class SensorPanelsFragment : Fragment() {
     val viewModel: SensorPanelsViewModel by viewModel()
 
     private val errorFactory: ErrorAppFactory by inject()
+
+    private lateinit var skeleton: Skeleton
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,9 +70,25 @@ class SensorPanelsFragment : Fragment() {
                         }
                     }
                 }
+                setupRecyclerView()
                 adapter = sensorPanelsAdapter
             }
+            skeleton = skeletonPanels.skeletonLayout
         }
+    }
+
+    private fun setupRecyclerView() {
+        val verticalDecorator =
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        val horizontalDecorator =
+            DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL)
+
+        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.dividers)!!
+        verticalDecorator.setDrawable(drawable)
+        horizontalDecorator.setDrawable(drawable)
+
+        binding.listSensorPanels.addItemDecoration(verticalDecorator);
+        binding.listSensorPanels.addItemDecoration(horizontalDecorator);
     }
 
     private fun navigateToDetail(
@@ -109,9 +130,10 @@ class SensorPanelsFragment : Fragment() {
             }
 
             if (uiState.isLoading) {
-                binding.panelsProgressIndicator.show()
+                binding.skeletonPanels.skeletonLayout.visibility = View.VISIBLE
+                skeleton.showSkeleton()
             } else {
-                binding.panelsProgressIndicator.hide()
+                binding.skeletonPanels.skeletonLayout.visibility = View.GONE
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, sensorPanelsObserver)

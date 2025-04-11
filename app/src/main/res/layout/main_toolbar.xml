@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/toolbar_height"
-    android:background="@color/design_default_color_surface">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/main_toolbar"
         style="@style/AppMainToolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height">
+        android:layout_height="@dimen/toolbar_height"
+        app:layout_scrollFlags="scroll|enterAlways|snap" />
 
-    </com.google.android.material.appbar.MaterialToolbar>
 </com.google.android.material.appbar.AppBarLayout>

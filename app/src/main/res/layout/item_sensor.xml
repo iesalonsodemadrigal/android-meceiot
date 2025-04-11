@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppOutlinedStackedCard"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/size_media_listitem"
-    app:cardCornerRadius="4dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_ripple_effect"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:padding="@dimen/spacing_vertical"
+    android:orientation="horizontal">
 
-    <LinearLayout
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sensor_icon"
+        android:layout_width="@dimen/image_size_high"
+        android:layout_height="@dimen/image_size_high"
+        app:tint="@color/md_theme_primary"
+        tools:src="@drawable/ic_thermostat" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_name"
+        style="@style/AppHeadline"
+        android:layout_marginStart="@dimen/spacing_text"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:textColor="@color/md_theme_primary"
+        tools:text="Sensor name" />
 
-        <ImageView
-            android:id="@+id/sensor_icon"
-            android:layout_width="@dimen/image_size_high"
-            android:layout_height="@dimen/image_size_high"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/margin_medium"
-            app:tint="@color/md_theme_onSurface"
-            tools:src="@drawable/ic_thermostat" />
-
-        <TextView
-            android:id="@+id/sensor_name"
-            style="@style/AppHeadlineListItem"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/font_size_high"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:paddingHorizontal="@dimen/padding_medium"
-            android:textSize="@dimen/font_size_small"
-            app:tint="@color/md_theme_onSurfaceVariant"
-            tools:text="Sensor name" />
-
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

@@ -17,6 +17,7 @@ import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
@@ -117,7 +118,7 @@ class GraphSensorFragment : Fragment() {
         graphSensor?.let {
             binding.apply {
                 initializeChart(it)
-                sensorName.text = sensor?.name
+                sensorName.text = getString(R.string.sensor_name, sensor?.name ?: "")
                 toolbar.viewToolbarDetail.title = sensor?.panelName
                 maxValue.text = it.maxValue
                 minValue.text = it.minValue

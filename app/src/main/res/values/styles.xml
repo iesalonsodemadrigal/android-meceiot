@@ -105,8 +105,21 @@
     </style>
 
     <style name="ChartStyle">
+        <item name="lineLayerStyle">@style/LineLayerStyle</item>
         <item name="layers">line</item>
+        <item name="fadingEdgeWidth">32dp</item>
         <item name="showBottomAxis">true</item>
         <item name="showStartAxis">true</item>
     </style>
+
+    <style name="LineLayerStyle">
+        <item name="line1Style">@style/LineStyle</item>
+    </style>
+
+    <style name="LineStyle">
+        <item name="color">@color/md_theme_primary</item>
+        <item name="gradientTopColor">@color/md_theme_primary</item>
+        <item name="gradientBottomColor">@android:color/transparent</item>
+    </style>
+
 </resources>

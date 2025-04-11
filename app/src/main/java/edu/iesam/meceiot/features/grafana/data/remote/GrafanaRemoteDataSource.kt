@@ -98,24 +98,20 @@ class GrafanaRemoteDataSource(
         )
     }
 
-    override suspend fun getSensorData(query: String): Result<GraphSensor> {
-        // Create time range for query (last 6 hours)
-        val toTime = System.currentTimeMillis()
-        val fromTime = System.currentTimeMillis() - 6 * 60 * 60 * 1000
-
-        // Create request object with query
+    override suspend fun getSensorData(query: String, from: Long, to: Long): Result<GraphSensor> {
+        // Create request object with query using the provided 'from' and 'to'
         val requestDto = InfluxQueryRequestDto(
             queries = listOf(
                 InfluxQueryDto(
                     query = query,
                     refId = "A",
                     datasourceId = 4, // Default datasource ID for InfluxDB
-                    intervalMs = 20000, // 1 minute interval
+                    intervalMs = 20000, // Consider if interval needs adjustment based on range?
                     maxDataPoints = 1000
                 )
             ),
-            from = fromTime.toString(),
-            to = toTime.toString()
+            from = from.toString(), // Use parameter
+            to = to.toString()      // Use parameter
         )
 
         // Execute the query
@@ -207,7 +203,13 @@ class GrafanaRemoteDataSource(
                                 async {
                                     try {
                                         // Query data for this sensor
-                                        val sensorDataResult = getSensorData(sensor.query)
+                                        // --- Need to define default 'from' and 'to' for alerts ---
+                                        // --- Using the previous default (last 6 hours) for now --- 
+                                        val toTime = System.currentTimeMillis()
+                                        val fromTime =
+                                            System.currentTimeMillis() - 6 * 60 * 60 * 1000
+                                        val sensorDataResult =
+                                            getSensorData(sensor.query, fromTime, toTime)
                                         sensorDataResult.fold(
                                             onSuccess = { graphSensor ->
                                                 // Helper function to determine sensor type from name and query

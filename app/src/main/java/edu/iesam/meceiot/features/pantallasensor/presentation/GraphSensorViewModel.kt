@@ -18,10 +18,10 @@ class GraphSensorViewModel(private val getGraphSensorDataUseCase: GetGraphSensor
     val uiState: LiveData<UiState> = _uiState
 
 
-    fun fetchSensorData(id: Int, query: String) {
+    fun fetchSensorData(id: Int, query: String, from: Long, to: Long) {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            val sensor = getGraphSensorDataUseCase.invoke(id, query)
+            val sensor = getGraphSensorDataUseCase.invoke(id, query, from, to)
             _uiState.postValue(
                 UiState(
                     loading = false,

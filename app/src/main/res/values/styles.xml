@@ -67,7 +67,7 @@
         <item name="android:layout_width">@dimen/size_media_listitem</item>
     </style>
 
-    <style name="AppHeadlineListItem" parent="AppHeadline">
+    <style name="AppHeadlineListItem" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
 

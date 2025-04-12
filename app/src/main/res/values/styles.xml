@@ -22,7 +22,7 @@
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 
-    <style name="AppDisplay" parent="TextAppearance.Material3.DisplaySmall">
+    <style name="AppDisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 

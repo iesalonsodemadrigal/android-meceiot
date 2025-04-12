@@ -90,11 +90,11 @@
     <string name="text_share_title">Selecciona una app para compartir</string>
     <string name="title_web">Página Web</string>
     <string name="text_web">Pulsa para ir a la web del centro</string>
-    <string name="link_web">https://siadenlab.iesalonsodemadrigal.es/meceiot</string>
+    <string name="link_web">https://aulapragmatica.es/blog/meceiot/</string>
 
     <!-- Contacto -->
     <string name="title_email">Email de Contacto</string>
-    <string name="text_email">siadenlab@aulapragmatica.es</string>
+    <string name="text_email">meceiot@aulapragmatica.es</string>
 
     <!-- Play Store -->
     <string name="title_store">Link a Play Store</string>
@@ -104,7 +104,7 @@
     <!-- Aviso Legal -->
     <string name="title_legal_warning">Aviso Legal</string>
     <string name="legal_warning_text">Pulse para ver la política de privacidad</string>
-    <string name="link_legal_warning">https://siadenlab.iesalonsodemadrigal.es/meceiot/legal.html</string>
+    <string name="link_legal_warning">https://aulapragmatica.es/projects/meceiot/legal.html</string>
 
     <!-- Información de la Versión -->
     <string name="title_version">App instalada</string>

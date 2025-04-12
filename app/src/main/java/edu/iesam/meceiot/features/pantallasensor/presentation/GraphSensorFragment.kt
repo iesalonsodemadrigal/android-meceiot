@@ -141,7 +141,15 @@ class GraphSensorFragment : Fragment() {
     private fun bindError(errorApp: ErrorApp?) {
         errorApp?.let {
             val errorAppUI = ErrorAppFactory(requireContext()).build(it) {
-                //graphSensorViewModel.fetchSensorData(getArgs())
+                val args = getArgs()
+                if (args != null) {
+                    graphSensorViewModel.fetchSensorData(
+                        args.id,
+                        args.query,
+                        System.currentTimeMillis() - DEFAULT_TIME_RANGE_HOURS * 60 * 60 * 1000,
+                        System.currentTimeMillis()
+                    )
+                }
             }
             binding.errorAppView.render(errorAppUI)
         } ?: run {

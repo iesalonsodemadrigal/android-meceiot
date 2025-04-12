@@ -15,7 +15,7 @@
         android:id="@+id/sensor_icon"
         android:layout_width="@dimen/image_size_high"
         android:layout_height="@dimen/image_size_high"
-        app:tint="@color/md_theme_primary"
+        app:tint="@color/md_theme_onSurface"
         tools:src="@drawable/ic_thermostat" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -24,7 +24,6 @@
         android:layout_marginStart="@dimen/spacing_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/md_theme_primary"
         tools:text="Sensor name" />
 
 </LinearLayout>

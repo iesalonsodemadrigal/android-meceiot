@@ -55,12 +55,11 @@ class GraphSensorFragment : Fragment() {
         x.toLong().toHourAndMinute()
     }
 
-    // Companion object for constants like the result key
     companion object {
         const val REQUEST_KEY_DATE_RANGE = "dateRangePickerResult"
         const val KEY_FROM_TIMESTAMP = "fromTimestamp"
         const val KEY_TO_TIMESTAMP = "toTimestamp"
-        const val DEFAULT_TIME_RANGE_HOURS = 6L
+        const val DEFAULT_TIME_RANGE = 6 * 60 * 60 * 1000 // 6 hours
     }
 
     override fun onCreateView(
@@ -74,7 +73,6 @@ class GraphSensorFragment : Fragment() {
 
     private fun setupView() {
         setupToolbar()
-
         cartesianChartView = binding.chart
     }
 
@@ -82,10 +80,7 @@ class GraphSensorFragment : Fragment() {
         binding.toolbar.viewToolbarDetail.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
-
         binding.toolbar.collapsingToolbar.title = getArgs()?.panelName
-
-        // Add Menu
         binding.toolbar.viewToolbarDetail.let { setupMenu(it) }
     }
 
@@ -98,11 +93,9 @@ class GraphSensorFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.action_select_range -> {
-                        // Navigate to the BottomSheet
                         findNavController().navigate(R.id.action_graphSensorFragment_toDateRangePickerBottomSheet)
                         true
                     }
-
                     else -> false
                 }
             }
@@ -116,8 +109,8 @@ class GraphSensorFragment : Fragment() {
         setupObserver()
         getArgs()?.let {
             val currentTime = System.currentTimeMillis()
-            val fromTime = currentTime - DEFAULT_TIME_RANGE_HOURS * 60 * 60 * 1000
-            graphSensorViewModel.fetchSensorData(it.id, it.query, fromTime, currentTime)
+            val fromTime = currentTime - DEFAULT_TIME_RANGE
+            graphSensorViewModel.fetchSensorData(it.query, fromTime, currentTime)
         }
     }
 
@@ -144,9 +137,8 @@ class GraphSensorFragment : Fragment() {
                 val args = getArgs()
                 if (args != null) {
                     graphSensorViewModel.fetchSensorData(
-                        args.id,
                         args.query,
-                        System.currentTimeMillis() - DEFAULT_TIME_RANGE_HOURS * 60 * 60 * 1000,
+                        System.currentTimeMillis() - DEFAULT_TIME_RANGE,
                         System.currentTimeMillis()
                     )
                 }
@@ -186,12 +178,10 @@ class GraphSensorFragment : Fragment() {
         setFragmentResultListener(REQUEST_KEY_DATE_RANGE) { _, bundle ->
             val fromTimestamp = bundle.getLong(KEY_FROM_TIMESTAMP)
             val toTimestamp = bundle.getLong(KEY_TO_TIMESTAMP)
-            // Check if valid timestamps received
+            // Check timestamps
             if (fromTimestamp > 0 && toTimestamp > 0) {
                 getArgs()?.let {
-                    // Fetch data with the new range
                     graphSensorViewModel.fetchSensorData(
-                        it.id,
                         it.query,
                         fromTimestamp,
                         toTimestamp
@@ -249,10 +239,7 @@ class GraphSensorFragment : Fragment() {
             zoomEnabled = true,
             initialZoom = Zoom.Content,
         )
-
-
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

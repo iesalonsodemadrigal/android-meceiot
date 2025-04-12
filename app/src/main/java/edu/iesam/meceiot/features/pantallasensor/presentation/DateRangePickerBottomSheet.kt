@@ -39,20 +39,24 @@ class DateRangePickerBottomSheet : BottomSheetDialogFragment() {
         endCalendar.timeInMillis = System.currentTimeMillis()
         // Set initial start time to 6 hours before now (matching default)
         startCalendar.timeInMillis =
-            endCalendar.timeInMillis - GraphSensorFragment.DEFAULT_TIME_RANGE_HOURS * 60 * 60 * 1000
+            endCalendar.timeInMillis - GraphSensorFragment.DEFAULT_TIME_RANGE
         // Update text views with initial defaults
         updateStartDateTimeText()
         updateEndDateTimeText()
     }
 
     private fun setupClickListeners() {
-        binding.buttonSelectStartDate.setOnClickListener { showDatePicker(true) }
-        binding.buttonSelectStartTime.setOnClickListener { showTimePicker(true) }
-        binding.buttonSelectEndDate.setOnClickListener { showDatePicker(false) }
-        binding.buttonSelectEndTime.setOnClickListener { showTimePicker(false) }
+        binding.apply {
+            // Configurar selectores de fecha y hora
+            buttonSelectStartDate.setOnClickListener { showDatePicker(isStart = true) }
+            buttonSelectStartTime.setOnClickListener { showTimePicker(isStart = true) }
+            buttonSelectEndDate.setOnClickListener { showDatePicker(isStart = false) }
+            buttonSelectEndTime.setOnClickListener { showTimePicker(isStart = false) }
 
-        binding.buttonCancel.setOnClickListener { dismiss() }
-        binding.buttonApply.setOnClickListener { applyDateRange() }
+            // Botones de acción
+            buttonCancel.setOnClickListener { dismiss() }
+            buttonApply.setOnClickListener { applyDateRange() }
+        }
     }
 
     private fun showDatePicker(isStart: Boolean) {

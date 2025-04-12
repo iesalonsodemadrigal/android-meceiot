@@ -17,7 +17,6 @@ class GraphSensorViewModel(private val getGraphSensorDataUseCase: GetGraphSensor
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 
-
     fun fetchSensorData(query: String, from: Long, to: Long) {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {

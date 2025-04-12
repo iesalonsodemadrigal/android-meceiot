@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
     android:layout_marginHorizontal="@dimen/margin_medium"
     android:layout_marginTop="@dimen/toolbar_height"
     tools:context="edu.iesam.meceiot.core.presentation.views.ErrorAppView">

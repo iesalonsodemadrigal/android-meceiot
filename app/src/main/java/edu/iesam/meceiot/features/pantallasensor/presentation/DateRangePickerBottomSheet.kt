@@ -46,17 +46,13 @@ class DateRangePickerBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun setupClickListeners() {
-        binding.apply {
-            // Configurar selectores de fecha y hora
-            buttonSelectStartDate.setOnClickListener { showDatePicker(isStart = true) }
-            buttonSelectStartTime.setOnClickListener { showTimePicker(isStart = true) }
-            buttonSelectEndDate.setOnClickListener { showDatePicker(isStart = false) }
-            buttonSelectEndTime.setOnClickListener { showTimePicker(isStart = false) }
+        binding.buttonSelectStartDate.setOnClickListener { showDatePicker(true) }
+        binding.buttonSelectStartTime.setOnClickListener { showTimePicker(true) }
+        binding.buttonSelectEndDate.setOnClickListener { showDatePicker(false) }
+        binding.buttonSelectEndTime.setOnClickListener { showTimePicker(false) }
 
-            // Botones de acción
-            buttonCancel.setOnClickListener { dismiss() }
-            buttonApply.setOnClickListener { applyDateRange() }
-        }
+        binding.buttonCancel.setOnClickListener { dismiss() }
+        binding.buttonApply.setOnClickListener { applyDateRange() }
     }
 
     private fun showDatePicker(isStart: Boolean) {

@@ -3,7 +3,7 @@ package edu.iesam.meceiot.features.pantallasensor.data.local.db
 import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import java.util.Date
 
-fun GraphSensor.toEntity(): GraphSensorEntity =
+fun GraphSensor.toEntity(fromDate: Long, toDate: Long): GraphSensorEntity =
     GraphSensorEntity(
         id = this.id,
         nombre = this.name,
@@ -15,6 +15,8 @@ fun GraphSensor.toEntity(): GraphSensorEntity =
         minValue = this.minValue,
         avgValue = this.avgValue,
         modeValue = this.modeValue,
+        fromDate = fromDate,
+        toDate = toDate,
         date = Date()
     )
 

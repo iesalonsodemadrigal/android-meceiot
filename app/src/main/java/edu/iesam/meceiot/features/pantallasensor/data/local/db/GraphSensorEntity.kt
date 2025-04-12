@@ -19,6 +19,8 @@ class GraphSensorEntity(
     @ColumnInfo(name = "minValue") val minValue: String,
     @ColumnInfo(name = "avgValue") val avgValue: String,
     @ColumnInfo(name = "modeValue") val modeValue: String,
+    @ColumnInfo(name = "from_date") val fromDate: Long, // Rango de fecha inicio
+    @ColumnInfo(name = "to_date") val toDate: Long,     // Rango de fecha fin
     @ColumnInfo(name = "createdAt") val date: Date
 )
 

@@ -17,12 +17,12 @@ class GraphGraphSensorDataRepository(
         from: Long,
         to: Long
     ): Result<GraphSensor> {
-        val localResult = local.getById(id)
+        val localResult = local.getByIdAndDateRange(id, from, to)
         return if (localResult.isFailure) {
             val remoteResult = remote.getSensorData(query, from, to)
             remoteResult.apply {
                 onSuccess {
-                    local.save(it)
+                    local.save(it, from, to)
                 }
             }
         } else {

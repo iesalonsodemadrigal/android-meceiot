@@ -1,6 +1,6 @@
 <resources>
     <!-- App General -->
-    <string name="app_name">android-meceiot</string>
+    <string name="app_name">MeceIoT</string>
     <string name="title">Title</string>
     <string name="image_item">ImageItem</string>
 

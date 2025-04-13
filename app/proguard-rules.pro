@@ -27,7 +27,8 @@
 -keep class edu.iesam.meceiot.features.sensorpanels.data.local.db.PanelEntity { *; }
 -keep class edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity { *; }
 
--keep class du.iesam.meceiot.features.grafana.data.models.**
+-keep class edu.iesam.meceiot.features.grafana.data.models.** { *; }
+-keep class edu.iesam.meceiot.features.login.domain.LoginCredentials { *; }
 
 ### Firebase Auth
 -keep class com.google.android.gms.internal.** { *; }

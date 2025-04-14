@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="edu.iesam.meceiot.core.presentation.views.ErrorAppView">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image_error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +26,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/description_error"
         style="@style/AppTitle"
+        android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="@string/description_error" />

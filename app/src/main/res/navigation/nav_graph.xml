@@ -111,7 +111,7 @@
 
     <dialog
         android:id="@+id/dateRangePickerBottomSheet"
-        android:name="edu.iesam.meceiot.features.pantallasensor.presentation.DateRangePickerBottomSheet"
+        android:name="edu.iesam.meceiot.features.pantallasensor.presentation.datePickerBotomSheet.DateRangePickerBottomSheet"
         android:label="DateRangePickerBottomSheet"
         tools:layout="@layout/bottom_sheet_date_range_picker" />
 

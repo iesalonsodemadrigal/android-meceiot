@@ -1,4 +1,4 @@
-package edu.iesam.meceiot.features.pantallasensor.presentation
+package edu.iesam.meceiot.features.pantallasensor.presentation.datePickerBotomSheet
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -15,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.BottomSheetDateRangePickerBinding
+import edu.iesam.meceiot.features.pantallasensor.presentation.GraphSensorFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Calendar
@@ -101,10 +102,10 @@ class DateRangePickerBottomSheet : BottomSheetDialogFragment() {
     private fun processResult(result: Pair<Long, Long>?) {
         result?.let { (startTime, endTime) ->
             setFragmentResult(
-                GraphSensorFragment.REQUEST_KEY_DATE_RANGE,
+                GraphSensorFragment.Companion.REQUEST_KEY_DATE_RANGE,
                 bundleOf(
-                    GraphSensorFragment.KEY_FROM_TIMESTAMP to startTime,
-                    GraphSensorFragment.KEY_TO_TIMESTAMP to endTime
+                    GraphSensorFragment.Companion.KEY_FROM_TIMESTAMP to startTime,
+                    GraphSensorFragment.Companion.KEY_TO_TIMESTAMP to endTime
                 )
             )
             viewModel.resultSent()

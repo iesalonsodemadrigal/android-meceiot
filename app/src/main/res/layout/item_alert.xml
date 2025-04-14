@@ -17,7 +17,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title_alert"
-        style="@style/AppTitle"
+        style="@style/AppHeadlineListItem"
         android:layout_width="@dimen/null_value"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_horizontal"

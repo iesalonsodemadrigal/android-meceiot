@@ -1,54 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="edu.iesam.meceiot.core.presentation.views.ErrorAppView">
 
     <ImageView
         android:id="@+id/image_error"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="@dimen/margin_extra_high"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         tools:src="@tools:sample/avatars" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title_error"
+        style="@style/AppDisplaySmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        android:text="@string/title_error"
-        android:textSize="@dimen/font_size_extra_high"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_error" />
+        android:layout_margin="@dimen/spacing_vertical"
+        tools:text="@string/title_error" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/description_error"
+        style="@style/AppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        android:text="@string/description_error"
-        android:textSize="@dimen/font_size_high"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_error" />
+        tools:text="@string/description_error" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_retry_error"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/button_retry"
-        android:textSize="@dimen/font_size_extra_high"
-        android:layout_marginTop="@dimen/margin_medium"
-        app:layout_constraintTop_toBottomOf="@+id/description_error"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginVertical="@dimen/spacing_vertical"
+        android:text="@string/button_retry" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

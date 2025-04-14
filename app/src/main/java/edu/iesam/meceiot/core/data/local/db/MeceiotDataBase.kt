@@ -3,6 +3,7 @@ package edu.iesam.meceiot.core.data.local.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import edu.iesam.meceiot.BuildConfig
 import edu.iesam.meceiot.core.data.local.db.converters.DateConverter
 import edu.iesam.meceiot.core.data.local.db.converters.LongListConverter
 import edu.iesam.meceiot.core.data.local.db.converters.SensorListConverter
@@ -28,7 +29,7 @@ import edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity
         PanelEntity::class,
         GraphSensorEntity::class,
         AlertEntity::class],
-    version = 15,
+    version = BuildConfig.VERSION_CODE,
     exportSchema = false
 )
 @TypeConverters(

@@ -4,41 +4,24 @@ import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import org.koin.core.annotation.Single
 
-const val TIME_SENSOR = 60000L
+const val TIME_SENSOR = 1000 * 60 * 5 // 5 minutes
 
 @Single
 class SensorDbDataSource(private val sensorDao: GraphSensorDao) {
 
-    fun getAll(): Result<List<GraphSensor>> {
-        val sensorEntities = sensorDao.getAll()
-        val validEntities = sensorEntities.filter { entity ->
-            val timeDifference = System.currentTimeMillis() - entity.date.time
-            timeDifference <= TIME_SENSOR
-        }
-        return if (validEntities.isEmpty()) {
-            Result.failure(ErrorApp.DataExpiredError)
-        } else {
-            Result.success(validEntities.mapNotNull { it.toDomain() })
-        }
-    }
-
-    fun saveAll(graphSensors: List<GraphSensor>) {
-        val sensorEntities = graphSensors.map { it.toEntity() }
-        sensorDao.insertAll(*sensorEntities.toTypedArray())
-    }
-
-    fun save(graphSensor: GraphSensor) {
-        val sensorEntity = graphSensor.toEntity()
+    fun save(graphSensor: GraphSensor, fromDate: Long, toDate: Long) {
+        val sensorEntity = graphSensor.toEntity(fromDate, toDate)
         sensorDao.insert(sensorEntity)
     }
 
-    fun getById(id: Int): Result<GraphSensor> {
-        val sensorEntity = sensorDao.getById(id)
-        return if (sensorEntity != null) {
-            Result.success(sensorEntity.toDomain())
+    fun getByIdAndDateRange(id: Int, fromDate: Long, toDate: Long): Result<GraphSensor> {
+        val sensorData = sensorDao.getById(id)
+        return if (sensorData == null || System.currentTimeMillis() - sensorData.date.time > TIME_SENSOR) {
+            Result.failure(ErrorApp.DataExpiredError)
+        } else if (sensorData.fromDate == fromDate && sensorData.toDate == toDate) {
+            Result.success(sensorData.toDomain())
         } else {
-            Result.failure(ErrorApp.DataErrorApp)
+            Result.failure(ErrorApp.DataExpiredError)
         }
     }
-
 }

@@ -11,7 +11,7 @@ interface GraphSensorDao {
     fun getAll(): List<GraphSensorEntity>
 
     @Query("SELECT * FROM $SENSOR_TABLE WHERE id = :id")
-    fun getById(id: Int): GraphSensorEntity
+    fun getById(id: Int): GraphSensorEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg sensorEntity: GraphSensorEntity)

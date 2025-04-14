@@ -200,4 +200,15 @@
     <string name="lora_use_examples_description">Un sensor de humedad en un viñedo envía datos cada 30 minutos. Usa LoRa para comunicarse con un gateway a 5 km de distancia. Este gateway manda los datos por 4G al servidor en la nube, que los muestra en un dashboard para agricultores.</string>
     <string name="title_item_lora">Lora</string>
     <string name="description_item_lora">Información sobre esta tecnología de radiofrecuencia.</string>
+
+    <!-- Date Range Picker Bottom Sheet -->
+    <string name="select_date_range">Seleccionar rango de fechas</string>
+    <string name="start_date_time">Fecha/Hora Inicio</string>
+    <string name="end_date_time">Fecha/Hora Fin</string>
+    <string name="select_date">Seleccionar Fecha</string>
+    <string name="select_time">Seleccionar Hora</string>
+    <string name="selected_datetime_format">Seleccionado: %1$s</string>
+    <string name="apply">Aplicar</string>
+    <string name="error_end_before_start">La fecha/hora de fin debe ser posterior a la de inicio.</string>
+    <string name="error_select_all_datetime">Por favor, seleccione fecha y hora de inicio y fin.</string>
 </resources>

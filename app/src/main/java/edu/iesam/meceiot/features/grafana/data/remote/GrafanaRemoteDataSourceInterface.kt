@@ -12,6 +12,6 @@ interface GrafanaRemoteDataSourceInterface {
     suspend fun getDashboardDetail(uid: String): Result<Panel>
     suspend fun queryData(body: InfluxQueryRequestDto): Result<List<InfluxQueryResponseDto>>
     suspend fun getSensorPanels(): Result<List<Panel>>
-    suspend fun getSensorData(query: String): Result<GraphSensor>
+    suspend fun getSensorData(query: String, from: Long, to: Long): Result<GraphSensor>
     suspend fun getSensorAlerts(): Result<List<Alert>>
 }

@@ -2,19 +2,34 @@ package edu.iesam.meceiot.features.pantallasensor.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.faltenreich.skeletonlayout.Skeleton
+import com.google.android.material.appbar.MaterialToolbar
 import com.patrykandpatrick.vico.core.cartesian.Zoom
 import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
 import com.patrykandpatrick.vico.core.cartesian.axis.VerticalAxis
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
+import com.patrykandpatrick.vico.core.cartesian.marker.CartesianMarker
+import com.patrykandpatrick.vico.core.cartesian.marker.DefaultCartesianMarker
+import com.patrykandpatrick.vico.core.common.Dimensions
+import com.patrykandpatrick.vico.core.common.component.LineComponent
+import com.patrykandpatrick.vico.core.common.component.ShapeComponent
+import com.patrykandpatrick.vico.core.common.component.TextComponent
+import com.patrykandpatrick.vico.core.common.shape.CorneredShape
+import com.patrykandpatrick.vico.core.common.shape.Shape
 import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
 import edu.iesam.meceiot.R
@@ -40,6 +55,12 @@ class GraphSensorFragment : Fragment() {
         x.toLong().toHourAndMinute()
     }
 
+    companion object {
+        const val REQUEST_KEY_DATE_RANGE = "dateRangePickerResult"
+        const val KEY_FROM_TIMESTAMP = "fromTimestamp"
+        const val KEY_TO_TIMESTAMP = "toTimestamp"
+        const val DEFAULT_TIME_RANGE = 6 * 60 * 60 * 1000 // 6 hours
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -52,7 +73,6 @@ class GraphSensorFragment : Fragment() {
 
     private fun setupView() {
         setupToolbar()
-
         cartesianChartView = binding.chart
     }
 
@@ -60,28 +80,37 @@ class GraphSensorFragment : Fragment() {
         binding.toolbar.viewToolbarDetail.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
-
         binding.toolbar.collapsingToolbar.title = getArgs()?.panelName
+        binding.toolbar.viewToolbarDetail.let { setupMenu(it) }
+    }
 
-        //Sin menu de momento...
-        //toolbar.inflateMenu(R.menu.options_graph_menu)
-        /*toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.fragment_options_graph -> {
-                    //findNavController().navigate(R.id.action_sensorFragment_to_optionsGraphFragment)
-                    true
-                }
-                else -> false
+    private fun setupMenu(toolbar: MaterialToolbar) {
+        toolbar.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.options_graph_menu, menu)
             }
-        }*/
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.action_select_range -> {
+                        findNavController().navigate(R.id.action_graphSensorFragment_toDateRangePickerBottomSheet)
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         skeleton = binding.sensorSkeleton
+        setupFragmentResultListener()
         setupObserver()
-        getArgs()?.let { sensor ->
-            graphSensorViewModel.fetchSensorData(sensor.id, sensor.query)
+        getArgs()?.let {
+            val currentTime = System.currentTimeMillis()
+            val fromTime = currentTime - DEFAULT_TIME_RANGE
+            graphSensorViewModel.fetchSensorData(it.query, fromTime, currentTime)
         }
     }
 
@@ -105,7 +134,14 @@ class GraphSensorFragment : Fragment() {
     private fun bindError(errorApp: ErrorApp?) {
         errorApp?.let {
             val errorAppUI = ErrorAppFactory(requireContext()).build(it) {
-                //graphSensorViewModel.fetchSensorData(getArgs())
+                val args = getArgs()
+                if (args != null) {
+                    graphSensorViewModel.fetchSensorData(
+                        args.query,
+                        System.currentTimeMillis() - DEFAULT_TIME_RANGE,
+                        System.currentTimeMillis()
+                    )
+                }
             }
             binding.errorAppView.render(errorAppUI)
         } ?: run {
@@ -138,8 +174,25 @@ class GraphSensorFragment : Fragment() {
         }
     }
 
+    private fun setupFragmentResultListener() {
+        setFragmentResultListener(REQUEST_KEY_DATE_RANGE) { _, bundle ->
+            val fromTimestamp = bundle.getLong(KEY_FROM_TIMESTAMP)
+            val toTimestamp = bundle.getLong(KEY_TO_TIMESTAMP)
+            // Check timestamps
+            if (fromTimestamp > 0 && toTimestamp > 0) {
+                getArgs()?.let {
+                    graphSensorViewModel.fetchSensorData(
+                        it.query,
+                        fromTimestamp,
+                        toTimestamp
+                    )
+                }
+            }
+        }
+    }
+
     private fun initializeChart(graphSensor: GraphSensor) {
-        val chart = cartesianChartView.chart!!
+        val chart = cartesianChartView.chart
         lifecycleScope.launch {
             modelProducer.runTransaction {
                 lineSeries {
@@ -150,16 +203,43 @@ class GraphSensorFragment : Fragment() {
         val valueFormatterYaxis = CartesianValueFormatter { _, y, _ ->
             y.toLong().formatValue(graphSensor.dataType)
         }
-        cartesianChartView.chart = chart.copy(
-            bottomAxis = (chart.bottomAxis as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
+
+        val marker: CartesianMarker = DefaultCartesianMarker(
+            label = TextComponent(
+                padding = Dimensions(8f, 4f),
+                background = ShapeComponent(
+                    shape = CorneredShape.Pill,
+                )
+            ),
+            labelPosition = DefaultCartesianMarker.LabelPosition.Top,
+            indicator = { color ->
+                LineComponent(
+                    color = color,
+                    shape = CorneredShape.Pill,
+                    shadow = null,
+                    thicknessDp = 10f,
+                    margins = Dimensions(10f)
+                )
+            },
+            indicatorSizeDp = 30f,
+            guideline = LineComponent(
+                color = R.color.md_theme_primary,
+                thicknessDp = 1f,
+                shape = Shape.Rectangle,
+                margins = Dimensions.Empty
+            )
+        )
+
+        cartesianChartView.chart = chart?.copy(
+            bottomAxis = ((chart.bottomAxis) as HorizontalAxis).copy(valueFormatter = valueFormatterXaxis),
             startAxis = (chart.startAxis as VerticalAxis).copy(valueFormatter = valueFormatterYaxis),
+            marker = marker,
         )
         cartesianChartView.zoomHandler = ZoomHandler(
             zoomEnabled = true,
             initialZoom = Zoom.Content,
         )
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

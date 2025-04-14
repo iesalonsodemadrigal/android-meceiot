@@ -45,6 +45,9 @@
         <argument
             android:name="query"
             app:argType="string" />
+        <action
+            android:id="@+id/action_graphSensorFragment_toDateRangePickerBottomSheet"
+            app:destination="@id/dateRangePickerBottomSheet" />
     </fragment>
 
     <fragment
@@ -108,5 +111,11 @@
         android:id="@+id/fragment_external_resources"
         android:name="edu.iesam.meceiot.features.externalresources.presentation.ExternalResourcesFragment"
         tools:layout="@layout/fragment_external_resources" />
+
+    <dialog
+        android:id="@+id/dateRangePickerBottomSheet"
+        android:name="edu.iesam.meceiot.features.pantallasensor.presentation.datePickerBotomSheet.DateRangePickerBottomSheet"
+        android:label="DateRangePickerBottomSheet"
+        tools:layout="@layout/bottom_sheet_date_range_picker" />
 
 </navigation>

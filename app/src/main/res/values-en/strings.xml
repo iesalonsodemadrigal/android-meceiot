@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">MeceIoT</string>
+    <string name="title">Title</string>
+    <string name="image_item">ImageItem</string>
+
+    <string name="login_title">MeCeIoT identification</string>
+    <string name="login_button">Access</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+
+    <string name="label_menu_a">LoraWan</string>
+
+    <string name="lorawan_info_file_xml">lorawan</string>
+
+    <string name="label_menu_b">fragmentB</string>
+    <string name="iot">IoT</string>
+
+    <string name="developer_name">Developer Name</string>
+    <string name="developer_filer_xml">developer_filer_xml</string>
+    <string name="developer_list">developer_list</string>
+
+    <string name="resource_description">Description of the resource</string>
+    <string name="resource_name">Name of the resource</string>
+    <string name="recursos_text">Third-party resources that have been used in the application</string>
+    <string name="recursos_externos">External Resources</string>
+
+    <string name="default_text">Lorem ipsum dolor sit amet consectetur adipiscing elit, montes dapibus cursus viverra himenaeos tempus natoque, elementum magna venenatis consequat nulla iaculis. Enim dictum eros tempor orci mi cras hac nostra purus duis iaculis, habitasse risus quam class fringilla porta convallis blandit cursus torquent ligula ultricies, litora dictumst nullam massa est interdum curabitur sociis primis commodo. Odio luctus elementum neque lectus porta felis penatibus non nisl, potenti nostra euismod ante nam imperdiet mattis id hac, orci phasellus varius gravida curae cum cras sapien.</string>
+
+    <string name="title_error">Error Title</string>
+    <string name="description_error">Error Description</string>
+    <string name="button_retry">Retry</string>
+
+    <string name="title_error_connection">Connection Error</string>
+    <string name="description_error_connection">Error in the internet connection. Please check and try again later</string>
+    <string name="button_retry_connection">Retry</string>
+
+    <string name="title_error_server">Server Error</string>
+    <string name="description_error_server">An error occurred related to the server connection</string>
+
+    <string name="title_error_unknown">Unknown Error</string>
+    <string name="description_error_unknown">An unknown error is occurring
+    in the system</string>
+
+    <string name="title_error_invalid_credentials">Incorrect username or password</string>
+    <string name="description_error_invalid_credentials">Incorrect credentials, please check and try again</string>
+    <string name="login_access_error">Error trying to access</string>
+
+    <string name="label_menu_panels">Panels</string>
+    <string name="toolbar_Panels">Panels</string>
+
+    <string name="title_settings">Settings</string>
+    <string name="settings">Settings</string>
+    <string name="proyecto">Project</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirmation">Are you sure you want to log out?\nYou will be returned to the login screen…</string>
+    <string name="logout_confirmation_affirmative">Yes</string>
+    <string name="logout_confirmation_negative">No</string>
+
+    <string name="user">User</string>
+
+    <string name="collaborators">Collaborators</string>
+
+    <string name="title_developers">Developers</string>
+    <string name="text_developers">Students who have developed the application</string>
+
+    <string name="title_resources">Resources</string>
+    <string name="text_resources">Third-party resources that have been used in the application</string>
+
+    <string name="text_sharing_message">Preparing to share…</string>
+    <string name="text_share_title">Select an app to share</string>
+    <string name="title_web">Web Page</string>
+    <string name="text_web">Tap to go to the center\'s website</string>
+    <string name="link_web">https://aulapragmatica.es/blog/meceiot/</string>
+
+    <string name="title_email">Contact Email</string>
+    <string name="text_email">alonsodevs@gmail.com</string>
+
+    <string name="title_store">Link to Play Store</string>
+    <string name="text_appstore">Share Application</string>
+    <string name="link_appstore">https://play.google.com/store/apps/details?id=edu.iesam.meceiot</string>
+
+    <string name="title_legal_warning">Legal Warning</string>
+    <string name="legal_warning_text">Tap to view the privacy policy</string>
+    <string name="link_legal_warning">https://aulapragmatica.es/projects/meceiot/legal.html</string>
+
+    <string name="title_version">Installed App</string>
+    <string name="text_version">Version</string>
+
+    <string name="action_button">Action Button</string>
+    <string name="test">Test</string>
+
+    <string name="opciones_seleccionadas">Selected options</string>
+    <string name="aciertos">Hits</string>
+    <string name="question">Question</string>
+    <string name="opciones_respuesta">Please complete all options.</string>
+
+    <string name="iot_title">IoT</string>
+    <string name="iot_description">IoT Description</string>
+    <string name="title_item">Title</string>
+    <string name="description_item">Description</string>
+
+    <string name="title_item_iot">IoT</string>
+    <string name="description_item_meceiot">MeCeIoT project for the improvement of educational centers with the Internet of Things (IoT).</string>
+    <string name="title_item_energy_saving">Energy saving with IoT.</string>
+    <string name="description_item_energy_saving">Information on the energy saving that can be obtained with IoT</string>
+    <string name="description_item_iot_alonso">Information on the use of IoT sensors to improve our center.</string>
+    <string name="title_item_internet">Internet of Things (IoT).</string>
+    <string name="description_item_internet">Information about the Internet of Things and its applications.</string>
+    <string name="title_item_alonso">IoT in Alonso</string>
+    <string name="description_item_alonso">Implementation and use of IoT in Alonso.</string>
+    <string name="title_item_meceiot">MeceIoT</string>
+    <string name="title_this_fragment">your title</string>
+    <string name="value_null">  </string>
+
+    <string name="alerts_title">Alerts</string>
+    <string name="label_menu_alerts">Alerts</string>
+    <string name="alert_title">Sensor Alert</string>
+    <string name="description_panel">Panel name, location</string>
+    <string name="alert_co2">High CO2 levels</string>
+    <string name="alert_temperature">Uncomfortable ambient temperature</string>
+    <string name="alert_light">Space with light</string>
+    <string name="alert_humidity">Uncomfortable ambient humidity</string>
+    <string name="alert_movement">Possible presence of movement</string>
+    <string name="alert_sound">High ambient sound</string>
+
+    <string name="max">Max.</string>
+    <string name="media">Average</string>
+    <string name="chart_options">Chart Options</string>
+    <string name="min">Min.</string>
+    <string name="mode">Mode</string>
+    <string name="sensor_name">Sensor: %1$s </string>
+    <string name="sensor_graph_title_details_values">Average values</string>
+    <string name="sensor_graph_title_values">Graph</string>
+
+    <string name="objectives">Objectives</string>
+    <string name="objectives_description">Analyze the evolution of chosen environmental parameters in a place of interest for the center, based on data from IoT sensors, for example, noise, light, temperature, or CO2 sensors.\n\nAfter this study, the center carries out a series of improvements that it will evaluate through the monitoring of IoT sensors.</string>
+    <string name="participants">Participants</string>
+    <string name="participants_description">Interested centers in the province of Ávila that teach 3rd and 4th year of ESO may submit a proposal.</string>
+    <string name="materials">Materials</string>
+    <string name="materials_description">The IoT sensors and the gateway, as well as their installation and training to access the data, will be provided by the University. Once the project is finished, sensors and gateway must be returned.</string>
+    <string name="evaluation_criteria">Evaluation criteria</string>
+    <string name="evaluation_criteria_description"><![CDATA[Three prizes will be awarded:\n- Best technological project following the project evaluation criteria.\n- Best project with IoT sensor design.\n- Most active center in social networks: center with the highest number of publications on social networks and views.\n\nAll prizes will consist of a trip to the Valladolid Science Museum (transportation (1 bus) and entrance for teachers and students involved in the project), in the month of May.\n\nIn any case, all selected projects will have their own recognition and will be able to travel free of charge to the Fair that will be held at the Higher Polytechnic School of Ávila (1 bus per center).]]></string>
+    <string name="what_is_iot">What is it?</string>
+    <string name="what_is_iot_description">The Internet of Things or IoT refers to the connection of physical objects to the Internet so that they can collect data, communicate with each other and with other systems, and make decisions or activate automatic actions.</string>
+    <string name="key_components">Key components of IoT</string>
+    <string name="key_components_description">1. Smart devices or sensors \nCollect information from the environment: temperature, light, movement, humidity, CO₂, etc. \n2. Connectivity \nUse Wi-Fi, Bluetooth, LoRa, Zigbee, 4G/5G to send data to the cloud or other devices. \n3. Processing and analysis \nData is processed in the cloud, servers, or even on the device itself (edge computing). \n4. User interface \nUsers access information through apps, web panels, or notifications.</string>
+    <string name="advantages">Advantages</string>
+    <string name="advantages_description">- Task automation. \n- Energy saving. \n- Improvement of efficiency and quality of life. \n- Massive collection of useful data for decision making.</string>
+    <string name="challenges">Challenges</string>
+    <string name="challenges_description">- Security: many connected devices = more hacking risks. \n- Privacy: large amount of personal data. \n- Interoperability: each manufacturer may use different protocols. \n- Data management: huge volume of information (Big Data).</string>
+    <string name="examples">Examples of IoT applications</string>
+    <string name="examples_description">- Smart Home IoT: Lights that turn on when motion is detected, blinds that lower at sunset. \n- Smart agriculture: soil moisture sensors that activate irrigation automatically. \n- Health: bracelets that measure heart rate and send it to the doctor in real time. \n- Smart cities: garbage containers that notify when they are full. \n- Education: sensors in classrooms that measure noise, CO₂, or temperature to improve the environment.</string>
+    <string name="iot_in_alonso">IoT in Alonso</string>
+    <string name="iot_in_alonso_description">In our center we have four IoT panels with the following sensors: movement, light, CO2, noise, humidity and temperature.\nThey are installed in two classrooms and two hallways.\n\nThese sensors are used to analyze the data obtained and know if:\nIf there are lights on outside of school hours.\nIf a class has a high CO2 level and needs to be ventilated.\nIn case of evacuation, are there students in the classrooms.</string>
+    <string name="learning_and_teaching">Learning and teaching</string>
+    <string name="learning_and_teaching_description">This project allows teachers and students to apply practical knowledge about the Internet of Things through LoraWan wireless communication.\nEach year, new ideas are proposed to be used with these sensors and with the concepts of the subject or module curriculum.</string>
+    <string name="meceiot_app">MeceIoT App</string>
+    <string name="meceiot_app_description">In the 2024/25 academic year, the development of a mobile application that allows visualization of the data offered by the sensors has been proposed as a project to work with these sensors.\nIn addition, an alert functionality is added to display in the foreground out-of-range values provided by a sensor that require action, for example, a Co2 level that is too high.</string>
+    <string name="what_is_lora">What is Lora?</string>
+    <string name="what_is_lora_description">LoRa is an acronym for Long Range. It is a radio frequency modulation technology that allows wireless communication over very long distances with very low energy consumption.\nIt is not a protocol, it is just the physical layer (the way bits are transmitted over the air).\n- Range: from 2 to 15 km, depending on the environment (urban or rural).\n- Low consumption: ideal for battery-powered sensors that should last for years.\n- Secure transmission, but low speed (not suitable for video, for example).</string>
+    <string name="what_is_lorawan">What is LoraWan?</string>
+    <string name="what_is_lorawan_description">LoRaWAN (Long Range Wide Area Network) is the network protocol built on top of LoRa. It defines how LoRa devices communicate with a server through gateways, how messages, security, keys, authentication, and more are managed.\nImagine that:\n- LoRa = the walkie-talkie\n- LoRaWAN = the rules of the conversation (who speaks, when, how to respond…)</string>
+    <string name="how_lorawan_works">How does LoraWan work?</string>
+    <string name="how_lorawan_works_description">1. LoRa IoT node or sensor: Sends data (temperature, humidity, etc.) via LoRa. \n2. LoRaWAN Gateway: Receives the signal and transmits it to the internet (usually via Ethernet or 4G). \n3. LoRaWAN Network Server: Manages devices, security, message queues, etc. \n4. Application Server: Receives the useful data, displays it on dashboards, or saves it.</string>
+    <string name="lora_advantages">Advantages</string>
+    <string name="lora_advantages_description">- Long distance without the need for mobile networks.\n- Low consumption: devices running on batteries for years.\n- Private or public networks (The Things Network, Helium…).\n- Ideal for distributed IoT: agriculture, environment, Smart Cities…</string>
+    <string name="lora_limitations">Limitations</string>
+    <string name="lora_limitations_description">- Very low transmission speed (~0.3 kbps to 50 kbps).\n- Limited bandwidth and restriction on the number of messages per day.\n- Not suitable for real-time or multimedia.\n- Needs gateway or LoRaWAN coverage in the area.</string>
+    <string name="lora_use_examples">Example of use</string>
+    <string name="lora_use_examples_description">A humidity sensor in a vineyard sends data every 30 minutes. It uses LoRa to communicate with a gateway 5 km away. This gateway sends the data via 4G to the server in the cloud, which displays it on a dashboard for farmers.</string>
+    <string name="title_item_lora">Lora</string>
+    <string name="description_item_lora">Information about this radio frequency technology.</string>
+
+    <string name="select_date_range">Select date range</string>
+    <string name="start_date_time">Start Date/Time</string>
+    <string name="end_date_time">End Date/Time</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="selected_datetime_format">Selected: %1$s</string>
+    <string name="apply">Apply</string>
+    <string name="error_end_before_start">End date/time must be after start date/time.</string>
+    <string name="error_select_all_datetime">Please select start and end date and time.</string>
+</resources>

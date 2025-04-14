@@ -17,11 +17,11 @@ class GraphSensorViewModel(private val getGraphSensorDataUseCase: GetGraphSensor
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 
-
-    fun fetchSensorData(id: Int, query: String) {
+    fun fetchSensorData(query: String, from: Long, to: Long) {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            val sensor = getGraphSensorDataUseCase.invoke(id, query)
+            // Usamos el hashCode del query como ID único y consistente
+            val sensor = getGraphSensorDataUseCase.invoke(query.hashCode(), query, from, to)
             _uiState.postValue(
                 UiState(
                     loading = false,
@@ -31,7 +31,6 @@ class GraphSensorViewModel(private val getGraphSensorDataUseCase: GetGraphSensor
             )
         }
     }
-
 
     data class UiState(
         val loading: Boolean = true,

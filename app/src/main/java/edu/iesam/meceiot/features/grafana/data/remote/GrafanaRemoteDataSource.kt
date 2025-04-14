@@ -98,30 +98,34 @@ class GrafanaRemoteDataSource(
         )
     }
 
-    override suspend fun getSensorData(query: String): Result<GraphSensor> {
-        // Create time range for query (last 6 hours)
-        val toTime = System.currentTimeMillis()
-        val fromTime = System.currentTimeMillis() - 6 * 60 * 60 * 1000
-
-        // Create request object with query
+    override suspend fun getSensorData(query: String, from: Long, to: Long): Result<GraphSensor> {
+        // Log para diagnóstico
+        val queryHashCode = query.hashCode()
+        android.util.Log.d(
+            "GrafanaRemoteDS",
+            "Getting sensor data for query (hash: $queryHashCode): $query"
+        )
+        
+        // Create request object with query using the provided 'from' and 'to'
         val requestDto = InfluxQueryRequestDto(
             queries = listOf(
                 InfluxQueryDto(
                     query = query,
                     refId = "A",
                     datasourceId = 4, // Default datasource ID for InfluxDB
-                    intervalMs = 20000, // 1 minute interval
+                    intervalMs = 20000,
                     maxDataPoints = 1000
                 )
             ),
-            from = fromTime.toString(),
-            to = toTime.toString()
+            from = from.toString(),
+            to = to.toString()
         )
 
         // Execute the query
         return queryData(requestDto).fold(
             onSuccess = { responses ->
                 if (responses.isEmpty() || responses[0].results.isEmpty()) {
+                    android.util.Log.e("GrafanaRemoteDS", "No data returned from query")
                     Result.failure(Exception("No data returned from query"))
                 } else {
                     // Extract data from the first response
@@ -129,6 +133,7 @@ class GrafanaRemoteDataSource(
                         ?: return Result.failure(Exception("No results for reference A"))
 
                     if (result.frames.isEmpty()) {
+                        android.util.Log.e("GrafanaRemoteDS", "No frames in result")
                         return Result.failure(Exception("No frames in result"))
                     }
 
@@ -137,6 +142,7 @@ class GrafanaRemoteDataSource(
                     val values = frame.data.values
 
                     if (values.size < 2) {
+                        android.util.Log.e("GrafanaRemoteDS", "Insufficient data in response")
                         return Result.failure(Exception("Insufficient data in response"))
                     }
 
@@ -145,6 +151,7 @@ class GrafanaRemoteDataSource(
                     val dataValues = values[1].mapNotNull { (it as? Double)?.toInt() }
 
                     if (timestamps.isEmpty() || dataValues.isEmpty()) {
+                        android.util.Log.e("GrafanaRemoteDS", "Empty data series")
                         return Result.failure(Exception("Empty data series"))
                     }
 
@@ -172,9 +179,12 @@ class GrafanaRemoteDataSource(
                         else -> "units"
                     }
 
+                    // Usamos el hash del query como ID consistente
+                    val sensorId = queryHashCode
+                    
                     // Create GraphSensor object
                     val graphSensor = GraphSensor(
-                        id = query.hashCode(),
+                        id = sensorId, // Usamos el ID consistente
                         name = frame.schema.refId,
                         panelName = "Sensor Data",
                         dataType = dataType,
@@ -186,10 +196,18 @@ class GrafanaRemoteDataSource(
                         modeValue = "$mode $dataType"
                     )
 
+                    android.util.Log.d(
+                        "GrafanaRemoteDS",
+                        "Sensor data retrieved successfully for ID=$sensorId, values size=${timestamps.size}"
+                    )
                     Result.success(graphSensor)
                 }
             },
             onFailure = { error ->
+                android.util.Log.e(
+                    "GrafanaRemoteDS",
+                    "Error retrieving sensor data: ${error.message}"
+                )
                 Result.failure(error)
             }
         )
@@ -207,7 +225,13 @@ class GrafanaRemoteDataSource(
                                 async {
                                     try {
                                         // Query data for this sensor
-                                        val sensorDataResult = getSensorData(sensor.query)
+                                        // --- Need to define default 'from' and 'to' for alerts ---
+                                        // --- Using the previous default (last 6 hours) for now --- 
+                                        val toTime = System.currentTimeMillis()
+                                        val fromTime =
+                                            System.currentTimeMillis() - 6 * 60 * 60 * 1000
+                                        val sensorDataResult =
+                                            getSensorData(sensor.query, fromTime, toTime)
                                         sensorDataResult.fold(
                                             onSuccess = { graphSensor ->
                                                 // Helper function to determine sensor type from name and query
@@ -293,4 +317,3 @@ class GrafanaRemoteDataSource(
         )
     }
 }
-                                                   

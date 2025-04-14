@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/md_theme_primaryContainer"
+    android:background="@color/md_theme_background"
     android:layout_width="match_parent"
     android:layout_height="@dimen/size_media_listitem"
     android:gravity="center"
@@ -10,6 +10,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/panel_name"
         style="@style/AppHeadlineListItem"
+        android:textColor="@color/md_theme_primary"
         android:layout_width="match_parent"
         android:layout_height="@dimen/font_size_high"
         android:layout_gravity="center_vertical"

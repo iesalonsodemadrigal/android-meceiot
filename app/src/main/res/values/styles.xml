@@ -22,8 +22,9 @@
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 
-    <style name="AppDisplay" parent="TextAppearance.Material3.DisplaySmall">
+    <style name="AppDisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textSize">@dimen/font_size_extra_high</item>
     </style>
 
     <!-- End Text -->
@@ -48,7 +49,7 @@
 
     <!-- Settings -->
     <style name="AppTitleSectionSettings" parent="TextAppearance.Material3.TitleSmall">
-        <item name="android:textColor">@color/md_theme_primary</item>
+
     </style>
 
     <style name="AppTitleOptionSettings" parent="TextAppearance.Material3.BodyMedium">
@@ -67,8 +68,8 @@
         <item name="android:layout_width">@dimen/size_media_listitem</item>
     </style>
 
-    <style name="AppHeadlineListItem" parent="AppHeadline">
-        <item name="android:textColor">@color/md_theme_onSurface</item>
+    <style name="AppHeadlineListItem" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 
     <style name="AppSupportingTextListItem" parent="AppSupportingText">
@@ -105,8 +106,21 @@
     </style>
 
     <style name="ChartStyle">
+        <item name="lineLayerStyle">@style/LineLayerStyle</item>
         <item name="layers">line</item>
+        <item name="fadingEdgeWidth">32dp</item>
         <item name="showBottomAxis">true</item>
         <item name="showStartAxis">true</item>
     </style>
+
+    <style name="LineLayerStyle">
+        <item name="line1Style">@style/LineStyle</item>
+    </style>
+
+    <style name="LineStyle">
+        <item name="color">@color/md_theme_primary</item>
+        <item name="gradientTopColor">@color/md_theme_primary</item>
+        <item name="gradientBottomColor">@android:color/transparent</item>
+    </style>
+
 </resources>

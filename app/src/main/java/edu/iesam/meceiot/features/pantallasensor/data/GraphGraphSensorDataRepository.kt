@@ -8,19 +8,25 @@ import org.koin.core.annotation.Single
 
 @Single
 class GraphGraphSensorDataRepository(
-    private val remoteDataSource: GrafanaRemoteDataSource,
-    private val localDataSource: SensorDbDataSource
+    private val remote: GrafanaRemoteDataSource,
+    private val local: SensorDbDataSource
 ) : GraphSensorRepository {
-    override suspend fun getSensorDataById(id: Int, query: String): Result<GraphSensor> {
-        val localResult = localDataSource.getById(id)
-        return if (localResult.isSuccess) {
-            localResult
-        } else {
-            val remoteResult = remoteDataSource.getSensorData(query)
-            if (remoteResult.isSuccess) {
-                localDataSource.save(remoteResult.getOrThrow())
+    override suspend fun getSensorDataById(
+        id: Int,
+        query: String,
+        from: Long,
+        to: Long
+    ): Result<GraphSensor> {
+        val localResult = local.getByIdAndDateRange(id, from, to)
+        return if (localResult.isFailure) {
+            val remoteResult = remote.getSensorData(query, from, to)
+            remoteResult.apply {
+                onSuccess {
+                    local.save(it, from, to)
+                }
             }
-            remoteResult
+        } else {
+            return localResult
         }
     }
 }

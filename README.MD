@@ -5,6 +5,8 @@ dispositivos inteligentes en el hogar. Diseñada para monitorizar y controlar un
 dispositivos de IoT de forma accesible y eficiente, Meceliot integra diferentes tipos de datos y
 sensores para ofrecer una experiencia completa e intuitiva.
 
+Es un proyecto desarrollado por el grupo de investigación **TIDOP** de la USAL (Campus Ávila).
+
 ---
 
 ## 🌐 ¿Qué es IoT?

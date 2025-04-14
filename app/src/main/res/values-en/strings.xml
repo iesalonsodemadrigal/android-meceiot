@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MeceIoT</string>
     <string name="title">Title</string>
@@ -70,7 +69,7 @@
     <string name="text_sharing_message">Preparing to share…</string>
     <string name="text_share_title">Select an app to share</string>
     <string name="title_web">Web Page</string>
-    <string name="text_web">Tap to go to the center's website</string>
+    <string name="text_web">Tap to go to the center\'s website</string>
     <string name="link_web">https://aulapragmatica.es/blog/meceiot/</string>
 
     <string name="title_email">Contact Email</string>

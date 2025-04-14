@@ -1,84 +1,55 @@
-# 🚀 MeceIoT
+# 🏫 IoT en los Centros Educativos
 
-**Meceliot** es una aplicación de IoT desarrollada para facilitar la conexión y gestión de
-dispositivos inteligentes en el hogar. Diseñada para monitorizar y controlar una amplia variedad de
-dispositivos de IoT de forma accesible y eficiente, Meceliot integra diferentes tipos de datos y
-sensores para ofrecer una experiencia completa e intuitiva.
+Esta aplicación móvil ha sido desarrollada por un equipo de estudiantes del **IES Alonso de Madrigal** como parte de su proyecto de fin de ciclo del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma.
 
-Es un proyecto desarrollado por el grupo de investigación **TIDOP** de la USAL (Campus Ávila).
+Su objetivo principal es informar a los usuarios sobre las tecnologías de redes de bajo consumo y largo alcance **LoRa** y **LoRaWAN**, así como sobre la iniciativa **MeCeIoT** de la **Universidad de Salamanca**.
 
-El **IES Alonso de Madrigal** ha desarrollado una aplicación móvil como parte de su metodología Aprendizaje Basado en Proyectos en el Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma.
+Además, la aplicación ofrece dos secciones principales donde los usuarios autenticados pueden visualizar la información de los **sensores** y las **alertas** generadas en su centro educativo. Estos sensores son desplegados por la Universidad de Salamanca para recopilar datos relevantes que se muestran en la aplicación a través de gráficas y sistemas de alerta.
 
 ---
 
-## 🌐 ¿Qué es IoT?
+## 📡 ¿Qué son LoRa y LoRaWAN?
 
-**IoT (Internet of Things)** o **Internet de las Cosas** es una red de dispositivos físicos que
-están conectados a Internet, permitiendo que recopilen, compartan y analicen datos entre ellos.
-Estos dispositivos, que pueden incluir desde sensores y electrodomésticos hasta cámaras de seguridad
-y dispositivos médicos, son capaces de enviar y recibir información para facilitar la automatización
-y el control de distintas tareas y funciones, mejorando así la eficiencia y la calidad de vida.
+**LoRa (Long Range)** es una tecnología de modulación de radiofrecuencia que permite la comunicación inalámbrica de bajo consumo y largo alcance. Es ideal para aplicaciones de IoT donde se necesita transmitir pequeñas cantidades de datos a distancias significativas con un consumo de energía mínimo.
 
-### ¿Cómo Funciona IoT?
+**LoRaWAN (Long Range Wide Area Network)** es un protocolo de red construido sobre la tecnología LoRa. Define la arquitectura del sistema y el protocolo de comunicación para redes LPWAN (Low Power Wide Area Network), permitiendo la conexión de múltiples dispositivos a una red gestionada.
 
-Los dispositivos de IoT suelen estar equipados con sensores y software que les permiten recopilar
-información en tiempo real. Estos datos se envían a un servidor o una plataforma central donde se
-procesan y analizan. A partir de esta información, el usuario puede recibir alertas, realizar
-ajustes automáticos o ejecutar acciones manuales desde una aplicación, como es el caso de **Meceliot**.
+### ¿Cómo se utilizan en esta aplicación?
 
-### IoT en Meceliot
-
-En el caso de **Meceliot**, la tecnología IoT se aplica para ofrecer un control completo sobre
-distintos dispositivos inteligentes en el hogar. La aplicación permite la interacción con
-dispositivos como:
-
-- **Sensores de temperatura y humedad**, que recopilan datos ambientales para ajustar la
-  climatización.
-- **Iluminación inteligente**, controlada desde cualquier parte para optimizar el consumo
-  energético.
-- **Sensores de movimiento**, que contribuyen a la seguridad al detectar actividad inesperada en el
-  hogar.
-
-Gracias a IoT, **Meceliot** permite que los dispositivos funcionen en conjunto para hacer que el
-centro educativo sea más inteligente, seguro y eficiente.
+La red de sensores desplegada por la Universidad de Salamanca en los centros educativos utiliza la tecnología LoRaWAN para transmitir los datos de los sensores de forma eficiente y de bajo consumo. La aplicación **IoT en los Centros Educativos** se conecta a esta infraestructura para recibir y mostrar la información recopilada.
 
 ---
 
-## ⚙️ Funcionalidades de Meceliot
+## 💡 ¿Qué es MeCeIoT?
 
-La aplicación permite la visualización y gestión de los siguientes dispositivos de IoT:
+**MeCeIoT (Mecanismos de Conectividad Eficiente para el Internet de las Cosas)** es una iniciativa de la **Universidad de Salamanca (Campus Ávila)**, liderada por el grupo de investigación **TIDOP**, que busca facilitar la conexión y gestión de dispositivos IoT en diversos entornos, incluyendo los centros educativos.
 
-- 🌡️ **Sensores de temperatura y humedad**
-- 💡 **Iluminación inteligente**
-- 🚶 **Sensores de movimiento**
-
-Para más información sobre el desarrollo y características de este proyecto, visita
-nuestra [Web oficial de Aula Pragmática](https://aulapragmatica.es/blog/meceiot).
+Este proyecto tiene como objetivo principal la investigación y el desarrollo de soluciones de conectividad eficientes y de bajo coste para aplicaciones de Internet de las Cosas. La aplicación desarrollada por el IES Alonso de Madrigal se integra con la infraestructura MeCeIoT para acceder a los datos de los sensores instalados.
 
 ---
 
-## 🌐 Meceliot Mobile
+## ⚙️ Funcionalidades de la Aplicación
 
-**Meceliot Mobile** es una aplicación complementaria que permite la visualización de todos los
-dispositivos conectados. Desde esta plataforma, los administradores pueden obtener información sobre los sensores conectados,
-personalizar alertas y analizar datos en tiempo real.
+La aplicación **IoT en los Centros Educativos** ofrece las siguientes funcionalidades principales para los usuarios autenticados:
 
----
-
-## 📄 Instalación y Configuración
-
-1. **Descargar la Aplicación:** Encuentra Meceliot en [Google Play](https://play.google.com/store/apps/details?id=edu.iesam.meceiot).
-2. **Accede con tu cuenta:** Necesitarás una cuenta para acceder a todas las funcionalidades de Meceliot
-   y Meceliot App.
+1.  **Visualización de Información de Sensores:** Permite acceder a los datos recopilados por los diferentes sensores instalados en el centro educativo. Esta información se presenta de forma clara y concisa, a menudo a través de gráficas para facilitar su comprensión.
+2.  **Sistema de Alertas:** Muestra alertas generadas por el sistema en función de los datos de los sensores. Estas alertas pueden indicar situaciones anómalas o eventos relevantes que requieren la atención del usuario.
 
 ---
 
+## 📱 Acceso a la Aplicación
 
-## 👥 Colaboradores
+1.  **Descarga la Aplicación:** Encuentra la aplicación **IoT en los Centros Educativos** en [Google Play](https://play.google.com/store/apps/details?id=edu.iesam.meceiot).
+2.  **Accede con tu cuenta:** Utiliza las credenciales proporcionadas por el centro educativo para iniciar sesión y acceder a la información de los sensores y alertas correspondientes.
 
-Agradecemos la contribución de todas las personas involucradas en el desarrollo de Meceliot. Su
-trabajo y dedicación son fundamentales para el éxito de este proyecto.
+---
+
+## 🏫 Colaboradores
+
+Agradecemos a la **Universidad de Salamanca (Grupo de Investigación TIDOP)** por la instalación y gestión de la red de sensores, así como por su colaboración en este proyecto educativo.
+
+También queremos reconocer el esfuerzo y la dedicación del equipo de estudiantes del **IES Alonso de Madrigal** que han hecho posible el desarrollo de esta aplicación.
 
 ## 🔒 Licencia
 
-Este proyecto esta bajo licencia Creative Commons v4.
+Este proyecto se encuentra bajo una licencia Creative Commons v4.

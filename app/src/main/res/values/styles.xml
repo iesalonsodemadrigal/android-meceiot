@@ -22,8 +22,9 @@
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 
-    <style name="AppDisplay" parent="TextAppearance.Material3.DisplaySmall">
+    <style name="AppDisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textSize">@dimen/font_size_extra_high</item>
     </style>
 
     <!-- End Text -->
@@ -48,7 +49,7 @@
 
     <!-- Settings -->
     <style name="AppTitleSectionSettings" parent="TextAppearance.Material3.TitleSmall">
-        <item name="android:textColor">@color/md_theme_primary</item>
+
     </style>
 
     <style name="AppTitleOptionSettings" parent="TextAppearance.Material3.BodyMedium">
@@ -67,8 +68,8 @@
         <item name="android:layout_width">@dimen/size_media_listitem</item>
     </style>
 
-    <style name="AppHeadlineListItem" parent="AppHeadline">
-        <item name="android:textColor">@color/md_theme_onSurface</item>
+    <style name="AppHeadlineListItem" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 
     <style name="AppSupportingTextListItem" parent="AppSupportingText">

@@ -7,6 +7,8 @@ sensores para ofrecer una experiencia completa e intuitiva.
 
 Es un proyecto desarrollado por el grupo de investigación **TIDOP** de la USAL (Campus Ávila).
 
+El **IES Alonso de Madrigal** ha desarrollado una aplicación móvil como parte de su metodología Aprendizaje Basado en Proyectos en el Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma.
+
 ---
 
 ## 🌐 ¿Qué es IoT?

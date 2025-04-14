@@ -18,7 +18,7 @@ class GetAlertsUseCase(private val sensorRepository: AlertRepository) {
                             ?.let { it <= 19 || it >= 27 } == true
 
                         TypeSensor.Light -> sensor.value.toIntOrNull()
-                            ?.let { it <= 300 || it >= 700 } == true
+                            ?.let { it >= 100 } == true
 
                         TypeSensor.Humidity -> sensor.value.toDoubleOrNull()
                             ?.let { it <= 40 || it >= 60 } == true

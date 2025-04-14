@@ -13,6 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import edu.iesam.meceiot.R
 import edu.iesam.meceiot.databinding.BottomSheetDateRangePickerBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -20,100 +21,137 @@ import java.util.Calendar
 
 class DateRangePickerBottomSheet : BottomSheetDialogFragment() {
 
+    companion object {
+        private const val DATE_PICKER_TAG = "DATE_PICKER"
+        private const val TIME_PICKER_TAG = "TIME_PICKER"
+    }
+
     private var _binding: BottomSheetDateRangePickerBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: DateRangePickerViewModel by viewModel()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(
+            STYLE_NORMAL,
+            com.google.android.material.R.style.ThemeOverlay_Material3_BottomSheetDialog
+        )
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = BottomSheetDateRangePickerBinding.inflate(inflater, container, false)
-        setupClickListeners()
-        observeViewModel() 
         return binding.root
     }
 
-    private fun setupClickListeners() {
-        binding.apply {
-            buttonSelectStartDate.setOnClickListener { showDatePicker(isStart = true) }
-            buttonSelectStartTime.setOnClickListener { showTimePicker(isStart = true) }
-            buttonSelectEndDate.setOnClickListener { showDatePicker(isStart = false) }
-            buttonSelectEndTime.setOnClickListener { showTimePicker(isStart = false) }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupClickListeners()
+        observeViewModel()
+    }
 
-            buttonCancel.setOnClickListener { dismiss() }
-            buttonApply.setOnClickListener { viewModel.applyDateRange() }
-        }
+    private fun setupClickListeners() = with(binding) {
+        buttonSelectStartDate.setOnClickListener { showDatePicker(isStart = true) }
+        buttonSelectStartTime.setOnClickListener { showTimePicker(isStart = true) }
+        buttonSelectEndDate.setOnClickListener { showDatePicker(isStart = false) }
+        buttonSelectEndTime.setOnClickListener { showTimePicker(isStart = false) }
+
+        buttonCancel.setOnClickListener { dismiss() }
+        buttonApply.setOnClickListener { viewModel.applyDateRange() }
     }
 
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
-                    binding.textSelectedStartDatetime.text = state.startDateTimeString
-                    binding.textSelectedEndDatetime.text = state.endDateTimeString
-
-                    state.error?.let { errorMessage ->
-                        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
-                        viewModel.errorShown()
-                    }
-
-                    state.result?.let { (startTime, endTime) ->
-                        setFragmentResult(
-                            GraphSensorFragment.REQUEST_KEY_DATE_RANGE,
-                            bundleOf(
-                                GraphSensorFragment.KEY_FROM_TIMESTAMP to startTime,
-                                GraphSensorFragment.KEY_TO_TIMESTAMP to endTime
-                            )
-                        )
-                        viewModel.resultSent()
-                        dismiss()
-                    }
+                    updateDateTimeDisplay(state)
+                    handleErrorState(state.error)
+                    processResult(state.result)
                 }
             }
         }
     }
 
-    private fun showDatePicker(isStart: Boolean) {
-        val currentCalendar =
-            if (isStart) viewModel.uiState.value.startCalendar else viewModel.uiState.value.endCalendar
+    private fun updateDateTimeDisplay(state: DateRangePickerViewModel.UiState) = with(binding) {
+        textSelectedStartDatetime.text = getString(
+            R.string.selected_datetime_format, // Recurso String
+            state.startDateTimeString          // Valor del ViewModel (solo fecha/hora)
+        )
+        textSelectedEndDatetime.text = getString(
+            R.string.selected_datetime_format, // Recurso String
+            state.endDateTimeString            // Valor del ViewModel (solo fecha/hora)
+        )
+    }
 
-        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-            if (isStart) {
-                viewModel.updateStartDate(year, month, dayOfMonth)
-            } else {
-                viewModel.updateEndDate(year, month, dayOfMonth)
+    // Actualizado para usar DateRangeError
+    private fun handleErrorState(error: DateRangeError?) {
+        error?.let {
+            val errorMessage = when (it) {
+                is DateRangeError.SelectionIncomplete -> getString(R.string.error_select_all_datetime)
+                is DateRangeError.EndBeforeStart -> getString(R.string.error_end_before_start)
+                // Agregar aquí más casos si se añaden más tipos de error
             }
+            Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+            viewModel.errorShown()
         }
+    }
+
+    private fun processResult(result: Pair<Long, Long>?) {
+        result?.let { (startTime, endTime) ->
+            setFragmentResult(
+                GraphSensorFragment.REQUEST_KEY_DATE_RANGE,
+                bundleOf(
+                    GraphSensorFragment.KEY_FROM_TIMESTAMP to startTime,
+                    GraphSensorFragment.KEY_TO_TIMESTAMP to endTime
+                )
+            )
+            viewModel.resultSent()
+            dismiss()
+        }
+    }
+
+    private fun showDatePicker(isStart: Boolean) {
+        val currentCalendar = if (isStart)
+            viewModel.uiState.value.startCalendar
+        else
+            viewModel.uiState.value.endCalendar
 
         DatePickerDialog(
             requireContext(),
-            dateSetListener,
+            { _, year, month, dayOfMonth ->
+                viewModel.updateDate(isStart, year, month, dayOfMonth)
+            },
             currentCalendar.get(Calendar.YEAR),
             currentCalendar.get(Calendar.MONTH),
             currentCalendar.get(Calendar.DAY_OF_MONTH)
-        ).show()
+        ).apply {
+            // Agregamos tag para facilitar pruebas
+            //if (isStart) tag = "$DATE_PICKER_TAG-START" else tag = "$DATE_PICKER_TAG-END"
+            show()
+        }
     }
 
     private fun showTimePicker(isStart: Boolean) {
-        val currentCalendar =
-            if (isStart) viewModel.uiState.value.startCalendar else viewModel.uiState.value.endCalendar
-
-        val timeSetListener = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
-            if (isStart) {
-                viewModel.updateStartTime(hourOfDay, minute)
-            } else {
-                viewModel.updateEndTime(hourOfDay, minute)
-            }
-        }
+        val currentCalendar = if (isStart)
+            viewModel.uiState.value.startCalendar
+        else
+            viewModel.uiState.value.endCalendar
 
         TimePickerDialog(
             requireContext(),
-            timeSetListener,
+            { _, hourOfDay, minute ->
+                viewModel.updateTime(isStart, hourOfDay, minute)
+            },
             currentCalendar.get(Calendar.HOUR_OF_DAY),
             currentCalendar.get(Calendar.MINUTE),
-            true
-        ).show()
+            true // Formato 24 horas
+        ).apply {
+            // Agregamos tag para facilitar pruebas
+            //if (isStart) tag = "$TIME_PICKER_TAG-START" else tag = "$TIME_PICKER_TAG-END"
+            show()
+        }
     }
 
     override fun onDestroyView() {

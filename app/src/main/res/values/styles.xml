@@ -123,4 +123,8 @@
         <item name="gradientBottomColor">@android:color/transparent</item>
     </style>
 
+    <style name="AppChip" parent="@style/ShapeAppearanceOverlay.Material3.Chip">
+        <item name="chipBackgroundColor">@color/md_theme_primaryContainer</item>
+    </style>
+
 </resources>

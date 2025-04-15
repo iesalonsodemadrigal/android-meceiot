@@ -157,7 +157,7 @@
     <string name="chart_options">Opciones de Grafico</string>
     <string name="min">Mín.</string>
     <string name="mode">Moda</string>
-      <string name="sensor_name">Sensor: %1$s </string>
+    <string name="sensor_name">Sensor: %1$s </string>
     <string name="sensor_graph_title_details_values">Valores medios</string>
     <string name="sensor_graph_title_values">Gráfica</string>
 
@@ -211,4 +211,5 @@
     <string name="apply">Aplicar</string>
     <string name="error_end_before_start">La fecha/hora de fin debe ser posterior a la de inicio.</string>
     <string name="error_select_all_datetime">Por favor, seleccione fecha y hora de inicio y fin.</string>
+    <string name="graph_filter_date">De %1$s hasta %2$s</string>
 </resources>

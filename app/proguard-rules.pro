@@ -27,7 +27,21 @@
 -keep class edu.iesam.meceiot.features.sensorpanels.data.local.db.PanelEntity { *; }
 -keep class edu.iesam.meceiot.features.sensorpanels.data.local.db.SensorEntity { *; }
 
--keep class edu.iesam.meceiot.features.grafana.data.models.** { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.dashboard.TargetDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.dashboard.PanelDetailDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.dashboard.MetaDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.dashboard.DashboardDetailResponseDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.dashboard.DashboardDetailDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.search.DashboardSummary { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.search.DashboardResponseDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxFieldDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxFrameDataDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxFrameDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxFrameSchemaDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxQueryDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxQueryRequestDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxQueryResponseDto { *; }
+-keep class edu.iesam.meceiot.features.grafana.data.models.sensordata.InfluxQueryResultDto { *; }
 -keep class edu.iesam.meceiot.features.login.domain.LoginCredentials { *; }
 
 ### Firebase Auth

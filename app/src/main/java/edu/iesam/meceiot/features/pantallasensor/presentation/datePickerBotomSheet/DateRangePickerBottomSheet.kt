@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import edu.iesam.meceiot.R
+import edu.iesam.meceiot.core.presentation.extensions.toDateFormat
 import edu.iesam.meceiot.databinding.BottomSheetDateRangePickerBinding
 import edu.iesam.meceiot.features.pantallasensor.presentation.GraphSensorFragment
 import kotlinx.coroutines.launch
@@ -78,11 +79,11 @@ class DateRangePickerBottomSheet : BottomSheetDialogFragment() {
     private fun updateDateTimeDisplay(state: DateRangePickerViewModel.UiState) = with(binding) {
         textSelectedStartDatetime.text = getString(
             R.string.selected_datetime_format, // Recurso String
-            state.startDateTimeString          // Valor del ViewModel (solo fecha/hora)
+            state.startDateTimeString.toDateFormat()          // Valor del ViewModel (solo fecha/hora)
         )
         textSelectedEndDatetime.text = getString(
             R.string.selected_datetime_format, // Recurso String
-            state.endDateTimeString            // Valor del ViewModel (solo fecha/hora)
+            state.endDateTimeString.toDateFormat()            // Valor del ViewModel (solo fecha/hora)
         )
     }
 

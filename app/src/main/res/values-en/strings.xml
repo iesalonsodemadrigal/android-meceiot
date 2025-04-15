@@ -44,6 +44,7 @@
     <string name="title_error_invalid_credentials">Incorrect username or password</string>
     <string name="description_error_invalid_credentials">Incorrect credentials, please check and try again</string>
     <string name="login_access_error">Error trying to access</string>
+    <string name="login_made_by">Made by IES Alonso de Madrigal (Ávila)</string>
 
     <string name="label_menu_panels">Panels</string>
     <string name="toolbar_Panels">Panels</string>

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -27,6 +29,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        WindowCompat.setDecorFitsSystemWindows(requireActivity().window, false)
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }

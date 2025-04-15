@@ -5,7 +5,7 @@
     <string name="image_item">ImageItem</string>
 
     <!-- Login -->
-    <string name="login_title">Identificación en MeCeIoT</string>
+    <string name="login_title">MeceIoT</string>
     <string name="login_button">Acceder</string>
     <string name="password">Contraseña</string>
     <string name="username">Usuario</string>
@@ -57,6 +57,7 @@
     <string name="title_error_invalid_credentials">Usuario o contraseña incorrectos</string>
     <string name="description_error_invalid_credentials">Credenciales erroneos, compruébelos y vuelva a intentarlo</string>
     <string name="login_access_error">Error al intentar acceder</string>
+    <string name="login_made_by">Aplicación desarrollada por\nel IES Alonso de Madrigal (Ávila)</string>
 
     <!-- Panels View-->
     <string name="label_menu_panels">Paneles</string>

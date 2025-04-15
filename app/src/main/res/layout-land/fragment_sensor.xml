@@ -1,184 +1,105 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_sensor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Toolbar include is set to gone -->
     <include
         android:id="@+id/toolbar"
         layout="@layout/view_toolbar_detail"
         android:visibility="gone" />
 
-    <!-- SkeletonLayout is kept for loading state consistency -->
     <com.faltenreich.skeletonlayout.SkeletonLayout
         android:id="@+id/sensor_skeleton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <!-- Removed layout_constraintTop_toBottomOf="@id/toolbar" constraint -->
+        android:layout_height="match_parent">
 
-        <!-- Main ConstraintLayout -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/margin_medium">
+            android:layout_height="match_parent">
 
-            <!-- Sensor name is set to gone -->
+            <!-- Elementos ocultos mantenidos para compatibilidad con el código -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sensor_name"
-                style="@style/TextAppearance.Material3.TitleLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_vertical"
-                android:text="@string/sensor_name"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Data table LinearLayout is set to gone -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_filter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_avg_value"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <LinearLayout
                 android:id="@+id/data_table"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/chart"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sensor_name">
-                <!-- Content of data table remains the same, just hidden -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/max_value"
-                        style="@style/AppHeadline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/font_size_extra_small"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/Extra_large_font_size"
-                        tools:text="12,2" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/max_value"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/AppSupportingText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/padding_extra_small"
-                        android:text="@string/max"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/font_size_extra_small" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/min_value"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
 
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="200dp"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/avg_value"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/avg_value"
-                        style="@style/AppHeadline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/font_size_extra_small"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/Extra_large_font_size"
-                        tools:text="12,2" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/AppSupportingText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/padding_extra_small"
-                        android:text="@string/media"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/font_size_extra_small" />
-
-                </LinearLayout>
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/darker_gray" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/min_value"
-                        style="@style/AppHeadline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/font_size_extra_small"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/Extra_large_font_size"
-                        tools:text="12,2" />
-
-                    <TextView
-                        style="@style/AppSupportingText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/padding_extra_small"
-                        android:text="@string/min"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/font_size_extra_small" />
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="200dp"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/mode_value"
-                        style="@style/AppHeadline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/font_size_extra_small"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/Extra_large_font_size"
-                        tools:text="12,2" />
-
-                    <TextView
-                        style="@style/AppSupportingText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/padding_extra_small"
-                        android:text="@string/mode"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/font_size_extra_small" />
-                </LinearLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mode_value"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
             </LinearLayout>
 
-            <!-- Chart adjusted to fill the parent ConstraintLayout -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_graph"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Gráfico a pantalla completa -->
             <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
                 android:id="@+id/chart"
                 style="@style/ChartStyle"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_margin="@dimen/margin_extra_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <!-- Changed constraints to fill parent, removed toptoBottomOf data_table -->
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.faltenreich.skeletonlayout.SkeletonLayout>
 
-    <!-- Error view remains -->
     <edu.iesam.meceiot.core.presentation.views.ErrorAppView
         android:id="@+id/error_app_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

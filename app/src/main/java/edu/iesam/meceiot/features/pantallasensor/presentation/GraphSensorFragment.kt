@@ -34,6 +34,7 @@ import com.patrykandpatrick.vico.views.cartesian.CartesianChartView
 import com.patrykandpatrick.vico.views.cartesian.ZoomHandler
 import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.domain.ErrorApp
+import edu.iesam.meceiot.core.presentation.extensions.toFormatDate
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
 import edu.iesam.meceiot.core.presentation.visible
@@ -202,8 +203,8 @@ class GraphSensorFragment : Fragment() {
                         setText(
                             getString(
                                 R.string.graph_filter_date,
-                                fromTimestamp.toString(),
-                                toTimestamp.toString()
+                                fromTimestamp.toFormatDate(),
+                                toTimestamp.toFormatDate()
                             )
                         )
                         visible()

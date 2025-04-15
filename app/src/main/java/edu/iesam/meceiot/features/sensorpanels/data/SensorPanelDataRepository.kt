@@ -11,6 +11,7 @@ class SensorPanelsDataRepository(
     private val remote: GrafanaRemoteDataSource,
     private val local: SensorPanelDbLocalDataSource
 ) : SensorPanelRepository {
+
     override suspend fun getSensorPanels(): Result<List<Panel>> {
         val sensorPanelsFromLocal = local.getAllPanels()
         return if (sensorPanelsFromLocal.isFailure) {

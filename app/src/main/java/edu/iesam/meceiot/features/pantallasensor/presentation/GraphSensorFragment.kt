@@ -36,6 +36,7 @@ import edu.iesam.meceiot.R
 import edu.iesam.meceiot.core.domain.ErrorApp
 import edu.iesam.meceiot.core.presentation.hide
 import edu.iesam.meceiot.core.presentation.views.ErrorAppFactory
+import edu.iesam.meceiot.core.presentation.visible
 import edu.iesam.meceiot.databinding.FragmentSensorBinding
 import edu.iesam.meceiot.features.pantallasensor.domain.GraphSensor
 import edu.iesam.meceiot.features.sensorpanels.domain.Sensor
@@ -74,6 +75,12 @@ class GraphSensorFragment : Fragment() {
     private fun setupView() {
         setupToolbar()
         cartesianChartView = binding.chart
+        binding.chipFilter?.apply {
+            setOnClickListener {
+                loadCurrentData()
+                hide()
+            }
+        }
     }
 
     private fun setupToolbar() {
@@ -96,6 +103,7 @@ class GraphSensorFragment : Fragment() {
                         findNavController().navigate(R.id.action_graphSensorFragment_toDateRangePickerBottomSheet)
                         true
                     }
+
                     else -> false
                 }
             }
@@ -107,6 +115,10 @@ class GraphSensorFragment : Fragment() {
         skeleton = binding.sensorSkeleton
         setupFragmentResultListener()
         setupObserver()
+        loadCurrentData()
+    }
+
+    private fun loadCurrentData() {
         getArgs()?.let {
             val currentTime = System.currentTimeMillis()
             val fromTime = currentTime - DEFAULT_TIME_RANGE
@@ -186,6 +198,16 @@ class GraphSensorFragment : Fragment() {
                         fromTimestamp,
                         toTimestamp
                     )
+                    binding.chipFilter?.apply {
+                        setText(
+                            getString(
+                                R.string.graph_filter_date,
+                                fromTimestamp.toString(),
+                                toTimestamp.toString()
+                            )
+                        )
+                        visible()
+                    }
                 }
             }
         }

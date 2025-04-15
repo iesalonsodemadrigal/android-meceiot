@@ -180,4 +180,6 @@
     <string name="apply">Apply</string>
     <string name="error_end_before_start">End date/time must be after start date/time.</string>
     <string name="error_select_all_datetime">Please select start and end date and time.</string>
+    <string name="graph_filter_date">From %1$s to %2$s</string>
+
 </resources>

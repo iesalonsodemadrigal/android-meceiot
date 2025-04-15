@@ -113,6 +113,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_cancel"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_small"
@@ -121,6 +122,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_apply"
+            style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -150,17 +150,25 @@
                     </LinearLayout>
                 </LinearLayout>
 
-
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/label_graph"
                     style="@style/TextAppearance.Material3.BodyMedium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:text="@string/sensor_graph_title_values"
+                    app:layout_constraintBottom_toBottomOf="@id/img_orientation_mobile"
+                    app:layout_constraintEnd_toStartOf="@id/img_orientation_mobile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/img_orientation_mobile" />
+
+                <ImageView
+                    android:id="@+id/img_orientation_mobile"
+                    android:layout_width="@dimen/image_size_high"
+                    android:layout_height="@dimen/image_size_high"
                     android:layout_marginTop="@dimen/spacing_vertical"
                     android:layout_marginBottom="@dimen/spacing_text"
-                    android:text="@string/sensor_graph_title_values"
+                    android:src="@drawable/ic_orientation"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/data_table" />
 
                 <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
@@ -171,7 +179,7 @@
                     android:layout_marginTop="@dimen/spacing_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/label_graph" />
+                    app:layout_constraintTop_toBottomOf="@id/img_orientation_mobile" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.faltenreich.skeletonlayout.SkeletonLayout>
 

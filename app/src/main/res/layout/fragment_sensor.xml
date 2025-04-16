@@ -14,8 +14,6 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="fill_vertical"
-        android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.faltenreich.skeletonlayout.SkeletonLayout
@@ -189,7 +187,7 @@
                     style="@style/ChartStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/spacing_text"
+                    android:layout_marginVertical="@dimen/spacing_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/img_orientation_mobile"/>

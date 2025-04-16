@@ -1,5 +1,6 @@
 package edu.iesam.meceiot.features.pantallasensor.presentation
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -76,10 +77,12 @@ class GraphSensorFragment : Fragment() {
     private fun setupView() {
         setupToolbar()
         cartesianChartView = binding.chart
-        binding.chipFilter?.apply {
-            setOnClickListener {
-                loadCurrentData()
-                hide()
+        binding.apply {
+            chipFilter.apply {
+                setOnClickListener {
+                    loadCurrentData()
+                    hide()
+                }
             }
         }
     }

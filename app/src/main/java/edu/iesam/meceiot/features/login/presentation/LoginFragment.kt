@@ -29,7 +29,6 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        WindowCompat.setDecorFitsSystemWindows(requireActivity().window, false)
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }

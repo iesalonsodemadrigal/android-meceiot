@@ -187,12 +187,12 @@
                 <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
                     android:id="@+id/chart"
                     style="@style/ChartStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/spacing_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_orientation_mobile" />
+                    app:layout_constraintTop_toBottomOf="@id/img_orientation_mobile"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.faltenreich.skeletonlayout.SkeletonLayout>
 

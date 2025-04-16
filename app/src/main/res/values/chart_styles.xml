@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ChartStyle">
+        <item name="showStartAxis">true</item>
+        <item name="showTopAxis">false</item>
+        <item name="showEndAxis">false</item>
+        <item name="showBottomAxis">true</item>
+        <item name="lineLayerStyle">@style/LineLayerStyle</item>
+        <item name="layers">line</item>
+        <item name="fadingEdgeWidth">32dp</item>
+        <item name="axisStyle">@style/AppAxisStyle</item>
+    </style>
+
+    <style name="AppAxisStyle">
+        <item name="labelStyle">@style/AppLabelStyle</item>
+    </style>
+
+    <style name="AppLabelStyle">
+        <item name="android:color">@color/md_theme_primary</item>
+    </style>
+
+    <style name="LineLayerStyle">
+        <item name="line1Style">@style/LineStyle</item>
+    </style>
+
+    <style name="LineStyle">
+        <item name="android:color">@color/md_theme_primary</item>
+        <item name="gradientTopColor">@color/md_theme_primary</item>
+        <item name="gradientBottomColor">@android:color/transparent</item>
+    </style>
+</resources>

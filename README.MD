@@ -1,6 +1,6 @@
 # 🏫 IoT en los Centros Educativos
 
-Esta aplicación móvil ha sido desarrollada por un equipo de estudiantes del **IES Alonso de Madrigal** como parte de su proyecto de fin de ciclo del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma.
+Esta aplicación móvil ha sido desarrollada por un equipo de estudiantes del **IES Alonso de Madrigal** como parte del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma.
 
 Su objetivo principal es informar a los usuarios sobre las tecnologías de redes de bajo consumo y largo alcance **LoRa** y **LoRaWAN**, así como sobre la iniciativa **MeCeIoT** de la **Universidad de Salamanca**.
 

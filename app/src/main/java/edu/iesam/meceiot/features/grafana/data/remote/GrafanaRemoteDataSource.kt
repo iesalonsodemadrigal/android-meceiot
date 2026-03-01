@@ -163,7 +163,7 @@ class GrafanaRemoteDataSource(
                         .maxByOrNull { it.value.size }?.key ?: 0
 
                     // Determine data type from query
-                    val fieldPattern = Regex("""r\[["']_field["']\]\s*==\s*["']([^"']+)["']""")
+                    val fieldPattern = Regex("""r\[["']_field["']]\s*==\s*["']([^"']+)["']""")
                     val fieldMatch = fieldPattern.find(query)
                     val fieldName = fieldMatch?.groupValues?.getOrNull(1)
 
@@ -176,6 +176,10 @@ class GrafanaRemoteDataSource(
                         "vdd" -> "mV"
                         "soundAvg" -> "dB"
                         "soundPeak" -> "dB"
+                        "radon_long" -> "Bq/m³"
+                        "radon_short" -> "Bq/m³"
+                        "pressure" -> "hPa"
+                        "voc" -> "ppb"
                         else -> "units"
                     }
 
@@ -241,7 +245,7 @@ class GrafanaRemoteDataSource(
                                                 ): TypeSensor {
                                                     // Try to extract type from field filter pattern
                                                     val fieldPattern =
-                                                        Regex("""r\[["']_field["']\]\s*==\s*["']([^"']+)["']""")
+                                                        Regex("""r\[["']_field["']]\s*==\s*["']([^"']+)["']""")
                                                     val fieldMatch = fieldPattern.find(query)
                                                     val fieldName =
                                                         fieldMatch?.groupValues?.getOrNull(1)
@@ -265,6 +269,17 @@ class GrafanaRemoteDataSource(
                                                         fieldName == "sound" || name.lowercase()
                                                             .contains("sound") -> TypeSensor.Sound
 
+                                                        fieldName?.contains("radon") == true || name.lowercase()
+                                                            .contains("radon") || name.lowercase()
+                                                            .contains("radón") -> TypeSensor.Radon
+
+                                                        fieldName == "pressure" || name.lowercase()
+                                                            .contains("presion") || name.lowercase()
+                                                            .contains("presión") -> TypeSensor.Pressure
+
+                                                        fieldName == "voc" || name.lowercase()
+                                                            .contains("voc") -> TypeSensor.Voc
+
                                                         else -> TypeSensor.UnknownSensor
                                                     }
                                                 }
@@ -277,6 +292,9 @@ class GrafanaRemoteDataSource(
                                                         "lux" -> TypeSensor.Light
                                                         "events" -> TypeSensor.Movement
                                                         "db" -> TypeSensor.Sound
+                                                        "bq/m³" -> TypeSensor.Radon
+                                                        "hpa" -> TypeSensor.Pressure
+                                                        "ppb" -> TypeSensor.Voc
                                                         else -> determineSensorType(
                                                             sensor.name,
                                                             sensor.query

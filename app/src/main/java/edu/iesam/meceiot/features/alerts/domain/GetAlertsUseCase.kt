@@ -27,6 +27,14 @@ class GetAlertsUseCase(private val sensorRepository: AlertRepository) {
                             ?.let { it != 0 && it >= 1 } == true
 
                         TypeSensor.Sound -> sensor.value.toIntOrNull()?.let { it >= 65 } == true
+
+                        TypeSensor.Radon -> sensor.value.replace(Regex("[^0-9.]"), "")
+                            .toDoubleOrNull()
+                            ?.let { it >= 300.0 } == true
+
+                        TypeSensor.Pressure -> false
+                        TypeSensor.Voc -> false // Depende del tipo de sensor y la unidad que emita
+
                         else -> false
                     }
                 }

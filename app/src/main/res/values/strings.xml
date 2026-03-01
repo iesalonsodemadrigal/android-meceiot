@@ -151,6 +151,9 @@
     <string name="alert_humidity">Humedad ambiente no confortable</string>
     <string name="alert_movement">Posible presencia de movimiento</string>
     <string name="alert_sound">Sonido ambiente elevado</string>
+    <string name="alert_radon">Nivel de radón superior a lo seguro</string>
+    <string name="alert_pressure">Cambio de presión inusual</string>
+    <string name="alert_voc">Niveles de compuestos VOC altos</string>
 
     <!-- View sensorScreen -->
     <string name="max">Máx.</string>
@@ -161,16 +164,17 @@
     <string name="sensor_name">Sensor: %1$s </string>
     <string name="sensor_graph_title_details_values">Valores medios</string>
     <string name="sensor_graph_title_values">Gráfica</string>
+    <string name="sensor_no_data">No hay datos disponibles para el intervalo seleccionado, por favor, introduzca otro intervalo.</string>
 
     <!-- View Iot and Detail-->
     <string name="objectives">Objetivos</string>
-    <string name="objectives_description">Analizar la evolución de parámetros ambientales elegidos en un lugar de interés para el centro, tomando como base datos de sensores IoT, por ejemplo, sensores de ruido, luminosidad, temperatura, o CO2.\n Tras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT.</string>
+    <string name="objectives_description">Analizar la evolución de parámetros ambientales elegidos en un lugar de interés para el centro, tomando como base datos de sensores IoT, por ejemplo, sensores de ruido, luminosidad, temperatura, o CO2.\nTras dicho estudio, el centro efectúa una serie de mejoras que evaluará a través de la monitorización de los sensores IoT.</string>
     <string name="participants">Participantes</string>
     <string name="participants_description">Podrán presentar una propuesta los centros interesados de la provincia de Ávila en los que se imparta 3º y 4º de ESO.</string>
     <string name="materials">Materiales</string>
     <string name="materials_description">Los sensores IoT y el gateway, así como su instalación y formación para acceder a los datos, correrán a cargo de la Universidad. Finalizado el proyecto, sensores y gateway deberán ser devueltos.</string>
     <string name="evaluation_criteria">Criterios de valoración</string>
-    <string name="evaluation_criteria_description"><![CDATA[Se otorgarán tres premios:\n- Mejor proyecto tecnológico siguiendo los criterios de valoración de proyectos.\n- Mejor proyecto con diseño de sensor IoT.\n- Centro más activo en redes sociales: centro con mayor número de publicaciones en redes sociales y visualizaciones.\n\nTodos los premios consistirán en una Excursión al Museo de la Ciencia de Valladolid (desplazamiento (1 autobús) y entrada para profesores y alumnos implicados en el proyecto), en el mes de mayo.  En cualquier caso, todos los proyectos seleccionados tendrán su propio reconocimiento y podrán desplazarse gratuitamente a la Feria que se realizará en la Escuela Politécnica Superior de Ávila (1 autobús por centro).]]></string>
+    <string name="evaluation_criteria_description"><![CDATA[Se otorgarán tres premios:\n- Mejor proyecto tecnológico siguiendo los criterios de valoración de proyectos.\n- Mejor proyecto con diseño de sensor IoT.\n- Centro más activo en redes sociales: centro con mayor número de publicaciones en redes sociales y visualizaciones.\n\nTodos los premios consistirán en una Excursión al Museo de la Ciencia de Valladolid (desplazamiento (1 autobús) y entrada para profesores y alumnos implicados en el proyecto), en el mes de mayo.En cualquier caso, todos los proyectos seleccionados tendrán su propio reconocimiento y podrán desplazarse gratuitamente a la Feria que se realizará en la Escuela Politécnica Superior de Ávila (1 autobús por centro).]]></string>
     <string name="what_is_iot">¿Qué es?</string>
     <string name="what_is_iot_description">El Internet de las Cosas o IoT (Internet of Things) se refiere a la conexión de objetos físicos a Internet para que puedan recoger datos, comunicarse entre sí y con otros sistemas, y tomar decisiones o activar acciones automáticas.</string>
     <string name="key_components">Componentes clave de IoT</string>

@@ -222,109 +222,118 @@ class GrafanaRemoteDataSource(
         return getSensorPanels().fold(
             onSuccess = { panels ->
                 try {
-                    coroutineScope {
-                        // For each panel, get its sensors and transform them to alert sensors
-                        val alertSensors = panels.flatMap { panel ->
-                            panel.sensors.map { sensor ->
-                                async {
-                                    try {
-                                        // Query data for this sensor
-                                        // --- Need to define default 'from' and 'to' for alerts ---
-                                        // --- Using the previous default (last 6 hours) for now --- 
-                                        val toTime = System.currentTimeMillis()
-                                        val fromTime =
-                                            System.currentTimeMillis() - 6 * 60 * 60 * 1000
-                                        val sensorDataResult =
-                                            getSensorData(sensor.query, fromTime, toTime)
-                                        sensorDataResult.fold(
-                                            onSuccess = { graphSensor ->
-                                                // Helper function to determine sensor type from name and query
-                                                fun determineSensorType(
-                                                    name: String,
-                                                    query: String
-                                                ): TypeSensor {
-                                                    // Try to extract type from field filter pattern
-                                                    val fieldPattern =
-                                                        Regex("""r\[["']_field["']]\s*==\s*["']([^"']+)["']""")
-                                                    val fieldMatch = fieldPattern.find(query)
-                                                    val fieldName =
-                                                        fieldMatch?.groupValues?.getOrNull(1)
-                                                            ?.lowercase()
-                                                    return when {
-                                                        fieldName == "temperature" || name.lowercase()
-                                                            .contains("temp") -> TypeSensor.Temperature
-
-                                                        fieldName == "humidity" || name.lowercase()
-                                                            .contains("hum") -> TypeSensor.Humidity
-
-                                                        fieldName == "co2" || name.lowercase()
-                                                            .contains("co2") -> TypeSensor.Co2
-
-                                                        fieldName == "light" || name.lowercase()
-                                                            .contains("light") -> TypeSensor.Light
-
-                                                        fieldName == "motion" || name.lowercase()
-                                                            .contains("motion") -> TypeSensor.Movement
-
-                                                        fieldName == "sound" || name.lowercase()
-                                                            .contains("sound") -> TypeSensor.Sound
-
-                                                        fieldName?.contains("radon") == true || name.lowercase()
-                                                            .contains("radon") || name.lowercase()
-                                                            .contains("radón") -> TypeSensor.Radon
-
-                                                        fieldName == "pressure" || name.lowercase()
-                                                            .contains("presion") || name.lowercase()
-                                                            .contains("presión") -> TypeSensor.Pressure
-
-                                                        fieldName == "voc" || name.lowercase()
-                                                            .contains("voc") -> TypeSensor.Voc
-
-                                                        else -> TypeSensor.UnknownSensor
-                                                    }
-                                                }
-                                                // Determine the sensor type based on the dataType
-                                                val sensorType =
-                                                    when (graphSensor.dataType.lowercase()) {
-                                                        "°c" -> TypeSensor.Temperature
-                                                        "%" -> TypeSensor.Humidity
-                                                        "ppm" -> TypeSensor.Co2
-                                                        "lux" -> TypeSensor.Light
-                                                        "events" -> TypeSensor.Movement
-                                                        "db" -> TypeSensor.Sound
-                                                        "bq/m³" -> TypeSensor.Radon
-                                                        "hpa" -> TypeSensor.Pressure
-                                                        "ppb" -> TypeSensor.Voc
-                                                        else -> determineSensorType(
-                                                            sensor.name,
-                                                            sensor.query
-                                                        )
-                                                    }
-                                                // Get the latest value
-                                                val latestValue =
-                                                    if (graphSensor.yValues.isNotEmpty()) {
-                                                        graphSensor.yValues.last().toString()
-                                                    } else "0"
-                                                // Create the alert sensor
-                                                Alert(
-                                                    id = sensor.id.toString(),
-                                                    name = sensor.name,
-                                                    type = sensorType,
-                                                    value = latestValue,
-                                                    location = sensor.panelName
-                                                )
-                                            },
-                                            onFailure = { null } // Skip sensors that fail to load
-                                        )
-                                    } catch (e: Exception) {
-                                        null // Skip sensors that throw exceptions
-                                    }
-                                }
-                            }
-                        }
-                        val results = alertSensors.awaitAll().filterNotNull()
-                        Result.success(results)
+                    // Extract all sensors and their panel location
+                    val allSensors = panels.flatMap { panel ->
+                        panel.sensors.map { sensor -> Pair(sensor, panel.name) }
                     }
+
+                    if (allSensors.isEmpty()) {
+                        return Result.success(emptyList())
+                    }
+
+                    // Build the queries list for the single batch request
+                    val queries = allSensors.mapIndexed { index, (sensor, _) ->
+                        InfluxQueryDto(
+                            query = sensor.query,
+                            refId = index.toString(), // Use unique index as the reference ID
+                            datasourceId = 4, // Default datasource ID for InfluxDB
+                            intervalMs = 20000,
+                            maxDataPoints = 1000 // Set to 1000 so Grafana does not error out on large sets
+                        )
+                    }
+
+                    // Optimizing the time window for alerts:
+                    // Instead of 6 hours, we just ask for the last 1.5 hours (5400000 ms).
+                    // This is sufficient to get the most recent reading for active sensors
+                    // while shrinking the payload significantly.
+                    val toTime = System.currentTimeMillis()
+                    val fromTime = toTime - (1.5 * 60 * 60 * 1000).toLong()
+
+                    val requestDto = InfluxQueryRequestDto(
+                        queries = queries,
+                        from = fromTime.toString(),
+                        to = toTime.toString()
+                    )
+
+                    queryData(requestDto).fold(
+                        onSuccess = { responses ->
+                            if (responses.isEmpty() || responses[0].results.isEmpty()) {
+                                return Result.failure(Exception("No data returned from batch query"))
+                            }
+
+                            val resultsMap = responses[0].results
+
+                            // Map the raw results back to the Alert objects
+                            val alerts =
+                                allSensors.mapIndexedNotNull { index, (sensor, panelName) ->
+                                    val result = resultsMap[index.toString()]
+                                        ?: return@mapIndexedNotNull null
+                                    if (result.frames.isEmpty()) return@mapIndexedNotNull null
+
+                                    val frame = result.frames[0]
+                                    val values = frame.data.values
+                                    if (values.size < 2) return@mapIndexedNotNull null
+
+                                    val dataValues =
+                                        values[1].mapNotNull { (it as? Double)?.toInt() }
+                                    if (dataValues.isEmpty()) return@mapIndexedNotNull null
+
+                                    val latestValue = dataValues.last().toString()
+
+                                    // Helper function to determine sensor type
+                                    val fieldPattern =
+                                        Regex("""r\[["']_field["']]\s*==\s*["']([^"']+)["']""")
+                                    val fieldMatch = fieldPattern.find(sensor.query)
+                                    val fieldName =
+                                        fieldMatch?.groupValues?.getOrNull(1)?.lowercase()
+
+                                    val sensorType = when {
+                                        fieldName == "temperature" || sensor.name.lowercase()
+                                            .contains("temp") -> TypeSensor.Temperature
+
+                                        fieldName == "humidity" || sensor.name.lowercase()
+                                            .contains("hum") -> TypeSensor.Humidity
+
+                                        fieldName == "co2" || sensor.name.lowercase()
+                                            .contains("co2") -> TypeSensor.Co2
+
+                                        fieldName == "light" || sensor.name.lowercase()
+                                            .contains("light") -> TypeSensor.Light
+
+                                        fieldName == "motion" || sensor.name.lowercase()
+                                            .contains("motion") -> TypeSensor.Movement
+
+                                        fieldName == "sound" || sensor.name.lowercase()
+                                            .contains("sound") -> TypeSensor.Sound
+
+                                        fieldName?.contains("radon") == true || sensor.name.lowercase()
+                                            .contains("radon") || sensor.name.lowercase()
+                                            .contains("radón") -> TypeSensor.Radon
+
+                                        fieldName == "pressure" || sensor.name.lowercase()
+                                            .contains("presion") || sensor.name.lowercase()
+                                            .contains("presión") -> TypeSensor.Pressure
+
+                                        fieldName == "voc" || sensor.name.lowercase()
+                                            .contains("voc") -> TypeSensor.Voc
+
+                                        else -> TypeSensor.UnknownSensor
+                                    }
+
+                                    Alert(
+                                        id = sensor.id.toString(),
+                                        name = sensor.name, // Display name
+                                        type = sensorType,
+                                        value = latestValue,
+                                        location = panelName
+                                    )
+                                }
+                            Result.success(alerts)
+                        },
+                        onFailure = { error ->
+                            Result.failure(error)
+                        }
+                    )
                 } catch (e: Exception) {
                     Result.failure(e)
                 }

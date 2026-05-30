@@ -23,6 +23,9 @@ sealed class TypeSensor(val type: String) {
     data object Humidity : TypeSensor(TYPE_HUMIDITY)
     data object Movement : TypeSensor(TYPE_MOVEMENT)
     data object Sound : TypeSensor(TYPE_SOUND)
+    data object Radon : TypeSensor(TYPE_RADON)
+    data object Pressure : TypeSensor(TYPE_PRESSURE)
+    data object Voc : TypeSensor(TYPE_VOC)
     data object UnknownSensor : TypeSensor(UNKNOWN_TYPE)
 
 
@@ -35,6 +38,9 @@ sealed class TypeSensor(val type: String) {
                 TYPE_HUMIDITY -> Humidity
                 TYPE_MOVEMENT -> Movement
                 TYPE_SOUND -> Sound
+                TYPE_RADON -> Radon
+                TYPE_PRESSURE -> Pressure
+                TYPE_VOC -> Voc
                 else -> {
                     UnknownSensor
                 }
@@ -47,6 +53,9 @@ sealed class TypeSensor(val type: String) {
         const val TYPE_HUMIDITY = "hum"
         const val TYPE_MOVEMENT = "mov"
         const val TYPE_SOUND = "sound"
+        const val TYPE_RADON = "radon"
+        const val TYPE_PRESSURE = "pressure"
+        const val TYPE_VOC = "voc"
         const val UNKNOWN_TYPE = ""
 
     }

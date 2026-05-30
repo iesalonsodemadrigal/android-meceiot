@@ -23,6 +23,7 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                     TypeSensor.Humidity -> R.drawable.ic_humidity
                     TypeSensor.Movement -> R.drawable.ic_motion
                     TypeSensor.Sound -> R.drawable.ic_sound
+                    TypeSensor.Radon, TypeSensor.Pressure, TypeSensor.Voc -> R.drawable.ic_generic_sensor
                     else -> R.drawable.ic_generic_sensor
                 }
             )
@@ -35,6 +36,9 @@ class AlertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                     TypeSensor.Humidity -> R.string.alert_humidity
                     TypeSensor.Movement -> R.string.alert_movement
                     TypeSensor.Sound -> R.string.alert_sound
+                    TypeSensor.Radon -> R.string.alert_radon
+                    TypeSensor.Pressure -> R.string.alert_pressure
+                    TypeSensor.Voc -> R.string.alert_voc
                     else -> R.string.description_panel
                 }
             )

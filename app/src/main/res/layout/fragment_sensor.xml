@@ -190,7 +190,22 @@
                     android:layout_marginVertical="@dimen/spacing_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_orientation_mobile"/>
+                    app:layout_constraintTop_toBottomOf="@id/img_orientation_mobile" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/no_data_text"
+                    style="@style/TextAppearance.Material3.BodyLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_high"
+                    android:text="@string/sensor_no_data"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chip_filter" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.faltenreich.skeletonlayout.SkeletonLayout>
 

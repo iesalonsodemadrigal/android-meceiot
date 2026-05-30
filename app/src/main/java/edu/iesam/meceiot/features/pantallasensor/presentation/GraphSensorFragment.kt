@@ -1,6 +1,5 @@
 package edu.iesam.meceiot.features.pantallasensor.presentation
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -117,6 +116,8 @@ class GraphSensorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         skeleton = binding.sensorSkeleton
+        skeleton.maskColor = requireContext().getColor(R.color.md_theme_surfaceVariant)
+        skeleton.shimmerColor = requireContext().getColor(R.color.md_theme_surfaceContainerHighest)
         setupFragmentResultListener()
         setupObserver()
         loadCurrentData()
@@ -167,15 +168,30 @@ class GraphSensorFragment : Fragment() {
 
     private fun bindData(graphSensor: GraphSensor?) {
         val sensor = getArgs()
-        graphSensor?.let {
-            binding.apply {
-                initializeChart(it)
-                sensorName.text = getString(R.string.sensor_name, sensor?.name ?: "")
-                toolbar.viewToolbarDetail.title = sensor?.panelName
-                maxValue.text = it.maxValue
-                minValue.text = it.minValue
-                avgValue.text = it.avgValue
-                modeValue.text = it.modeValue
+        binding.apply {
+            sensorName.text = getString(R.string.sensor_name, sensor?.name ?: "")
+            toolbar.viewToolbarDetail.title = sensor?.panelName
+
+            if (graphSensor != null && graphSensor.xValues.isNotEmpty()) {
+                initializeChart(graphSensor)
+                maxValue.text = graphSensor.maxValue
+                minValue.text = graphSensor.minValue
+                avgValue.text = graphSensor.avgValue
+                modeValue.text = graphSensor.modeValue
+
+                noDataText?.visibility = View.GONE
+                dataTable.visibility = View.VISIBLE
+                labelAvgValue.visibility = View.VISIBLE
+                labelGraph.visibility = View.VISIBLE
+                imgOrientationMobile?.visibility = View.VISIBLE
+                chart.visibility = View.VISIBLE
+            } else {
+                noDataText?.visibility = View.VISIBLE
+                dataTable.visibility = View.GONE
+                labelAvgValue.visibility = View.GONE
+                labelGraph.visibility = View.GONE
+                imgOrientationMobile?.visibility = View.GONE
+                chart.visibility = View.GONE
             }
         }
     }
@@ -202,13 +218,11 @@ class GraphSensorFragment : Fragment() {
                         fromTimestamp,
                         toTimestamp
                     )
-                    binding.chipFilter?.apply {
-                        setText(
-                            getString(
-                                R.string.graph_filter_date,
-                                fromTimestamp.toFormatDate(),
-                                toTimestamp.toFormatDate()
-                            )
+                    binding.chipFilter.apply {
+                        text = getString(
+                            R.string.graph_filter_date,
+                            fromTimestamp.toFormatDate(),
+                            toTimestamp.toFormatDate()
                         )
                         visible()
                     }
